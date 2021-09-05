@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>在markdown中插入图片 | Set sail!</title>
-  <meta name="keywords" content=" markdown ">
-  <meta name="description" content="在markdown中插入图片 | Set sail!">
+  <title>Educoder 操作系统实训2.x实验 | Set sail!</title>
+  <meta name="keywords" content=" Educoder , 操作系统 , 模拟实训 ">
+  <meta name="description" content="Educoder 操作系统实训2.x实验 | Set sail!">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="about">
@@ -506,9 +506,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-image" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Educoder 操作系统实训2.x" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">在markdown中插入图片</h1>
+        <h1 class="article-title">Educoder 操作系统实训2.x实验</h1>
     
     <div class="article-meta">
         
@@ -518,7 +518,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="markdown">markdown</a>
+            <a  data-rel="操作系统">操作系统</a>
             
         </span>
         
@@ -526,14 +526,18 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color4">markdown</a>
+            <a class="color4">Educoder</a>
+            
+            <a class="color5">操作系统</a>
+            
+            <a class="color5">模拟实训</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-09-02 23:41:53'>2021-07-26 15:13</time>
+            发布时间 : <time class="date" title='最后更新: 2021-09-05 11:16:45'>2021-09-05 11:16</time>
         
     </div>
     <div class="article-meta">
@@ -555,7 +559,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8markdown%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87"><span class="toc-text">在markdown中插入图片</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%EF%BC%8Cbase64%E6%A0%BC%E5%BC%8F"><span class="toc-text">一，base64格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%EF%BC%8C-%E7%BD%91%E5%9D%80-%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F"><span class="toc-text">二， 网址,本地文件格式</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E8%AE%AD2-1%EF%BC%9A%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD"><span class="toc-text">实训2.1：外部中断</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC1%E5%85%B3%EF%BC%9A%E6%97%B6%E9%92%9F%E4%B8%AD%E6%96%AD%E7%9A%84%E5%8F%91%E7%94%9F"><span class="toc-text">第1关：时钟中断的发生</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A-GDB%E8%AE%BE%E7%BD%AE%E6%96%AD%E7%82%B9%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-text">补充： GDB设置断点的方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%85%B3-%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%97%B6%E9%92%9F%E4%B8%AD%E6%96%AD"><span class="toc-text">第二关 第一次时钟中断</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9AGDB%E5%91%BD%E4%BB%A4"><span class="toc-text">补充：GDB命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%85%B3-%E7%AC%AC%E5%85%AD%E6%AC%A1%E6%97%B6%E9%92%9F%E4%B8%AD%E6%96%AD"><span class="toc-text">第三关 第六次时钟中断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%85%B3-%E4%BF%AE%E6%94%B9%E7%89%88%E6%9C%AC-1-%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81%EF%BC%8C%E4%BD%BF%E5%BE%97%E6%AF%8F%E6%AC%A1%E6%97%B6%E9%92%9F%E4%B8%AD%E6%96%AD%E5%8F%91%E7%94%9F%E6%97%B6%EF%BC%8C%E9%83%BD%E5%9C%A8%E5%B1%8F%E5%B9%95%E4%B8%8A%E8%BE%93%E5%87%BA%E5%AD%97%E7%AC%A6%E2%80%98t%E2%80%99%E3%80%82"><span class="toc-text">第四关 修改版本 1 内核源码，使得每次时钟中断发生时，都在屏幕上输出字符‘t’。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC5%E5%85%B3%EF%BC%9A%E4%BF%AE%E6%94%B9%E7%89%88%E6%9C%AC-0-%E5%86%85%E6%A0%B8"><span class="toc-text">第5关：修改版本 0 内核</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E8%AE%AD2-2%EF%BC%9A%E5%BC%82%E5%B8%B8"><span class="toc-text">实训2.2：异常</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC1%E5%85%B3%EF%BC%9A%E9%99%A4%E9%9B%B6%E5%BC%82%E5%B8%B8%E5%88%86%E6%9E%90"><span class="toc-text">第1关：除零异常分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E"><span class="toc-text">补充说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%85%B3-int%E6%8C%87%E4%BB%A4%E5%88%86%E6%9E%90"><span class="toc-text">第二关 int指令分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC3%E5%85%B3%EF%BC%9Airet%E6%8C%87%E4%BB%A4%E5%88%86%E6%9E%90"><span class="toc-text">第3关：iret指令分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC4%E5%85%B3%EF%BC%9A%E9%99%B7%E5%85%A5%E6%8C%87%E4%BB%A4%E5%88%86%E6%9E%90"><span class="toc-text">第4关：陷入指令分析</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -571,13 +575,288 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="在markdown中插入图片"><a href="#在markdown中插入图片" class="headerlink" title="在markdown中插入图片"></a>在markdown中插入图片</h1><h2 id="一，base64格式"><a href="#一，base64格式" class="headerlink" title="一，base64格式"></a>一，base64格式</h2><p>另一个坑：不能有空格！ 包括可替换文本；资源标签。</p>
-<pre><code class="markdown">![image][image id]
-you can write your document here 
-[image id]:data:image/png;base64, ...your image&#39;s base64
+        <h1 id="实训2-1：外部中断"><a href="#实训2-1：外部中断" class="headerlink" title="实训2.1：外部中断"></a>实训2.1：外部中断</h1><h2 id="第1关：时钟中断的发生"><a href="#第1关：时钟中断的发生" class="headerlink" title="第1关：时钟中断的发生"></a>第1关：时钟中断的发生</h2><p>方法详见左侧说明，这里直接放出答案</p>
+<pre><code class="sh">#终端1
+cp /data/workspace/myshixun/exp1/1.tgz ~/os/
+cd ~/os/linux-0.11-lab
+tar -zxvf ../1.tgz
+rm -rf cur
+ln -s 1 cur
+cd cur/linux
+make
+cd ../..
+./run
+./rungdb
+#操作暂时结束
+#开启终端2
+cd ~/os/linux-0.11-lab/
+./mygdb
+display jiffies
+b do_timer
+c
+c
+c
+...
+#直到0/1填满第一行
+#操作结束
 </code></pre>
-<h2 id="二，-网址-本地文件格式"><a href="#二，-网址-本地文件格式" class="headerlink" title="二， 网址,本地文件格式"></a>二， 网址,本地文件格式</h2><pre><code class="markdown">![avatar](http://baidu.com/pic/doge.png)
-![avatar](/home/picture/1.png)
+<h3 id="补充：-GDB设置断点的方式"><a href="#补充：-GDB设置断点的方式" class="headerlink" title="补充： GDB设置断点的方式"></a>补充： GDB设置断点的方式</h3><p>​    1.普通断点</p>
+<p>当程序执行到<code>main.cpp</code>文件的第5行时触发断点</p>
+<pre><code class="sh">(gdb) b src/main.cpp:5
+</code></pre>
+<ol start="2">
+<li>条件断点</li>
+</ol>
+<p>满足一定条件触发断点</p>
+<pre><code class="sh">(gdb) b src/main.cpp:5 if cnt==10
+</code></pre>
+<p>​    3.数据断点</p>
+<p>根据地址数据来进行设置断点，当该地址上的内容发生改变时就会触发断点。<br>设置数据断点有两种方式，</p>
+<p>一种是直接指出地址值</p>
+<pre><code class="sh">(gdb) b *0x400522
+</code></pre>
+<p>在断点处<code>print &amp;变量名</code> 就能获取该变量的地址。<br>另一种是直接设置变量名</p>
+<pre><code class="sh">(gdb) b &amp;变量名
+</code></pre>
+<ol start="4">
+<li>函数断点</li>
+</ol>
+<p>当程序执行到某个函数模块时触发断点</p>
+<pre><code class="sh">(gdb) b funcName
+</code></pre>
+<hr>
+<h2 id="第二关-第一次时钟中断"><a href="#第二关-第一次时钟中断" class="headerlink" title="第二关 第一次时钟中断"></a>第二关 第一次时钟中断</h2><h3 id="补充：GDB命令"><a href="#补充：GDB命令" class="headerlink" title="补充：GDB命令"></a>补充：GDB命令</h3><ol>
+<li><p><strong>c</strong><br>Continue的简写，继续执行被调试程序，直至下一个断点或程序结束。</p>
+</li>
+<li><p><strong>b</strong></p>
+<p>设置断点，上面已经介绍</p>
+</li>
+<li><p><strong>bt</strong></p>
+<p>backtrace的简写，列出调用栈</p>
+</li>
+<li><p><strong>s</strong></p>
+<p>相当于IDE中的<strong>step into</strong>，单步运行源代码语句</p>
+<p>这个命令必须在有源代码调试信息的情况下才可以使用（GCC编译时使用“-g”参数）</p>
+</li>
+<li><p><strong>si</strong></p>
+<p>和s指令类似，单步运行汇编指令</p>
+</li>
+<li><p><strong>n</strong></p>
+<p>相当于IDE中的<strong>step over</strong>，单步运行源代码语句</p>
+<p>其余同<strong>s</strong></p>
+</li>
+<li><p><strong>ni</strong></p>
+<p>和n指令类似，单步运行汇编指令</p>
+</li>
+</ol>
+<pre><code class="sh">#终端1
+cd os/linux-0.11-lab/
+#终端2
+./rungdb
+#终端2操作结束
+./mygdb
+b do_timer
+c
+bt
+finish
+disas
+si
+si
+b *0x77dd
+c
+disas
+si
+disas
+#发现恢复点地址为0x0000796c
+</code></pre>
+<hr>
+<h2 id="第三关-第六次时钟中断"><a href="#第三关-第六次时钟中断" class="headerlink" title="第三关 第六次时钟中断"></a>第三关 第六次时钟中断</h2><p>这一关要注意，<strong>对于外部中断而言，恢复点指令是断点指令的后一条。</strong></p>
+<p><strong>loop 指令</strong>的功能是先将 ecx 寄存器减一，然后检查其值，如果其值非 0 ，则继续循环，否则中止循环，执行下一条指令。</p>
+<p>loop指令的<strong>上一条指令</strong>是谁？</p>
+<p>通过第二条info reg命令，可以观察<strong>ecx</strong>的值，为0x8440，非0，再回忆下第一条info reg，回忆<strong>ecx</strong>的值，仍为非0，得出结论，<strong>loop</strong>的上一条指令还是<strong>loop</strong>，断点指令位置仍为0x00007982</p>
+<pre><code class="sh">#延续第一关的配置
+#终端一
+./rungdb
+#终端一操作结束
+#终端二
+./mygdb
+display jiffies
+b do_timer
+c
+c
+c
+c
+c
+info reg
+c
+bt
+finsh
+si
+si
+disas
+b *0x000077dd
+c
+disas
+si
+disas
+info reg
+#终端二操作结束
+#可以看到虚拟机屏幕输出结果是0100
+#可以看到异常的恢复点为0x00007982
+</code></pre>
+<hr>
+<h2 id="第四关-修改版本-1-内核源码，使得每次时钟中断发生时，都在屏幕上输出字符‘t’。"><a href="#第四关-修改版本-1-内核源码，使得每次时钟中断发生时，都在屏幕上输出字符‘t’。" class="headerlink" title="第四关 修改版本 1 内核源码，使得每次时钟中断发生时，都在屏幕上输出字符‘t’。"></a>第四关 修改版本 1 内核源码，使得每次时钟中断发生时，都在屏幕上输出字符‘t’。</h2><p>不知为何，代码的位置不对就会出问题</p>
+<pre><code class="assembly">.align 4
+timer_interrupt:
+    push %ds        # save ds,es and put kernel data space
+    push %es        # into them. %fs is used by _system_call
+    push %fs
+    pushl %edx        # we save %eax,%ecx,%edx as gcc doesn&#39;t
+    pushl %ecx        # save those across function calls. %ebx
+    pushl %ebx        # is saved as we use that in ret_sys_call
+    pushl %eax
+    movl $0x10,%eax
+    mov %ax,%ds
+    mov %ax,%es
+    movl $0x17,%eax
+    mov %ax,%fs
+    incl jiffies
+    movb $116,%al       # 新加入的代码1
+    int $0x81           # 新加入的代码2
+    movb $0x20,%al        # EOI to interrupt controller #1
+    outb %al,$0x20      # 新加入的代码在这句后面就过不去，不知道啥原因
+    movl CS(%esp),%eax
+    andl $3,%eax        # %eax is CPL (0 or 3, 0=supervisor)
+    pushl %eax
+    call do_timer        # &#39;do_timer(long CPL)&#39; does everything from
+    addl $4,%esp        # task switching to accounting ...
+    jmp ret_from_sys_call
+</code></pre>
+<hr>
+<h2 id="第5关：修改版本-0-内核"><a href="#第5关：修改版本-0-内核" class="headerlink" title="第5关：修改版本 0 内核"></a>第5关：修改版本 0 内核</h2><p><strong>目标</strong> ：修改<strong>版本 0 内核</strong>，使得每发生 100 次时钟中断，就在屏幕上输出一个字符‘t’和当时的进程号，如“t(0)”表示0号进程运行时发生了时钟中断。</p>
+<p>这里实训做的很烂。。。</p>
+<p>这个实训的难度就在于猜猜要改哪里。我尝试了改主函数，不行。。。改init函数，不行。pid放在代码的哪里，我也不知道。后来我看了前几关调试时命令行有一个变量叫<strong>current-&gt;state</strong>，估计这个是程序当前的pid了，make + ./run一试，还成功了。在vscode的搜索中，我搜索了一下<strong>pause</strong>相关的内容，在某个位置，出现了<strong>sys_pause</strong>这个函数，ctrl + 左键点进去，发现这个好像就是系统中断。于是在原代码基础上尝试添加以下代码。</p>
+<pre><code class="c">int sys_pause(void)
+&#123;
+    current-&gt;state = TASK_INTERRUPTIBLE;
+    schedule();
+    
+    //add following code
+    if (jiffies % 100 == 0) &#123;
+            printk(&quot;t(%d)\n&quot;, current-&gt;pid);
+    &#125;
+    //end
+    
+    return 0;
+&#125;
+</code></pre>
+<p>然后make + ./run再再再…试，内核成功运行了，至此第五关通过。</p>
+<p><strong>注意的问题</strong>：cur在前四关中都是指向1的，这关要将其指向0。至于为什么，打开config/0.11.bxrc看看。不改bochs就会报找不到硬盘的错误。</p>
+<pre><code class="sh">rm -rf cur
+ln -s 0 cur
+</code></pre>
+<h1 id="实训2-2：异常"><a href="#实训2-2：异常" class="headerlink" title="实训2.2：异常"></a>实训2.2：异常</h1><h2 id="第1关：除零异常分析"><a href="#第1关：除零异常分析" class="headerlink" title="第1关：除零异常分析"></a>第1关：除零异常分析</h2><pre><code class="sh">#终端一
+cp /data/workspace/myshixun/exp1/1.1.tar /home/headless/os/linux-0.11-lab/
+cd ~/os/linux-0.11-lab/
+tar -xvf 1.1.tar
+ll
+rm -rf cur
+ln -s 1.1 cur
+cd cur/linux
+make
+cd ../..
+./rungdb
+#终端一操作结束
+#终端二
+cd ~/os/linux-0.11-lab/
+./mygdb
+b main.c:147
+c
+x/6i $eip #这句话是idiv指令地址正确的判定依据，虽然它用处不大
+disas  #观察到idiv指令出现在0x690e
+b *0x690e
+c
+info reg  #观察到idiv指令执行之前cs:eip为0xf:0x690e，ss:esp为0x17:0x25760
+si
+disas
+info reg  #观察到新指令位置cs:eip为0x8:0x814b，ss:esp为0x10:0x1fa2c
+si
+info reg
+disas
+x/5wx $esp #详见代码后注释[1]，观察到用户栈顶0x17:0x25760，恢复点位置0xf:0x690e
+#终端二结束
+</code></pre>
+<h3 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h3><ol>
+<li>下面面显示了栈顶的 5 个长字，是某异常发生时的中断现场，其中存储的用户栈顶的位置是 0x17:0x2573c ，存储的恢复点的位置是 0xf:0x7967 。需要注意的是，x86 中栈是从高地址向低地址方向增长的，这里的栈顶位置是 0x1fa0c 。</li>
+</ol>
+<p><img src="https://data.educoder.net/api/attachments/1154430" alt="实验说明"></p>
+<ol start="2">
+<li>单独查看一个寄存器</li>
+</ol>
+<pre><code class="sh">p/x $eax
+</code></pre>
+<hr>
+<h2 id="第二关-int指令分析"><a href="#第二关-int指令分析" class="headerlink" title="第二关 int指令分析"></a>第二关 int指令分析</h2><pre><code class="sh"># 终端1
+cp /data/workspace/myshixun/exp2/1.tgz ~/os/
+cd ~/os/linux-0.11-lab
+tar -zxvf ../1.tgz
+rm -rf cur
+ln -s 1 cur
+cd cur/linux
+make
+cd ../..
+./rungdb
+# 操作暂时结束
+# 开启终端2
+cd ~/os/linux-0.11-lab/
+./mygdb
+b task1
+c
+x/5i $eip
+si
+x/5i $eip
+info reg # 可以观察到当前指令位置CS:EIP(0xf:0x7987)和栈位置SS:ESP(0x17:0x2573c)
+disas
+si
+info reg # 可以观察到当前指令位置CS:EIP(0x8:0x7948)和栈位置SS:ESP(0x10:0xffffec)
+disas
+x/5wx $esp # 观察到用户栈顶0x17:0x2573c，恢复点位置0xf:0x7989
+# 操作结束
+</code></pre>
+<hr>
+<h2 id="第3关：iret指令分析"><a href="#第3关：iret指令分析" class="headerlink" title="第3关：iret指令分析"></a>第3关：iret指令分析</h2><p>没什么强调的，和第二关基本一样</p>
+<pre><code class="sh"># 终端一操作同上省略
+# 终端二
+cd ~/os/linux-0.11-lab/
+./mygdb
+b task1
+c
+x/5i $eip
+si
+x/5i $eip
+si #找到中断处理模块
+b *0x795e
+info reg #处理程序的 iret 指令执行之前，指令位置CS:EIP(0x8:0x795e)和栈位置SS:ESP(0x10:0xffffec)
+x/5wx $esp #此时栈中保存的恢复点位置(0xf:0x7989)和用户栈位置(0x17:0x2573c)
+si
+disas
+info reg #使用 si 命令执行了该 iret 指令后，新指令位置(0xf:0x7989)和栈位置(0x17:0x2573c)
+</code></pre>
+<hr>
+<h2 id="第4关：陷入指令分析"><a href="#第4关：陷入指令分析" class="headerlink" title="第4关：陷入指令分析"></a>第4关：陷入指令分析</h2><p>和第三关唯一一处不同，就是跳入陷入函数的时候，要用n跳过它之前的一个函数</p>
+<pre><code class="sh"># 终端一操作同上省略
+# 终端二
+cd ~/os/linux-0.11-lab/
+./mygdb
+b main.c:145
+c
+n
+x/5i $eip
+si
+info reg #在 0 号进程执行 fork 系统调用中的陷入指令(int 0x80)之前，当前指令位置CS:EIP(0xf:0x6908)和栈位置SS:ESP(0x17:0x25740)
+si
+info reg #使用 si 命令执行了该指令后，新指令位置(0x8:0x7764)和栈位置(0x10:0x1fa0c)
+x/5wx $esp ##此时栈中保存的恢复点位置(0xf:0x690a)和用户栈位置(0x17:0x25740)
 </code></pre>
 
       
