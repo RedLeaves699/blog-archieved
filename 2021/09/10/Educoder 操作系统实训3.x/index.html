@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>拓扑排序 | Set sail!</title>
-  <meta name="keywords" content=" 算法 , toposort ">
-  <meta name="description" content="拓扑排序 | Set sail!">
+  <title>Educoder 操作系统实训3.x实验 | Set sail!</title>
+  <meta name="keywords" content=" Educoder , 操作系统 , 模拟实训 ">
+  <meta name="description" content="Educoder 操作系统实训3.x实验 | Set sail!">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="about">
@@ -544,9 +544,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-toposort" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Educoder 操作系统实训3.x" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">拓扑排序</h1>
+        <h1 class="article-title">Educoder 操作系统实训3.x实验</h1>
     
     <div class="article-meta">
         
@@ -556,7 +556,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="算法">算法</a>
+            <a  data-rel="操作系统">操作系统</a>
             
         </span>
         
@@ -564,16 +564,18 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color3">算法</a>
+            <a class="color4">Educoder</a>
             
-            <a class="color4">toposort</a>
+            <a class="color5">操作系统</a>
+            
+            <a class="color5">模拟实训</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2021-09-04 16:17:40'>2021-07-26 15:13</time>
+            Created At : <time class="date" title='Updated At: 2021-09-10 21:15:39'>2021-09-10 10:06</time>
         
     </div>
     <div class="article-meta">
@@ -595,7 +597,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F"><span class="toc-text">拓扑排序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A0%B9%E6%8D%AEdfs%E7%9A%84%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F"><span class="toc-text">1, 根据dfs的拓扑排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%A0%B9%E6%8D%AEbfs%E7%9A%84%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F"><span class="toc-text">2, 根据bfs的拓扑排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%A0%B9%E6%8D%AE%E5%B1%82%E5%BA%8F%E7%9A%84%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F"><span class="toc-text">3, 根据层序的拓扑排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E7%BB%8F%E5%85%B8%E9%A2%98%E7%9B%AE"><span class="toc-text">4, 拓扑排序经典题目</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#3-1%EF%BC%9A%E8%BF%9B%E7%A8%8B%E6%8F%8F%E8%BF%B0"><span class="toc-text">3.1：进程描述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%85%B3%EF%BC%9A%E4%BB%BB%E5%8A%A1%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%88TR%EF%BC%89%E7%9A%84%E5%88%86%E6%9E%90"><span class="toc-text">第一关：任务寄存器（TR）的分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B-TR-%E5%AF%84%E5%AD%98%E5%99%A8%E6%8C%87%E5%90%91%E7%9A%84%E4%BB%BB%E5%8A%A1%E7%8A%B6%E6%80%81%E6%AE%B5%E6%8F%8F%E8%BF%B0%E7%AC%A6%E7%9A%84%E5%80%BC"><span class="toc-text">补充：如何查看 TR 寄存器指向的任务状态段描述符的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E5%A6%82%E4%BD%95%E4%BB%8E%E6%AE%B5%E6%8F%8F%E8%BF%B0%E7%AC%A6%E7%9A%84%E5%80%BC%E8%AE%A1%E7%AE%97%E5%87%BA%E6%AE%B5%E7%9A%84%E8%B5%B7%E5%A7%8B%E5%9C%B0%E5%9D%80"><span class="toc-text">补充：如何从段描述符的值计算出段的起始地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%85%B3%E7%AD%94%E6%A1%88"><span class="toc-text">本关答案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%85%B3%EF%BC%9A1-%E5%8F%B7%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%8A%B6%E6%80%81%E5%8F%98%E5%8C%96"><span class="toc-text">第二关：1 号进程的状态变化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9Ax86-loop%E6%8C%87%E4%BB%A4"><span class="toc-text">补充：x86 loop指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%85%B3%E7%AD%94%E6%A1%88-1"><span class="toc-text">本关答案</span></a></li></ol></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -611,106 +613,117 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h1><h2 id="1-根据dfs的拓扑排序"><a href="#1-根据dfs的拓扑排序" class="headerlink" title="1, 根据dfs的拓扑排序"></a>1, 根据dfs的拓扑排序</h2><p>dfs可以找出天然的拓扑序，只是在最后需要倒转一下，想想为什么(因为最后一层先输出)</p>
-<p>遍历时，把遍历过程中的点的标记置为-1，如果再次访问到标记为-1的点，说明有环路，不能拓扑排序</p>
-<p>返回时，把遍历完的点置为1，表示这些点遍历完毕，没有环路，未来不用遍历了</p>
-<pre><code class="c">int dfs(int u, int n, int *ans) &#123;
-    flag[u] = -1;
-    for (int v = 1; v &lt;= n; ++v) &#123;
-        if (G[u][v]) &#123;
-            if (flag[v] == -1) return false;
-            else if (flag[v] == 0 &amp;&amp; !dfs(v, n, ans)) return false;
-        &#125;
-    &#125;
-    flag[u] = 1;
-    ans[cnt++] = u;
-    return true;
-&#125;
-
-int toposort(int n, int m, int *ans) &#123;
-    cnt = 0;
-    memset(G, 0, sizeof(G));
-    memset(flag, 0, sizeof(flag));
-    for (int i = 0; i &lt; m; ++i) &#123;
-        int x, y;
-        scanf(&quot;%d%d&quot;, &amp;x, &amp;y);
-        G[x][y] = 1;
-    &#125;
-    for (int i = 1; i &lt;= n; ++i) &#123;
-        if (!flag[i]) &#123;
-            if (!dfs(i, n, ans)) return false;
-        &#125;
-    &#125;
-    reverse(ans, ans + cnt);
-    return true;
-&#125;
+        <h1 id="3-1：进程描述"><a href="#3-1：进程描述" class="headerlink" title="3.1：进程描述"></a>3.1：进程描述</h1><h2 id="第一关：任务寄存器（TR）的分析"><a href="#第一关：任务寄存器（TR）的分析" class="headerlink" title="第一关：任务寄存器（TR）的分析"></a>第一关：任务寄存器（TR）的分析</h2><pre><code class="sh"># 跟踪到1号进行运行时，例如函数task1的入口处
+b task1
+c
+# 此时current指向1号进程的进程控制块，可以查看该进程控制块的内容
+p *current
+p &amp;current-&gt;tss
 </code></pre>
-<h2 id="2-根据bfs的拓扑排序"><a href="#2-根据bfs的拓扑排序" class="headerlink" title="2, 根据bfs的拓扑排序"></a>2, 根据bfs的拓扑排序</h2><p>原理为不停维护入度为0的点，让其入队，直到所有的点都被遍历到</p>
-<p>如果有环路，那么那个点不会入队，入度不可能被减为1，所以判断环路的条件就是是否遍历了所有点</p>
-<pre><code class="c">int G[MAXN][MAXN], in[MAXN];
-
-int cnt = 0;
-int toposort(int n, int m, int *ans) &#123;
-    std::queue&lt;int&gt; q;
-    for (int i = 1; i &lt;= n; ++i) &#123;
-        if (in[i] == 0) q.push(i);
-    &#125;
-    while (!q.empty()) &#123;
-        int u = q.front();q.pop();
-        ans[cnt++] = u;
-        for (int v = 1; v &lt;= n; ++v) &#123;
-            if (G[u][v]) &#123;
-                in[v]--;
-                if (in[v] == 0) q.push(v);
-            &#125;
-        &#125;
-    &#125;
-    return cnt == n;
-&#125;
-
-int solve(int n, int m, int *ans) &#123;
-    memset(G, 0, sizeof(G));
-    memset(in, 0, sizeof(in));
-    cnt = 0;
-    for (int i = 0; i &lt; m; ++i) &#123;
-        int x, y;
-        scanf(&quot;%d%d&quot;, &amp;x, &amp;y);
-        G[x][y] = 1;
-        in[y]++;
-    &#125;
-    return toposort(n, m, ans);
-&#125;
+<p>进程控制块的类型为 struct task_struct ，定义如下：</p>
+<p><img src="https://data.educoder.net/api/attachments/1161827" alt="进程控制块"></p>
+<pre><code class="sh"># 其中最后一个成员tss即为进程的任务状态段，可以直接查看其地址:
+p current-&gt;tss-&gt;esp0
+# tss的值为0xfff2e8,esp0记录的核心栈栈底位置为16777216
 </code></pre>
-<h2 id="3-根据层序的拓扑排序"><a href="#3-根据层序的拓扑排序" class="headerlink" title="3, 根据层序的拓扑排序"></a>3, 根据层序的拓扑排序</h2><p>经典题目《车站分级》中的排序方式，可以找出拓扑序的层数</p>
-<pre><code class="c">int toposort(int G[][MAXN], int n, int *in, int *out) &#123;
-    int tmp[MAXN], book[MAXN];
-    memset(book, 0, sizeof(book));
-    int depth = 0;
-    while (1) &#123;
-        int cnt = 0;
-        for (int p = 1; p &lt;= n; ++p) &#123;
-            if (!in[p] &amp;&amp; !book[p]) &#123;
-                tmp[cnt++] = p;
-                book[p] = 1;
-            &#125;
-        &#125;
-        if (cnt == 0) break;
-        for (int i = 0; i &lt; cnt; ++i) &#123;
-            for (int j = 0; j &lt; MAXN &amp;&amp; out[tmp[i]] &gt; 0; ++j) &#123;
-                if (G[tmp[i]][j]) &#123;
-                    in[j]--;
-                    out[tmp[i]]--;
-                &#125;
-            &#125;
-        &#125;
-        ++depth;
-    &#125;
-    return depth;
-&#125;
+<p>任务状态段的类型定义如下：</p>
+<p><img src="https://data.educoder.net/api/attachments/1161830" alt="任务状态段"></p>
+<p>其中成员 esp0 记录的即为进程的核心栈栈底位置。</p>
+<pre><code class="sh"># 退出gdb，使用bochsdbg调试
+quit
 </code></pre>
-<h2 id="4-拓扑排序经典题目"><a href="#4-拓扑排序经典题目" class="headerlink" title="4, 拓扑排序经典题目"></a>4, 拓扑排序经典题目</h2><p><a target="_blank" rel="noopener" href="https://vjudge.net/problem/UVA-10305">UVa 10305 Ordering Tasks</a></p>
-<p><a target="_blank" rel="noopener" href="https://vjudge.net/problem/%E8%AE%A1%E8%92%9C%E5%AE%A2-T2076">NOIP 2013 普及组T4 车站分级</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3243"> HNOI2015 菜肴制作</a></p>
+<pre><code class="sh"># 终端1
+./rundbg
+# 跟踪到函数 task1 的入口
+b 0x7985
+c
+# 使用命令 sreg 查看所有的段寄存器：
+sreg
+# TR寄存器的值为 0x0030
+# 终端一操作暂时结束
+
+# 查看 TR 寄存器指向的任务状态段描述符的值
+
+# 计算描述符在GDT中的索引，另开一个命令行，用python算
+0x30&gt;&gt;3
+# 索引值为6
+
+# 查看GDT地址，存放在gdtr中
+sreg
+# 找到GDT的地址为0x5cc0
+# 查看GDT中的描述符
+x/14wx 0x5cc0
+# 1号进程的地址0x00008bfff2e80068
+# 起始地址0x00fff2e8
+</code></pre>
+<h3 id="补充：如何查看-TR-寄存器指向的任务状态段描述符的值"><a href="#补充：如何查看-TR-寄存器指向的任务状态段描述符的值" class="headerlink" title="补充：如何查看 TR 寄存器指向的任务状态段描述符的值"></a>补充：如何查看 TR 寄存器指向的任务状态段描述符的值</h3><ul>
+<li><p>a.计算描述符在 GDT 中的索引。 TR寄存器（共16位）的高13位是所指向的任务状态段在全局描述符表（GDT）中的索引，因此将TR寄存器右移3位即可得到此索引，可以单独打开一个终端来运行 gdb ，就可以在其中进行计算。</p>
+</li>
+<li><p>b.查看 GDT 中该索引下的段描述符</p>
+<p>首先查看 GDT 的地址，该地址记录在寄存器 gdtr 中，可见GDT地址为0x00005cc0</p>
+<p>现在可以查看 GDT 中的描述符了，例如 0~4 号描述符的内容如下：</p>
+<p><img src="https://data.educoder.net/api/attachments/1161866" alt="GDT中的描述符"></p>
+<p>其中 4 号描述符的值为 0x00008901ed080068 。</p>
+</li>
+</ul>
+<h3 id="补充：如何从段描述符的值计算出段的起始地址"><a href="#补充：如何从段描述符的值计算出段的起始地址" class="headerlink" title="补充：如何从段描述符的值计算出段的起始地址"></a>补充：如何从段描述符的值计算出段的起始地址</h3><p>一个段描述符占 64 位，其中段的起始地址由 3 部分拼接而成，如下图中的红色部分所示：</p>
+<p><img src="https://data.educoder.net/api/attachments/1161871"></p>
+<p>可见前面的 4 号描述符 0x00008901ed080068 里记录的段起始地址是 0x0001ed08 。</p>
+<h3 id="本关答案"><a href="#本关答案" class="headerlink" title="本关答案"></a>本关答案</h3><pre><code class="sh">1.1 号进程的任务状态段 TSS 的地址是多少？(0xfff2e8)
+2.1 号进程的核心栈栈底的位置是多少？(16777216)
+3.1 号进程运行时，任务寄存器 TR 的值是多少？(0x0030)
+4.它指向的任务状态段描述符的值是多少？(0x00008bfff2e80068)
+5.该描述符里记录的任务状态段起始地址是多少？(0x00fff2e8)
+</code></pre>
+<h2 id="第二关：1-号进程的状态变化"><a href="#第二关：1-号进程的状态变化" class="headerlink" title="第二关：1 号进程的状态变化"></a>第二关：1 号进程的状态变化</h2><pre><code class="sh">#终端1
+cp /data/workspace/myshixun/exp1/1.tgz ~/os/
+cd ~/os/linux-0.11-lab
+tar -zxvf ../1.tgz
+rm -rf cur
+ln -s 1 cur
+cd cur/linux
+make
+cd ../..
+./rungdb
+
+# 终端1结束
+
+# 终端2
+b sys_pause if current-&gt;pid == 1
+b sched.c:120 if p-&gt;pid==1
+c
+c
+bt
+# 此时看到调用栈，控制流信息，栈底层函数为timer_interrupt，注意bt命令0~0x5000的误报
+
+# 以下操作和2.2关完全一样
+info reg
+# 观察到此时$cx不为0，说明loop指令不是刚开始执行，loop的上一条指令还是loop
+disable 2
+disable 3
+finish
+si
+si
+si
+si
+si
+disas
+b *0x77dd
+c
+disas
+si
+disas
+</code></pre>
+<h3 id="补充：x86-loop指令"><a href="#补充：x86-loop指令" class="headerlink" title="补充：x86 loop指令"></a>补充：x86 loop指令</h3><blockquote>
+<p><strong>Loop指令</strong>执行流程:<br>步骤1. 将cx寄存器的值 - 1, cx = cx - 1;<br>步骤2. 判断cx的值 ;</p>
+</blockquote>
+<h3 id="本关答案-1"><a href="#本关答案-1" class="headerlink" title="本关答案"></a>本关答案</h3><pre><code class="sh">1.系统处于几号进程的上下文（或者说，当前进程是几号进程）？(0)
+2.内核的函数调用栈中的顶层函数是什么？(timer_interrupt)
+3.内核处于哪种控制流？(B)
+A.(系统调用)B.(中断)C.(异常)
+4.后续回到用户态时，恢复点的位置是什么？(0x796c)
+5.以前的断点位置是什么？(0x796c)
+</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 Algorithm_sort@163.com </span>
