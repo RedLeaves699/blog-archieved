@@ -615,7 +615,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2021-09-14 12:56:06'>2021-09-11 14:25</time>
+            Created At : <time class="date" title='Updated At: 2021-09-14 20:28:53'>2021-09-11 14:25</time>
         
     </div>
     <div class="article-meta">
@@ -812,6 +812,8 @@ b main.c:145
 c
 # 使用n指令，跳过将要执行的move_to_user_mode();函数
 n
+si
+disas
 # 观察到陷入指令位置 0x6908
 # 使用n直接跳到fork的下一条指令
 n
@@ -860,7 +862,7 @@ p &amp;task[1]-&gt;tss
 p/x task[1]-&gt;tss-&gt;eip
 # 解决第九题
 p task[1]
-p task[1]-&gt;tss-&gt;esp0
+p/x task[1]-&gt;tss-&gt;esp0
 quit
 </code></pre>
 <pre><code class="sh"># 终端二
