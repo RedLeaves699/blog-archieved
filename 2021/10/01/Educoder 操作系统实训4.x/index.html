@@ -669,7 +669,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2021-10-01 21:14:01'>2021-10-01 20:48</time>
+            Created At : <time class="date" title='Updated At: 2021-10-01 21:34:21'>2021-10-01 20:48</time>
         
     </div>
     <div class="article-meta">
@@ -1035,7 +1035,7 @@ b *0x69008
 &#125;
 </code></pre>
 <p>别忘了<font size = 6 color = "red">编译！</font></p>
-<h1 id="实训4-4：页式虚存"><a href="#实训4-4：页式虚存" class="headerlink" title="实训4.4：页式虚存"></a>实训4.4：页式虚存</h1><h2 id="第一关：版本-0-内核的第一次缺页页故障"><a href="#第一关：版本-0-内核的第一次缺页页故障" class="headerlink" title="第一关：版本 0 内核的第一次缺页页故障"></a>第一关：版本 0 内核的第一次缺页页故障</h2><h3 id="实验方法-10"><a href="#实验方法-10" class="headerlink" title="实验方法"></a>实验方法</h3><pre><code class="sh">b do_no_page
+<h1 id="实训4-4：页式虚存"><a href="#实训4-4：页式虚存" class="headerlink" title="实训4.4：页式虚存"></a>实训4.4：页式虚存</h1><h2 id="第一关：版本-0-内核的第一次缺页页故障"><a href="#第一关：版本-0-内核的第一次缺页页故障" class="headerlink" title="第一关：版本 0 内核的第一次缺页页故障"></a>第一关：版本 0 内核的第一次缺页页故障</h2><h3 id="实验方法-10"><a href="#实验方法-10" class="headerlink" title="实验方法"></a>实验方法</h3><pre><code class="bash">b do_no_page
 c
 p/x address
 p/x current-&gt;start_code
@@ -1090,7 +1090,7 @@ mcopy [-tnvm] MSDOSsourcefile
 </code></pre>
 <p>查看结果如下</p>
 <p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/%E5%AE%9E%E8%AE%AD4.4-L2-objdump.png" alt="objdump查看结果"></p>
-<h4 id="第二步：在GDB中调试"><a href="#第二步：在GDB中调试" class="headerlink" title="第二步：在GDB中调试"></a>第二步：在GDB中调试</h4><pre><code class="sh">b do_no_page
+<h4 id="第二步：在GDB中调试"><a href="#第二步：在GDB中调试" class="headerlink" title="第二步：在GDB中调试"></a>第二步：在GDB中调试</h4><pre><code class="bash">b do_no_page
 b do_execve
 commands 2
 p curent-&gt;start_code + filename
