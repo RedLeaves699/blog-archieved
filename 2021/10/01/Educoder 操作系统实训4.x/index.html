@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Educoder 操作系统实训4.x实验 | Set sail!</title>
+  <meta name="keywords" content=" Educoder , 操作系统 , 模拟实训 ">
+  <meta name="description" content="Educoder 操作系统实训4.x实验 | Set sail!">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://example.com/about/index.html">
+<meta property="og:site_name" content="Set sail!">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-09-02T08:52:58.000Z">
+<meta property="article:modified_time" content="2021-09-02T08:52:58.487Z">
+<meta property="article:author" content="Red_Leaves">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/favicon.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Red_Leaves</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/redleaves699"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:Algorithm_sort@163.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(26)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="编程语言">
+                        
+                        编程语言
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="操作系统">
+                        
+                        操作系统
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="感想随笔">
+                        
+                        感想随笔
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="前端">
+                        
+                        前端
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="软件">
+                        
+                        软件
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="算法">
+                        
+                        算法
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="题解">
+                        
+                        题解
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Git">
+                        
+                        Git
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="markdown">
+                        
+                        markdown
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="26">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="/www.cntv.cn">cntv</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>2021牛客暑期多校第二场</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>2021牛客暑期多校第一场</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>博客搭建</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>操作系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>高级</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>技巧</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>模拟实训</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>前端</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>软件开发</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>生活</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>实验环境配置</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>政治历史</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>指针</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Android</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>c语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>C语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Debian</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Educoder</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GitHub</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>LearnGitBranch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux0.11</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>markdown</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>stack</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>toposort</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All 操作系统 "
+           href="/2021/10/01/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD4.x/"
+           data-tag="Educoder,操作系统,模拟实训"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训4.x实验">Educoder 操作系统实训4.x实验</span>
+            <span class="post-date" title="2021-10-01 20:48:00">2021/10/01</span>
+        </a>
+        
+        <a  class="All 编程语言 "
+           href="/2021/09/29/Python%20%E8%AF%AD%E8%A8%80/"
+           data-tag="技巧,Python"
+           data-author="" >
+            <span class="post-title" title="Python 零散的知识">Python 零散的知识</span>
+            <span class="post-date" title="2021-09-29 17:29:00">2021/09/29</span>
+        </a>
+        
+        <a  class="All Git "
+           href="/2021/09/29/Gitignore/"
+           data-tag="Git,GitHub"
+           data-author="" >
+            <span class="post-title" title=".gitignore的使用">.gitignore的使用</span>
+            <span class="post-date" title="2021-09-29 17:06:44">2021/09/29</span>
+        </a>
+        
+        <a  class="All Git "
+           href="/2021/09/29/GitHub%E7%BD%91%E7%BB%9C/"
+           data-tag="Git,GitHub"
+           data-author="" >
+            <span class="post-title" title="解决使用GitHub的网络问题">解决使用GitHub的网络问题</span>
+            <span class="post-date" title="2021-09-29 16:38:56">2021/09/29</span>
+        </a>
+        
+        <a  class="All 操作系统 "
+           href="/2021/09/17/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD3.x/"
+           data-tag="Educoder,操作系统,模拟实训"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训3.x实验">Educoder 操作系统实训3.x实验</span>
+            <span class="post-date" title="2021-09-17 10:42:35">2021/09/17</span>
+        </a>
+        
+        <a  class="All 前端 "
+           href="/2021/09/14/%E5%9C%A8%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2LearnGitBranch/"
+           data-tag="前端,Git,LearnGitBranch"
+           data-author="" >
+            <span class="post-title" title="在本地部署LearnGitBranch">在本地部署LearnGitBranch</span>
+            <span class="post-date" title="2021-09-14 17:21:54">2021/09/14</span>
+        </a>
+        
+        <a  class="All 编程语言 "
+           href="/2021/09/12/C%E8%AF%AD%E8%A8%80%E6%8C%87%E9%92%88/"
+           data-tag="C语言,指针,高级,技巧"
+           data-author="" >
+            <span class="post-title" title="C语言指针技巧">C语言指针技巧</span>
+            <span class="post-date" title="2021-09-12 13:49:00">2021/09/12</span>
+        </a>
+        
+        <a  class="All 软件 "
+           href="/2021/09/11/Andorid%20%E5%BC%80%E5%8F%911/"
+           data-tag="软件开发,Android"
+           data-author="" >
+            <span class="post-title" title="Android Studio的安装和小米便签的运行">Android Studio的安装和小米便签的运行</span>
+            <span class="post-date" title="2021-09-11 11:23:19">2021/09/11</span>
+        </a>
+        
+        <a  class="All 操作系统 "
+           href="/2021/09/09/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD2.x/"
+           data-tag="Educoder,操作系统,模拟实训"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训2.x实验">Educoder 操作系统实训2.x实验</span>
+            <span class="post-date" title="2021-09-09 09:25:45">2021/09/09</span>
+        </a>
+        
+        <a  class="All 操作系统 "
+           href="/2021/09/02/Debian%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AELinux0.11/"
+           data-tag="实验环境配置,Debian,Linux0.11"
+           data-author="" >
+            <span class="post-title" title="Debian系统配置Linux0.11">Debian系统配置Linux0.11</span>
+            <span class="post-date" title="2021-09-02 19:38:29">2021/09/02</span>
+        </a>
+        
+        <a  class="All 前端 "
+           href="/2021/09/02/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cnode.js%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"
+           data-tag="前端,博客搭建"
+           data-author="" >
+            <span class="post-title" title="使用Node.js和hexo搭建GitHub博客（以windows为例）">使用Node.js和hexo搭建GitHub博客（以windows为例）</span>
+            <span class="post-date" title="2021-09-02 17:49:00">2021/09/02</span>
+        </a>
+        
+        <a  class="All 题解 "
+           href="/2021/09/02/G%20-%20League%20of%20Legends/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="G - League of Legends">G - League of Legends</span>
+            <span class="post-date" title="2021-09-02 17:17:58">2021/09/02</span>
+        </a>
+        
+        <a  class="All 编程语言 "
+           href="/2021/08/17/C%E8%AF%AD%E8%A8%80%E7%BB%93%E6%9E%84%E4%BD%93/"
+           data-tag="c语言"
+           data-author="" >
+            <span class="post-title" title="C语言结构体">C语言结构体</span>
+            <span class="post-date" title="2021-08-17 15:49:47">2021/08/17</span>
+        </a>
+        
+        <a  class="All 编程语言 "
+           href="/2021/08/17/C%E8%AF%AD%E8%A8%80%E9%9A%8F%E6%9C%BA%E6%95%B0%E5%92%8C%E8%AE%A1%E6%97%B6/"
+           data-tag="c语言"
+           data-author="" >
+            <span class="post-title" title="C语言随机数和计时">C语言随机数和计时</span>
+            <span class="post-date" title="2021-08-17 09:15:35">2021/08/17</span>
+        </a>
+        
+        <a  class="All 编程语言 "
+           href="/2021/08/17/C%E8%AF%AD%E8%A8%80%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/"
+           data-tag="c语言"
+           data-author="" >
+            <span class="post-title" title="C语言二维数组作为函数的参数">C语言二维数组作为函数的参数</span>
+            <span class="post-date" title="2021-08-17 09:15:35">2021/08/17</span>
+        </a>
+        
+        <a  class="All 题解 "
+           href="/2021/07/26/A%20-%20Alice%20and%20Bob/"
+           data-tag="2021牛客暑期多校第一场"
+           data-author="" >
+            <span class="post-title" title="A - Alice and Bob">A - Alice and Bob</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All markdown "
+           href="/2021/07/26/image/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="在markdown中插入图片">在markdown中插入图片</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All markdown "
+           href="/2021/07/26/font/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown 字体，字号，颜色">markdown 字体，字号，颜色</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All markdown "
+           href="/2021/07/26/indent/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="关于markdown中文首行缩进的问题">关于markdown中文首行缩进的问题</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All markdown "
+           href="/2021/07/26/special%20sign/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown latex的特殊符号">markdown latex的特殊符号</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 感想随笔 "
+           href="/2021/07/26/%E7%99%BE%E5%B9%B4/"
+           data-tag="政治历史"
+           data-author="" >
+            <span class="post-title" title="百年未有之大变局">百年未有之大变局</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 算法 "
+           href="/2021/07/26/ordered%20stack/"
+           data-tag="算法,stack"
+           data-author="" >
+            <span class="post-title" title="单调栈">单调栈</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 算法 "
+           href="/2021/07/26/toposort/"
+           data-tag="算法,toposort"
+           data-author="" >
+            <span class="post-title" title="拓扑排序">拓扑排序</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 题解 "
+           href="/2021/07/26/K%20-%20Stack/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="K - Stack">K - Stack</span>
+            <span class="post-date" title="2021-07-26 09:37:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 题解 "
+           href="/2021/07/20/F%20-%20Girlfriend/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="F - Girlfriend">F - Girlfriend</span>
+            <span class="post-date" title="2021-07-20 09:53:17">2021/07/20</span>
+        </a>
+        
+        <a  class="All 感想随笔 "
+           href="/2021/07/17/2021-7-17/"
+           data-tag="生活"
+           data-author="" >
+            <span class="post-title" title="2021-07-17 关于自己读书的有趣现象">2021-07-17 关于自己读书的有趣现象</span>
+            <span class="post-date" title="2021-07-17 12:13:26">2021/07/17</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Educoder 操作系统实训4.x" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Educoder 操作系统实训4.x实验</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="操作系统">操作系统</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">Educoder</a>
+            
+            <a class="color5">操作系统</a>
+            
+            <a class="color5">模拟实训</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2021-10-01 21:14:01'>2021-10-01 20:48</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E4%B9%8B%E5%89%8D"><span class="toc-text">浏览之前</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E8%AE%AD4-1%EF%BC%9A%E6%AE%B5%E5%BC%8F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-text">实训4.1：段式内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%85%B3%EF%BC%8C%E7%AC%AC%E4%BA%8C%E5%85%B3%EF%BC%9A%E4%B8%8D%E6%98%AF%E8%87%AA%E5%B7%B1%E5%81%9A%E7%9A%84%EF%BC%8C%E7%95%A5%E8%BF%87"><span class="toc-text">第一关，第二关：不是自己做的，略过</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%85%B3%EF%BC%9A0%E5%8F%B7%E8%BF%9B%E7%A8%8B%E5%92%8C1%E5%8F%B7%E8%BF%9B%E7%A8%8B%E7%9A%84mynext%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%96%E5%80%BC%E5%8F%98%E5%8C%96"><span class="toc-text">第三关：0号进程和1号进程的mynext变量的取值变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%85%B3%EF%BC%9ALDTR-%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-text">第四关：LDTR 寄存器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%96%B9%E6%B3%95"><span class="toc-text">实验方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%85%B3%E7%AD%94%E6%A1%88"><span class="toc-text">本关答案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E5%85%B3%EF%BC%9A%E5%86%85%E6%A0%B8%E4%BB%A3%E7%A0%81%E6%AE%B5%E5%92%8C%E6%95%B0%E6%8D%AE%E6%AE%B5%E7%9A%84%E6%AE%B5%E5%9F%BA%E5%9D%80"><span class="toc-text">第五关：内核代码段和数据段的段基址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F"><span class="toc-text">注意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%96%B9%E6%B3%95-1"><span class="toc-text">实验方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%85%B3%E7%AD%94%E6%A1%88-1"><span class="toc-text">本关答案</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E8%AE%AD4-2-%E9%A1%B5%E5%BC%8F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-text">实训4.2 页式内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%85%B3%EF%BC%9A1-%E5%8F%B7%E8%BF%9B%E7%A8%8B%E7%9A%84-mynext-%E5%8F%98%E9%87%8F%E7%9A%84%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80"><span class="toc-text">第一关：1 号进程的 mynext 变量的物理地址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-text">补充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%96%B9%E6%B3%95-2"><span class="toc-text">实验方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%AD%94%E6%A1%88"><span class="toc-text">实验答案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%85%B3%EF%BC%9A0-%E5%8F%B7%E8%BF%9B%E7%A8%8B%E7%9A%84-mynext-%E5%8F%98%E9%87%8F%E7%9A%84%E7%89%A9%E7%90%86%E5%9C%B0%E5%9D%80"><span class="toc-text">第二关：0 号进程的 mynext 变量的物理地址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%96%B9%E6%B3%95-3"><span class="toc-text">实验方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%85%B3%E7%AD%94%E6%A1%88-2"><span class="toc-text">本关答案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%85%B3%EF%BC%9A%E9%A1%B5%E7%9B%AE%E5%BD%95%E5%92%8C%E9%A1%B5%E8%A1%A8%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-text">第三关：页目录和页表的变化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%96%B9%E6%B3%95-4"><span class="toc-text">实验方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%85%B3%EF%BC%9A%E7%94%A8%E6%88%B7%E6%A0%88%E5%92%8C%E6%A0%B8%E5%BF%83%E6%A0%88%E7%9A%84%E7%89%A9%E7%90%86%E4%BD%8D%E7%BD%AE"><span class="toc-text">第四关：用户栈和核心栈的物理位置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%96%B9%E6%B3%95-5"><span class="toc-text">实验方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%85%B3%E7%AD%94%E6%A1%88-3"><span class="toc-text">本关答案</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E8%AE%AD4-3%EF%BC%9A%E6%AE%B5%E9%A1%B5%E5%BC%8F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="toc-text">实训4.3：段页式内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%85%B3%EF%BC%9A%E8%BF%9B%E7%A8%8B%E5%88%9B%E5%BB%BA%E5%89%8D%E5%90%8E%E9%A1%B5%E7%9B%AE%E5%BD%95%E5%92%8C%E9%A1%B5%E8%A1%A8%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-text">第一关：进程创建前后页目录和页表的变化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%96%B9%E6%B3%95-6"><span class="toc-text">实验方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%85%B3%E7%AD%94%E6%A1%88-4"><span class="toc-text">本关答案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%85%B3%EF%BC%9A1-%E5%8F%B7%E8%BF%9B%E7%A8%8B%E5%AF%B9-mynext-%E5%8F%98%E9%87%8F%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BF%AE%E6%94%B9"><span class="toc-text">第二关：1 号进程对 mynext 变量的第一次修改</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%96%B9%E6%B3%95-7"><span class="toc-text">实验方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%85%B3%E7%AD%94%E6%A1%88-5"><span class="toc-text">本关答案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%85%B3-%E7%AC%AC%E4%B8%80%E6%AC%A1%E9%A1%B5%E6%95%85%E9%9A%9C"><span class="toc-text">第三关 第一次页故障</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%96%B9%E6%B3%95-8"><span class="toc-text">实验方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%85%B3%E7%AD%94%E6%A1%88-6"><span class="toc-text">本关答案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%85%B3%EF%BC%9A%E7%88%B6%E5%AD%90%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E9%80%9A%E4%BF%A1%E5%AE%9E%E7%8E%B0"><span class="toc-text">第四关：父子进程间的共享内存通信实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90"><span class="toc-text">原理分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%96%B9%E6%B3%95-9"><span class="toc-text">实验方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E8%AE%AD4-4%EF%BC%9A%E9%A1%B5%E5%BC%8F%E8%99%9A%E5%AD%98"><span class="toc-text">实训4.4：页式虚存</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%85%B3%EF%BC%9A%E7%89%88%E6%9C%AC-0-%E5%86%85%E6%A0%B8%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%BC%BA%E9%A1%B5%E9%A1%B5%E6%95%85%E9%9A%9C"><span class="toc-text">第一关：版本 0 内核的第一次缺页页故障</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%96%B9%E6%B3%95-10"><span class="toc-text">实验方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%85%B3%E7%AD%94%E6%A1%88-7"><span class="toc-text">本关答案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%85%B3%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8%E9%9B%B6%E9%A1%B5%E7%9A%84%E7%BC%BA%E9%A1%B5%E9%A1%B5%E6%95%85%E9%9A%9C"><span class="toc-text">第二关：第一次使用零页的缺页页故障</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9Amcopy%E5%91%BD%E4%BB%A4"><span class="toc-text">补充：mcopy命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%AF%AD%E6%B3%95"><span class="toc-text">命令语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E4%BE%8B%EF%BC%9A%E5%B0%86%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%AD-bin-sh%E6%96%87%E4%BB%B6%E5%A4%8D%E5%88%B6%E5%88%B0%E2%80%9Db%E7%9B%98%E2%80%9C%E4%B8%AD"><span class="toc-text">实例：将虚拟机中&#x2F;bin&#x2F;sh文件复制到”b盘“中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F-1"><span class="toc-text">注意</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">参考资料</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%96%B9%E6%B3%95-11"><span class="toc-text">实验方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E6%9F%A5%E7%9C%8Bsh%E6%96%87%E4%BB%B6%E7%9A%84VMA"><span class="toc-text">第一步：查看sh文件的VMA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E5%9C%A8GDB%E4%B8%AD%E8%B0%83%E8%AF%95"><span class="toc-text">第二步：在GDB中调试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%85%B3%E7%AD%94%E6%A1%88-8"><span class="toc-text">本关答案</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="浏览之前"><a href="#浏览之前" class="headerlink" title="浏览之前"></a>浏览之前</h1><p><font size = 5 color = blue>本文比较长，建议使用<strong>大纲视图</strong>观看文章</font></p>
+<p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/%E5%A4%A7%E7%BA%B2%E8%A7%86%E5%9B%BE.png" alt="如何使用大纲视图"></p>
+<h1 id="实训4-1：段式内存管理"><a href="#实训4-1：段式内存管理" class="headerlink" title="实训4.1：段式内存管理"></a>实训4.1：段式内存管理</h1><h2 id="第一关，第二关：不是自己做的，略过"><a href="#第一关，第二关：不是自己做的，略过" class="headerlink" title="第一关，第二关：不是自己做的，略过"></a>第一关，第二关：不是自己做的<img src="https://tb2.bdstatic.com/tb/editor/images/face/i_f25.png?t=20140803">，略过</h2><h2 id="第三关：0号进程和1号进程的mynext变量的取值变化"><a href="#第三关：0号进程和1号进程的mynext变量的取值变化" class="headerlink" title="第三关：0号进程和1号进程的mynext变量的取值变化"></a>第三关：0号进程和1号进程的mynext变量的取值变化</h2><pre><code class="sh">#终端1
+cp /data/workspace/myshixun/exp1/1.3.tgz ~/os/
+cd ~/os/linux-0.11-lab
+tar -zxvf ../1.3.tgz
+rm -rf cur
+ln -s 1.3 cur
+cd cur/linux
+make
+cd ../..
+./rungdb
+
+# 终端二
+b main.c:155
+# 连输7个c
+c
+</code></pre>
+<p>只能查到进程一的mynext，不会查进程0的mynext</p>
+<p>不过我搞到了答案</p>
+<pre><code class="shell">1.1 号进程的 output_char 函数调用会执行几次？(6)
+2.每次调用时，1 号进程和 0 号进程的 mynext 变量的值分别是多少？(1,1)(2,7)(3,7)(4,7)(5,7)(6,7)
+注：如果括号不够可以自行使用英文括号补充格式为(,)，如果括号数量不对评测时将会报错。
+</code></pre>
+<h2 id="第四关：LDTR-寄存器"><a href="#第四关：LDTR-寄存器" class="headerlink" title="第四关：LDTR 寄存器"></a>第四关：LDTR 寄存器</h2><h3 id="实验方法"><a href="#实验方法" class="headerlink" title="实验方法"></a>实验方法</h3><p>先通过gdb找到main.c:155对应的汇编指令位置为0x6969。<br>然后找到main.c:171对应的汇编指令位置为0x69cf。<br>查看寄存器值和段描述符，查看ldtr的值，算出gdt索引为7，和对应的段起始地址。<br>再查看gdb中0，1号进程对应的ldt位置，查询命令为</p>
+<pre><code class="gdb">p &amp;current-&gt;ldt
+</code></pre>
+<pre><code class="sh">./rundbg
+b 0x6969
+c
+sreg
+x/16wx 0x5cc0
+b 0x69cf
+c
+sreg
+</code></pre>
+<h3 id="本关答案"><a href="#本关答案" class="headerlink" title="本关答案"></a>本关答案</h3><pre><code class="sh">1.1 号进程（在用户态）运行时，LDTR 寄存器的值是多少？(0x0038)它指向 GDT 中的几号描述符？(7)该段描述符内存的段起始地址是多少？(0xfff2d0)指向哪个进程的 ldt 数组？(1)
+2.0 号进程（在用户态）运行时，LDTR 寄存器的值是多少？(0x0028)它指向 GDT 中的几号描述符？(5)该段描述符内存的段起始地址是多少？(0x1ed70)指向哪个进程的 ldt 数组？(0)
+</code></pre>
+<h2 id="第五关：内核代码段和数据段的段基址"><a href="#第五关：内核代码段和数据段的段基址" class="headerlink" title="第五关：内核代码段和数据段的段基址"></a>第五关：内核代码段和数据段的段基址</h2><h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>基地址就是段起始地址！</p>
+<h3 id="实验方法-1"><a href="#实验方法-1" class="headerlink" title="实验方法"></a>实验方法</h3><p>以下是GDB中的操作</p>
+<pre><code class="sh">b sys_pause
+c
+info reg
+x/6wx gdt
+# 发现cs:0x0008,ds:0x0010,说明段起始地址在gdt中索引分别为1，2，计算cs和ds基地址为0x0
+
+c
+info reg
+x/6wx gdt
+</code></pre>
+<h3 id="本关答案-1"><a href="#本关答案-1" class="headerlink" title="本关答案"></a>本关答案</h3><pre><code class="sh">1.0 号进程执行到 sys_pause 时，默认数据段（CS）和默认数据段（DS）的值分别是多少？(0x0008)(0x0010)其基地址分别是多少？(0)(0)
+2.1 号进程执行到 sys_pause 时，默认数据段（CS）和默认数据段（DS）的值分别是多少？(0x0008)(0x0010)其基地址分别是多少？(0)(0)
+</code></pre>
+<h1 id="实训4-2-页式内存管理"><a href="#实训4-2-页式内存管理" class="headerlink" title="实训4.2 页式内存管理"></a>实训4.2 页式内存管理</h1><h2 id="第一关：1-号进程的-mynext-变量的物理地址"><a href="#第一关：1-号进程的-mynext-变量的物理地址" class="headerlink" title="第一关：1 号进程的 mynext 变量的物理地址"></a>第一关：1 号进程的 mynext 变量的物理地址</h2><h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p>每个目录项和页表项都是以<strong>4字节</strong> (32位机器)的长度存储的数据. 由于页面表和页面的起始地址都总是在4K字节的边界上, 这些指针的低12位都永远是0.</p>
+<h3 id="实验方法-2"><a href="#实验方法-2" class="headerlink" title="实验方法"></a>实验方法</h3><pre><code class="sh">b 0x6969
+c
+creg # 页表起始地址CR3为0
+x/wx 0x17:0x2282c
+# 线性地址为0x402282c
+# 页目录项索引0x10(在页目录的第16号)，页表索引0x22(在页表的第34号)
+x/17wx 0 # 这里的0是CR3的值，发现页表基址为0xffe000(页表项的后12位都是0)
+x/35wx 0xffe000 # 页帧起始地址0x00022(页表元素的前12位)
+
+c
+creg
+x/wx 0x17:0x2282c
+x/17wx 0
+x/35wx 0xffe000
+</code></pre>
+<h3 id="实验答案"><a href="#实验答案" class="headerlink" title="实验答案"></a>实验答案</h3><pre><code class="sh">1.1 号进程第 1 次调用函数 output_char 时，它的 mynext 变量的物理地址是多少？(0x2282c)
+2.1 号进程第 2 次调用函数 output_char 时，它的 mynext 变量的物理地址是多少？(0xffc82c)
+</code></pre>
+<h2 id="第二关：0-号进程的-mynext-变量的物理地址"><a href="#第二关：0-号进程的-mynext-变量的物理地址" class="headerlink" title="第二关：0 号进程的 mynext 变量的物理地址"></a>第二关：0 号进程的 mynext 变量的物理地址</h2><h3 id="实验方法-3"><a href="#实验方法-3" class="headerlink" title="实验方法"></a>实验方法</h3><pre><code class="sh">./rundbg
+b 0x69d9
+c
+x/wx 0x17:0x2282c
+# 线性地址为0x402282c
+# 页目录项索引0x0(在页目录的第0号)，页表索引0x22(在页表的第34号)
+x/17wx 0
+x/35wx 0x00001000
+c
+x/17wx 0
+x/35wx 0x00001000
+</code></pre>
+<h3 id="本关答案-2"><a href="#本关答案-2" class="headerlink" title="本关答案"></a>本关答案</h3><pre><code class="sh">都是0x2282c
+</code></pre>
+<h2 id="第三关：页目录和页表的变化"><a href="#第三关：页目录和页表的变化" class="headerlink" title="第三关：页目录和页表的变化"></a>第三关：页目录和页表的变化</h2><h3 id="实验方法-4"><a href="#实验方法-4" class="headerlink" title="实验方法"></a>实验方法</h3><pre><code class="sh">b 0x6969
+c
+creg
+x/17wx 0
+x/35wx 0xffe000
+info tab
+c
+creg
+x/17wx 0
+x/35wx 0xffe000
+info tab
+</code></pre>
+<p>本关答案</p>
+<pre><code class="sh">在 1 号进程第 1 次开始执行 output_char 函数调用时，线性地址空间到物理地址空间的映射关系是怎样的？
+1.(0x00000000-0x00ffffff-&gt;0x00000000-0x00ffffff)
+2.(0x04000000-0x04024fff-&gt;0x00000000-0x00024fff)
+3.(0x04025000-0x04025fff-&gt;0x00ffd000-0x00ffdfff)
+4.(0x04026000-0x0409ffff-&gt;0x00026000-0x0009ffff)
+在 1 号进程第 2 次开始执行 output_char 函数调用时，线性地址空间到物理地址空间的映射关系是怎样的？
+5.(0x00000000-0x00ffffff-&gt;0x00000000-0x00ffffff)
+6.(0x04000000-0x04021fff-&gt;0x00000000-0x00021fff)
+7.(0x04022000-0x04022fff-&gt;0x00ffc000-0x00ffcfff)
+8.(0x04023000-0x04024fff-&gt;0x00023000-0x00024fff)
+9.(0x04025000-0x04025fff-&gt;0x00ffd000-0x00ffdfff)
+10.(0x04026000-0x0409ffff-&gt;0x00026000-0x0009ffff)
+在 1 号进程的第 1、2 次 output_char 函数调用之间，页目录和页表发生了怎样的变化？
+11.页表项(0x00ffe088)的值由原来的(0x00022065)变为了(0x00ffc067)
+</code></pre>
+<h2 id="第四关：用户栈和核心栈的物理位置"><a href="#第四关：用户栈和核心栈的物理位置" class="headerlink" title="第四关：用户栈和核心栈的物理位置"></a>第四关：用户栈和核心栈的物理位置</h2><h3 id="实验方法-5"><a href="#实验方法-5" class="headerlink" title="实验方法"></a>实验方法</h3><pre><code class="sh"># 终端一，这次1环境跑到exp4里了。。。
+cp /data/workspace/myshixun/exp4/1.tgz ~/os/
+cd ~/os/linux-0.11-lab
+tar -zxvf ../1.tgz
+rm -rf cur
+ln -s 1 cur
+cd cur/linux
+make
+cd ../..
+./rungdb
+</code></pre>
+<pre><code class="sh">./mygdb
+b schedule
+c
+c
+c
+p/x task[0]
+p/x task[1]
+b task0
+c
+# 打开dbg
+# 今后再用GDB，就是查询寄存器变量了
+</code></pre>
+<pre><code class="sh">./rundbg
+b 0x7963
+c
+x/wx 0x1fa20 #查看当前进程地址
+
+sreg
+x/wx 0x17:0x2573c
+creg
+x/wx 0
+x/38wx 0x1000
+
+b 0x6f46
+c
+x/wx 0x1fa20
+
+sreg
+# sreg查不到寄存器具体的值，我是用gdb查的，有谁能告诉我
+# 怎么再bochs查寄存器的值吗，发个邮件如何？
+x/wx 0x8:0x1f9f0
+creg
+x/wx 0
+x/32wx 0x1000
+
+b 0x7985
+c
+x/wx 0x1fa20
+
+sreg
+x/wx 0x17:0x2573c
+creg
+x/17wx 0
+x/38wx 0xffe000
+
+c
+sreg
+x/wx 0x1fa20
+
+sreg
+x/wx 0x10:0xffffd0
+creg
+x/4wx 0
+x/1024wx 0x4000
+</code></pre>
+<h3 id="本关答案-3"><a href="#本关答案-3" class="headerlink" title="本关答案"></a>本关答案</h3><pre><code class="sh">使用版本 1 内核时，在第 2 次进程调度后：
+1.0 号进程和 1 号进程的进程控制块的地址分别是多少？(0x1ea20)(0xfff000)
+2.执行到函数 task0 时，0 号进程的用户栈栈顶位于物理内存何处？(0x2573c)
+3.0 号进程执行到函数 sys_pause 时，核心栈栈顶位于物理内存何处？(0x1f9f0)
+4.执行到函数 task1 时，1 号进程的用户栈栈顶位于物理内存何处？(0xffd73c)
+5.1 号进程执行到函数 sys_pause 时，核心栈栈顶位于物理内存何处？(0xffffd0)
+</code></pre>
+<h1 id="实训4-3：段页式内存管理"><a href="#实训4-3：段页式内存管理" class="headerlink" title="实训4.3：段页式内存管理"></a>实训4.3：段页式内存管理</h1><h2 id="第一关：进程创建前后页目录和页表的变化"><a href="#第一关：进程创建前后页目录和页表的变化" class="headerlink" title="第一关：进程创建前后页目录和页表的变化"></a>第一关：进程创建前后页目录和页表的变化</h2><h3 id="实验方法-6"><a href="#实验方法-6" class="headerlink" title="实验方法"></a>实验方法</h3><blockquote>
+<p>作者：富平理查德</p>
+<p>不是RedLeaves自己做的~<img src="https://tb2.bdstatic.com/tb/editor/images/face/i_f25.png?t=20140803">)，讲解以后再补</p>
+</blockquote>
+<pre><code class="sh">./rundbg
+b 0x6908 # (gdb操作中可知)
+c
+info tab
+next
+next
+b 0x690a
+c
+info tab
+x/35wx 0
+</code></pre>
+<h3 id="本关答案-4"><a href="#本关答案-4" class="headerlink" title="本关答案"></a>本关答案</h3><pre><code class="sh">在 0 号进程执行 fork 系统调用之前，线性地址空间到物理地址空间的映射关系是怎样的？
+1.(0x00000000-0x00ffffff-&gt;0x00000000-0x00ffffff)
+在 0 号进程刚执行完 fork 系统调用时，线性地址空间到物理地址空间的映射关系是怎样的？
+2.(0x00000000-0x00ffffff-&gt;0x00000000-0x00ffffff)(0x04000000-0x0409ffff-&gt;0x00000000-0x0009ffff)
+在 0 号进程执行 fork 系统调用前后，页目录发生了怎样的变化？
+3.页目录项(0x0000000c)的值由原来的(0x00004007)变为了(0x00004027)
+4.页目录项(0x00000040)的值由原来的(0x00000000)变为了(0x00ffe007)
+</code></pre>
+<h2 id="第二关：1-号进程对-mynext-变量的第一次修改"><a href="#第二关：1-号进程对-mynext-变量的第一次修改" class="headerlink" title="第二关：1 号进程对 mynext 变量的第一次修改"></a>第二关：1 号进程对 mynext 变量的第一次修改</h2><blockquote>
+<p>作者：富平理查德</p>
+<p>不是RedLeaves自己做的~<img src="https://tb2.bdstatic.com/tb/editor/images/face/i_f25.png?t=20140803">，但是做了一些完善，讲解以后再补</p>
+</blockquote>
+<h3 id="实验方法-7"><a href="#实验方法-7" class="headerlink" title="实验方法"></a>实验方法</h3><pre><code class="sh"># 这次的1.3怎么放在exp2里了。。。
+cp /data/workspace/myshixun/exp2/1.3.tgz ~/os/
+cd ~/os/linux-0.11-lab
+tar -zxvf ../1.3.tgz
+rm -rf cur
+ln -s 1.3 cur
+cd cur/linux
+make
+cd ../..
+./rungdb
+</code></pre>
+<pre><code class="sh">./rundbg
+b 0x6980 # 注意：这里是评分点，必须亲自用GDB下断点再disas查一下
+c
+x/wx 0x17:0x2282c
+x/17wx 0
+x/35wx 0xffe000
+s
+creg
+u/35
+b 0xb1d6
+c
+creg
+x/35wx 0xffe000
+s
+xp/wx 0x2282c
+s
+xp/wx 0xffc82c
+</code></pre>
+<h3 id="本关答案-5"><a href="#本关答案-5" class="headerlink" title="本关答案"></a>本关答案</h3><pre><code class="sh">1.1 号进程修改 mynext 变量的指令地址是多少？(0x6988)
+2.1 号进程的 mynext 变量的线性地址是多少？(0x402282c)
+3.在 1 号进程第一次修改 mynext 变量之前，上述线性地址对应的页表项的值是多少？(0x22065)该线性地址被映射到的物理地址（旧物理地址）是多少？(0x2282c)
+4.在 1 号进程第一次修改 mynext 变量时，会引发页故障，在页故障处理程序刚开始执行时，CR2 寄存器的值是多少？(0x402282c)
+5.在此页故障处理完回到恢复点时，恢复点的地址是什么？(0xb1d6)此时上述线性地址对应的页表项的值是多少？(0x00ffc007)该线性地址被映射到的物理地址（新物理地址）是多少？(0x00ffc82c)
+6.在恢复点指令执行后，上述新物理地址处的值是多少？(0x00000002)上述旧物理地址处的值是多少？(0x00000001)
+</code></pre>
+<h2 id="第三关-第一次页故障"><a href="#第三关-第一次页故障" class="headerlink" title="第三关 第一次页故障"></a>第三关 第一次页故障</h2><h3 id="实验方法-8"><a href="#实验方法-8" class="headerlink" title="实验方法"></a>实验方法</h3><pre><code class="sh"># 打开GDB，查询page_fault地址为0xb124
+./rundbg
+b 0xb124
+c
+x/wx 0x1fa20
+creg
+x/17wx 0
+x/38wx 0xffe000
+b 0x690a
+c
+x/17wx 0
+x/38wx 0xffe000
+
+# 在已经开启的GDB中输入
+b main.c:145
+c
+n
+si
+disas
+b *0x69008
+</code></pre>
+<h3 id="本关答案-6"><a href="#本关答案-6" class="headerlink" title="本关答案"></a>本关答案</h3><pre><code class="sh">系统的第一次页故障发生时：
+1.当时正在执行几号进程？(1)正在访问的线性地址是多少？(0x0402574c)
+2.该线性地址当时对应的页表项是什么？(0x00025065)被映射到的物理地址是什么？(0x0002574c)
+3.该页故障处理完后，该线性地址对应的页表项是什么？(0x00ffd007)被映射到的物理地址是什么？(0x00ffd74c)
+4.引发这次页故障的指令地址是什么？(0x690a)
+5. main 函数中的 fork 系统调用的陷入指令的地址是多少？(0x6908)
+</code></pre>
+<h2 id="第四关：父子进程间的共享内存通信实现"><a href="#第四关：父子进程间的共享内存通信实现" class="headerlink" title="第四关：父子进程间的共享内存通信实现"></a>第四关：父子进程间的共享内存通信实现</h2><h3 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h3><p>现在还没弄懂<img src="https://tb2.bdstatic.com/tb/editor/images/face/i_f35.png?t=20140803"></p>
+<h3 id="实验方法-9"><a href="#实验方法-9" class="headerlink" title="实验方法"></a>实验方法</h3><p>修改memory.c的for循环</p>
+<pre><code class="c">for ( ; nr-- &gt; 0 ; from_page_table++,to_page_table++) &#123;
+    this_page = *from_page_table;
+    if (!(1 &amp; this_page))
+        continue;
+    if (to_page_table == 0xffe088) this_page |= 2;
+    else this_page &amp;= ~2;
+    *to_page_table = this_page;
+    if (this_page &gt; LOW_MEM) &#123;
+        *from_page_table = this_page;
+        this_page -= LOW_MEM;
+        this_page &gt;&gt;= 12;
+        mem_map[this_page]++;
+    &#125;
+&#125;
+</code></pre>
+<p>修改main.c的如下两个片段</p>
+<p>151行左右</p>
+<pre><code class="c">if (!fork()) &#123;        /* we count on this going ok */
+    (void)mysignal(SIGALRM, SIG_IGN);
+    int flag = 0;
+
+    for(;;) &#123;
+        if (flag == 0) &#123;
+            flag = 1;
+            output_char(&#39;A&#39; + mynext);
+            mynext++;
+        &#125;
+        else &#123;
+            mynext ++;
+            mynext %= 26;
+            output_char(&#39;A&#39; + mynext);
+        &#125;
+        alarm(1);
+        pause(); 
+    &#125;
+    //  init();
+&#125;
+</code></pre>
+<p>第170行左右</p>
+<pre><code class="c">for(;;) &#123;            /* wyj */
+    output_char(&#39;a&#39; + mynext);
+    mynext++;
+    mynext %= 26;
+    pause(); 
+&#125;
+</code></pre>
+<p>别忘了<font size = 6 color = "red">编译！</font></p>
+<h1 id="实训4-4：页式虚存"><a href="#实训4-4：页式虚存" class="headerlink" title="实训4.4：页式虚存"></a>实训4.4：页式虚存</h1><h2 id="第一关：版本-0-内核的第一次缺页页故障"><a href="#第一关：版本-0-内核的第一次缺页页故障" class="headerlink" title="第一关：版本 0 内核的第一次缺页页故障"></a>第一关：版本 0 内核的第一次缺页页故障</h2><h3 id="实验方法-10"><a href="#实验方法-10" class="headerlink" title="实验方法"></a>实验方法</h3><pre><code class="sh">b do_no_page
+c
+p/x address
+p/x current-&gt;start_code
+x/32wx 0
+p 0x8000000 &gt;&gt; 22
+p (unsigned)0x8000000&lt;&lt;10&gt;&gt;22
+p/x current-&gt;start_code
+b memory.c:381
+b memory.c:387
+b memory.c:394
+c
+p/x page
+n
+p/x page
+x/4wx 0xffa000
+c
+n
+x/4wx 0xffa000
+p/x page
+c
+n
+p/x page
+p/x 0xffa000
+x/33wx 0
+x/33wx 0xff7000
+</code></pre>
+<h3 id="本关答案-7"><a href="#本关答案-7" class="headerlink" title="本关答案"></a>本关答案</h3><pre><code class="sh">1.该页故障由几号进程引发？(2)
+2.在该故障发生前，该进程执行的最后一个可执行文件是什么？(/bin/sh)该可执行文件的第2块（每块1KB）的头16字节的内容是什么？(8b 44 24 08 a3 00 f0 02 00 e8 26 01 00 00 6a 00)
+头16字节的内容按照(00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00)这种格式填写。
+3.引发该页故障的线性地址是什么？(0x8000000)该进程的代码段起始地址是多少？(0x8000000)
+4.该页故障处理前，该线性地址对应的页目录项的地址和值分别是什么？(0x80)(0)
+5.该页故障处理时，申请到的空闲页帧的起始地址是什么？(0xffa000)该页帧的头16字节的内容是什么？(00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00)
+6.该页故障处理过程中、读入硬盘数据后，上述页帧的头16字节的内容是什么？(8b 44 24 08 a3 00 f0 02 00 e8 26 01 00 00 6a 00)
+7.该页故障处理过程中、修改对应的页表项后，上述线性地址对应的页表项的值是什么？(0x00ffa007)
+</code></pre>
+<h2 id="第二关：第一次使用零页的缺页页故障"><a href="#第二关：第一次使用零页的缺页页故障" class="headerlink" title="第二关：第一次使用零页的缺页页故障"></a>第二关：第一次使用零页的缺页页故障</h2><h3 id="补充：mcopy命令"><a href="#补充：mcopy命令" class="headerlink" title="补充：mcopy命令"></a>补充：mcopy命令</h3><p>Linux mcopy命令用来复制 MSDOS 格式文件到 Linux 中，或是由 Linux 中复制 MSDOS 文件到磁片上。</p>
+<p>mcopy 可复制单一的文件到所指定的文件名称，或是复制数个文件到所指定的目录之中。来源与目的文件可为 MSDOS 或是 Linux 文件。</p>
+<p>mcopy指令是一种mtools工具指令，可以在DOS系统中复制文件或者在DOS与Linux操作系统之间进行文件复制。</p>
+<h4 id="命令语法"><a href="#命令语法" class="headerlink" title="命令语法"></a>命令语法</h4><pre><code class="sh">mcopy [-bspanvmQT] [-D clash_option] sourcefile targetfile
+mcopy [-bspanvmQT] [-D clash_option] sourcefile [ sourcefiles... ] targetdirectory
+mcopy [-tnvm] MSDOSsourcefile
+</code></pre>
+<h4 id="实例：将虚拟机中-bin-sh文件复制到”b盘“中"><a href="#实例：将虚拟机中-bin-sh文件复制到”b盘“中" class="headerlink" title="实例：将虚拟机中/bin/sh文件复制到”b盘“中"></a>实例：将虚拟机中/bin/sh文件复制到”b盘“中</h4><pre><code class="sh">mcopy /bin/sh b:
+</code></pre>
+<h4 id="注意-1"><a href="#注意-1" class="headerlink" title="注意"></a>注意</h4><p>mcopy命令在<strong>关机后</strong>才会生效，当复制的内容包括子目录和文件时，必须使用参数”-/“递归操作。</p>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a target="_blank" rel="noopener" href="https://www.gnu.org/software/mtools/manual/html_node/mcopy.html">Mtools 4.0.20: mcopy (gnu.org)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-mcopy.html">Linux mcopy命令 | 菜鸟教程 (runoob.com)</a></p>
+<h3 id="实验方法-11"><a href="#实验方法-11" class="headerlink" title="实验方法"></a>实验方法</h3><p>本次实验分为两步</p>
+<h4 id="第一步：查看sh文件的VMA"><a href="#第一步：查看sh文件的VMA" class="headerlink" title="第一步：查看sh文件的VMA"></a>第一步：查看sh文件的VMA</h4><p>将/bin/sh文件从虚拟机复制到~/os/linux-0.11-lab/b目录下</p>
+<p>使用objdump命令查看VMA</p>
+<pre><code class="sh">objdump -dlx sh | less
+</code></pre>
+<p>查看结果如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/%E5%AE%9E%E8%AE%AD4.4-L2-objdump.png" alt="objdump查看结果"></p>
+<h4 id="第二步：在GDB中调试"><a href="#第二步：在GDB中调试" class="headerlink" title="第二步：在GDB中调试"></a>第二步：在GDB中调试</h4><pre><code class="sh">b do_no_page
+b do_execve
+commands 2
+p curent-&gt;start_code + filename
+end
+c
+c
+b memory.c:376
+c
+c
+c
+c
+c
+c
+p/x address
+x/33wx 0
+x/51wx 0xff7000
+n
+x/33wx 0
+x/51wx 0xff7000
+x/4wx 0xff2000
+</code></pre>
+<h3 id="本关答案-8"><a href="#本关答案-8" class="headerlink" title="本关答案"></a>本关答案</h3><pre><code class="sh">1.该页故障由几号进程引发？(2)
+2.在该故障发生前，该进程执行的最后一个可执行文件是什么？(/bin/sh)该可执行文件的未初始化数据段（BSS）的起始虚拟地址（VMA）是什么？(0x32000)
+3.引发该页故障的线性地址是什么？(0x8032000)
+4.该页故障处理前，该线性地址对应的页表项的地址和值分别是什么？(0xff70c8)(0)
+5.该页故障处理后，上述线性地址对应的页表项的值是什么？(0x00ff2007)该线性地址被映射到的零页（新页帧）的起始地址是什么？(0xff2000)
+6.该新页帧的头 16 个字节是什么？(00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00)
+头 16 个字节按照(00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00)
+</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 Algorithm_sort@163.com </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2020-2021 nameETC
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
