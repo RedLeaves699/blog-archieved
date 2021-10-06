@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>C语言指针技巧 | Set sail!</title>
-  <meta name="keywords" content=" C语言 , 指针 , 高级 , 技巧 ">
-  <meta name="description" content="C语言指针技巧 | Set sail!">
+  <title>C语言软硬件接口相关知识 | Set sail!</title>
+  <meta name="keywords" content=" c语言 , 汇编 , 中间层 ">
+  <meta name="description" content="C语言软硬件接口相关知识 | Set sail!">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="about">
@@ -654,9 +654,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-C语言指针" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-C语言软硬件接口层知识" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">C语言指针技巧</h1>
+        <h1 class="article-title">C语言软硬件接口相关知识</h1>
     
     <div class="article-meta">
         
@@ -674,20 +674,18 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color4">C语言</a>
+            <a class="color4">c语言</a>
             
-            <a class="color3">指针</a>
+            <a class="color3">汇编</a>
             
-            <a class="color3">高级</a>
-            
-            <a class="color3">技巧</a>
+            <a class="color4">中间层</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-09-12 23:58:08'>2021-09-12 13:49</time>
+            发布时间 : <time class="date" title='最后更新: 2021-10-03 09:28:37'>2021-10-03 09:15</time>
         
     </div>
     <div class="article-meta">
@@ -709,7 +707,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0%EF%BC%9A"><span class="toc-text">问题描述：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%84%E6%80%9D%E8%B7%AF"><span class="toc-text">常规思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E7%BA%A7%E6%8C%87%E9%92%88%E5%B7%A7%E5%A6%99%E5%AE%9E%E7%8E%B0"><span class="toc-text">二级指针巧妙实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-text">原理</span></a></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -725,63 +723,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h1><p>传入一个单向链表，如何删除其中的某个节点？</p>
-<p><a target="_blank" rel="noopener" href="http://wordaligned.org/articles/two-star-programming">问题来源与英文解答</a></p>
-<h2 id="常规思路"><a href="#常规思路" class="headerlink" title="常规思路"></a>常规思路</h2><p>我肯定会这么写：维护两个结点指针prev，curr，删除节点时，判断curr是否是链表头。删除节点时，需要将prev-&gt;next指向curr-&gt;next。</p>
-<pre><code class="c">typedef struct node
-&#123;
-    struct node * next;
-    ....
-&#125; node;
-
-typedef bool (* remove_fn)(node const * v);
-
-// Remove all nodes from the supplied list for which the 
-// supplied remove function returns true.
-// Returns the new head of the list.
-node * remove_if(node * head, remove_fn rm)
-&#123;
-    for (node * prev = NULL, * curr = head; curr != NULL; )
-    &#123;
-        node * const next = curr-&gt;next;
-        if (rm(curr))
-        &#123;
-            if (prev)
-                prev-&gt;next = next;
-            else
-                head = next;
-            free(curr);
-        &#125;
-        else
-            prev = curr;
-        curr = next;
-    &#125;
-    return head;
-&#125;
-</code></pre>
-<h2 id="二级指针巧妙实现"><a href="#二级指针巧妙实现" class="headerlink" title="二级指针巧妙实现"></a>二级指针巧妙实现</h2><p>但在Linus看来，这样的写法，表示那个人还没真正懂指针的使用，Linus使用二级指针对链表进行操作</p>
-<pre><code class="c">void remove_if(node ** head, remove_fn rm)
-&#123;
-    for (node** curr = head; *curr; )
-    &#123;
-        node * entry = *curr;
-        if (rm(entry))
-        &#123;
-            *curr = entry-&gt;next;
-            free(entry);
-        &#125;
-        else
-            curr = &amp;entry-&gt;next;
-    &#125;
-&#125;
-</code></pre>
-<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>图解</p>
-<p>图一是*curr指向头指针时，执行删除entry和不删除entry后的指针状态</p>
-<p><img src="https://s3.bmp.ovh/imgs/2021/09/957be18a379e2115.png" alt="图一"></p>
-<p>图二是*curr指针指向链表中间指针时，执行删除entry和不删除entry后的指针状态，<strong>循环执行后</strong>都指一次循环执行后。</p>
-<p><strong>注意</strong>：for循环中第一条赋值语句node * entry = *curr;执行后，entry就到了下一个节点。</p>
-<p><img src="https://s3.bmp.ovh/imgs/2021/09/f3ee27b8e77e4268.png" alt="图二"></p>
-
+        
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 Algorithm_sort@163.com </span>
     </div>
