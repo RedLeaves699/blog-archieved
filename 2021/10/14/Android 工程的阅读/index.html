@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Android Studio工程的阅读（总第二篇） | Set sail!</title>
+  <meta name="keywords" content=" 软件开发 , Android , 小米便签 ">
+  <meta name="description" content="Android Studio工程的阅读（总第二篇） | Set sail!">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://example.com/about/index.html">
+<meta property="og:site_name" content="Set sail!">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-09-02T08:52:58.000Z">
+<meta property="article:modified_time" content="2021-09-02T08:52:58.487Z">
+<meta property="article:author" content="Red_Leaves">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/favicon.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Red_Leaves</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/redleaves699"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:Algorithm_sort@163.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(31)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="编程语言">
+                        
+                        编程语言
+                        <small>(6)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="操作系统">
+                        
+                        操作系统
+                        <small>(6)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="感想随笔">
+                        
+                        感想随笔
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="前端">
+                        
+                        前端
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="软件">
+                        
+                        软件
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="算法">
+                        
+                        算法
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="题解">
+                        
+                        题解
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="markdown">
+                        
+                        markdown
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="31">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="/www.cntv.cn">cntv</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>2021牛客暑期多校第二场</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>2021牛客暑期多校第一场</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>编译原理</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>博客搭建</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>操作系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>高级</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>汇编</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>计算机系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>技巧</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>模拟实训</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>前端</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>软件开发</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>生活</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>实验环境配置</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>小米便签</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>政治历史</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>指针</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>中间层</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Android</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>c语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>C语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Debian</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Educoder</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GitHub</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>LearnGitBranch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux0.11</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>markdown</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>stack</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>toposort</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Windows</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All 操作系统 "
+           href="/2021/10/17/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD5.x/"
+           data-tag="Educoder,操作系统,模拟实训"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训5.x实验">Educoder 操作系统实训5.x实验</span>
+            <span class="post-date" title="2021-10-17 23:31:19">2021/10/17</span>
+        </a>
+        
+        <a  class="All markdown "
+           href="/2021/10/17/special%20sign/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown latex的特殊符号">markdown latex的特殊符号</span>
+            <span class="post-date" title="2021-10-17 22:30:32">2021/10/17</span>
+        </a>
+        
+        <a  class="All 软件 "
+           href="/2021/10/14/Android%20%E5%B7%A5%E7%A8%8B%E7%9A%84%E9%98%85%E8%AF%BB/"
+           data-tag="软件开发,Android,小米便签"
+           data-author="" >
+            <span class="post-title" title="Android Studio工程的阅读（总第二篇）">Android Studio工程的阅读（总第二篇）</span>
+            <span class="post-date" title="2021-10-14 18:23:19">2021/10/14</span>
+        </a>
+        
+        <a  class="All 操作系统 "
+           href="/2021/10/12/Windows%20%E5%92%8C%20Linux%E7%9A%84%E4%BD%BF%E7%94%A8/"
+           data-tag="操作系统,Windows,Linux"
+           data-author="" >
+            <span class="post-title" title="Windows 和 Linux的日常使用">Windows 和 Linux的日常使用</span>
+            <span class="post-date" title="2021-10-12 16:25:15">2021/10/12</span>
+        </a>
+        
+        <a  class="All 前端 "
+           href="/2021/10/06/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AE%9E%E8%AE%AD1/"
+           data-tag="Educoder,模拟实训,编译原理"
+           data-author="" >
+            <span class="post-title" title="Educoder 编译原理实训1">Educoder 编译原理实训1</span>
+            <span class="post-date" title="2021-10-06 23:53:00">2021/10/06</span>
+        </a>
+        
+        <a  class="All 编程语言 "
+           href="/2021/10/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"
+           data-tag="c语言,汇编,中间层,计算机系统"
+           data-author="" >
+            <span class="post-title" title="C语言与计算机系统">C语言与计算机系统</span>
+            <span class="post-date" title="2021-10-03 09:15:35">2021/10/03</span>
+        </a>
+        
+        <a  class="All 操作系统 "
+           href="/2021/10/01/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD4.x/"
+           data-tag="Educoder,操作系统,模拟实训"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训4.x实验">Educoder 操作系统实训4.x实验</span>
+            <span class="post-date" title="2021-10-01 20:48:00">2021/10/01</span>
+        </a>
+        
+        <a  class="All 编程语言 "
+           href="/2021/09/29/Python%20%E8%AF%AD%E8%A8%80/"
+           data-tag="技巧,Python"
+           data-author="" >
+            <span class="post-title" title="Python 零散的知识">Python 零散的知识</span>
+            <span class="post-date" title="2021-09-29 17:29:00">2021/09/29</span>
+        </a>
+        
+        <a  class="All 软件 "
+           href="/2021/09/29/Gitignore/"
+           data-tag="Git,GitHub"
+           data-author="" >
+            <span class="post-title" title=".gitignore的使用">.gitignore的使用</span>
+            <span class="post-date" title="2021-09-29 17:06:44">2021/09/29</span>
+        </a>
+        
+        <a  class="All 软件 "
+           href="/2021/09/29/GitHub%E7%BD%91%E7%BB%9C/"
+           data-tag="Git,GitHub"
+           data-author="" >
+            <span class="post-title" title="解决使用GitHub的网络问题">解决使用GitHub的网络问题</span>
+            <span class="post-date" title="2021-09-29 16:38:56">2021/09/29</span>
+        </a>
+        
+        <a  class="All 操作系统 "
+           href="/2021/09/17/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD3.x/"
+           data-tag="Educoder,操作系统,模拟实训"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训3.x实验">Educoder 操作系统实训3.x实验</span>
+            <span class="post-date" title="2021-09-17 10:42:35">2021/09/17</span>
+        </a>
+        
+        <a  class="All 前端 "
+           href="/2021/09/14/%E5%9C%A8%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2LearnGitBranch/"
+           data-tag="前端,Git,LearnGitBranch"
+           data-author="" >
+            <span class="post-title" title="在本地部署LearnGitBranch">在本地部署LearnGitBranch</span>
+            <span class="post-date" title="2021-09-14 17:21:54">2021/09/14</span>
+        </a>
+        
+        <a  class="All 编程语言 "
+           href="/2021/09/12/C%E8%AF%AD%E8%A8%80%E6%8C%87%E9%92%88/"
+           data-tag="C语言,指针,高级,技巧"
+           data-author="" >
+            <span class="post-title" title="C语言指针技巧">C语言指针技巧</span>
+            <span class="post-date" title="2021-09-12 13:49:00">2021/09/12</span>
+        </a>
+        
+        <a  class="All 软件 "
+           href="/2021/09/11/Andorid%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"
+           data-tag="软件开发,Android"
+           data-author="" >
+            <span class="post-title" title="Android Studio的安装和小米便签的运行（总第一篇）">Android Studio的安装和小米便签的运行（总第一篇）</span>
+            <span class="post-date" title="2021-09-11 11:23:19">2021/09/11</span>
+        </a>
+        
+        <a  class="All 操作系统 "
+           href="/2021/09/09/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD2.x/"
+           data-tag="Educoder,操作系统,模拟实训"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训2.x实验">Educoder 操作系统实训2.x实验</span>
+            <span class="post-date" title="2021-09-09 09:25:45">2021/09/09</span>
+        </a>
+        
+        <a  class="All 操作系统 "
+           href="/2021/09/02/Debian%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AELinux0.11/"
+           data-tag="实验环境配置,Debian,Linux0.11"
+           data-author="" >
+            <span class="post-title" title="Debian系统配置Linux0.11">Debian系统配置Linux0.11</span>
+            <span class="post-date" title="2021-09-02 19:38:29">2021/09/02</span>
+        </a>
+        
+        <a  class="All 前端 "
+           href="/2021/09/02/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cnode.js%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"
+           data-tag="前端,博客搭建"
+           data-author="" >
+            <span class="post-title" title="使用Node.js和hexo搭建GitHub博客（以windows为例）">使用Node.js和hexo搭建GitHub博客（以windows为例）</span>
+            <span class="post-date" title="2021-09-02 17:49:00">2021/09/02</span>
+        </a>
+        
+        <a  class="All 题解 "
+           href="/2021/09/02/G%20-%20League%20of%20Legends/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="G - League of Legends">G - League of Legends</span>
+            <span class="post-date" title="2021-09-02 17:17:58">2021/09/02</span>
+        </a>
+        
+        <a  class="All 编程语言 "
+           href="/2021/08/17/C%E8%AF%AD%E8%A8%80%E7%BB%93%E6%9E%84%E4%BD%93/"
+           data-tag="c语言"
+           data-author="" >
+            <span class="post-title" title="C语言结构体">C语言结构体</span>
+            <span class="post-date" title="2021-08-17 15:49:47">2021/08/17</span>
+        </a>
+        
+        <a  class="All 编程语言 "
+           href="/2021/08/17/C%E8%AF%AD%E8%A8%80%E9%9A%8F%E6%9C%BA%E6%95%B0%E5%92%8C%E8%AE%A1%E6%97%B6/"
+           data-tag="c语言"
+           data-author="" >
+            <span class="post-title" title="C语言随机数和计时">C语言随机数和计时</span>
+            <span class="post-date" title="2021-08-17 09:15:35">2021/08/17</span>
+        </a>
+        
+        <a  class="All 编程语言 "
+           href="/2021/08/17/C%E8%AF%AD%E8%A8%80%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/"
+           data-tag="c语言"
+           data-author="" >
+            <span class="post-title" title="C语言二维数组作为函数的参数">C语言二维数组作为函数的参数</span>
+            <span class="post-date" title="2021-08-17 09:15:35">2021/08/17</span>
+        </a>
+        
+        <a  class="All 题解 "
+           href="/2021/07/26/A%20-%20Alice%20and%20Bob/"
+           data-tag="2021牛客暑期多校第一场"
+           data-author="" >
+            <span class="post-title" title="A - Alice and Bob">A - Alice and Bob</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All markdown "
+           href="/2021/07/26/image/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="在markdown中插入图片">在markdown中插入图片</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All markdown "
+           href="/2021/07/26/font/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown 字体，字号，颜色">markdown 字体，字号，颜色</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All markdown "
+           href="/2021/07/26/indent/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="关于markdown中文首行缩进的问题">关于markdown中文首行缩进的问题</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 感想随笔 "
+           href="/2021/07/26/%E7%99%BE%E5%B9%B4/"
+           data-tag="政治历史"
+           data-author="" >
+            <span class="post-title" title="百年未有之大变局">百年未有之大变局</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 算法 "
+           href="/2021/07/26/ordered%20stack/"
+           data-tag="算法,stack"
+           data-author="" >
+            <span class="post-title" title="单调栈">单调栈</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 算法 "
+           href="/2021/07/26/toposort/"
+           data-tag="算法,toposort"
+           data-author="" >
+            <span class="post-title" title="拓扑排序">拓扑排序</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 题解 "
+           href="/2021/07/26/K%20-%20Stack/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="K - Stack">K - Stack</span>
+            <span class="post-date" title="2021-07-26 09:37:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 题解 "
+           href="/2021/07/20/F%20-%20Girlfriend/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="F - Girlfriend">F - Girlfriend</span>
+            <span class="post-date" title="2021-07-20 09:53:17">2021/07/20</span>
+        </a>
+        
+        <a  class="All 感想随笔 "
+           href="/2021/07/17/2021-7-17/"
+           data-tag="生活"
+           data-author="" >
+            <span class="post-title" title="2021-07-17 关于自己读书的有趣现象">2021-07-17 关于自己读书的有趣现象</span>
+            <span class="post-date" title="2021-07-17 12:13:26">2021/07/17</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Android 工程的阅读" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Android Studio工程的阅读（总第二篇）</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="软件">软件</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color5">软件开发</a>
+            
+            <a class="color3">Android</a>
+            
+            <a class="color5">小米便签</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2021-10-17 22:25:12'>2021-10-14 18:23</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B8%BB%E5%87%BD%E6%95%B0%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F-%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81%E6%80%8E%E4%B9%88%E8%BF%90%E8%A1%8C%EF%BC%9F"><span class="toc-text">1. 主函数在哪里？ 程序代码怎么运行？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-AndroidManifest-xml%E5%BA%94%E7%94%A8%E6%B8%85%E5%8D%95%E6%96%87%E4%BB%B6%EF%BC%8C%E5%88%86%E6%9E%90%E7%9A%84%E5%BC%80%E5%A7%8B"><span class="toc-text">1.1 AndroidManifest.xml应用清单文件，分析的开始</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-xml%E7%9A%84%E6%B3%A8%E9%87%8A"><span class="toc-text">1.2 xml的注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E8%BD%AF%E4%BB%B6%E5%8C%85%E5%90%8D%E7%A7%B0%E5%92%8C%E5%BA%94%E7%94%A8-ID"><span class="toc-text">1.3 软件包名称和应用 ID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-uses-%E5%AD%97%E6%AE%B5"><span class="toc-text">1.4 uses 字段</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-1-%E6%8C%87%E5%AE%9A%E7%B3%BB%E7%BB%9F%E6%9C%80%E4%BD%8ESDK%E7%89%88%E6%9C%AC"><span class="toc-text">1.4.1 指定系统最低SDK版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-2-%E6%8C%87%E5%AE%9A%E7%94%A8%E6%88%B7%E6%8E%88%E4%BA%88%E5%BA%94%E7%94%A8%E7%9A%84%E6%9D%83%E9%99%90"><span class="toc-text">1.4.2 指定用户授予应用的权限</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-Application-%E5%AD%97%E6%AE%B5"><span class="toc-text">1.5 Application 字段</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-1-App%E7%9A%84%E5%9B%BE%E6%A0%87%E5%92%8C%E5%90%8D%E7%A7%B0%E5%9C%A8%E8%BF%99%E9%87%8C%E8%AE%BE%E8%AE%A1"><span class="toc-text">1.5.1 App的图标和名称在这里设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-2-activity%E5%AD%97%E6%AE%B5"><span class="toc-text">1.5.2 activity字段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-2-intent%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-text">1.5.2 intent过滤器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%98%E6%96%B9%E5%85%B3%E4%BA%8Eintent%E7%9A%84%E4%BB%8B%E7%BB%8D"><span class="toc-text">官方关于intent的介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-3-%E7%A8%8B%E5%BA%8F%E7%9A%84%E4%B8%BB%E5%87%BD%E6%95%B0%E5%9C%A8%E5%93%AA%E9%87%8C"><span class="toc-text">1.5.3 程序的主函数在哪里</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-5-4-meta-data%E6%A8%A1%E5%9D%97"><span class="toc-text">1.5.4 meta-data模块</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-主函数在哪里？-程序代码怎么运行？"><a href="#1-主函数在哪里？-程序代码怎么运行？" class="headerlink" title="1. 主函数在哪里？ 程序代码怎么运行？"></a>1. 主函数在哪里？ 程序代码怎么运行？</h2><h3 id="1-1-AndroidManifest-xml应用清单文件，分析的开始"><a href="#1-1-AndroidManifest-xml应用清单文件，分析的开始" class="headerlink" title="1.1 AndroidManifest.xml应用清单文件，分析的开始"></a>1.1 AndroidManifest.xml应用清单文件，分析的开始</h3><p>下面就将小米便签的AndroidManifest.xml文件做出详细的解析。</p>
+<p>这是本文的分析依据 -&gt; <a target="_blank" rel="noopener" href="https://developer.android.google.cn/guide/topics/manifest/manifest-intro?hl=zh-cn">应用清单概览  | Android 开发者  | Android Developers (google.cn)</a></p>
+<h3 id="1-2-xml的注释"><a href="#1-2-xml的注释" class="headerlink" title="1.2 xml的注释"></a>1.2 xml的注释</h3><p>第一行交代了xml版本和编码，接下来是版权信息。xml文件的注释通常以<code>&lt;!--</code>开头，以<code>--&gt;</code>结尾。 </p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; 
+&lt;!-- Copyright (c) 2010-2011, The MiCode Open Source Community (www.micode.net)
+
+     Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+     ...
+--&gt;
+</code></pre>
+<h3 id="1-3-软件包名称和应用-ID"><a href="#1-3-软件包名称和应用-ID" class="headerlink" title="1.3 软件包名称和应用 ID"></a>1.3 软件包名称和应用 ID</h3><pre><code class="xml">&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    package=&quot;net.micode.notes&quot;
+    android:versionCode=&quot;1&quot;
+    android:versionName=&quot;0.1&quot; &gt;
+    ...
+&lt;/manifest&gt;
+</code></pre>
+<p>在将应用构建为最终的应用软件包 (APK) 时，Android 构建工具会使用 <code>package</code> 属性完成两件事情：</p>
+<ul>
+<li><p>它会将此名称用作应用所生成<code>R.java</code>类（用于访问应用资源）的命名空间。</p>
+<p>在小米便签的清单中，您可以在 <code>net.micode.notes.R</code> 处创建 <code>R</code> 类。</p>
+</li>
+<li><p>它会使用此名称解析清单文件中声明的任何相关类名称。</p>
+<p>在小米便签的清单中，系统会将声明为 <code>&lt;activity android:name=&quot;.MainActivity&quot;&gt;</code> 的 Activity 解析为 <code>net.micode.notes.MainActivity</code>。</p>
+</li>
+</ul>
+<h3 id="1-4-uses-字段"><a href="#1-4-uses-字段" class="headerlink" title="1.4 uses 字段"></a>1.4 uses 字段</h3><h4 id="1-4-1-指定系统最低SDK版本"><a href="#1-4-1-指定系统最低SDK版本" class="headerlink" title="1.4.1 指定系统最低SDK版本"></a>1.4.1 指定系统最低SDK版本</h4><pre><code class="xml">&lt;uses-sdk android:minSdkVersion=&quot;14&quot; /&gt;
+</code></pre>
+<p>一个用于指定应用运行所需最低 API 级别的整数。如果系统的 API 级别低于该属性中指定的值，Android 系统将阻止用户安装应用。您应始终声明该属性。</p>
+<h4 id="1-4-2-指定用户授予应用的权限"><a href="#1-4-2-指定用户授予应用的权限" class="headerlink" title="1.4.2 指定用户授予应用的权限"></a>1.4.2 指定用户授予应用的权限</h4><p>下面的代码向用户索取相关权限。</p>
+<pre><code class="xml">&lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot; /&gt;
+&lt;uses-permission android:name=&quot;com.android.launcher.permission.INSTALL_SHORTCUT&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.READ_CONTACTS&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.MANAGE_ACCOUNTS&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.AUTHENTICATE_ACCOUNTS&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.GET_ACCOUNTS&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.USE_CREDENTIALS&quot; /&gt;
+&lt;uses-permission android:name=&quot;android.permission.RECEIVE_BOOT_COMPLETED&quot; /&gt;
+</code></pre>
+<ul>
+<li><p><code>android:name</code>权限的名称。可以是应用通过 <code>&lt;permission&gt;</code> 元素定义的权限、另一个应用定义的权限，或者一个标准系统权限（例如 <code>&quot;android.permission.CAMERA&quot;</code>  <code>&quot;android.permission.READ_CONTACTS&quot;</code>）</p>
+</li>
+<li><p><code>android:maxSdkVersion</code>此权限应授予应用的最高 API 级别。如果从某个 API 级别开始不再需要应用所需的权限，则设置此属性非常有用。</p>
+</li>
+</ul>
+<h3 id="1-5-Application-字段"><a href="#1-5-Application-字段" class="headerlink" title="1.5 Application 字段"></a>1.5 Application 字段</h3><p>下面的内容都在application字段中</p>
+<h4 id="1-5-1-App的图标和名称在这里设计"><a href="#1-5-1-App的图标和名称在这里设计" class="headerlink" title="1.5.1 App的图标和名称在这里设计"></a>1.5.1 App的图标和名称在这里设计</h4><p>下面的代码段指定了app的图标和名称</p>
+<pre><code class="xml">&lt;application
+    android:icon=&quot;@drawable/icon_app&quot;
+    android:label=&quot;@string/app_name&quot; &gt;
+    &lt;activity
+        ...
+    &lt;/activity&gt;
+    &lt;provider
+        ...
+    /&gt;
+    &lt;receiver
+        ...
+    &lt;/receiver&gt;
+    &lt;service
+        ...
+    &lt;/service&gt;
+&lt;/application&gt;
+</code></pre>
+<h4 id="1-5-2-activity字段"><a href="#1-5-2-activity字段" class="headerlink" title="1.5.2 activity字段"></a>1.5.2 activity字段</h4><p>具体见官方中文文档<a target="_blank" rel="noopener" href="https://developer.android.google.cn/guide/topics/manifest/activity-element?hl=zh-cn">Android Developers : activity</a></p>
+<pre><code class="xml">&lt;activity
+    android:name=&quot;.ui.NotesListActivity&quot;
+    android:configChanges=&quot;keyboardHidden|orientation|screenSize&quot;
+    android:label=&quot;@string/app_name&quot;
+    android:launchMode=&quot;singleTop&quot;
+    android:theme=&quot;@style/NoteTheme&quot;
+    android:uiOptions=&quot;splitActionBarWhenNarrow&quot;
+    android:windowSoftInputMode=&quot;adjustPan&quot; &gt;
+
+    &lt;intent-filter&gt;
+        ...
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre>
+<ul>
+<li><p>android:name= 必须使用 <code>name</code> 属性指定子类的名称，且其必须使用完整的软件包名称。不过，如果 <code>name</code> 值的第一个字符是句点，则应用的软件包名称（来自 <code>&lt;manifest&gt;</code> 元素的 <code>package</code> 属性）将作为此名称的前缀。</p>
+</li>
+<li><p>android:configChanges : 列出 Activity 将自行处理的配置变更。在运行时发生配置变更时，默认情况下会关闭 Activity 并将其重启，但使用该属性声明配置将阻止 Activity 重启。相反，Activity 会保持运行状态，并且系统会调用其 <code>onConfigurationChanged()</code> 方法。对本程序来说，就是设置后不必重启。</p>
+</li>
+<li><p>android:label : App的名字</p>
+</li>
+<li><p>android:launchMode : 有关应如何启动 Activity 的指令。其它详见官方中文文档。</p>
+<blockquote>
+<p>如果目标任务的顶部已存在 Activity 实例，则系统会通过调用该实例的 <code>onNewIntent()</code> 方法向其传送 Intent，而非创建新的 Activity 实例。</p>
+</blockquote>
+</li>
+<li><p>android:theme : 对定义 Activity 总体主题的样式资源的引用。显示主界面的图片</p>
+</li>
+<li><p>android:uiOptions : 针对 Activity UI 的附加选项，小米便签选择了可添加栏显示操作项的方式。</p>
+<blockquote>
+<div class="devsite-table-wrapper"><table>
+   <tbody><tr><th>值</th><th>描述</th></tr>
+   <tr><td><code>"none"</code></td><td>无附加界面选项。这是默认值。</td></tr>
+   <tr><td><code>"splitActionBarWhenNarrow"</code></td><td>当水平空间受限时（例如在手持设备上以纵向模式显示的情况），在屏幕底部添加一栏，以显示<em>应用栏</em>（也称为<em>操作栏</em>）中的操作项。系统将应用栏分成顶部导航区和底部操作项栏，而非在屏幕顶部的应用栏中显示少量操作项。这可以确保操作项以及顶部的导航和标题元素均能获得适量空间。系统不会将菜单项拆分到两个栏中，它们始终一起出现。</td></tr>
+ </tbody></table></div></blockquote>
+</li>
+<li><p>android:windowSoftInputMode : 输入时的软键盘状态</p>
+<blockquote>
+<p>Activity 的主窗口与包含屏幕软键盘的窗口之间的交互方式。该属性的设置会影响两点内容：</p>
+<ul>
+<li>当 Activity 成为用户注意的焦点时，软键盘的状态为隐藏还是可见。</li>
+<li>对 Activity 主窗口所做的调整 — 是否将其尺寸调小，为软键盘腾出空间；或当软键盘遮盖部分窗口时，是否平移其内容以使当前焦点可见。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="1-5-2-intent过滤器"><a href="#1-5-2-intent过滤器" class="headerlink" title="1.5.2 intent过滤器"></a>1.5.2 intent过滤器</h4><p>这是位于程序第47行的一个intent过滤器</p>
+<pre><code class="xml">&lt;intent-filter&gt;
+    &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
+    &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
+&lt;/intent-filter&gt;
+</code></pre>
+<blockquote>
+<h3 id="官方关于intent的介绍"><a href="#官方关于intent的介绍" class="headerlink" title="官方关于intent的介绍"></a>官方关于intent的介绍</h3><p>应用的 Activity、服务和广播接收器均由 Intent 激活。Intent 是由 <code>Intent</code> 对象定义的消息，用于描述要执行的操作，其中包括要<strong>执行操作的数据</strong>、<strong>应执行操作的组件类别</strong>以及其他相关说明。</p>
+<p>当应用向系统发布 Intent 后，<strong>系统</strong>会根据<strong>每个应用清单文件中的 Intent 过滤器</strong>来<strong>查找</strong>可处理此 Intent 的应用组件。 系统会启动匹配组件的实例，并向该组件传递 <code>Intent</code> 对象。 如果有多个应用可以处理此 Intent，则用户可选择使用哪个应用。</p>
+<p>应用组件可包含任意数量的 Intent 过滤器（通过 <code>&lt;intent-filter&gt;</code> 元素定义），每个过滤器描述该组件的不同功能。</p>
+<p>如需了解更多信息，请参阅 <a target="_blank" rel="noopener" href="https://developer.android.google.cn/guide/components/intents-filters?hl=zh-cn">Intent 和 Intent 过滤器</a>文档。</p>
+</blockquote>
+<h4 id="1-5-3-程序的主函数在哪里"><a href="#1-5-3-程序的主函数在哪里" class="headerlink" title="1.5.3 程序的主函数在哪里"></a>1.5.3 程序的主函数在哪里</h4><p>对于一个无界面Android应用，它的主函数仍然是main。</p>
+<p>小米便签是一个有界面的应用。对于一个有界面的应用来说，入口就是AndroidManifest.xml中</p>
+<p><code>&lt;intent-filter&gt;...&lt;/intent-filter&gt;</code>之间的活动(activity)，然后开始该活动(activity)。对于小米便签，它的主函数是<code>android.intent.action.MAIN</code>。</p>
+<pre><code class="xml">&lt;intent-filter&gt;
+    &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
+    &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
+&lt;/intent-filter&gt;
+</code></pre>
+<h4 id="1-5-4-meta-data模块"><a href="#1-5-4-meta-data模块" class="headerlink" title="1.5.4 meta-data模块"></a>1.5.4 meta-data模块</h4><p>以下的activity分别调用了以下的三个程序。对这三个程序的功能分析将在以后进行。</p>
+<pre><code class="xml">&lt;activity
+     android:name=&quot;.ui.NoteEditActivity&quot;
+     android:configChanges=&quot;keyboardHidden|orientation|screenSize&quot;
+     android:launchMode=&quot;singleTop&quot;
+     android:theme=&quot;@style/NoteTheme&quot; &gt;
+
+    &lt;intent-filter&gt;
+        &lt;action android:name=&quot;android.intent.action.VIEW&quot; /&gt;
+        &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;
+        &lt;data android:mimeType=&quot;vnd.android.cursor.item/text_note&quot; /&gt;
+        &lt;data android:mimeType=&quot;vnd.android.cursor.item/call_note&quot; /&gt;
+    &lt;/intent-filter&gt;
+
+    &lt;intent-filter&gt;
+        &lt;action android:name=&quot;android.intent.action.INSERT_OR_EDIT&quot; /&gt;
+        &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;
+        &lt;data android:mimeType=&quot;vnd.android.cursor.item/text_note&quot; /&gt;
+        &lt;data android:mimeType=&quot;vnd.android.cursor.item/call_note&quot; /&gt;
+    &lt;/intent-filter&gt;
+
+    &lt;intent-filter&gt;
+        &lt;action android:name=&quot;android.intent.action.SEARCH&quot; /&gt;
+        &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;
+    &lt;/intent-filter&gt;
+
+    &lt;meta-data
+          android:name=&quot;android.app.searchable&quot;
+          android:resource=&quot;@xml/searchable&quot; /&gt;
+&lt;/activity&gt;
+</code></pre>
+<p>这里比上面1.5.2的activity多了一个meta-data字段，详细介绍<a target="_blank" rel="noopener" href="https://developer.android.google.cn/guide/topics/manifest/meta-data-element?hl=zh-cn">点此</a></p>
+<p><code>&lt;meta-data&gt;</code>可以向父组件提供的其他任意数据项的名称值对。一个组件元素可以包含任意数量的 <code>&lt;meta-data&gt;</code> 子元素。所有这些子元素的值收集到一个 <code>Bundle</code> 对象，并且可作为 <code>PackageItemInfo.metaData</code> 字段提供给组件。</p>
+<p>普通值通过 <code>value</code> 属性指定。不过，要将资源 ID 指定为值，请改为使用 <code>resource</code> 属性。</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 Algorithm_sort@163.com </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2020-2021 nameETC
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
