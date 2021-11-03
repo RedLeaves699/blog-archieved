@@ -918,7 +918,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2021-11-03 21:12:33'>2021-11-03 20:49</time>
+            Created At : <time class="date" title='Updated At: 2021-11-03 23:23:36'>2021-11-03 20:49</time>
         
     </div>
     <div class="article-meta">
@@ -1038,6 +1038,13 @@ x/8bx 0x3ffc00
 6.在该函数读取了硬盘控制器的数据后，该系统缓冲区的头 8 个字节是什么？(0xeb)(0x3c)(0x90)(0x4d)(0x53)(0x44)(0x4f)(0x53)
 </code></pre>
 <h2 id="第三关：编写一个显示文件内容的程序"><a href="#第三关：编写一个显示文件内容的程序" class="headerlink" title="第三关：编写一个显示文件内容的程序"></a>第三关：编写一个显示文件内容的程序</h2><h3 id="实验方法-2"><a href="#实验方法-2" class="headerlink" title="实验方法"></a>实验方法</h3><p>编写如图所示的代码，将代码放入虚拟机中，按要求在/etc/rc中添加一行文字<code>/usr/root/a.out</code>（a.out处是可执行文件的名字），如果编译时指定了文件名，就是指定的可执行文件名。代码之外的其它操作见<a href="https://redleaves699.github.io/2021/10/07/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD4.x/#%E7%AC%AC%E4%B8%89%E5%85%B3%EF%BC%9A%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E7%9A%84%E6%89%A7%E8%A1%8C">这里</a>。</p>
+<p>修改得到的<code>/etc/rc</code>文件为</p>
+<pre><code class="sh">/etc/update &amp;
+echo &quot;/dev/hd0 /&quot; &gt; /etc/mtab
+echo &quot;Ok. &quot;
+/usr/root/a.out
+</code></pre>
+<p>mycat代码为</p>
 <pre><code class="c">#include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
 #include &lt;fcntl.h&gt;
