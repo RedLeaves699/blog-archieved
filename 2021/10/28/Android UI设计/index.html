@@ -1,0 +1,1613 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Android项目的阅读 - UI（总第二篇） | Set sail!</title>
+  <meta name="keywords" content=" 软件开发 , Android ">
+  <meta name="description" content="Android项目的阅读 - UI（总第二篇） | Set sail!">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://redleaves699.github.io/about/index.html">
+<meta property="og:site_name" content="Set sail!">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-09-02T08:52:58.000Z">
+<meta property="article:modified_time" content="2021-09-02T08:52:58.487Z">
+<meta property="article:author" content="Red_Leaves">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/favicon.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Red_Leaves</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/redleaves699"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:Algorithm_sort@163.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+    <a class="more-menus">更多菜单</a>
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(34)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="编程语言">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        编程语言
+                        <small>(8)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->基础">
+                                        
+                                        基础
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->进阶">
+                                        
+                                        进阶
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->硬件设计">
+                                        
+                                        硬件设计
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="操作系统">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        操作系统
+                        <small>(7)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="操作系统<--->平时应用">
+                                        
+                                        平时应用
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="操作系统<--->实训">
+                                        
+                                        实训
+                                        
+                                            <small>(6
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="软件">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        软件
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="软件<--->Android">
+                                        
+                                        Android
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="软件<--->Git">
+                                        
+                                        Git
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="前端">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        前端
+                        <small>(7)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="前端<--->编译器前端">
+                                        
+                                        编译器前端
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="前端<--->网页前端">
+                                        
+                                        网页前端
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="前端<--->Markdown">
+                                        
+                                        Markdown
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="算法">
+                        
+                        算法
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="题解">
+                        
+                        题解
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="感想随笔">
+                        
+                        感想随笔
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+                <a class="dynamic-menu "
+                   target="_self"
+                   
+                   href="http://redleaves699.github.io/">Red_Leaves</a>
+        
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="34">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="/www.github.com/redleaves699">My GitHub</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>2021牛客暑期多校第二场</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>2021牛客暑期多校第一场</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>编译原理</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>博客搭建</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>操作系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>高级</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>汇编</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>计算机系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>技巧</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>模拟实训</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>前端</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>软件开发</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>生活</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>实验环境配置</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>硬件描述语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>政治历史</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>指针</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>中间层</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Android</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>c语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>C语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Debian</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Educoder</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GitHub</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>LearnGitBranch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux0.11</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>markdown</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>stack</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>toposort</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Verilog</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Windows</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All 操作系统 实训 "
+           href="/2021/11/03/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD6.x/"
+           data-tag="Educoder,操作系统,模拟实训"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训6.x实验">Educoder 操作系统实训6.x实验</span>
+            <span class="post-date" title="2021-11-03 20:49:56">2021/11/03</span>
+        </a>
+        
+        <a  class="All 软件 Android "
+           href="/2021/10/28/Android%20UI%E8%AE%BE%E8%AE%A1/"
+           data-tag="软件开发,Android"
+           data-author="" >
+            <span class="post-title" title="Android项目的阅读 - UI（总第二篇）">Android项目的阅读 - UI（总第二篇）</span>
+            <span class="post-date" title="2021-10-28 23:23:19">2021/10/28</span>
+        </a>
+        
+        <a  class="All 编程语言 硬件设计 "
+           href="/2021/10/25/Verilog%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E7%94%A8%E6%93%8D%E4%BD%9C/"
+           data-tag="硬件描述语言,Verilog"
+           data-author="" >
+            <span class="post-title" title="Verilog的一些实用操作">Verilog的一些实用操作</span>
+            <span class="post-date" title="2021-10-25 19:48:45">2021/10/25</span>
+        </a>
+        
+        <a  class="All 操作系统 实训 "
+           href="/2021/10/20/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD5.x/"
+           data-tag="Educoder,操作系统,模拟实训"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训5.x实验">Educoder 操作系统实训5.x实验</span>
+            <span class="post-date" title="2021-10-20 23:35:23">2021/10/20</span>
+        </a>
+        
+        <a  class="All 前端 Markdown "
+           href="/2021/10/17/Special%20sign/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown latex的特殊符号">markdown latex的特殊符号</span>
+            <span class="post-date" title="2021-10-17 22:30:32">2021/10/17</span>
+        </a>
+        
+        <a  class="All 操作系统 平时应用 "
+           href="/2021/10/12/Windows%20%E5%92%8C%20Linux%E7%9A%84%E4%BD%BF%E7%94%A8/"
+           data-tag="操作系统,Windows,Linux"
+           data-author="" >
+            <span class="post-title" title="Windows 和 Linux的日常使用">Windows 和 Linux的日常使用</span>
+            <span class="post-date" title="2021-10-12 16:25:15">2021/10/12</span>
+        </a>
+        
+        <a  class="All 操作系统 实训 "
+           href="/2021/10/07/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD4.x/"
+           data-tag="Educoder,操作系统,模拟实训"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训4.x实验">Educoder 操作系统实训4.x实验</span>
+            <span class="post-date" title="2021-10-07 11:49:00">2021/10/07</span>
+        </a>
+        
+        <a  class="All 前端 编译器前端 "
+           href="/2021/10/06/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AE%9E%E8%AE%AD1/"
+           data-tag="Educoder,模拟实训,编译原理"
+           data-author="" >
+            <span class="post-title" title="Educoder 编译原理实训1">Educoder 编译原理实训1</span>
+            <span class="post-date" title="2021-10-06 23:53:00">2021/10/06</span>
+        </a>
+        
+        <a  class="All 编程语言 进阶 "
+           href="/2021/10/03/C%E8%AF%AD%E8%A8%80%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"
+           data-tag="C语言,汇编,中间层,计算机系统"
+           data-author="" >
+            <span class="post-title" title="计算机系统">计算机系统</span>
+            <span class="post-date" title="2021-10-03 09:15:35">2021/10/03</span>
+        </a>
+        
+        <a  class="All 编程语言 进阶 "
+           href="/2021/10/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F/"
+           data-tag="C语言,汇编,中间层,计算机系统"
+           data-author="" >
+            <span class="post-title" title="计算机系统">计算机系统</span>
+            <span class="post-date" title="2021-10-03 09:15:35">2021/10/03</span>
+        </a>
+        
+        <a  class="All 编程语言 "
+           href="/2021/09/29/Python%20%E8%AF%AD%E8%A8%80/"
+           data-tag="技巧,Python"
+           data-author="" >
+            <span class="post-title" title="Python 零散的知识">Python 零散的知识</span>
+            <span class="post-date" title="2021-09-29 17:29:00">2021/09/29</span>
+        </a>
+        
+        <a  class="All 软件 Git "
+           href="/2021/09/29/Gitignore/"
+           data-tag="Git,GitHub"
+           data-author="" >
+            <span class="post-title" title=".gitignore的使用">.gitignore的使用</span>
+            <span class="post-date" title="2021-09-29 17:06:44">2021/09/29</span>
+        </a>
+        
+        <a  class="All 软件 Git "
+           href="/2021/09/29/GitHub%20resource/"
+           data-tag="Git,GitHub"
+           data-author="" >
+            <span class="post-title" title="解决GitHub资源访问问题">解决GitHub资源访问问题</span>
+            <span class="post-date" title="2021-09-29 16:38:56">2021/09/29</span>
+        </a>
+        
+        <a  class="All 操作系统 实训 "
+           href="/2021/09/17/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD3.x/"
+           data-tag="Educoder,操作系统,模拟实训"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训3.x实验">Educoder 操作系统实训3.x实验</span>
+            <span class="post-date" title="2021-09-17 10:42:35">2021/09/17</span>
+        </a>
+        
+        <a  class="All 前端 网页前端 "
+           href="/2021/09/14/%E5%9C%A8%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2LearnGitBranch/"
+           data-tag="前端,Git,LearnGitBranch"
+           data-author="" >
+            <span class="post-title" title="在本地部署LearnGitBranch">在本地部署LearnGitBranch</span>
+            <span class="post-date" title="2021-09-14 17:21:54">2021/09/14</span>
+        </a>
+        
+        <a  class="All 编程语言 进阶 "
+           href="/2021/09/12/C%E8%AF%AD%E8%A8%80%E6%8C%87%E9%92%88/"
+           data-tag="C语言,指针,高级,技巧"
+           data-author="" >
+            <span class="post-title" title="C语言指针技巧">C语言指针技巧</span>
+            <span class="post-date" title="2021-09-12 13:49:00">2021/09/12</span>
+        </a>
+        
+        <a  class="All 软件 Android "
+           href="/2021/09/11/Andorid%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"
+           data-tag="软件开发,Android"
+           data-author="" >
+            <span class="post-title" title="Android项目的阅读 - 让项目运行起来（总第一篇）">Android项目的阅读 - 让项目运行起来（总第一篇）</span>
+            <span class="post-date" title="2021-09-11 11:23:19">2021/09/11</span>
+        </a>
+        
+        <a  class="All 操作系统 实训 "
+           href="/2021/09/09/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD2.x/"
+           data-tag="Educoder,操作系统,模拟实训"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训2.x实验">Educoder 操作系统实训2.x实验</span>
+            <span class="post-date" title="2021-09-09 09:25:45">2021/09/09</span>
+        </a>
+        
+        <a  class="All 操作系统 实训 "
+           href="/2021/09/02/Debian%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AELinux0.11/"
+           data-tag="实验环境配置,Debian,Linux0.11"
+           data-author="" >
+            <span class="post-title" title="Debian系统配置Linux0.11">Debian系统配置Linux0.11</span>
+            <span class="post-date" title="2021-09-02 19:38:29">2021/09/02</span>
+        </a>
+        
+        <a  class="All 前端 网页前端 "
+           href="/2021/09/02/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cnode.js%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"
+           data-tag="前端,博客搭建"
+           data-author="" >
+            <span class="post-title" title="使用Node.js和hexo搭建GitHub博客（以windows为例）">使用Node.js和hexo搭建GitHub博客（以windows为例）</span>
+            <span class="post-date" title="2021-09-02 17:49:00">2021/09/02</span>
+        </a>
+        
+        <a  class="All 题解 "
+           href="/2021/09/02/G%20-%20League%20of%20Legends/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="G - League of Legends">G - League of Legends</span>
+            <span class="post-date" title="2021-09-02 17:17:58">2021/09/02</span>
+        </a>
+        
+        <a  class="All 编程语言 基础 "
+           href="/2021/08/17/C%E8%AF%AD%E8%A8%80%E7%BB%93%E6%9E%84%E4%BD%93/"
+           data-tag="c语言"
+           data-author="" >
+            <span class="post-title" title="C语言结构体">C语言结构体</span>
+            <span class="post-date" title="2021-08-17 15:49:47">2021/08/17</span>
+        </a>
+        
+        <a  class="All 编程语言 基础 "
+           href="/2021/08/17/C%E8%AF%AD%E8%A8%80%E9%9A%8F%E6%9C%BA%E6%95%B0%E5%92%8C%E8%AE%A1%E6%97%B6/"
+           data-tag="c语言"
+           data-author="" >
+            <span class="post-title" title="C语言随机数和计时">C语言随机数和计时</span>
+            <span class="post-date" title="2021-08-17 09:15:35">2021/08/17</span>
+        </a>
+        
+        <a  class="All 编程语言 基础 "
+           href="/2021/08/17/C%E8%AF%AD%E8%A8%80%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84/"
+           data-tag="c语言"
+           data-author="" >
+            <span class="post-title" title="C语言二维数组作为函数的参数">C语言二维数组作为函数的参数</span>
+            <span class="post-date" title="2021-08-17 09:15:35">2021/08/17</span>
+        </a>
+        
+        <a  class="All 题解 "
+           href="/2021/07/26/A%20-%20Alice%20and%20Bob/"
+           data-tag="2021牛客暑期多校第一场"
+           data-author="" >
+            <span class="post-title" title="A - Alice and Bob">A - Alice and Bob</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 感想随笔 "
+           href="/2021/07/26/%E7%99%BE%E5%B9%B4/"
+           data-tag="政治历史"
+           data-author="" >
+            <span class="post-title" title="百年未有之大变局">百年未有之大变局</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 前端 Markdown "
+           href="/2021/07/26/MarkdownFont/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown 字体，字号，颜色">markdown 字体，字号，颜色</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 前端 Markdown "
+           href="/2021/07/26/MarkdownImage/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="在markdown中插入图片">在markdown中插入图片</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 前端 Markdown "
+           href="/2021/07/26/MarkdownIndent/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="关于markdown中文首行缩进的问题">关于markdown中文首行缩进的问题</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 算法 "
+           href="/2021/07/26/Monotone%20Priority%20Stack/"
+           data-tag="算法,stack"
+           data-author="" >
+            <span class="post-title" title="单调栈（Monotone Priority Stack）">单调栈（Monotone Priority Stack）</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 算法 "
+           href="/2021/07/26/Toposort/"
+           data-tag="算法,toposort"
+           data-author="" >
+            <span class="post-title" title="拓扑排序">拓扑排序</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 题解 "
+           href="/2021/07/26/K%20-%20Stack/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="K - Stack">K - Stack</span>
+            <span class="post-date" title="2021-07-26 09:37:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 题解 "
+           href="/2021/07/20/F%20-%20Girlfriend/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="F - Girlfriend">F - Girlfriend</span>
+            <span class="post-date" title="2021-07-20 09:53:17">2021/07/20</span>
+        </a>
+        
+        <a  class="All 感想随笔 "
+           href="/2021/07/17/Essay-2021-7-17/"
+           data-tag="生活"
+           data-author="" >
+            <span class="post-title" title="2021-07-17 关于自己读书的有趣现象">2021-07-17 关于自己读书的有趣现象</span>
+            <span class="post-date" title="2021-07-17 12:13:26">2021/07/17</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Android UI设计" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Android项目的阅读 - UI（总第二篇）</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="软件">软件</a> > 
+            
+            <a  data-rel="软件&lt;---&gt;Android">Android</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color5">软件开发</a>
+            
+            <a class="color3">Android</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2021-11-03 10:43:36'>2021-10-28 23:23</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-UI%E8%AE%BE%E8%AE%A1"><span class="toc-text">1. UI设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-fragment%E4%B8%8Efragment%E7%AE%A1%E7%90%86%E5%99%A8%E7%9A%84%E7%AE%80%E4%BB%8B"><span class="toc-text">1.1 fragment与fragment管理器的简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-fragment%E5%8A%9F%E8%83%BD%E6%A6%82%E8%A7%88"><span class="toc-text">1.2 fragment功能概览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-fragment%E7%9A%84%E6%89%98%E7%AE%A1%E5%8A%9F%E8%83%BD"><span class="toc-text">1.3 fragment的托管功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-1-fragment%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">1.3.1 fragment的生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-2-fragment%E6%89%98%E7%AE%A1%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-text">1.3.2 fragment托管的两种方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E5%88%9B%E5%BB%BAUI-fragment"><span class="toc-text">1.4 创建UI fragment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-fragmentManager%E7%B1%BB"><span class="toc-text">1.5 fragmentManager类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-1-fragment-%E4%BA%8B%E5%8A%A1"><span class="toc-text">1.5.1 fragment 事务</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%9AFragmentManager%E5%8F%AF%E4%BB%A5%E5%9C%A8activity%E9%94%80%E6%AF%81%E6%97%B6%E4%BF%9D%E5%AD%98fragment%E9%98%9F%E5%88%97"><span class="toc-text">注意：FragmentManager可以在activity销毁时保存fragment队列</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-2-%E9%87%8D%E6%96%B0%E5%AE%A1%E8%A7%86fragment%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">1.5.2 重新审视fragment的生命周期</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-%E4%BD%BF%E7%94%A8fragment%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E7%82%B9"><span class="toc-text">1.6 使用fragment要注意的点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-1-Less-is-more"><span class="toc-text">1.6.1 Less is more</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-2-fragment-%E4%B8%8E%E6%94%AF%E6%8C%81%E5%BA%93"><span class="toc-text">1.6.2 fragment 与支持库</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7-%E4%BD%BF%E7%94%A8RecyclerView%E6%98%BE%E7%A4%BA%E5%88%97%E8%A1%A8"><span class="toc-text">1.7 使用RecyclerView显示列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-1-%E5%85%88%E6%9E%84%E9%80%A0%E7%9B%B8%E5%BA%94%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB"><span class="toc-text">1.7.1 先构造相应的数据类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-1-Java%E7%9A%84%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8A%BD%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="toc-text">1.7.1+ Java的抽象类和抽象方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-2-RecyclerView"><span class="toc-text">1.7.2 RecyclerView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-3-ViewHolder"><span class="toc-text">1.7.3 ViewHolder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-4-Adapter"><span class="toc-text">1.7.4 Adapter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-7-5-%E4%B8%80%E4%B8%AA%E5%88%97%E8%A1%A8%E7%95%8C%E9%9D%A2%E7%9A%84%E5%88%9B%E5%BB%BA%E4%BB%A3%E7%A0%81"><span class="toc-text">1.7.5 一个列表界面的创建代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#getActivity-%E6%96%B9%E6%B3%95"><span class="toc-text">getActivity()方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-8-ListView-%E5%92%8C-GridView"><span class="toc-text">1.8 ListView 和 GridView</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-8-1-ListView"><span class="toc-text">1.8.1 ListView</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-8-2-GridView"><span class="toc-text">1.8.2 GridView</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-9-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-text">1.9 参考资料</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-UI设计"><a href="#1-UI设计" class="headerlink" title="1. UI设计"></a>1. UI设计</h1><h2 id="1-1-fragment与fragment管理器的简介"><a href="#1-1-fragment与fragment管理器的简介" class="headerlink" title="1.1 fragment与fragment管理器的简介"></a>1.1 fragment与fragment管理器的简介</h2><p>fragment是一种<strong>控制器对象</strong>，activity可以委派它完成一些任务。这些任务通常就是管理用户界面。受管理的用户界面可以是整屏或整屏的一部分。</p>
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=5,IE=9" ><![endif]-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>blog drawer</title>
+<meta charset="utf-8"/>
+</head>
+<body><div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers tags lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile host=\&quot;Electron\&quot; modified=\&quot;2021-10-28T15:37:29.706Z\&quot; agent=\&quot;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/15.4.0 Chrome/91.0.4472.164 Electron/13.5.0 Safari/537.36\&quot; etag=\&quot;H2XLTjLyDGW3-ZPlysxt\&quot; version=\&quot;15.4.0\&quot; type=\&quot;device\&quot;&gt;&lt;diagram id=\&quot;8VTii5JQyqyGZYSvtrSO\&quot; name=\&quot;第 1 页\&quot;&gt;7VdNc5swEP01e3THfBjDEWycdqY5ZDKeNr0pIINagRhZjk1+fRcQxhTbTWfcOM30BPt2Vx/v7UoA1izb3UhSpLciphzMcbwDaw6maYxNGx8VUjbIxDMbIJEs1kEdcM+eaZup0Q2L6boXqITgihV9MBJ5TiPVw4iUYtsPWwnen7UgCR0A9xHhQ/QLi1XaoK457fCPlCVpO7PheI0nI22w3sk6JbHYHkBWCNZMCqGat2w3o7wir+WlyVuc8O4XJmmuXpJQGN/uFnerkX/7vFyGN8uRM38cGZZenCrbHdMYCdCmkCoVicgJDzs0kGKTx7QadoxWF/NZiAJBA8HvVKlSq0k2SiCUqoxrL90x9bVK/zDR1sOBZ77TI9dGqY1mndXiTu5fQ2uxkRE9t+m2kIhMqDoXaO51wgKnIqNKlpgoKSeKPfVXQnSlJfu4Tgx80Xr8iTZ64CfCN3oqEuG0TJUD0fqSbFOm6H1Baha22Jh9+vWwVCq6O0/mcOs6wbJ0Veu23lf5tmsST0PpQX+0aZcny/lXChkZluVBUmU+HPq6tNr6Gw1gvrQBJldtAHPQACtJkqza71trAGt87QawB2RBOAF/Cp4NoQOBDUE4oA0JUH1u1kqKH3QmuJCI5CKvGmXFOP8FIpwlOZoREkYRDyo6GV6cvnZkLI7rLjsmRl+uS+jh2v0DyRnq4byqHpOBHstPEKIcE3BnEHrgzcE3314hu9cu5OmRQp6CH4Jv1PyNwR0e9u+2kC372oXsHtFjAcEMPH//PVLp4gMuHY+cwAXXql8MwGLCs8dzwJ1CiCdQAME71s42f/9VZJivKp53Wrz9XfpfvGPiHbvRDesy4qHZ/fjVvoPfZyv8CQ==&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
+<script type="text/javascript" src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+</body>
+</html>
+
+<p>管理用户界面的fragment又称为UI fragment。它自己也有产生于布局文件的视图，fragment的视图包含了用户可以交互的可视化UI元素。</p>
+<p>activity视图可预留供fragment视图插入的位置，如果有多个fragment要插入，activity可提供多个位置。</p>
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=5,IE=9" ><![endif]-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>blog drawer</title>
+<meta charset="utf-8"/>
+</head>
+<body><div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers tags lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile host=\&quot;Electron\&quot; modified=\&quot;2021-10-28T15:17:16.831Z\&quot; agent=\&quot;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/15.4.0 Chrome/91.0.4472.164 Electron/13.5.0 Safari/537.36\&quot; etag=\&quot;2OXMoMwM14fjRU-aTrIf\&quot; version=\&quot;15.4.0\&quot; type=\&quot;device\&quot;&gt;&lt;diagram id=\&quot;8VTii5JQyqyGZYSvtrSO\&quot; name=\&quot;第 1 页\&quot;&gt;zVZLc6MwDP41OqbDG3PECeleOtNOp7OPmwsOeJbgjHGapL9+bTAQIG232+7OnkCfJVnSJ9kGd7k9XguyK254RktwrOwI7gocx7YcT300cmoRP3JaIBcsM0oDcM+eaWdp0D3LaD1SlJyXku3GYMqriqZyhBEh+GGstuHleNcdyekMuE9JOUe/skwWLYqccMC/UJYX3c52ELUrW9Ipm0zqgmT8cAa5CbhLwbls/7bHJS118bq6tHbrF1b7wASt5O8Y7Owfd+u7zSK+eX54SK4fFsHqcWHIeCLl3iRsgpWnrgKC76uMaicWuPhQMEnvdyTVqwfFucIKuS2VZKtf444KSY8vxmn32au2oXxLpTgpFWPgeKZgpmMcy8iHof5uaLDivPbIgMRwnve+h7KoH1OZd1TJnVcp8QEhiEJIEMQ2xGgjSL7VKSYhRDEgr1kJAQVaN8KAE0jWgJeAlo2Op4wgCbQbHDb+1hCvIfEAY4h9rYMcwFGzFGpQLyFAq8ah1flp95qGA0mkf3D0MT4zJtRUMV4pueZ7Xf9P4difcGzPObatSxwHf4vj4ALHAUSq3okusyo/Cj7K8ZzRlshzq2bDviGioIkiAGz1mw5R9K3SBIqbQGMFxq/1wyyr/7JD3ODtDulPin/TIejts5JWWawvHSWlJalrlo6LNa4szdRVY4y5kAXPeUXKZECxKpY4fdPqV57fyd+VvLCuLAt1yOrYeWyk07l0SwVT+VNhwDZmvfXrzKh7loicyrcujzmDgpZEsqex/0tsGNNbztTOPfOeFY6Yt/0JoarLREqN1fmFN3U0OWT6A6Vz1CY4c9Q0R5/Pn/dL17FnDUPUpDwxebpwbkxbSY2OHDcPKVmupyxVRGk6sR4wpp4qsVnYsixr2kbQmj2Tx8aV5nynU2yS9jH4K+1rL3ndPra061oK/pMuecl1m1S80l42rCwn0GcMduiNWXHng40uzLXz/rFW4vC8alkdHqlu8gs=&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
+<script type="text/javascript" src="https://viewer.diagrams.net/js/viewer-static.min.js"></script>
+</body>
+</html>
+
+<p>根据用户需求，可联合使用fragment和activity来组装用户界面。<br>利用fragment，可轻松实现选择不同的列表项就显示对应的明细视图的操作。activity负责以一个明细fragment替换另一个明细fragment，如图7-3所示。这样，视图切换的过程中，也不用销毁activity了。</p>
+<p>除列表明细类应用外，使用UI fragment将应用的UI分解成构建块，还适用于其他类型的应用。例如，利用单个构建块，可以方便地构建分页界面、动画侧边栏界面等更多定制界面。</p>
+<p>不过，UI设计得这样灵活也是要付出代价的，即更复杂的应用、更多的部件以及大量的实现代码。</p>
+<h2 id="1-2-fragment功能概览"><a href="#1-2-fragment功能概览" class="headerlink" title="1.2 fragment功能概览"></a>1.2 fragment功能概览</h2><p>fragment<strong>不具有在屏幕上显示视图的能力</strong>。因此，只有将它的视图放在activity的视图层结构中，fragment视图才能显示在屏幕上。</p>
+<p>下图是《Android编程权威指南》的一个名为CrimeIntent的项目。</p>
+<p>下面第一张图体现了“CrimeActivity托管CrimeFragment”的关系。</p>
+<p>从图中可以看到，灰色区域是fragment类的一个实例CrimeFragment的<strong>控制范围</strong>（fragment不能靠自己直接显示界面，要在类内部使用view类），实例中调用了fragment_crime.xml资源，使得灰色区域中的那个白色的方框能够按格式显示。白色方框中有两个组件，EditText（可编辑的文字模块）和Checkbox（可选方框）。onTextChanged()是监听输入的方法，如果有EditText组件有输入，则告诉fragment现在有输入。同理，如果Checkbox组件被勾选，onCheckedChanged()负责告知fragment组件被勾选的消息。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/Android/code%20reading/BNRG-crimeintent0.11.png" alt="CrimeIntent CrimeActivity托管着CrimeFragment"></p>
+<p>第二张图体现了这些类之间的关系。箭头指向的，是一个类管理的其他类或资源。以CrimeActivity类为例，它需要管理CrimeFragment类和FrameLayout视图资源。CrimeFragment则管理3个视图资源Button（按钮），Checkbox，和EditText。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/Android/code%20reading/BNRG-crimeintent0.1.png" alt="CrimeIntent 对象之间的关系"></p>
+<blockquote>
+<p>CrimeActivity视图由FrameLayout组件组成，FrameLayout组件为CrimeFragment视图安排了显示位置。<br>CrimeFragment视图由一个LinearLayout组件及其三个子视图组成。这三个子视图包括一个EditText组件、一个Button组件和一个CheckBox组件。CrimeFragment类中有存储它们的成员变量，并设有监听器，会响应用户操作时，更新模型层数据。</p>
+</blockquote>
+<h2 id="1-3-fragment的托管功能"><a href="#1-3-fragment的托管功能" class="headerlink" title="1.3 fragment的托管功能"></a>1.3 fragment的托管功能</h2><p>为托管UI fragment，activity必须做到：</p>
+<ul>
+<li>在布局中为fragment的视图安排位置</li>
+<li>管理fragment实例的生命周期</li>
+</ul>
+<h3 id="1-3-1-fragment的生命周期"><a href="#1-3-1-fragment的生命周期" class="headerlink" title="1.3.1 fragment的生命周期"></a>1.3.1 fragment的生命周期</h3><p>下图展示了fragment的生命周期。类似于activity的生命周期，它具有停止、暂停以及运行状态，也拥有可以覆盖的<strong>生命周期方法</strong>，用来在关键节点完成一些任务。可以看到，许多方法对应着activity的生命周期方法，如onCreate(Bundle)。<br>这种对应非常重要。因为fragment代表activity工作，所以它的状态应该反映activity的状态。显然，fragment需要相对应的生命周期方法来处理activity的工作。<br>fragment生命周期与activity生命周期的一个关键区别就在于，fragment的生命周期方法由托管activity而不是操作系统调用。操作系统不关心activity用来管理视图的fragment。fragment的使用是activity内部的事情。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/Android/code%20reading/fragment_lifetime.svg" alt="activity管理的fragment的生命周期"></p>
+<h3 id="1-3-2-fragment托管的两种方式"><a href="#1-3-2-fragment托管的两种方式" class="headerlink" title="1.3.2 fragment托管的两种方式"></a>1.3.2 fragment托管的两种方式</h3><p>activity托管UI fragment有如下两种方式：</p>
+<ul>
+<li>在activity布局中添加fragment</li>
+<li>在activity代码中添加fragment</li>
+</ul>
+<p>第一种方法就是使用布局fragment，这种方式不够灵活，第二种方式比较复杂，但可以在运行时控制fragment。何时添加fragment以及随后可以完成何种具体任务由你自己定；你也可以移除fragment，或用其他fragment代替当前fragment，然后重新添加已移除的fragment。</p>
+<h2 id="1-4-创建UI-fragment"><a href="#1-4-创建UI-fragment" class="headerlink" title="1.4 创建UI fragment"></a>1.4 创建UI fragment</h2><p>创建UI fragment的步骤与创建activity的步骤相同：</p>
+<ul>
+<li>定义用户界面布局文件；</li>
+<li>创建fragment类并设置其视图为定义的布局；</li>
+<li>编写代码，组装在布局文件中实例化的组件；</li>
+</ul>
+<p>下面主要学习代码的编写，下面是一段示例代码</p>
+<pre><code class="java">public class CrimeFragment extends Fragment &#123;
+    private Crime mCrime;
+    @Override
+    public void onCreate(Bundle savedInstanceState) &#123;
+        super.onCreate(savedInstanceState);
+        mCrime = new Crime();
+    &#125;
+&#125;
+</code></pre>
+<p>以上实现代码中，有以下几点值得一说。</p>
+<ul>
+<li><p>首先，Fragment.onCreate(Bundle)是<strong>公共方法</strong>，而Activity.onCreate(Bundle)是<strong>受保护方法</strong>。Fragment.onCreate(Bundle)方法及其他<strong>Fragment生命周期方法必须是公共方法</strong>，因为托管fragment的activity要调用它们。</p>
+</li>
+<li><p>其次，类似于activity，<strong>fragment同样具有保存及获取状态的bundle</strong>。如同使用Activity.onSaveInstanceState(Bundle)方法那样，你也可以根据需要覆盖-Fragment.onSaveInstanceState(Bundle)方法。</p>
+</li>
+<li><p>另外，fragment的视图并没有在Fragment.onCreate(Bundle)方法中生成。虽然我们在该方<br>法中配置了fragment实例，但<strong>创建和配置fragment视图是另一个Fragment生命周期方法完成的</strong>：</p>
+<pre><code class="java">public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState)
+</code></pre>
+</li>
+</ul>
+<p>该方法实例化fragment视图的布局， 然后将<strong>实例化的View 返回</strong>给托管activity 。<strong>LayoutInflater</strong>及<strong>ViewGroup</strong>是<strong>实例化布局的必要参数</strong>。Bundle用来存储恢复数据，可供该方法从保存状态下重建视图。</p>
+<p>下面添加onCreateView(…)方法的实现代码，从fragment_crime.xml布局中实例化并返回视图.</p>
+<pre><code class="java">public class CrimeFragment extends Fragment &#123;
+    private Crime mCrime;
+    @Override
+    public void onCreate(Bundle savedInstanceState) &#123;
+        super.onCreate(savedInstanceState);
+        mCrime = new Crime();
+    &#125;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) &#123;
+        View v = inflater.inflate(R.layout.fragment_crime, container, false);
+        return v;
+    &#125;
+&#125;
+</code></pre>
+<p>在onCreateView(…)方法中，fragment的视图是直接通过<strong>调用LayoutInflater.inflate(…)方法</strong>并传入布局的资源ID生成的。<strong>第二个参数</strong>是视图的<strong>父视图</strong>，我们通常需要父视图来正确配置组件。<strong>第三个参数</strong>告诉布局生成器<strong>是否将生成的视图添加给父视图</strong>。这里，传入了false参数，因为我们将以代码的方式添加视图。</p>
+<p>下面是生成fragment中的EditText、CheckBox和Button组件的代码。它们也是在onCreateView(…)方法里实例化。</p>
+<pre><code class="java">public class CrimeFragment extents Fragment &#123;
+    private Crime mCrime;
+    private EditText mTitleField;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) &#123;
+        View v = inflater.inflate(R.layout.fragment_crime, container, false);
+        mTitleField = (EditText)v.findViewById(R.id.crime_title);// 这里的代码调用了view类
+        mTitleField.addTextChangedListener(new TextWatcher() &#123;
+            @Override
+            public void beforeTextChanged(
+                CharSequence s, int start, int count, int after) &#123;
+                // This space intentionally left blank
+            &#125;
+            @Override
+            public void onTextChanged(
+                CharSequence s, int start, int before, int count) &#123;
+                mCrime.setTitle(s.toString());
+            &#125;
+            @Override
+            public void afterTextChanged(Editable s) &#123;
+                // This one too
+            &#125;
+        &#125;);
+        return v;
+    &#125;
+&#125; 
+</code></pre>
+<p>对比以下调用activity的代码</p>
+<pre><code class="java">public class QuizActivity extends AppCompatActivity &#123;
+    ...
+    @Override
+    protected void onCreate(Bundle savedInstanceState) &#123;
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_quiz);
+        mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
+        int question = mQuestionBank[mCurrentIndex].getTextResId();
+        mQuestionTextView.setText(question);
+        mTrueButton = (Button) findViewById(R.id.true_button); //这里的代码没有调用view类
+        ...
+    &#125;
+&#125;
+</code></pre>
+<p>Fragment.onCreateView(…)方法中的组件引用几乎等同于Activity.onCreate(Bundle)方法的处理。唯一的区别是，你调用了fragment视图的View.findViewById(int)方法。以前使用Activity.findViewById(int)方法十分便利，能够在后台自动调用View.findViewById(int)方法，而Fragment类没有对应的便利方法，因此必须手动调用。</p>
+<p>fragment中监听器方法的设置和activity中完全一样。</p>
+<h2 id="1-5-fragmentManager类"><a href="#1-5-fragmentManager类" class="headerlink" title="1.5 fragmentManager类"></a>1.5 fragmentManager类</h2><p>FragmentManager类负责管理fragment并将它们的视图添加到activity的视图层级结构中。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/Android/code%20reading/BNRG-fragmentManager.jpg" alt="fragment 简图"></p>
+<p>FragmentManager类具体管理：</p>
+<ul>
+<li>fragment队列</li>
+<li>fragment事务回退栈</li>
+</ul>
+<p>要以代码的方式将fragment添加给activity，需要直接调用activity的FragmentManager。首先是获取FragmentManager本身。在CrimeActivity.java中，在onCreate(Bundle)方法中添加代码取得FragmentManager，如下面的代码所示。</p>
+<pre><code class="java">public class CrimeActivity extends AppCompatActivity &#123;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) &#123;
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_crime);
+        FragmentManager fm = getSupportFragmentManager();
+    &#125;
+&#125;
+</code></pre>
+<p>如果添完代码遇到错误，记得检查导入语句，看是否已导入支持库版本的FragmentManager类。</p>
+<p>因为使用了支持库及AppCompatActivity类，所以这里调用了getSupportFragmentManager()方法。如果不考虑旧版本的兼容性问题，可直接继承Activity类并调用getFragmentManager()方法。</p>
+<h3 id="1-5-1-fragment-事务"><a href="#1-5-1-fragment-事务" class="headerlink" title="1.5.1 fragment 事务"></a>1.5.1 fragment 事务</h3><p>获取FragmentManager之后，再获取一个fragment交给它管理</p>
+<pre><code class="java">public class CrimeActivity extends AppCompatActivity &#123;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) &#123;
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_crime);
+        FragmentManager fm = getSupportFragmentManager();// 创建FragmentManager
+        Fragment fragment = fm.findFragmentById(R.id.fragment_container);// 使用R.id.fragment_container的容器视图资源ID，向FragmentManager请求并获取fragment。
+        if (fragment == null) &#123;// 如果没有获取到需要的fragment，根据当前资源新建一个fragment放入FragmentManager中
+            fragment = new CrimeFragment();
+            fm.beginTransaction()// 这段代码创建并提交了一个fragment事务
+                .add(R.id.fragment_container, fragment)
+                .commit();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>fragment事务被用来添加、移除、附加、分离或替换fragment队列中的fragment。这是使用fragment动态组装和重新组装用户界面的关键。FragmentManager管理着fragment队列和事务回退栈。</p>
+<p>FragmentManager.beginTransaction()方法创建并返回FragmentTransaction实例。<br>FragmentTransaction类支持流接口（fluent interface）的链式方法调用，以此配置FragmentTransaction再返回它。因此，以上灰底代码可解读为：“创建一个新的fragment事务，执行一个fragment添加操作，然后提交该事务。”add(…)方法是整个事务的核心，它有两个参数：容器视图资源ID和新创建的CrimeFragment。</p>
+<p>容器视图资源ID你应该很熟悉了，它是定义在activity_crime.xml中的FrameLayout组件的资源ID。<br>容器视图资源ID的作用有：</p>
+<ul>
+<li>告诉FragmentManager，fragment视图应该出现在activity视图的什么位置；</li>
+<li>唯一标识FragmentManager队列中的fragment。</li>
+</ul>
+<p>如需从FragmentManager中获取CrimeFragment，使用容器视图资源ID就行了：</p>
+<pre><code class="java">Fragment fragment = fm.findFragmentById(R.id.fragment_container);
+</code></pre>
+<p>FragmentManager使用FrameLayout组件的资源ID识别CrimeFragment。如果要向activity添加多个fragment，通常就需要分别为每个fragment创建具有不同ID的不同容器。</p>
+<h4 id="注意：FragmentManager可以在activity销毁时保存fragment队列"><a href="#注意：FragmentManager可以在activity销毁时保存fragment队列" class="headerlink" title="注意：FragmentManager可以在activity销毁时保存fragment队列"></a>注意：FragmentManager可以在activity销毁时保存fragment队列</h4><p>设备旋转或回收内存时，Android系统会销毁CrimeActivity，而后重建时，会调用CrimeActivity.onCreate(Bundle)方法。activity被销毁时，它的FragmentManager会将fragment队列保存下来。这样，activity重建时，新的FragmentManager会首先获取保存的队列，然后重建fragment队列，从而恢复到原来的状态。</p>
+<h3 id="1-5-2-重新审视fragment的生命周期"><a href="#1-5-2-重新审视fragment的生命周期" class="headerlink" title="1.5.2 重新审视fragment的生命周期"></a>1.5.2 重新审视fragment的生命周期</h3><p>activity的FragmentManager负责调用队列中fragment的生命周期方法。添加fragment供FragmentManager管理时，onAttach(Context)、onCreate(Bundle)和onCreateView(…)方法会被调用。</p>
+<p>在fragment加入到fragmentManager队列后，onActivityCreated(Bundle)方法会被调用。</p>
+<p>在activity处于运行状态时，添加fragment会发生什么呢？这种情况下，FragmentManager立即驱动fragment，调用一系列必要的生命周期方法，快速跟上activity的步伐（与activity的最新状态保持同步）。例如，向处于运行状态的activity中添加fragment时，以下fragment生命周期方法会被依次调用：onAttach(Context)、onCreate(Bundle)、onCreateView(…)、onActivityCreated(Bundle)、onStart()以及onResume()。</p>
+<p>一旦追上，托管activity的FragmentManager就会边接收操作系统的调用指令，边调用其他生命周期方法，让<strong>fragment与activity的状态取得一致</strong>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/Android/code%20reading/fragment_lifetime_m.svg" alt="fragmentManager管理的fragment生命周期"></p>
+<h2 id="1-6-使用fragment要注意的点"><a href="#1-6-使用fragment要注意的点" class="headerlink" title="1.6 使用fragment要注意的点"></a>1.6 使用fragment要注意的点</h2><h3 id="1-6-1-Less-is-more"><a href="#1-6-1-Less-is-more" class="headerlink" title="1.6.1 Less is more"></a>1.6.1 Less is more</h3><p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/Android/code%20reading/BNRG-less%20is%20more.jpg" alt="Less is more!"></p>
+<h3 id="1-6-2-fragment-与支持库"><a href="#1-6-2-fragment-与支持库" class="headerlink" title="1.6.2 fragment 与支持库"></a>1.6.2 fragment 与支持库</h3><p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/Android/code%20reading/BNRG-appcompatActivity.jpg" alt="fragment和支持库"></p>
+<p>从图上可以看到，AppCompatActivity是FragmentActivity的子类。《TBNRG》这本书的第二版使用的就是FragmentActivity类。第三版换为AppCompatActivity类。</p>
+<h2 id="1-7-使用RecyclerView显示列表"><a href="#1-7-使用RecyclerView显示列表" class="headerlink" title="1.7 使用RecyclerView显示列表"></a>1.7 使用RecyclerView显示列表</h2><p>本节将使用RecyclerView显示如图所示的列表</p>
+<p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/Android/code%20reading/BNRG-crimelist-display.jpg" alt="列表"></p>
+<p>下图是CriminalIntent应用在本章的整体规划图。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/Android/code%20reading/BNRG-crimelistdesign.jpg" alt="CriminalIntent_listdesign"></p>
+<h3 id="1-7-1-先构造相应的数据类"><a href="#1-7-1-先构造相应的数据类" class="headerlink" title="1.7.1 先构造相应的数据类"></a>1.7.1 先构造相应的数据类</h3><pre><code class="java">public class CrimeLab &#123;
+    private static CrimeLab sCrimeLab;
+    private List&lt;Crime&gt; mCrimes;
+    public static CrimeLab get(Context context) &#123;
+        if (sCrimeLab == null) &#123; // Android开发的命名约定，一看到此前缀，我们就知道sCrimeLab是一个静态变量
+            sCrimeLab = new CrimeLab(context);
+        &#125;
+        return sCrimeLab;
+    &#125;
+    private CrimeLab(Context context) &#123;
+        mCrimes = new ArrayList&lt;&gt;();
+    &#125;
+    public List&lt;Crime&gt; getCrimes() &#123;
+        return mCrimes;
+    &#125;
+    public Crime getCrime(UUID id) &#123;
+        for (Crime crime : mCrimes) &#123;
+            if (crime.getId().equals(id)) &#123;
+                return crime;
+            &#125;
+        &#125;
+        return null;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="1-7-1-Java的抽象类和抽象方法"><a href="#1-7-1-Java的抽象类和抽象方法" class="headerlink" title="1.7.1+ Java的抽象类和抽象方法"></a>1.7.1+ Java的抽象类和抽象方法</h3><p>合理运用抽象类，有助于我们消除大量的重复代码。详见下面的例子：</p>
+<pre><code class="java">// 创建一个新的activity时，都要调用以下代码唯一的区别就在注释一行
+/** Called when the activity is first created. */
+public class CrimeActivity extends AppCompatActivity &#123;   
+    @Override
+    protected void onCreate(Bundle savedInstanceState) &#123;
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_fragment);
+        FragmentManager fm = getSupportFragmentManager();
+        Fragment fragment = fm.findFragmentById(R.id.fragment_container);
+        if (fragment == null) &#123;
+            fragment = new CrimeFragment(); //只有这里有区别
+            fm.beginTransaction()
+                .add(R.id.fragment_container, fragment)
+                .commit();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>如果应用中有很多activity，那么会出现大量的重复代码。</p>
+<p>所以，我们可以为这些重复的代码建立<strong>抽象类</strong>，代码中不同的部分采用<strong>抽象方法</strong>代替。抽象类如下：</p>
+<blockquote>
+<p><strong>补充：抽象类和抽象方法</strong></p>
+<p>所有的抽象方法和抽象方法所在的类都要使用abstract关键字定义，用abstract关键字定义的抽象方法所在的类称为抽象类</p>
+<p>抽象类中包含抽象方法，抽象方法不包含方法体，即抽象类中没有具体实现，所以抽象类中不能直接产生实例化对象，抽象类只能被实体类继承之后再实例化。</p>
+</blockquote>
+<pre><code class="java">public abstract class SingleFragmentActivity extends AppCompatActivity &#123; // 抽象类
+    protected abstract Fragment createFragment(); // 抽象方法
+    @Override
+    protected void onCreate(Bundle savedInstanceState) &#123;
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_fragment);
+        FragmentManager fm = getSupportFragmentManager();
+        Fragment fragment = fm.findFragmentById(R.id.fragment_container);
+        if (fragment == null) &#123;
+            fragment = createFragment();
+            fm.beginTransaction()
+                .add(R.id.fragment_container, fragment)
+                .commit();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>这样，再创建一个activity类时，就可以直接这样实现，减少了重复代码，更加简洁：</p>
+<pre><code class="java">public class CrimeActivity extends AppCompatActivity SingleFragmentActivity &#123;
+    @Override
+    protected Fragment createFragment() &#123;
+        return new CrimeFragment();
+    &#125;
+&#125;
+</code></pre>
+<h3 id="1-7-2-RecyclerView"><a href="#1-7-2-RecyclerView" class="headerlink" title="1.7.2 RecyclerView"></a>1.7.2 RecyclerView</h3><p>RecyclerView只创建刚好充满屏幕的View，而不是全部的View。用户滑动屏幕切换视图时，上一个视图会回收利用。顾名思义，RecyclerView所做的就是回收再利用，循环往复。</p>
+<p>RecyclerView的任务仅限于<strong>回收和定位</strong>屏幕上的View。</p>
+<p>列表项View能够显示数据还离不开另外两个类的支持：<strong>ViewHolder</strong>子类和<strong>Adapter</strong>子类。</p>
+<h3 id="1-7-3-ViewHolder"><a href="#1-7-3-ViewHolder" class="headerlink" title="1.7.3 ViewHolder"></a>1.7.3 ViewHolder</h3><p>ViewHolder是一个容器，顾名思义，它只做一件事：<strong>容纳View视图</strong></p>
+<pre><code class="java">// A typical ViewHolder subclass
+public class ListRow extends RecyclerView.ViewHolder &#123;
+    public ImageView mThumbnail;
+    public ListRow(View view) &#123;
+        super(view);
+        mThumbnail = (ImageView) view.findViewById(R.id.thumbnail);
+    &#125;
+&#125;
+</code></pre>
+<p>你可以创建ListRow来获取自定义的mThumbnail和RecyclerView.ViewHolder超类传入的itemView 。ViewHolder为itemView 而生： 它<strong>引用着</strong>传给super(view)的<strong>整个View视图</strong></p>
+<pre><code class="java">// The code is a typical usage of a ViewHolder
+ListRow row = new ListRow(inflater.inflate(R.layout.list_row, parent, false));
+View view = row.itemView;
+ImageView thumbnailView = row.mThumbnail;
+</code></pre>
+<h3 id="1-7-4-Adapter"><a href="#1-7-4-Adapter" class="headerlink" title="1.7.4 Adapter"></a>1.7.4 Adapter</h3><p><strong>RecyclerView自己不创建ViewHolder</strong>。这个任务实际是由Adapter来完成的。<strong>Adapter</strong>是一个控制器对象，<strong>从模型层获取数据，然后提供给RecyclerView显示</strong>，是沟通的桥梁。</p>
+<p>Adapter负责</p>
+<ul>
+<li>创建必要的ViewHolder；</li>
+<li>绑定ViewHolder至模型层数据；</li>
+</ul>
+<p>要创建Adapter，首先要定义RecyclerView.Adapter子类。然后由它封装从CrimeLab获取的crime。<br>RecyclerView需要显示视图对象时，就会去找它的Adapter。</p>
+<p>调用过程如图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/Android/code%20reading/recycle_adapter.svg" alt="recycleView &amp; adapter之间的关系"></p>
+<p>整个过程执行完毕，RecyclerView就能在屏幕上显示crime列表项了。需要注意的是，相对于onBindViewHolder(ViewHolder, int)方法，onCreateViewHolder(ViewGroup, int)方法的调用并不频繁。一旦有了够用的ViewHolder，RecyclerView就会停止调用onCreate-ViewHolder(…)方法。随后，它会回收利用旧的ViewHolder以节约时间和内存。</p>
+<h3 id="1-7-5-一个列表界面的创建代码"><a href="#1-7-5-一个列表界面的创建代码" class="headerlink" title="1.7.5 一个列表界面的创建代码"></a>1.7.5 一个列表界面的创建代码</h3><pre><code class="java">// 为CrimeListFragment配置视图
+public class CrimeListFragment extends Fragment &#123;
+    // Nothing yet
+    private RecyclerView mCrimeRecyclerView;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) &#123;
+        View view = inflater.inflate(R.layout.fragment_crime_list, container, false);
+        mCrimeRecyclerView = (RecyclerView) view
+            .findViewById(R.id.crime_recycler_view);
+        /* As soon as you create your RecyclerView, you need to give it another object called a LayoutManager. RecyclerView requires a LayoutManager to work. */
+        mCrimeRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));// RecyclerView 类不会亲自摆放屏幕上的列表项。实际上，摆放的任务被委托给了LayoutManager。
+        return view;
+    &#125;
+&#125;
+</code></pre>
+<p>注意，没有LayoutManager的支持，不仅RecyclerView无法工作，还会导致应用崩溃。所以，RecyclerView视图创建完成后，就立即转交给了LayoutManager对象。</p>
+<p>RecyclerView 类不会亲自摆放屏幕上的列表项。实际上，摆放的任务被委托给了LayoutManager。除了在屏幕上摆放列表项，LayoutManager还负责定义屏幕滚动行为。因此，没有LayoutManager，RecyclerView也就没法正常工作。</p>
+<p>除了一些Android操作系统内置版实现，LayoutManager还有很多第三方库实现版本。上一段代码使用的是LinearLayoutManager类，它支持以竖直列表的形式展示列表项。系统内置实现中还有一个GridLayoutManager类，以网格形式展示列表项。</p>
+<blockquote>
+<h4 id="getActivity-方法"><a href="#getActivity-方法" class="headerlink" title="getActivity()方法"></a>getActivity()方法</h4><ul>
+<li><code>getActivity()</code> in a <code>Fragment</code> returns the <code>Activity</code> the <code>Fragment</code> is currently associated with. (see <a target="_blank" rel="noopener" href="http://developer.android.com/reference/android/app/Fragment.html#getActivity()">http://developer.android.com/reference/android/app/Fragment.html#getActivity()</a>)</li>
+</ul>
+</blockquote>
+<p>上一段代码实现了一个RecyclerView空视图。要想显示出crime列表项，还需要完成Adapter和ViewHolder的实现。</p>
+<pre><code class="java">// 定义ViewHolder内部类
+public class CrimelistFragment extends Fragment &#123;
+    ...
+    private class CrimeHolder extends RecyclerView.ViewHolder &#123;
+        public CrimeHolder(LayoutInflater inflater, ViewGroup parent) &#123;
+            super(inflater.inflate(R.layout.list_item_crime, parent, false));
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>在CrimeHolder的构造方法里，我们首先实例化list_item_crime布局，然后传给super(…)方法，也就是ViewHolder的构造方法。基类ViewHolder因而实际引用这个视图。如果你需要，可以在ViewHolder的itemView变量里找到它。<br>定义完ViewHolder，接下来的任务是创建Adapter。</p>
+<pre><code class="java">// 创建Adapter内部类，定义必要的方法。
+public class CrimeListFragment extends Fragment &#123;
+    private RecyclerView mCrimeRecyclerView;
+    private CrimeAdapter mAdapter;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) &#123;
+        View view = inflater.inflate(R.layout.fragment_crime_list, container, false);
+        mCrimeRecyclerView = (RecyclerView) view
+            .findViewById(R.id.crime_recycler_view);
+        mCrimeRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        updateUI();
+        return view;
+    &#125;
+    // 根据数据更新显示内容
+    private void updateUI() &#123;
+        CrimeLab crimeLab = CrimeLab.get(getActivity());
+        List&lt;Crime&gt; crimes = crimeLab.getCrimes();
+        mAdapter = new CrimeAdapter(crimes);
+        mCrimeRecyclerView.setAdapter(mAdapter);
+    &#125;
+    // 把视图绑定工作放入CrimeHolder类里，implement功能为了是增加一个监听器
+    private class CrimeHolder extends RecyclerView.ViewHolder implements View.OnClickListener &#123; 
+        private TextView mTitleTextView;
+        private TextView mDateTextView;
+        private Crime mcrime;
+        public CrimeHolder(layoutinflater inflater, ViewGroup parent) &#123;
+            super(inflater.inflate(R.layout.list_item_crime, parent, false));
+            itemView.setOnClickListener(this); // 增加一个监听器
+            mTitleTextView = (TextView) itemView.findViewById(R.id.crime_title);
+            mDateTextView = (TextView) itemView.findViewById(R.id.crime_date);
+        &#125;
+        @Override
+        public void onClick(View view) &#123; // 监听器调用，响应点击事件
+            Toast.makeText(getActivity(),
+                           mCrime.getTitle() + &quot; clicked!&quot;, Toast.LENGTH_SHORT)
+                            .show();
+        &#125;
+        public void bind(Crime crime) &#123; // 每次有新的Crime要在CrimeHolder中显示时，都要调用它一次，刷新显示
+            mCrime = crime;
+            mTitleTextView.setText(mCrime.getTitle());
+            mDateTextView.setText(mCrime.getDate().toString());
+        &#125;
+    &#125;
+    private class CrimeAdapter extends RecyclerView.Adapter&lt;CrimeHolder&gt; &#123; // 定义Adapter内部类
+        private List&lt;Crime&gt; mCrimes;
+        public CrimeAdapter(List&lt;Crime&gt; crimes) &#123;
+            mCrimes = crimes;
+        &#125;
+        @Override
+        public CrimeHolder onCreateViewHolder(ViewGroup parent, int viewType) &#123;
+            LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+            return new CrimeHolder(layoutInflater, parent);
+        &#125;
+        @Override
+        public int getItemCount() &#123;
+            return mCrimes.size();
+        &#125;
+        @Override
+        public void onBindViewHolder(CrimeHolder holder, int position) &#123;
+            Crime crime = mCrimes.get(position);
+            holder.bind(crime);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>如果你一通猛滑，列表项滚动得非常流畅。这要归功于onBindViewHolder(…)方法。任何时候，只要有可能，都要确保这个方法轻巧、高效。</p>
+<h2 id="1-8-ListView-和-GridView"><a href="#1-8-ListView-和-GridView" class="headerlink" title="1.8 ListView 和 GridView"></a>1.8 ListView 和 GridView</h2><p>Android操作系统核心库包含ListView、GridView和Adapter这3个类。Android 5.0之前，创建列表项或网格项都应该优先使用这些类。<br>这些类的API与RecyclerView的API非常相似。ListView和GridView不关心具体的展示项，只负责展示项的滚动。Adapter负责创建列表项的所有视图。不过，使用ListView和GridView时，不一定非要使用ViewHolder模式（虽然可以并且应该使用）。</p>
+<p>过去传统的实现方式现已被RecyclerView的实现方式取代，因此不用再费力地调整ListView和GridView的工作行为了。</p>
+<p>ListView和GridView 是 AdapterView 的子类，它们可以填充绑定到一个适配器，它从外部源检索数据，并创建一个视图表示每个数据项。</p>
+<h3 id="1-8-1-ListView"><a href="#1-8-1-ListView" class="headerlink" title="1.8.1 ListView"></a>1.8.1 ListView</h3><p>简单的用法示例</p>
+<pre><code class="java">public class MainActivity extends Activity &#123;
+   String[] Array = &#123;&quot;A Type&quot;, &quot;B Type&quot;, &quot;C Type&quot;, &quot;Reset&quot;, &quot;Setting&quot;&#125;;
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) &#123;
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);     
+      ArrayAdapter adapter = new ArrayAdapter&lt;String&gt;(this, 
+      R.layout.activity_listview, Array);    
+      ListView listView = (ListView) findViewById(R.id.list);
+      listView.setAdapter(adapter);
+   &#125;
+&#125;
+</code></pre>
+<p>运行这段代码，就可以显示出列表视图。</p>
+<h3 id="1-8-2-GridView"><a href="#1-8-2-GridView" class="headerlink" title="1.8.2 GridView"></a>1.8.2 GridView</h3><p>与ListView大体相似。</p>
+<h2 id="1-9-参考资料"><a href="#1-9-参考资料" class="headerlink" title="1.9 参考资料"></a>1.9 参考资料</h2><ul>
+<li><p>《Android编程权威指南（第三版）》</p>
+</li>
+<li><p>《Android编程权威指南（第二版）》</p>
+</li>
+</ul>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 Algorithm_sort@163.com </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2020-2021 nameETC
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 552px;
+    }
+    .nav.fullscreen {
+        margin-left: -552px;
+    }
+    .nav-left {
+        width: 130px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 502px;
+        }
+        .nav.fullscreen {
+            margin-left: -502px;
+        }
+        .nav-left {
+            width: 110px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 502px;
+            margin-left: -502px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    
+    <a class="dynamic-menu " target="_self"   href="http://redleaves699.github.io/">Red_Leaves</a>
+    
+    
+</div>
+
+
+</html>
