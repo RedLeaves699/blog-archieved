@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Educoder 操作系统实训2.x实验 | Set sail!</title>
+  <meta name="keywords" content=" Educoder , 模拟实训 , 操作系统 ">
+  <meta name="description" content="Educoder 操作系统实训2.x实验 | Set sail!">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="用途已经观测到部分样本的分布情况，根据现有的观测结果，估计已知概率分布模型的参数值。 方法对于离散型（连续型）随机变量$X$，假设其概率质量函数为$P(x;\theta)$，概率密度函数为$p(x;\theta)$，其中$\theta$为待估计的参数值（可以有多个），现有$x_{1}, x_{2}, \dots,x_{n}$是来自$X$的$n$个独立同分布的样本，对于离散型随机变量，它们的联合概率">
+<meta property="og:type" content="article">
+<meta property="og:title" content="极大似然估计">
+<meta property="og:url" content="http://redleaves699.github.io/2022/02/13/machine%20learning/%E6%9E%81%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/index.html">
+<meta property="og:site_name" content="Set sail!">
+<meta property="og:description" content="用途已经观测到部分样本的分布情况，根据现有的观测结果，估计已知概率分布模型的参数值。 方法对于离散型（连续型）随机变量$X$，假设其概率质量函数为$P(x;\theta)$，概率密度函数为$p(x;\theta)$，其中$\theta$为待估计的参数值（可以有多个），现有$x_{1}, x_{2}, \dots,x_{n}$是来自$X$的$n$个独立同分布的样本，对于离散型随机变量，它们的联合概率">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-02-13T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-02-13T12:13:33.495Z">
+<meta property="article:author" content="Red_Leaves">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="概率论">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/favicon.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Red_Leaves</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/redleaves699"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:Algorithm_sort@163.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+    <a class="more-menus">更多菜单</a>
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(40)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="编程语言">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        编程语言
+                        <small>(7)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->基础">
+                                        
+                                        基础
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->进阶">
+                                        
+                                        进阶
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->硬件设计">
+                                        
+                                        硬件设计
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="操作系统">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        操作系统
+                        <small>(9)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="操作系统<--->平时应用">
+                                        
+                                        平时应用
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="操作系统<--->实训">
+                                        
+                                        实训
+                                        
+                                            <small>(8
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="前沿技术">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        前沿技术
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="前沿技术<--->机器学习">
+                                        
+                                        机器学习
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="软件">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        软件
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="软件<--->数据库">
+                                        
+                                        数据库
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="软件<--->Android">
+                                        
+                                        Android
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="软件<--->Git">
+                                        
+                                        Git
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="前端">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        前端
+                        <small>(9)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="前端<--->编译器前端">
+                                        
+                                        编译器前端
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="前端<--->网页前端">
+                                        
+                                        网页前端
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="前端<--->Markdown">
+                                        
+                                        Markdown
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="算法">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        算法
+                        <small>(7)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="算法<--->理论">
+                                        
+                                        理论
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="算法<--->题解">
+                                        
+                                        题解
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="感想随笔">
+                        
+                        感想随笔
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+                <a class="dynamic-menu "
+                   target="_self"
+                   
+                   href="http://redleaves699.github.io/">Red_Leaves</a>
+        
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">关于</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">友链</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="40">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="/www.github.com/redleaves699">My GitHub</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>2021牛客暑期多校第二场</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>2021牛客暑期多校第一场</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>编程语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>编译原理</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>博客搭建</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>操作系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>概率论</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>高级</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>格式化文本</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>汇编</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>机器学习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>计时</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>计算机系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>技巧</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>课程实践</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>模拟实训</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>逆向分析</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>前端</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>软件开发</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>生活</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>实验环境配置</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>实用</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数据库</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>随机数</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>网页内容</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>硬件描述语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>政治历史</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>指针</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>中间层</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Android</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>c</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>c++</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>C语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Debian</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Educoder</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GIS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GitHub</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>javascript</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>json</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>LearnGitBranch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux0.11</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>markdown</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>stack</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>toposort</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Verilog</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Windows</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 前沿技术 机器学习 "
+           href="/2022/02/13/machine%20learning/%E6%9E%81%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/"
+           data-tag="算法,数学,机器学习,概率论"
+           data-author="" >
+            <span class="post-title" title="极大似然估计">极大似然估计</span>
+            <span class="post-date" title="2022-02-13 08:00:00">2022/02/13</span>
+        </a>
+        
+        <a  class="全部文章 编程语言 基础 "
+           href="/2022/02/10/Programming%20Language/json%E8%AF%AD%E6%B3%95/"
+           data-tag="前端,javascript,json,格式化文本"
+           data-author="" >
+            <span class="post-title" title="json语法">json语法</span>
+            <span class="post-date" title="2022-02-10 21:25:47">2022/02/10</span>
+        </a>
+        
+        <a  class="全部文章 前端 编译器前端 "
+           href="/2021/12/29/Compiler/PL%E8%AF%AD%E8%A8%80%E7%9A%84%E6%89%A9%E5%B1%95/"
+           data-tag="Educoder,编译原理,模拟实训"
+           data-author="" >
+            <span class="post-title" title="Educoder 编译原理PL语言编译器的扩展（转载）">Educoder 编译原理PL语言编译器的扩展（转载）</span>
+            <span class="post-date" title="2021-12-29 23:53:00">2021/12/29</span>
+        </a>
+        
+        <a  class="全部文章 算法 理论 "
+           href="/2021/12/05/Algorithm/Space%20coordinate%20transformation/"
+           data-tag="算法,数学,GIS"
+           data-author="" >
+            <span class="post-title" title="空间坐标转换方法">空间坐标转换方法</span>
+            <span class="post-date" title="2021-12-05 20:38:47">2021/12/05</span>
+        </a>
+        
+        <a  class="全部文章 编程语言 基础 "
+           href="/2021/12/05/Programming%20Language/C,C++%E8%AF%AD%E6%B3%95/"
+           data-tag="c,c++"
+           data-author="" >
+            <span class="post-title" title="C,C++语法">C,C++语法</span>
+            <span class="post-date" title="2021-12-05 19:49:47">2021/12/05</span>
+        </a>
+        
+        <a  class="全部文章 前端 网页前端 "
+           href="/2021/11/15/Front/%E8%A7%A3%E9%99%A4csdn%E4%B8%8D%E8%83%BD%E5%A4%8D%E5%88%B6%E7%9A%84%E6%96%B9%E6%B3%95/"
+           data-tag="前端,网页内容"
+           data-author="" >
+            <span class="post-title" title="常用网页用户限制的解除">常用网页用户限制的解除</span>
+            <span class="post-date" title="2021-11-15 16:41:17">2021/11/15</span>
+        </a>
+        
+        <a  class="全部文章 操作系统 实训 "
+           href="/2021/11/11/Operation%20System/Educoder%20%E8%AF%84%E6%B5%8B%E7%A8%8B%E5%BA%8F/"
+           data-tag="Educoder,模拟实训,操作系统,逆向分析"
+           data-author="" >
+            <span class="post-title" title="Educoder 实训平台评测程序代码的获取">Educoder 实训平台评测程序代码的获取</span>
+            <span class="post-date" title="2021-11-11 23:41:15">2021/11/11</span>
+        </a>
+        
+        <a  class="全部文章 操作系统 实训 "
+           href="/2021/11/08/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD7.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训7.x实验">Educoder 操作系统实训7.x实验</span>
+            <span class="post-date" title="2021-11-08 20:49:56">2021/11/08</span>
+        </a>
+        
+        <a  class="全部文章 软件 数据库 "
+           href="/2021/11/07/SQL/PostgreSql/"
+           data-tag="数据库,课程实践"
+           data-author="" >
+            <span class="post-title" title="学习PostgreSQL">学习PostgreSQL</span>
+            <span class="post-date" title="2021-11-07 10:17:33">2021/11/07</span>
+        </a>
+        
+        <a  class="全部文章 操作系统 实训 "
+           href="/2021/11/03/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD6.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训6.x实验">Educoder 操作系统实训6.x实验</span>
+            <span class="post-date" title="2021-11-03 20:49:56">2021/11/03</span>
+        </a>
+        
+        <a  class="全部文章 软件 Git "
+           href="/2021/11/02/Git/GitHub%20resource/"
+           data-tag="Git,GitHub"
+           data-author="" >
+            <span class="post-title" title="解决GitHub资源访问问题">解决GitHub资源访问问题</span>
+            <span class="post-date" title="2021-11-02 17:10:35">2021/11/02</span>
+        </a>
+        
+        <a  class="全部文章 软件 Android "
+           href="/2021/10/28/Android/Android%20UI%E8%AE%BE%E8%AE%A1/"
+           data-tag="软件开发,Android"
+           data-author="" >
+            <span class="post-title" title="Android项目的阅读 - UI（总第二篇）">Android项目的阅读 - UI（总第二篇）</span>
+            <span class="post-date" title="2021-10-28 23:23:19">2021/10/28</span>
+        </a>
+        
+        <a  class="全部文章 编程语言 硬件设计 "
+           href="/2021/10/25/Programming%20Language/Verilog%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E7%94%A8%E6%93%8D%E4%BD%9C/"
+           data-tag="硬件描述语言,Verilog"
+           data-author="" >
+            <span class="post-title" title="Verilog的一些实用操作">Verilog的一些实用操作</span>
+            <span class="post-date" title="2021-10-25 19:48:45">2021/10/25</span>
+        </a>
+        
+        <a  class="全部文章 操作系统 实训 "
+           href="/2021/10/20/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD5.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训5.x实验">Educoder 操作系统实训5.x实验</span>
+            <span class="post-date" title="2021-10-20 23:35:23">2021/10/20</span>
+        </a>
+        
+        <a  class="全部文章 前端 Markdown "
+           href="/2021/10/17/Markdown/MarkdownSpecialSign/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown latex的特殊符号">markdown latex的特殊符号</span>
+            <span class="post-date" title="2021-10-17 22:30:32">2021/10/17</span>
+        </a>
+        
+        <a  class="全部文章 操作系统 平时应用 "
+           href="/2021/10/12/Operation%20System/Windows%20%E5%92%8C%20Linux%E7%9A%84%E4%BD%BF%E7%94%A8/"
+           data-tag="操作系统,Windows,Linux"
+           data-author="" >
+            <span class="post-title" title="Windows和Linux的日常琐事">Windows和Linux的日常琐事</span>
+            <span class="post-date" title="2021-10-12 16:25:15">2021/10/12</span>
+        </a>
+        
+        <a  class="全部文章 操作系统 实训 "
+           href="/2021/10/07/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD4.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训4.x实验">Educoder 操作系统实训4.x实验</span>
+            <span class="post-date" title="2021-10-07 11:49:00">2021/10/07</span>
+        </a>
+        
+        <a  class="全部文章 前端 编译器前端 "
+           href="/2021/10/06/Compiler/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AE%9E%E8%AE%AD1/"
+           data-tag="Educoder,编译原理,模拟实训"
+           data-author="" >
+            <span class="post-title" title="Educoder 编译原理实训1">Educoder 编译原理实训1</span>
+            <span class="post-date" title="2021-10-06 23:53:00">2021/10/06</span>
+        </a>
+        
+        <a  class="全部文章 编程语言 进阶 "
+           href="/2021/10/03/Programming%20Language/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"
+           data-tag="汇编,中间层,计算机系统"
+           data-author="" >
+            <span class="post-title" title="计算机基本概念">计算机基本概念</span>
+            <span class="post-date" title="2021-10-03 09:15:35">2021/10/03</span>
+        </a>
+        
+        <a  class="全部文章 编程语言 "
+           href="/2021/09/29/Programming%20Language/%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/"
+           data-tag="c,技巧,编程语言,python"
+           data-author="" >
+            <span class="post-title" title="程序实现方法">程序实现方法</span>
+            <span class="post-date" title="2021-09-29 17:29:00">2021/09/29</span>
+        </a>
+        
+        <a  class="全部文章 软件 Git "
+           href="/2021/09/29/Git/Gitignore/"
+           data-tag="Git,GitHub"
+           data-author="" >
+            <span class="post-title" title=".gitignore的使用">.gitignore的使用</span>
+            <span class="post-date" title="2021-09-29 16:42:35">2021/09/29</span>
+        </a>
+        
+        <a  class="全部文章 操作系统 实训 "
+           href="/2021/09/17/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD3.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训3.x实验">Educoder 操作系统实训3.x实验</span>
+            <span class="post-date" title="2021-09-17 10:42:35">2021/09/17</span>
+        </a>
+        
+        <a  class="全部文章 前端 网页前端 "
+           href="/2021/09/14/Git/%E5%9C%A8%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2LearnGitBranch/"
+           data-tag="前端,Git,LearnGitBranch"
+           data-author="" >
+            <span class="post-title" title="在本地部署LearnGitBranch">在本地部署LearnGitBranch</span>
+            <span class="post-date" title="2021-09-14 17:30:26">2021/09/14</span>
+        </a>
+        
+        <a  class="全部文章 编程语言 进阶 "
+           href="/2021/09/12/Programming%20Language/%E6%8C%87%E9%92%88%E7%9A%84%E6%B4%BB%E7%94%A8/"
+           data-tag="技巧,C语言,指针,高级"
+           data-author="" >
+            <span class="post-title" title="指针的活用">指针的活用</span>
+            <span class="post-date" title="2021-09-12 13:49:00">2021/09/12</span>
+        </a>
+        
+        <a  class="全部文章 软件 Android "
+           href="/2021/09/11/Android/Andorid%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"
+           data-tag="软件开发,Android"
+           data-author="" >
+            <span class="post-title" title="Android项目的阅读 - 让项目运行起来（总第一篇）">Android项目的阅读 - 让项目运行起来（总第一篇）</span>
+            <span class="post-date" title="2021-09-11 11:23:19">2021/09/11</span>
+        </a>
+        
+        <a  class="全部文章 操作系统 实训 "
+           href="/2021/09/09/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD2.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训2.x实验">Educoder 操作系统实训2.x实验</span>
+            <span class="post-date" title="2021-09-09 09:25:45">2021/09/09</span>
+        </a>
+        
+        <a  class="全部文章 操作系统 实训 "
+           href="/2021/09/07/Operation%20System/Debian%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AELinux0.11/"
+           data-tag="实验环境配置,Debian,Linux0.11"
+           data-author="" >
+            <span class="post-title" title="Debian系统配置Linux0.11">Debian系统配置Linux0.11</span>
+            <span class="post-date" title="2021-09-07 11:45:05">2021/09/07</span>
+        </a>
+        
+        <a  class="全部文章 前端 网页前端 "
+           href="/2021/09/02/Front/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cnode.js%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"
+           data-tag="前端,博客搭建"
+           data-author="" >
+            <span class="post-title" title="使用Node.js和hexo搭建GitHub博客（以windows为例）">使用Node.js和hexo搭建GitHub博客（以windows为例）</span>
+            <span class="post-date" title="2021-09-02 21:20:23">2021/09/02</span>
+        </a>
+        
+        <a  class="全部文章 编程语言 基础 "
+           href="/2021/08/17/Programming%20Language/%E5%90%84%E7%A7%8D%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E9%9A%8F%E6%9C%BA%E6%95%B0%E5%92%8C%E8%AE%A1%E6%97%B6/"
+           data-tag="编程语言,随机数,计时,实用"
+           data-author="" >
+            <span class="post-title" title="各种语言实现随机数和计时">各种语言实现随机数和计时</span>
+            <span class="post-date" title="2021-08-17 09:15:35">2021/08/17</span>
+        </a>
+        
+        <a  class="全部文章 感想随笔 "
+           href="/2021/07/26/%E7%99%BE%E5%B9%B4/"
+           data-tag="政治历史"
+           data-author="" >
+            <span class="post-title" title="百年未有之大变局">百年未有之大变局</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="全部文章 算法 题解 "
+           href="/2021/07/26/Algorithm/A%20-%20Alice%20and%20Bob/"
+           data-tag="2021牛客暑期多校第一场"
+           data-author="" >
+            <span class="post-title" title="A - Alice and Bob">A - Alice and Bob</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="全部文章 算法 理论 "
+           href="/2021/07/26/Algorithm/Monotone%20Priority%20Stack/"
+           data-tag="算法,stack"
+           data-author="" >
+            <span class="post-title" title="单调栈（Monotone Priority Stack）">单调栈（Monotone Priority Stack）</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="全部文章 算法 理论 "
+           href="/2021/07/26/Algorithm/Toposort/"
+           data-tag="算法,toposort"
+           data-author="" >
+            <span class="post-title" title="拓扑排序">拓扑排序</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="全部文章 前端 Markdown "
+           href="/2021/07/26/Markdown/MarkdownFont/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown 字体，字号，颜色">markdown 字体，字号，颜色</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="全部文章 前端 Markdown "
+           href="/2021/07/26/Markdown/MarkdownImage/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="在markdown中插入图片">在markdown中插入图片</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="全部文章 前端 Markdown "
+           href="/2021/07/26/Markdown/MarkdownIndent/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="关于markdown中文首行缩进的问题">关于markdown中文首行缩进的问题</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="全部文章 算法 题解 "
+           href="/2021/07/26/Algorithm/G%20-%20League%20of%20Legends/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="G - League of Legends">G - League of Legends</span>
+            <span class="post-date" title="2021-07-26 09:47:05">2021/07/26</span>
+        </a>
+        
+        <a  class="全部文章 算法 题解 "
+           href="/2021/07/26/Algorithm/K%20-%20Stack/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="K - Stack">K - Stack</span>
+            <span class="post-date" title="2021-07-26 09:37:47">2021/07/26</span>
+        </a>
+        
+        <a  class="全部文章 算法 题解 "
+           href="/2021/07/20/Algorithm/F%20-%20Girlfriend/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="F - Girlfriend">F - Girlfriend</span>
+            <span class="post-date" title="2021-07-20 09:53:17">2021/07/20</span>
+        </a>
+        
+        <a  class="全部文章 感想随笔 "
+           href="/2021/07/17/Essay-2021-7-17/"
+           data-tag="生活"
+           data-author="" >
+            <span class="post-title" title="2021-07-17 关于自己读书的有趣现象">2021-07-17 关于自己读书的有趣现象</span>
+            <span class="post-date" title="2021-07-17 12:13:26">2021/07/17</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Operation System/Educoder 操作系统实训2.x" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Educoder 操作系统实训2.x实验</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="操作系统">操作系统</a> > 
+            
+            <a  data-rel="操作系统&lt;---&gt;实训">实训</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">Educoder</a>
+            
+            <a class="color5">模拟实训</a>
+            
+            <a class="color5">操作系统</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2021-10-28 21:17:26'>2021-09-09 09:25</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E8%AE%AD2-1%EF%BC%9A%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD"><span class="toc-text">实训2.1：外部中断</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E8%AE%AD%E5%9C%B0%E5%9D%80"><span class="toc-text">实训地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%85%B3%EF%BC%9A%E6%97%B6%E9%92%9F%E4%B8%AD%E6%96%AD%E7%9A%84%E5%8F%91%E7%94%9F"><span class="toc-text">第一关：时钟中断的发生</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A-GDB%E8%AE%BE%E7%BD%AE%E6%96%AD%E7%82%B9%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-text">补充： GDB设置断点的方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%85%B3-%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%97%B6%E9%92%9F%E4%B8%AD%E6%96%AD"><span class="toc-text">第二关 第一次时钟中断</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9AGDB%E5%91%BD%E4%BB%A4"><span class="toc-text">补充：GDB命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%85%B3-%E7%AC%AC%E5%85%AD%E6%AC%A1%E6%97%B6%E9%92%9F%E4%B8%AD%E6%96%AD"><span class="toc-text">第三关 第六次时钟中断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%85%B3-%E4%BF%AE%E6%94%B9%E7%89%88%E6%9C%AC-1-%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81%EF%BC%8C%E4%BD%BF%E5%BE%97%E6%AF%8F%E6%AC%A1%E6%97%B6%E9%92%9F%E4%B8%AD%E6%96%AD%E5%8F%91%E7%94%9F%E6%97%B6%EF%BC%8C%E9%83%BD%E5%9C%A8%E5%B1%8F%E5%B9%95%E4%B8%8A%E8%BE%93%E5%87%BA%E5%AD%97%E7%AC%A6%E2%80%98t%E2%80%99%E3%80%82"><span class="toc-text">第四关 修改版本 1 内核源码，使得每次时钟中断发生时，都在屏幕上输出字符‘t’。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E5%85%B3%EF%BC%9A%E4%BF%AE%E6%94%B9%E7%89%88%E6%9C%AC-0-%E5%86%85%E6%A0%B8"><span class="toc-text">第五关：修改版本 0 内核</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E8%AE%AD2-2%EF%BC%9A%E5%BC%82%E5%B8%B8"><span class="toc-text">实训2.2：异常</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%85%B3%EF%BC%9A%E9%99%A4%E9%9B%B6%E5%BC%82%E5%B8%B8%E5%88%86%E6%9E%90"><span class="toc-text">第一关：除零异常分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%E8%AF%B4%E6%98%8E"><span class="toc-text">补充说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%85%B3-int%E6%8C%87%E4%BB%A4%E5%88%86%E6%9E%90"><span class="toc-text">第二关 int指令分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%85%B3%EF%BC%9Airet%E6%8C%87%E4%BB%A4%E5%88%86%E6%9E%90"><span class="toc-text">第三关：iret指令分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%85%B3%EF%BC%9A%E9%99%B7%E5%85%A5%E6%8C%87%E4%BB%A4%E5%88%86%E6%9E%90"><span class="toc-text">第四关：陷入指令分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A"><span class="toc-text">补充：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E8%AE%AD-2-3-%EF%BC%9A%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="toc-text">实训 2.3 ：系统调用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%85%B3%EF%BC%9A%E7%89%88%E6%9C%AC1%E5%86%85%E6%A0%B8%E6%89%A7%E8%A1%8C%E7%9A%84%E5%89%8D-3-%E4%B8%AA%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="toc-text">第一关：版本1内核执行的前 3 个系统调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%85%B3%EF%BC%9A%E5%91%BD%E4%BB%A4-ls-%E6%89%A7%E8%A1%8C%E7%9A%84%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="toc-text">第二关：命令 ls 执行的系统调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%85%B3%EF%BC%9A%E7%89%88%E6%9C%AC1%E5%86%85%E6%A0%B8%E6%89%A7%E8%A1%8C%E7%9A%84%E5%AE%8C%E6%95%B4%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E5%BA%8F%E5%88%97"><span class="toc-text">第三关：版本1内核执行的完整系统调用序列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9AGDB%E6%96%AD%E7%82%B9%E7%9A%84%E5%90%AF%E7%94%A8%E5%92%8C%E7%A6%81%E7%94%A8"><span class="toc-text">补充：GDB断点的启用和禁用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%85%B3%EF%BC%9A%E5%9C%A8%E7%89%88%E6%9C%AC1%E4%B8%AD%E8%BE%93%E5%87%BA%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E4%BF%A1%E6%81%AF"><span class="toc-text">第四关：在版本1中输出系统调用信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E5%85%B3%EF%BC%9A%E5%9C%A8%E7%89%88%E6%9C%AC0%E4%B8%AD%E8%BE%93%E5%87%BA%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E4%BF%A1%E6%81%AF"><span class="toc-text">第五关：在版本0中输出系统调用信息</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="实训2-1：外部中断"><a href="#实训2-1：外部中断" class="headerlink" title="实训2.1：外部中断"></a>实训2.1：外部中断</h1><h2 id="实训地址"><a href="#实训地址" class="headerlink" title="实训地址"></a>实训地址</h2><p><a target="_blank" rel="noopener" href="https://www.educoder.net/paths/2104">操作系统 (educoder.net)</a></p>
+<h2 id="第一关：时钟中断的发生"><a href="#第一关：时钟中断的发生" class="headerlink" title="第一关：时钟中断的发生"></a>第一关：时钟中断的发生</h2><p>方法详见左侧说明，这里直接放出答案</p>
+<pre><code class="lang-sh">#终端1
+cp /data/workspace/myshixun/exp1/1.tgz ~/os/
+cd ~/os/linux-0.11-lab
+tar -zxvf ../1.tgz
+rm -rf cur
+ln -s 1 cur
+cd cur/linux
+make
+cd ../..
+./run
+./rungdb
+#操作暂时结束
+#开启终端2
+cd ~/os/linux-0.11-lab/
+./mygdb
+display jiffies
+b do_timer
+c
+c
+c
+...
+#直到0/1填满第一行
+#操作结束
+</code></pre>
+<h3 id="补充：-GDB设置断点的方式"><a href="#补充：-GDB设置断点的方式" class="headerlink" title="补充： GDB设置断点的方式"></a>补充： GDB设置断点的方式</h3><p>​    1.普通断点</p>
+<p>当程序执行到<code>main.cpp</code>文件的第5行时触发断点</p>
+<pre><code class="lang-sh">(gdb) b src/main.cpp:5
+</code></pre>
+<ol>
+<li>条件断点</li>
+</ol>
+<p>满足一定条件触发断点</p>
+<pre><code class="lang-sh">(gdb) b src/main.cpp:5 if cnt==10
+</code></pre>
+<p>​    3.数据断点</p>
+<p>根据地址数据来进行设置断点，当该地址上的内容发生改变时就会触发断点。<br>设置数据断点有两种方式，</p>
+<p>一种是直接指出地址值</p>
+<pre><code class="lang-sh">(gdb) b *0x400522
+</code></pre>
+<p>在断点处<code>print &amp;变量名</code> 就能获取该变量的地址。<br>另一种是直接设置变量名</p>
+<pre><code class="lang-sh">(gdb) b &amp;变量名
+</code></pre>
+<ol>
+<li>函数断点</li>
+</ol>
+<p>当程序执行到某个函数模块时触发断点</p>
+<pre><code class="lang-sh">(gdb) b funcName
+</code></pre>
+<hr>
+<h2 id="第二关-第一次时钟中断"><a href="#第二关-第一次时钟中断" class="headerlink" title="第二关 第一次时钟中断"></a>第二关 第一次时钟中断</h2><h3 id="补充：GDB命令"><a href="#补充：GDB命令" class="headerlink" title="补充：GDB命令"></a>补充：GDB命令</h3><ol>
+<li><p><strong>c</strong><br>Continue的简写，继续执行被调试程序，直至下一个断点或程序结束。</p>
+</li>
+<li><p><strong>b</strong></p>
+<p>设置断点，上面已经介绍</p>
+</li>
+<li><p><strong>bt</strong></p>
+<p>backtrace的简写，列出调用栈</p>
+</li>
+<li><p><strong>s</strong></p>
+<p>相当于IDE中的<strong>step into</strong>，单步运行源代码语句</p>
+<p>这个命令必须在有源代码调试信息的情况下才可以使用（GCC编译时使用“-g”参数）</p>
+</li>
+<li><p><strong>si</strong></p>
+<p>和s指令类似，单步运行汇编指令</p>
+</li>
+<li><p><strong>n</strong></p>
+<p>相当于IDE中的<strong>step over</strong>，单步运行源代码语句</p>
+<p>其余同<strong>s</strong></p>
+</li>
+<li><p><strong>ni</strong></p>
+<p>和n指令类似，单步运行汇编指令</p>
+</li>
+</ol>
+<pre><code class="lang-sh">#终端1
+cd os/linux-0.11-lab/
+#终端2
+./rungdb
+#终端2操作结束
+./mygdb
+b do_timer
+c
+bt
+finish
+disas
+si
+si
+b *0x77dd
+c
+disas
+si
+disas
+#发现恢复点地址为0x0000796c
+</code></pre>
+<hr>
+<h2 id="第三关-第六次时钟中断"><a href="#第三关-第六次时钟中断" class="headerlink" title="第三关 第六次时钟中断"></a>第三关 第六次时钟中断</h2><p>这一关要注意，<strong>对于外部中断而言，恢复点指令是断点指令的后一条。</strong></p>
+<p><strong>loop 指令</strong>的功能是先将 ecx 寄存器减一，然后检查其值，如果其值非 0 ，则继续循环，否则中止循环，执行下一条指令。</p>
+<p>loop指令的<strong>上一条指令</strong>是谁？</p>
+<p>通过第二条info reg命令，可以观察<strong>ecx</strong>的值，为0x8440，非0，再回忆下第一条info reg，回忆<strong>ecx</strong>的值，仍为非0，得出结论，<strong>loop</strong>的上一条指令还是<strong>loop</strong>，断点指令位置仍为0x00007982</p>
+<pre><code class="lang-sh">#延续第一关的配置
+#终端一
+./rungdb
+#终端一操作结束
+#终端二
+./mygdb
+display jiffies
+b do_timer
+c
+c
+c
+c
+c
+info reg
+c
+bt
+finsh
+si
+si
+disas
+b *0x000077dd
+c
+disas
+si
+disas
+info reg
+#终端二操作结束
+#可以看到虚拟机屏幕输出结果是0100
+#可以看到异常的恢复点为0x00007982
+</code></pre>
+<hr>
+<h2 id="第四关-修改版本-1-内核源码，使得每次时钟中断发生时，都在屏幕上输出字符‘t’。"><a href="#第四关-修改版本-1-内核源码，使得每次时钟中断发生时，都在屏幕上输出字符‘t’。" class="headerlink" title="第四关 修改版本 1 内核源码，使得每次时钟中断发生时，都在屏幕上输出字符‘t’。"></a>第四关 修改版本 1 内核源码，使得每次时钟中断发生时，都在屏幕上输出字符‘t’。</h2><p>不知为何，代码的位置不对就会出问题</p>
+<pre><code class="lang-assembly">.align 4
+timer_interrupt:
+    push %ds        # save ds,es and put kernel data space
+    push %es        # into them. %fs is used by _system_call
+    push %fs
+    pushl %edx        # we save %eax,%ecx,%edx as gcc doesn&#39;t
+    pushl %ecx        # save those across function calls. %ebx
+    pushl %ebx        # is saved as we use that in ret_sys_call
+    pushl %eax
+    movl $0x10,%eax
+    mov %ax,%ds
+    mov %ax,%es
+    movl $0x17,%eax
+    mov %ax,%fs
+    incl jiffies
+    movb $116,%al       # 新加入的代码1
+    int $0x81           # 新加入的代码2
+    movb $0x20,%al        # EOI to interrupt controller #1
+    outb %al,$0x20      # 新加入的代码在这句后面就过不去
+    movl CS(%esp),%eax
+    andl $3,%eax        # %eax is CPL (0 or 3, 0=supervisor)
+    pushl %eax
+    call do_timer        # &#39;do_timer(long CPL)&#39; does everything from
+    addl $4,%esp        # task switching to accounting ...
+    jmp ret_from_sys_call
+</code></pre>
+<hr>
+<h2 id="第五关：修改版本-0-内核"><a href="#第五关：修改版本-0-内核" class="headerlink" title="第五关：修改版本 0 内核"></a>第五关：修改版本 0 内核</h2><p><strong>目标</strong> ：修改<strong>版本 0 内核</strong>，使得每发生 100 次时钟中断，就在屏幕上输出一个字符‘t’和当时的进程号，如“t(0)”表示0号进程运行时发生了时钟中断。</p>
+<p>这里实训做的很烂。。。</p>
+<p>这个实训的难度就在于猜猜要改哪里。我尝试了改主函数，不行。。。改init函数，不行。pid放在代码的哪里，我也不知道。后来我看了前几关调试时命令行有一个变量叫<strong>current-&gt;state</strong>，估计这个是程序当前的pid了，make + ./run一试，还成功了。在vscode的搜索中，我搜索了一下<strong>pause</strong>相关的内容，在某个位置，出现了<strong>sys_pause</strong>这个函数，ctrl + 左键点进去，发现这个好像就是系统中断。于是在原代码基础上尝试添加以下代码。</p>
+<pre><code class="lang-c">int sys_pause(void)
+&#123;
+    current-&gt;state = TASK_INTERRUPTIBLE;
+    schedule();
+
+    //add following code
+    if (jiffies % 100 == 0) &#123;
+            printk(&quot;t(%d)\n&quot;, current-&gt;pid);
+    &#125;
+    //end
+
+    return 0;
+&#125;
+</code></pre>
+<p>然后make + ./run再再再…试，内核成功运行了，至此第五关通过。</p>
+<p><strong>注意的问题</strong>：cur在前四关中都是指向1的，这关要将其指向0。至于为什么，打开config/0.11.bxrc看看。不改bochs就会报找不到硬盘的错误。</p>
+<pre><code class="lang-sh">rm -rf cur
+ln -s 0 cur
+</code></pre>
+<h1 id="实训2-2：异常"><a href="#实训2-2：异常" class="headerlink" title="实训2.2：异常"></a>实训2.2：异常</h1><h2 id="第一关：除零异常分析"><a href="#第一关：除零异常分析" class="headerlink" title="第一关：除零异常分析"></a>第一关：除零异常分析</h2><pre><code class="lang-sh">#终端一
+cp /data/workspace/myshixun/exp1/1.1.tar /home/headless/os/linux-0.11-lab/
+cd ~/os/linux-0.11-lab/
+tar -xvf 1.1.tar
+ll
+rm -rf cur
+ln -s 1.1 cur
+cd cur/linux
+make
+cd ../..
+./rungdb
+#终端一操作结束
+#终端二
+cd ~/os/linux-0.11-lab/
+./mygdb
+b main.c:147
+c
+x/6i $eip #这句话是idiv指令地址正确的判定依据，虽然它用处不大
+disas  #观察到idiv指令出现在0x690e
+b *0x690e
+c
+info reg  #观察到idiv指令执行之前cs:eip为0xf:0x690e，ss:esp为0x17:0x25760
+si
+disas
+info reg  #观察到新指令位置cs:eip为0x8:0x814b，ss:esp为0x10:0x1fa2c
+si
+info reg
+disas
+x/5wx $esp #详见代码后注释[1]，观察到用户栈顶0x17:0x25760，恢复点位置0xf:0x690e
+#终端二结束
+</code></pre>
+<h3 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h3><ol>
+<li>下面面显示了栈顶的 5 个长字，是某异常发生时的中断现场，其中存储的用户栈顶的位置是 0x17:0x2573c ，存储的恢复点的位置是 0xf:0x7967 。需要注意的是，x86 中栈是从高地址向低地址方向增长的，这里的栈顶位置是 0x1fa0c 。</li>
+</ol>
+<p><img src="https://data.educoder.net/api/attachments/1154430" alt="实验说明"></p>
+<ol>
+<li>单独查看一个寄存器</li>
+</ol>
+<pre><code class="lang-sh">p/x $eax
+</code></pre>
+<hr>
+<h2 id="第二关-int指令分析"><a href="#第二关-int指令分析" class="headerlink" title="第二关 int指令分析"></a>第二关 int指令分析</h2><pre><code class="lang-sh"># 终端1
+cp /data/workspace/myshixun/exp2/1.tgz ~/os/
+cd ~/os/linux-0.11-lab
+tar -zxvf ../1.tgz
+rm -rf cur
+ln -s 1 cur
+cd cur/linux
+make
+cd ../..
+./rungdb
+# 操作暂时结束
+# 开启终端2
+cd ~/os/linux-0.11-lab/
+./mygdb
+b task1
+c
+x/5i $eip
+si
+x/5i $eip
+info reg # 可以观察到当前指令位置CS:EIP(0xf:0x7987)和栈位置SS:ESP(0x17:0x2573c)
+disas
+si
+info reg # 可以观察到当前指令位置CS:EIP(0x8:0x7948)和栈位置SS:ESP(0x10:0xffffec)
+disas
+x/5wx $esp # 观察到用户栈顶0x17:0x2573c，恢复点位置0xf:0x7989
+# 操作结束
+</code></pre>
+<hr>
+<h2 id="第三关：iret指令分析"><a href="#第三关：iret指令分析" class="headerlink" title="第三关：iret指令分析"></a>第三关：iret指令分析</h2><p>没什么强调的，和第二关基本一样</p>
+<pre><code class="lang-sh"># 终端一操作同上省略
+# 终端二
+cd ~/os/linux-0.11-lab/
+./mygdb
+b task1
+c
+x/5i $eip
+si
+x/5i $eip
+si #找到中断处理模块
+b *0x795e
+info reg #处理程序的 iret 指令执行之前，指令位置CS:EIP(0x8:0x795e)和栈位置SS:ESP(0x10:0xffffec)
+x/5wx $esp #此时栈中保存的恢复点位置(0xf:0x7989)和用户栈位置(0x17:0x2573c)
+si
+disas
+info reg #使用 si 命令执行了该 iret 指令后，新指令位置(0xf:0x7989)和栈位置(0x17:0x2573c)
+</code></pre>
+<hr>
+<h2 id="第四关：陷入指令分析"><a href="#第四关：陷入指令分析" class="headerlink" title="第四关：陷入指令分析"></a>第四关：陷入指令分析</h2><p>和第三关唯一一处不同，就是跳入陷入函数的时候.</p>
+<pre><code class="lang-sh"># 终端一操作同上省略
+# 终端二
+cd ~/os/linux-0.11-lab/
+./mygdb
+b main.c:145
+c
+# 使用n指令，跳过将要执行的move_to_user_mode();函数
+n
+# 陷入fork
+x/5i $eip
+si
+info reg #在 0 号进程执行 fork 系统调用中的陷入指令(int 0x80)之前，当前指令位置CS:EIP(0xf:0x6908)和栈位置SS:ESP(0x17:0x25740)
+si
+info reg #使用 si 命令执行了该指令后，新指令位置(0x8:0x7764)和栈位置(0x10:0x1fa0c)
+x/5wx $esp ##此时栈中保存的恢复点位置(0xf:0x690a)和用户栈位置(0x17:0x25740)
+</code></pre>
+<h3 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h3><blockquote>
+<p>跟踪到系统调用的陷入指令（int 0x80）执行之前</p>
+<p>一般而言，可以在该系统调用处设置断点，跟踪到该断点，然后使用 si 命令单步执行到陷入指令。但是，对于 main 函数里的 fork 系统调用，不能这样操作（因为 gdb 有时断点设置不够准），可以先跟踪到前一行的 move_to_user_mode 语句，然后使用 n 单步执行，即可到达 fork 系统调用的开始，此时再反汇编，找到陷入指令。</p>
+</blockquote>
+<h1 id="实训-2-3-：系统调用"><a href="#实训-2-3-：系统调用" class="headerlink" title="实训 2.3 ：系统调用"></a>实训 2.3 ：系统调用</h1><h2 id="第一关：版本1内核执行的前-3-个系统调用"><a href="#第一关：版本1内核执行的前-3-个系统调用" class="headerlink" title="第一关：版本1内核执行的前 3 个系统调用"></a>第一关：版本1内核执行的前 3 个系统调用</h2><p>第一，使用方法一，找出第一次调用<br>请不要使用他提供的方法一，评测不过，明明都找到正确答案了。怪不得网上的人都说这是垃圾平台，给本来时间就充裕的我们增加了消磨<del>浪费</del>时间的机会。</p>
+<p>第二，在输答案的时候，sys_要去掉，垃圾平台。。。让我们猜谜？</p>
+<p>答案：<code>1.系统运行时，执行的前3个系统调用的编号和名字是(2,fork)、(29,pause)、(48,signal)</code></p>
+<pre><code class="lang-sh"># 终端一，操作与2.1实验一的终端一一样，省略
+# 终端二
+cd ~/os/linux-0.11-lab/
+./mygdb
+b system_call
+c
+disas
+display $eax
+b *0x7780
+c
+disas
+si
+x/3i $eip # 发现eax的值是2，查找unistd.h，进程为__NR_fork（其实不是，用第二种方法，可以看出是sys_fork）
+disas
+c
+disas
+c
+disas
+si
+x/3i $eip # eax的值为29，调用了sys_pause函数，是一次系统中断
+disas
+# 第三次调用
+c
+disas
+c
+disas
+si
+x/3i $eip
+disas
+c
+# eax的值为48，调用了sys_signal函数
+</code></pre>
+<h2 id="第二关：命令-ls-执行的系统调用"><a href="#第二关：命令-ls-执行的系统调用" class="headerlink" title="第二关：命令 ls 执行的系统调用"></a>第二关：命令 ls 执行的系统调用</h2><pre><code class="lang-sh"># 终端一
+cd ~/os/linux-0.11-lab
+rm -rf cur
+ln -s 0 cur
+cd cur/linux
+make
+cd ../..
+./rungdb
+# 终端一结束
+# 终端二
+cd ~/os/linux-0.11-lab
+./mygdb
+display current-&gt;pid
+disable 1
+b do_execve
+c
+commands 2
+p current-&gt;start_code+filename
+end
+c
+c
+c
+# 此时等待虚拟机响应
+# 虚拟机操作
+ls
+# 虚拟机操作结束
+b system_call
+c
+disas
+display $eax
+p current-&gt;pid
+b system_call if current-&gt;pid != 0
+commands 3
+p $eax
+p sys_call_table[$eax]
+end
+c
+# 以下是若干个c，一直到current-&gt;id != 6为止，不要c太多次
+c
+c
+...
+# 终端二结束
+</code></pre>
+<p>不停运行，观察current-&gt;pid即可，答案为：</p>
+<pre><code class="lang-sh">可执行文件ls运行时（无参数），会依次执行下面这些系统调用：
+1.(time)(ioctl)(brk)(brk)(brk)
+2.(brk)(brk)(open)(fstat)(brk)
+3.(read)(read)(close)(ioctl)(write)
+4.(write)(close)(exit)()()
+</code></pre>
+<p>ls在6号进程中执行，后面由 6 号进程引发的系统调用才是ls 执行的系统调用，所以只需要记录current-&gt;pid = 6时的所有系统函数调用！</p>
+<h2 id="第三关：版本1内核执行的完整系统调用序列"><a href="#第三关：版本1内核执行的完整系统调用序列" class="headerlink" title="第三关：版本1内核执行的完整系统调用序列"></a>第三关：版本1内核执行的完整系统调用序列</h2><h3 id="补充：GDB断点的启用和禁用"><a href="#补充：GDB断点的启用和禁用" class="headerlink" title="补充：GDB断点的启用和禁用"></a>补充：GDB断点的启用和禁用</h3><ul>
+<li><code>disable 1</code> ：禁用第一个断点；</li>
+<li><code>enable 2</code> ：启用第二个断点；</li>
+<li><code>enable once</code> 1 ：下次用了第一个断点，第一个断点就被禁用；</li>
+</ul>
+<pre><code class="lang-sh"># 2号断点为无条件的system_call
+b system_call
+commands 2
+p $eax
+p sys_call_table[$eax]
+end
+disable 2
+# 3号断点为有条件的system_call
+b system_call if $eax!=29 || current-&gt;pid!=0
+commands 3
+p $eax
+p sys_call_table[$eax]
+end
+c
+
+# 接下来要不停的开关断点，在出现0号进程pause调用时，把它们跳过去
+disable 2
+enable 3
+c
+# 如果本次显示的断点没有发生0号进程pause调用，不用跳过，执行一次system_call
+disable 3
+enable 2
+c
+</code></pre>
+<p>答案：</p>
+<pre><code class="lang-sh">1.(0,fork)(0,pause)(1,signal)(1,alarm)(1,pause)
+2.(0,pause)(1,alarm)(1,pause)(0,pause)(1,alarm)
+3.(1,pause)(0,pause)(1,alarm)(,)(,)
+</code></pre>
+<h2 id="第四关：在版本1中输出系统调用信息"><a href="#第四关：在版本1中输出系统调用信息" class="headerlink" title="第四关：在版本1中输出系统调用信息"></a>第四关：在版本1中输出系统调用信息</h2><p>修改system_call.asm中的system_call:函数</p>
+<pre><code class="lang-assembly">system_call:
+    cmpl $nr_system_calls-1,%eax
+    ja bad_sys_call
+    push %ds
+    push %es
+    push %fs
+    pushl %edx
+    pushl %ecx        # push %ebx,%ecx,%edx as parameters
+    pushl %ebx        # to the system call
+    movl $0x10,%edx        # set up ds,es to kernel space
+    mov %dx,%ds
+    mov %dx,%es
+    movl $0x17,%edx        # fs points to local data space
+    mov %dx,%fs
+    pushl %eax #新加入的指令1
+    call myfunc #新加入的指令2
+    popl %eax #新加入的指令3
+    call sys_call_table(,%eax,4)
+    pushl %eax
+    movl current,%eax
+    cmpl $0,state(%eax)        # state
+    jne reschedule
+    cmpl $0,counter(%eax)        # counter
+    je reschedule
+</code></pre>
+<p>修改fork.c，在其中添加</p>
+<pre><code class="lang-c">int baghdnkdn = -1;//全局变量，随机取名，不要与已有的变量名重复
+void myfunc (int eax) &#123;
+    if (baghdnkdn == current -&gt; pid &amp;&amp; eax == 29 &amp;&amp; baghdnkdn == 0) return;
+    else &#123;
+        printk(&quot;%d(%d)&quot;, eax, current-&gt;pid);
+    &#125;
+    baghdnkdn = current -&gt; pid;
+&#125;
+</code></pre>
+<h2 id="第五关：在版本0中输出系统调用信息"><a href="#第五关：在版本0中输出系统调用信息" class="headerlink" title="第五关：在版本0中输出系统调用信息"></a>第五关：在版本0中输出系统调用信息</h2><p>和第四关几乎相同</p>
+<p>修改system_call.asm中的system_call:函数，与第四关完全一样</p>
+<p>修改fork.c，在其中添加</p>
+<pre><code class="lang-c">void myfunc(int eax) &#123;
+    if (current -&gt; pid &lt; 4) return;
+    else &#123;
+        printk(&quot;%d(%d)&quot;, eax, current-&gt;pid);
+    &#125;
+&#125;
+</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 Algorithm_sort@163.com </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2020-2022 nameETC
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 552px;
+    }
+    .nav.fullscreen {
+        margin-left: -552px;
+    }
+    .nav-left {
+        width: 130px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 502px;
+        }
+        .nav.fullscreen {
+            margin-left: -502px;
+        }
+        .nav-left {
+            width: 110px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 502px;
+            margin-left: -502px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    
+    <a class="dynamic-menu " target="_self"   href="http://redleaves699.github.io/">Red_Leaves</a>
+    
+    
+</div>
+
+
+</html>

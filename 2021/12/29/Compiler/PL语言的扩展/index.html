@@ -1,0 +1,5775 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Educoder 编译原理PL语言编译器的扩展（转载） | Set sail!</title>
+  <meta name="keywords" content=" Educoder , 编译原理 , 模拟实训 ">
+  <meta name="description" content="Educoder 编译原理PL语言编译器的扩展（转载） | Set sail!">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="用途已经观测到部分样本的分布情况，根据现有的观测结果，估计已知概率分布模型的参数值。 方法对于离散型（连续型）随机变量$X$，假设其概率质量函数为$P(x;\theta)$，概率密度函数为$p(x;\theta)$，其中$\theta$为待估计的参数值（可以有多个），现有$x_{1}, x_{2}, \dots,x_{n}$是来自$X$的$n$个独立同分布的样本，对于离散型随机变量，它们的联合概率">
+<meta property="og:type" content="article">
+<meta property="og:title" content="极大似然估计">
+<meta property="og:url" content="http://redleaves699.github.io/2022/02/13/machine%20learning/%E6%9E%81%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/index.html">
+<meta property="og:site_name" content="Set sail!">
+<meta property="og:description" content="用途已经观测到部分样本的分布情况，根据现有的观测结果，估计已知概率分布模型的参数值。 方法对于离散型（连续型）随机变量$X$，假设其概率质量函数为$P(x;\theta)$，概率密度函数为$p(x;\theta)$，其中$\theta$为待估计的参数值（可以有多个），现有$x_{1}, x_{2}, \dots,x_{n}$是来自$X$的$n$个独立同分布的样本，对于离散型随机变量，它们的联合概率">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-02-13T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-02-13T12:13:33.495Z">
+<meta property="article:author" content="Red_Leaves">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="概率论">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/favicon.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Red_Leaves</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/redleaves699"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:Algorithm_sort@163.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+    <a class="more-menus">更多菜单</a>
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(40)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="编程语言">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        编程语言
+                        <small>(7)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->基础">
+                                        
+                                        基础
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->进阶">
+                                        
+                                        进阶
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->硬件设计">
+                                        
+                                        硬件设计
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="操作系统">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        操作系统
+                        <small>(9)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="操作系统<--->平时应用">
+                                        
+                                        平时应用
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="操作系统<--->实训">
+                                        
+                                        实训
+                                        
+                                            <small>(8
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="前沿技术">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        前沿技术
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="前沿技术<--->机器学习">
+                                        
+                                        机器学习
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="软件">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        软件
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="软件<--->数据库">
+                                        
+                                        数据库
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="软件<--->Android">
+                                        
+                                        Android
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="软件<--->Git">
+                                        
+                                        Git
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="前端">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        前端
+                        <small>(9)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="前端<--->编译器前端">
+                                        
+                                        编译器前端
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="前端<--->网页前端">
+                                        
+                                        网页前端
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="前端<--->Markdown">
+                                        
+                                        Markdown
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="算法">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        算法
+                        <small>(7)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="算法<--->理论">
+                                        
+                                        理论
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="算法<--->题解">
+                                        
+                                        题解
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="感想随笔">
+                        
+                        感想随笔
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+                <a class="dynamic-menu "
+                   target="_self"
+                   
+                   href="http://redleaves699.github.io/">Red_Leaves</a>
+        
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">关于</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">友链</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="40">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="/www.github.com/redleaves699">My GitHub</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>2021牛客暑期多校第二场</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>2021牛客暑期多校第一场</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>编程语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>编译原理</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>博客搭建</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>操作系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>概率论</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>高级</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>格式化文本</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>汇编</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>机器学习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>计时</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>计算机系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>技巧</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>课程实践</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>模拟实训</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>逆向分析</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>前端</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>软件开发</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>生活</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>实验环境配置</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>实用</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数据库</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>随机数</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>网页内容</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>硬件描述语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>政治历史</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>指针</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>中间层</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Android</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>c</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>c++</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>C语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Debian</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Educoder</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GIS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GitHub</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>javascript</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>json</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>LearnGitBranch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux0.11</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>markdown</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>stack</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>toposort</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Verilog</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Windows</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 前沿技术 机器学习 "
+           href="/2022/02/13/machine%20learning/%E6%9E%81%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/"
+           data-tag="算法,数学,机器学习,概率论"
+           data-author="" >
+            <span class="post-title" title="极大似然估计">极大似然估计</span>
+            <span class="post-date" title="2022-02-13 08:00:00">2022/02/13</span>
+        </a>
+        
+        <a  class="全部文章 编程语言 基础 "
+           href="/2022/02/10/Programming%20Language/json%E8%AF%AD%E6%B3%95/"
+           data-tag="前端,javascript,json,格式化文本"
+           data-author="" >
+            <span class="post-title" title="json语法">json语法</span>
+            <span class="post-date" title="2022-02-10 21:25:47">2022/02/10</span>
+        </a>
+        
+        <a  class="全部文章 前端 编译器前端 "
+           href="/2021/12/29/Compiler/PL%E8%AF%AD%E8%A8%80%E7%9A%84%E6%89%A9%E5%B1%95/"
+           data-tag="Educoder,编译原理,模拟实训"
+           data-author="" >
+            <span class="post-title" title="Educoder 编译原理PL语言编译器的扩展（转载）">Educoder 编译原理PL语言编译器的扩展（转载）</span>
+            <span class="post-date" title="2021-12-29 23:53:00">2021/12/29</span>
+        </a>
+        
+        <a  class="全部文章 算法 理论 "
+           href="/2021/12/05/Algorithm/Space%20coordinate%20transformation/"
+           data-tag="算法,数学,GIS"
+           data-author="" >
+            <span class="post-title" title="空间坐标转换方法">空间坐标转换方法</span>
+            <span class="post-date" title="2021-12-05 20:38:47">2021/12/05</span>
+        </a>
+        
+        <a  class="全部文章 编程语言 基础 "
+           href="/2021/12/05/Programming%20Language/C,C++%E8%AF%AD%E6%B3%95/"
+           data-tag="c,c++"
+           data-author="" >
+            <span class="post-title" title="C,C++语法">C,C++语法</span>
+            <span class="post-date" title="2021-12-05 19:49:47">2021/12/05</span>
+        </a>
+        
+        <a  class="全部文章 前端 网页前端 "
+           href="/2021/11/15/Front/%E8%A7%A3%E9%99%A4csdn%E4%B8%8D%E8%83%BD%E5%A4%8D%E5%88%B6%E7%9A%84%E6%96%B9%E6%B3%95/"
+           data-tag="前端,网页内容"
+           data-author="" >
+            <span class="post-title" title="常用网页用户限制的解除">常用网页用户限制的解除</span>
+            <span class="post-date" title="2021-11-15 16:41:17">2021/11/15</span>
+        </a>
+        
+        <a  class="全部文章 操作系统 实训 "
+           href="/2021/11/11/Operation%20System/Educoder%20%E8%AF%84%E6%B5%8B%E7%A8%8B%E5%BA%8F/"
+           data-tag="Educoder,模拟实训,操作系统,逆向分析"
+           data-author="" >
+            <span class="post-title" title="Educoder 实训平台评测程序代码的获取">Educoder 实训平台评测程序代码的获取</span>
+            <span class="post-date" title="2021-11-11 23:41:15">2021/11/11</span>
+        </a>
+        
+        <a  class="全部文章 操作系统 实训 "
+           href="/2021/11/08/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD7.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训7.x实验">Educoder 操作系统实训7.x实验</span>
+            <span class="post-date" title="2021-11-08 20:49:56">2021/11/08</span>
+        </a>
+        
+        <a  class="全部文章 软件 数据库 "
+           href="/2021/11/07/SQL/PostgreSql/"
+           data-tag="数据库,课程实践"
+           data-author="" >
+            <span class="post-title" title="学习PostgreSQL">学习PostgreSQL</span>
+            <span class="post-date" title="2021-11-07 10:17:33">2021/11/07</span>
+        </a>
+        
+        <a  class="全部文章 操作系统 实训 "
+           href="/2021/11/03/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD6.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训6.x实验">Educoder 操作系统实训6.x实验</span>
+            <span class="post-date" title="2021-11-03 20:49:56">2021/11/03</span>
+        </a>
+        
+        <a  class="全部文章 软件 Git "
+           href="/2021/11/02/Git/GitHub%20resource/"
+           data-tag="Git,GitHub"
+           data-author="" >
+            <span class="post-title" title="解决GitHub资源访问问题">解决GitHub资源访问问题</span>
+            <span class="post-date" title="2021-11-02 17:10:35">2021/11/02</span>
+        </a>
+        
+        <a  class="全部文章 软件 Android "
+           href="/2021/10/28/Android/Android%20UI%E8%AE%BE%E8%AE%A1/"
+           data-tag="软件开发,Android"
+           data-author="" >
+            <span class="post-title" title="Android项目的阅读 - UI（总第二篇）">Android项目的阅读 - UI（总第二篇）</span>
+            <span class="post-date" title="2021-10-28 23:23:19">2021/10/28</span>
+        </a>
+        
+        <a  class="全部文章 编程语言 硬件设计 "
+           href="/2021/10/25/Programming%20Language/Verilog%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E7%94%A8%E6%93%8D%E4%BD%9C/"
+           data-tag="硬件描述语言,Verilog"
+           data-author="" >
+            <span class="post-title" title="Verilog的一些实用操作">Verilog的一些实用操作</span>
+            <span class="post-date" title="2021-10-25 19:48:45">2021/10/25</span>
+        </a>
+        
+        <a  class="全部文章 操作系统 实训 "
+           href="/2021/10/20/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD5.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训5.x实验">Educoder 操作系统实训5.x实验</span>
+            <span class="post-date" title="2021-10-20 23:35:23">2021/10/20</span>
+        </a>
+        
+        <a  class="全部文章 前端 Markdown "
+           href="/2021/10/17/Markdown/MarkdownSpecialSign/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown latex的特殊符号">markdown latex的特殊符号</span>
+            <span class="post-date" title="2021-10-17 22:30:32">2021/10/17</span>
+        </a>
+        
+        <a  class="全部文章 操作系统 平时应用 "
+           href="/2021/10/12/Operation%20System/Windows%20%E5%92%8C%20Linux%E7%9A%84%E4%BD%BF%E7%94%A8/"
+           data-tag="操作系统,Windows,Linux"
+           data-author="" >
+            <span class="post-title" title="Windows和Linux的日常琐事">Windows和Linux的日常琐事</span>
+            <span class="post-date" title="2021-10-12 16:25:15">2021/10/12</span>
+        </a>
+        
+        <a  class="全部文章 操作系统 实训 "
+           href="/2021/10/07/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD4.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训4.x实验">Educoder 操作系统实训4.x实验</span>
+            <span class="post-date" title="2021-10-07 11:49:00">2021/10/07</span>
+        </a>
+        
+        <a  class="全部文章 前端 编译器前端 "
+           href="/2021/10/06/Compiler/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AE%9E%E8%AE%AD1/"
+           data-tag="Educoder,编译原理,模拟实训"
+           data-author="" >
+            <span class="post-title" title="Educoder 编译原理实训1">Educoder 编译原理实训1</span>
+            <span class="post-date" title="2021-10-06 23:53:00">2021/10/06</span>
+        </a>
+        
+        <a  class="全部文章 编程语言 进阶 "
+           href="/2021/10/03/Programming%20Language/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"
+           data-tag="汇编,中间层,计算机系统"
+           data-author="" >
+            <span class="post-title" title="计算机基本概念">计算机基本概念</span>
+            <span class="post-date" title="2021-10-03 09:15:35">2021/10/03</span>
+        </a>
+        
+        <a  class="全部文章 编程语言 "
+           href="/2021/09/29/Programming%20Language/%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/"
+           data-tag="c,技巧,编程语言,python"
+           data-author="" >
+            <span class="post-title" title="程序实现方法">程序实现方法</span>
+            <span class="post-date" title="2021-09-29 17:29:00">2021/09/29</span>
+        </a>
+        
+        <a  class="全部文章 软件 Git "
+           href="/2021/09/29/Git/Gitignore/"
+           data-tag="Git,GitHub"
+           data-author="" >
+            <span class="post-title" title=".gitignore的使用">.gitignore的使用</span>
+            <span class="post-date" title="2021-09-29 16:42:35">2021/09/29</span>
+        </a>
+        
+        <a  class="全部文章 操作系统 实训 "
+           href="/2021/09/17/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD3.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训3.x实验">Educoder 操作系统实训3.x实验</span>
+            <span class="post-date" title="2021-09-17 10:42:35">2021/09/17</span>
+        </a>
+        
+        <a  class="全部文章 前端 网页前端 "
+           href="/2021/09/14/Git/%E5%9C%A8%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2LearnGitBranch/"
+           data-tag="前端,Git,LearnGitBranch"
+           data-author="" >
+            <span class="post-title" title="在本地部署LearnGitBranch">在本地部署LearnGitBranch</span>
+            <span class="post-date" title="2021-09-14 17:30:26">2021/09/14</span>
+        </a>
+        
+        <a  class="全部文章 编程语言 进阶 "
+           href="/2021/09/12/Programming%20Language/%E6%8C%87%E9%92%88%E7%9A%84%E6%B4%BB%E7%94%A8/"
+           data-tag="技巧,C语言,指针,高级"
+           data-author="" >
+            <span class="post-title" title="指针的活用">指针的活用</span>
+            <span class="post-date" title="2021-09-12 13:49:00">2021/09/12</span>
+        </a>
+        
+        <a  class="全部文章 软件 Android "
+           href="/2021/09/11/Android/Andorid%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"
+           data-tag="软件开发,Android"
+           data-author="" >
+            <span class="post-title" title="Android项目的阅读 - 让项目运行起来（总第一篇）">Android项目的阅读 - 让项目运行起来（总第一篇）</span>
+            <span class="post-date" title="2021-09-11 11:23:19">2021/09/11</span>
+        </a>
+        
+        <a  class="全部文章 操作系统 实训 "
+           href="/2021/09/09/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD2.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训2.x实验">Educoder 操作系统实训2.x实验</span>
+            <span class="post-date" title="2021-09-09 09:25:45">2021/09/09</span>
+        </a>
+        
+        <a  class="全部文章 操作系统 实训 "
+           href="/2021/09/07/Operation%20System/Debian%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AELinux0.11/"
+           data-tag="实验环境配置,Debian,Linux0.11"
+           data-author="" >
+            <span class="post-title" title="Debian系统配置Linux0.11">Debian系统配置Linux0.11</span>
+            <span class="post-date" title="2021-09-07 11:45:05">2021/09/07</span>
+        </a>
+        
+        <a  class="全部文章 前端 网页前端 "
+           href="/2021/09/02/Front/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cnode.js%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"
+           data-tag="前端,博客搭建"
+           data-author="" >
+            <span class="post-title" title="使用Node.js和hexo搭建GitHub博客（以windows为例）">使用Node.js和hexo搭建GitHub博客（以windows为例）</span>
+            <span class="post-date" title="2021-09-02 21:20:23">2021/09/02</span>
+        </a>
+        
+        <a  class="全部文章 编程语言 基础 "
+           href="/2021/08/17/Programming%20Language/%E5%90%84%E7%A7%8D%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E9%9A%8F%E6%9C%BA%E6%95%B0%E5%92%8C%E8%AE%A1%E6%97%B6/"
+           data-tag="编程语言,随机数,计时,实用"
+           data-author="" >
+            <span class="post-title" title="各种语言实现随机数和计时">各种语言实现随机数和计时</span>
+            <span class="post-date" title="2021-08-17 09:15:35">2021/08/17</span>
+        </a>
+        
+        <a  class="全部文章 感想随笔 "
+           href="/2021/07/26/%E7%99%BE%E5%B9%B4/"
+           data-tag="政治历史"
+           data-author="" >
+            <span class="post-title" title="百年未有之大变局">百年未有之大变局</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="全部文章 算法 题解 "
+           href="/2021/07/26/Algorithm/A%20-%20Alice%20and%20Bob/"
+           data-tag="2021牛客暑期多校第一场"
+           data-author="" >
+            <span class="post-title" title="A - Alice and Bob">A - Alice and Bob</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="全部文章 算法 理论 "
+           href="/2021/07/26/Algorithm/Monotone%20Priority%20Stack/"
+           data-tag="算法,stack"
+           data-author="" >
+            <span class="post-title" title="单调栈（Monotone Priority Stack）">单调栈（Monotone Priority Stack）</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="全部文章 算法 理论 "
+           href="/2021/07/26/Algorithm/Toposort/"
+           data-tag="算法,toposort"
+           data-author="" >
+            <span class="post-title" title="拓扑排序">拓扑排序</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="全部文章 前端 Markdown "
+           href="/2021/07/26/Markdown/MarkdownFont/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown 字体，字号，颜色">markdown 字体，字号，颜色</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="全部文章 前端 Markdown "
+           href="/2021/07/26/Markdown/MarkdownImage/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="在markdown中插入图片">在markdown中插入图片</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="全部文章 前端 Markdown "
+           href="/2021/07/26/Markdown/MarkdownIndent/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="关于markdown中文首行缩进的问题">关于markdown中文首行缩进的问题</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="全部文章 算法 题解 "
+           href="/2021/07/26/Algorithm/G%20-%20League%20of%20Legends/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="G - League of Legends">G - League of Legends</span>
+            <span class="post-date" title="2021-07-26 09:47:05">2021/07/26</span>
+        </a>
+        
+        <a  class="全部文章 算法 题解 "
+           href="/2021/07/26/Algorithm/K%20-%20Stack/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="K - Stack">K - Stack</span>
+            <span class="post-date" title="2021-07-26 09:37:47">2021/07/26</span>
+        </a>
+        
+        <a  class="全部文章 算法 题解 "
+           href="/2021/07/20/Algorithm/F%20-%20Girlfriend/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="F - Girlfriend">F - Girlfriend</span>
+            <span class="post-date" title="2021-07-20 09:53:17">2021/07/20</span>
+        </a>
+        
+        <a  class="全部文章 感想随笔 "
+           href="/2021/07/17/Essay-2021-7-17/"
+           data-tag="生活"
+           data-author="" >
+            <span class="post-title" title="2021-07-17 关于自己读书的有趣现象">2021-07-17 关于自己读书的有趣现象</span>
+            <span class="post-date" title="2021-07-17 12:13:26">2021/07/17</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Compiler/PL语言的扩展" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Educoder 编译原理PL语言编译器的扩展（转载）</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="前端">前端</a> > 
+            
+            <a  data-rel="前端&lt;---&gt;编译器前端">编译器前端</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">Educoder</a>
+            
+            <a class="color5">编译原理</a>
+            
+            <a class="color5">模拟实训</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2021-12-29 15:59:34'>2021-12-29 23:53</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E5%85%B3"><span class="toc-text">第一关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%85%B3"><span class="toc-text">第二关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E5%85%B3"><span class="toc-text">第三关</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://eto-cyt.blog.csdn.net/article/details/122023035">原文地址</a></p>
+<h2 id="第一关"><a href="#第一关" class="headerlink" title="第一关"></a>第一关</h2><pre><code class="lang-c">#include &quot;ptoc.h&quot;
+
+#ifndef WIN32
+void _splitpath(const char *path, char *drive, char *dir, char *fname, char *ext);
+void _makepath(char *path,const char *drive, char *dir, char *fname, char *ext);
+static void _split_whole_name(const char *whole_name, char *fname, char *ext);
+#endif
+
+
+/*******************************
+*Constants
+*******************************/
+const int norw = 25;       /* no. of reserved words */
+const int txmax = 100;     /* length of identifier table */
+const int bmax = 20;       /* length of block inormation table */
+const int arrmax = 30;     /* length of array information table */
+const int nmax = 6;        /* max. no. of digits in numbers */
+const int al = 10;         /* length of identifiers */
+const int amax = 2047;     /* maxinum address */
+const int levmax = 7;      /* maxinum depth of block nesting */
+const int cxmax = 1000;    /* size of code array */
+
+
+const int min_index1 = -32767;
+const int max_index1 = +32767;
+
+/*******************************/
+
+/*******************************
+*Enums
+*******************************/
+enum symbol &#123;nul, ident, intcon, charcon, plus, minus, times, divsym,
+            eql, neq, lss, leq, gtr, geq, ofsym, arraysym, programsym, modsym,
+            andsym, orsym, notsym, lbrack, rbrack, lparen, rparen, comma,
+            semicolon, period, becomes, colon, beginsym,  endsym, ifsym, thensym,
+            elsesym, whilesym, downtosym,tosym,repeatsym, untilsym ,forsym , casesym , dosym, callsym, constsym, typesym,
+            varsym, procsym, last_symbol
+        &#125;;
+enum oobject &#123;konstant, typel, variable, prosedure, last_oobject&#125;;
+enum types &#123;notyp, ints, chars, bool_, arrays, last_types&#125;;
+enum opcod &#123;lit, lod, ilod, loda, lodt, sto, lodb, cpyb, jmp, jpc, red, wrt,
+        cal, retp, endp, udis, opac, entp, ands, ors, nots, imod, mus, add,
+        sub, mult, idiv, eq, ne, ls, le, gt, ge, last_opcod
+        &#125;;  /* opration code */
+/*******************************/
+
+/*******************************
+*Structures
+*******************************/
+
+typedef varying_string&lt;al&gt; alfa;/*String with length al*/
+typedef short index1;
+typedef set_of_enum(symbol) symset;
+
+struct instruction
+&#123;
+opcod f;
+unsigned char l;
+unsigned short a;
+&#125;;
+
+struct item
+&#123;
+types typ;
+int ref;
+&#125;;
+
+struct A1
+&#123;
+alfa name;
+oobject kind;
+types typ;
+unsigned char lev;
+boolean normal;
+index1 ref;
+index1 link;
+
+union
+&#123;
+    int adr;
+    int val;
+    int size;
+&#125;;
+&#125;;//Elements of nametab
+
+struct A2
+&#123;
+types inxtyp, eltyp;
+index1 elref, low, high, elsize, size;
+&#125;;//Elements of atab
+
+struct B1
+&#123;
+index1 last, lastpar, psize, vsize;
+&#125;;//Elements of btab
+
+struct constrec
+&#123;
+types tp;
+int i;
+&#125;;
+
+
+/*******************************
+*Global variables
+*******************************/
+char ch;           /* last character read */
+symbol sym;        /* last symbol read*/
+alfa id;           /* last identifier read*/
+int num;       /* last number read */
+int cc;        /* character count */
+int ll;        /* line length */
+int kk, err;
+varying_string&lt;81&gt; line;
+alfa a;
+int i;
+array&lt;1, norw, alfa&gt; word1;
+array&lt;1, norw, symbol&gt; wsym;
+array &lt; -128, 127, symbol &gt; ssym;
+array&lt;0, last_opcod, varying_string&lt;5&gt; &gt; mnemonic;
+
+symset declbegsys, statbegsys, facbegsys, constbegsys, typebegsys;
+
+array&lt;0, txmax, A1&gt; nametab;/* name table */
+int tx;             /* index of nametab*/
+
+array&lt;1, amax, A2&gt; atab;/* array information table */
+int ax;             /*index of atab */
+
+array&lt;0, bmax, B1&gt; btab;/* block information table */
+int bx;                 /* index of btab */
+
+array&lt;0, levmax, int&gt; display;
+
+array&lt;0, cxmax, instruction&gt; code;
+int cx;          /* code allocation index */
+
+array&lt;0, 100, int&gt; labtab;
+int lx;
+
+text sfile;       /* source program file */
+string sfile_buff;
+char sfilename[_MAX_PATH]; /* source program file name */
+
+file&lt;instruction&gt; fcode;
+file&lt;int&gt; labfile;
+
+text listfile;
+string listfile_buff;
+char listfilename[_MAX_PATH];
+
+char dir[_MAX_DIR];
+char name[_MAX_FNAME];
+char ext[_MAX_EXT];
+
+/*********************************************************/
+
+/*******************************
+*Function Decalarations
+*******************************/
+void initial();
+void enterpreid();
+void enter(alfa x0, oobject x1, types x2, int x3);
+void error(int n);
+void getch();
+void getsym();
+void enterarray (types tp , int l, int h);
+void enterblock();
+void gen(opcod x, int y, int z);
+void test(symset s1, symset s2, int n);
+void block( symset fsys, int level);
+void enter1( oobject k, int &amp;level);
+int position(alfa id, int &amp;level);
+void constant(symset fsys, constrec &amp;c, int &amp;level);
+void typ(symset fsys, types &amp;tp, int &amp;rf, int &amp;sz, int &amp;level);
+void arraytyp(int &amp;aref, int &amp;arsz, int &amp;level, symset &amp;fsys);
+void typ(symset fsys, types &amp;tp, int &amp;rf, int &amp;sz, int &amp;level);
+void paramenterlist(symset &amp;fsys, int &amp;level, int &amp;dx);
+void constdeclaration(int &amp;level, symset &amp;fsys);
+void typedeclaration(int &amp;level, symset &amp;fsys);
+void vardeclaration(int &amp;level, symset &amp;fsys, int &amp;dx);
+void procdeclaration(int &amp;level, symset &amp;fsys);
+void listcode(int &amp;cx0);
+void statement(symset fsys, int &amp;level);
+void expression(symset fsys, item &amp;x, int &amp;level);
+void simpleexpression(symset fsys, item &amp;x, int &amp;level);
+void repeatstatement(int &amp;cx1, int &amp;level, symset &amp;fsys);
+void term(symset fsys, item &amp;x, int &amp;level);
+void arrayelement(symset fsys, item &amp;x, int &amp;level);
+void factor(symset fsys, item &amp;x, int &amp;level);
+void assignment(int &amp;i, int &amp;level, symset &amp;fsys);
+void ifstatement(int &amp;level, symset &amp;fsys, int &amp;cx1, int &amp;cx2);
+void compound(symset &amp;fsys, int &amp;level);
+void whilestatement(int &amp;cx1, int &amp;level, symset &amp;fsys, int &amp;cx2);
+void stanproc(int i, int &amp;level, item &amp;x, symset &amp;fsys);
+void call(int &amp;level, symset &amp;fsys);
+void fsplit(string sfilename, string dir, string name, string ext);
+
+/*******************************/
+void initial()
+&#123;
+word1[ 1] = &quot;and       &quot;;
+word1[ 2] = &quot;array     &quot;;
+word1[ 3] = &quot;begin     &quot;;
+word1[ 4] = &quot;call      &quot;;
+word1[ 5] = &quot;case      &quot;;
+word1[ 6] = &quot;const     &quot;;
+word1[ 7] = &quot;do        &quot;;
+word1[ 8] = &quot;downto    &quot;;
+word1[ 9] = &quot;else      &quot;;
+word1[10] = &quot;end       &quot;;
+word1[11] = &quot;for       &quot;;
+word1[12] = &quot;if        &quot;;
+word1[13] = &quot;mod       &quot;;
+word1[14] = &quot;not       &quot;;
+word1[15] = &quot;of        &quot;;
+word1[16] = &quot;or        &quot;;
+word1[17] = &quot;procedure &quot;;
+word1[18] = &quot;program   &quot;;
+word1[19] = &quot;repeat    &quot;;
+word1[20] = &quot;then      &quot;;
+word1[21] = &quot;to        &quot;;
+word1[22] = &quot;type      &quot;;
+word1[23] = &quot;until     &quot;;
+word1[24] = &quot;var       &quot;;
+word1[25] = &quot;while     &quot;;
+
+wsym[ 1] = andsym;
+wsym[ 2] = arraysym;
+wsym[ 3] = beginsym;
+wsym[ 4] = callsym;
+wsym[ 5] = casesym;
+wsym[ 6] = constsym;
+wsym[ 7] = dosym;
+wsym[ 8] = downtosym;
+wsym[ 9] = elsesym;
+wsym[10] = endsym;
+wsym[11] = forsym;
+wsym[12] = ifsym;
+wsym[13] = modsym;
+wsym[14] = notsym;
+wsym[15] = ofsym;
+wsym[16] = orsym;
+wsym[17] = procsym;
+wsym[18] = programsym;
+wsym[19] = repeatsym;
+wsym[20] = thensym;
+wsym[21] = tosym;
+wsym[22] = typesym;
+wsym[23] = untilsym;
+wsym[24] = varsym;
+wsym[25] = whilesym;
+
+ssym[&#39;+&#39;] = plus;
+ssym[&#39;-&#39;] = minus;
+ssym[&#39;*&#39;] = times;
+ssym[&#39;/&#39;] = divsym;
+ssym[&#39;[&#39;] = lbrack;
+ssym[&#39;]&#39;] = rbrack;
+ssym[&#39;(&#39;] = lparen;
+ssym[&#39;)&#39;] = rparen;
+ssym[&#39;=&#39;] = eql;
+ssym[&#39;,&#39;] = comma;
+ssym[&#39;.&#39;] = period;
+ssym[&#39;&lt;&#39;] = lss;
+ssym[&#39;&gt;&#39;] = gtr;
+ssym[&#39;;&#39;] = semicolon;
+
+mnemonic[lit] = &quot;LIT  &quot;;
+mnemonic[lod] = &quot;LOD  &quot;;
+mnemonic[sto] = &quot;STO  &quot;;
+mnemonic[cal] = &quot;CAL  &quot;;
+mnemonic[jmp] = &quot;JMP  &quot;;
+mnemonic[jpc] = &quot;JPC  &quot;;
+mnemonic[red] = &quot;RED  &quot;;
+mnemonic[wrt] = &quot;WRT  &quot;;
+mnemonic[ilod] = &quot;ILOD  &quot;;
+mnemonic[loda] = &quot;LODA &quot;;
+mnemonic[lodt] = &quot;LODt  &quot;;
+mnemonic[lodb] = &quot;LODB &quot;;
+mnemonic[cpyb] = &quot;COPYB &quot;;
+mnemonic[endp] = &quot;ENDP &quot;;
+mnemonic[retp] = &quot;RETP  &quot;;
+mnemonic[udis] = &quot;ADIS &quot;;
+mnemonic[mus] = &quot;MUS  &quot;;
+mnemonic[add] = &quot;ADD &quot;;
+mnemonic[sub] = &quot;SUB  &quot;;
+mnemonic[mult] = &quot;MULT &quot;;
+mnemonic[idiv] = &quot;DDIV  &quot;;
+mnemonic[eq] = &quot;EQ  &quot;;
+mnemonic[ne] = &quot;NE &quot;;
+mnemonic[ls] = &quot;LS  &quot;;
+mnemonic[le] = &quot;LE &quot;;
+mnemonic[gt] = &quot;GT  &quot;;
+mnemonic[ge] = &quot;GE &quot;;
+mnemonic[opac] = &quot;OPAC &quot;;
+mnemonic[entp] = &quot;ENTP&quot;;
+mnemonic[imod] = &quot;IMOD &quot;;
+mnemonic[ands] = &quot;ANDS&quot;;
+mnemonic[ors] = &quot;ORS &quot;;
+mnemonic[nots] = &quot;NOTS&quot;;
+
+declbegsys = set_of_enum(symbol)::of(constsym, varsym, typesym, procsym, eos);
+statbegsys = set_of_enum(symbol)::of(beginsym, callsym,casesym, ifsym, whilesym,repeatsym, forsym,eos);
+facbegsys = set_of_enum(symbol)::of(ident, intcon, lparen, notsym, charcon, eos);
+typebegsys = set_of_enum(symbol)::of(ident, arraysym, eos);
+constbegsys = set_of_enum(symbol)::of(plus, minus, intcon, charcon, ident, eos);
+err = 0;
+a[0] = &#39;\12&#39;;// What is \12 LosPhoenix
+display[0] = 0;
+cc = 0;
+cx = 0;
+ll = 0;
+ch = &#39; &#39;;
+kk = al;
+bx = 1;
+tx = -1;
+lx = 0;
+&#125;/*init*/
+
+void enter(alfa x0, oobject x1, types x2, int x3)
+&#123;
+tx = tx + 1;
+&#123;
+    nametab[tx].name = x0;
+    nametab[tx].link = tx - 1;
+    nametab[tx].kind = x1;
+    nametab[tx].typ = x2;
+    nametab[tx].ref = 0;
+    nametab[tx].normal = true;
+    nametab[tx].lev = 0;
+    switch (nametab[tx].kind)
+    &#123;
+    case variable:
+    case prosedure:
+        nametab[tx].adr = x3;
+        break;
+    case konstant:
+        nametab[tx].val = x3;
+        break;
+    case typel:
+        nametab[tx].size = x3;
+        break;
+    &#125;
+&#125;
+&#125;/*enter*/
+
+void enterpreid()// Only at the begining. Init nametable and btab
+&#123;
+enter(&quot;          &quot;, variable, notyp, 0);    /* sentinel */
+enter(&quot;char      &quot;, typel, chars, 1);
+enter(&quot;integer   &quot;, typel, ints,  1);
+enter(&quot;boolean   &quot;, typel, bool_,  1);
+enter(&quot;false     &quot;, konstant, bool_,  0);
+enter(&quot;true      &quot;, konstant, bool_,  1);
+enter(&quot;read      &quot;, prosedure, notyp, 1);
+enter(&quot;write     &quot;, prosedure, notyp, 2);
+btab[0].last = tx;
+btab[0].lastpar = 1;
+btab[0].psize = 0;
+btab[0].vsize = 0;
+&#125;/*enterprid*/
+
+void error(int n)
+&#123;
+listfile &lt;&lt; &quot;****&quot; &lt;&lt; format(&#39; &#39;, cc - 1) &lt;&lt; &#39;^&#39; &lt;&lt; format(n, 2) &lt;&lt; NL;
+err = err + 1;
+output &lt;&lt; &quot;Error&quot; &lt;&lt; n &lt;&lt; NL;
+&#125;/* error */
+
+void getch()
+&#123;
+
+if (cc == ll)   /* get character to end of line *//* read next line */
+&#123;
+    if (eof(sfile))
+    &#123;
+        output &lt;&lt; &quot;program incomplete&quot; &lt;&lt; NL;
+        close(sfile);
+        return;
+    &#125;
+    ll = 0;
+    cc = 0;
+    listfile &lt;&lt; format(cx, 4) &lt;&lt; &#39; &#39;;   /*print code address */
+    while (! eoln(sfile))
+    &#123;
+        ll = ll + 1;
+        sfile &gt;&gt; ch;
+        listfile &lt;&lt; ch;
+        line[ll] = ch;
+    &#125;
+    listfile &lt;&lt; NL;
+    sfile &gt;&gt; NL;
+    ll = ll + 1;
+    line[ll] = &#39; &#39;; /*process end-line*/
+&#125;
+cc = cc + 1;
+ch = line[cc];
+//output &lt;&lt; ch;//test
+&#125;/* getch */
+
+void getsym()/*getsym*/
+&#123;
+int i, k, j;
+/*Why is there a goto in this code. LosPhoenix*/
+L1:
+while (ch == &#39; &#39;)
+    getch();
+
+switch (ch)
+&#123;
+case &#39;a&#39;:
+case &#39;b&#39;:
+case &#39;c&#39;:
+case &#39;d&#39;:
+case &#39;e&#39;:
+case &#39;f&#39;:
+case &#39;g&#39;:
+case &#39;h&#39;:
+case &#39;i&#39;:
+case &#39;j&#39;:
+case &#39;k&#39;:
+case &#39;l&#39;:
+case &#39;m&#39;:
+case &#39;n&#39;:
+case &#39;o&#39;:
+case &#39;p&#39;:
+case &#39;q&#39;:
+case &#39;r&#39;:
+case &#39;s&#39;:
+case &#39;t&#39;:
+case &#39;u&#39;:
+case &#39;v&#39;:
+case &#39;w&#39;:
+case &#39;x&#39;:
+case &#39;y&#39;:
+case &#39;z&#39;:
+&#123;
+    /* identifier or reserved word */
+    k = 0;
+    do
+    &#123;
+        if (k &lt; al)
+        &#123;
+            k = k + 1;
+            a[k] = ch;
+        &#125;
+        getch();
+    &#125;
+    while ((set::of(range(&#39;a&#39;, &#39;z&#39;), range(&#39;0&#39;, &#39;9&#39;), eos).has(ch)));
+    if (k &gt;= kk)
+            kk = k;    /* kk: last identifier length */
+    else
+        do
+        &#123;
+            a[kk] = &#39; &#39;;
+            kk = kk - 1;
+        &#125;
+        while (!(kk == k));
+    id = a;
+    i = 1;
+    j = norw;  /* binary search reserved word table */
+    do
+    &#123;
+        k = (i + j) / 2;
+        if (id &lt;= word1[k])  j = k - 1;
+        if (id &gt;= word1[k])  i = k + 1;
+
+    &#125;
+    while (!(i &gt; j));
+    if (i - 1 &gt; j)
+            sym = wsym[k];
+    else
+            sym = ident;
+&#125;
+break;
+case &#39;0&#39;:
+case &#39;1&#39;:
+case &#39;2&#39;:
+case &#39;3&#39;:
+case &#39;4&#39;:
+case &#39;5&#39;:
+case &#39;6&#39;:
+case &#39;7&#39;:
+case &#39;8&#39;:
+case &#39;9&#39;:
+&#123;
+    /* number */
+    k = 0;
+    num = 0;
+    sym = intcon;
+    do
+    &#123;
+        num = 10 * num + (ch - &#39;0&#39;);
+        k = k + 1;
+        getch();
+    &#125;
+    while ((set::of(range(&#39;0&#39;, &#39;9&#39;), eos).has(ch)));
+    if (k &gt; nmax)  error(47);
+&#125;
+break;
+case &#39;:&#39;:
+&#123;
+    getch();
+    if (ch == &#39;=&#39;)
+    &#123;
+        sym = becomes;
+        getch();
+    &#125;
+    else sym = colon;
+&#125;
+break;
+case &#39;&lt;&#39; :
+&#123;
+    getch();
+    if (ch == &#39;=&#39;)
+    &#123;
+        sym = leq;
+        getch();
+    &#125;
+    else if (ch == &#39;&gt;&#39;)
+    &#123;
+        sym = neq;
+        getch();
+    &#125;
+    else sym = lss;
+&#125;
+break;
+case &#39;&gt;&#39; :
+&#123;
+    getch();
+    if (ch == &#39;=&#39;)
+    &#123;
+        sym = geq;
+        getch();
+    &#125;
+    else sym = gtr;
+&#125;
+break;
+case &#39;.&#39; :
+&#123;
+    getch();
+    if (ch == &#39;.&#39;)
+    &#123;
+        sym = colon;
+        getch();
+    &#125;
+    else   sym = period;
+&#125;
+break;
+case &#39;\&#39;&#39;  :
+&#123;
+    getch();
+    sym = charcon;
+    num = ch;
+    getch();
+    if (ch == &#39;\&#39;&#39;)  getch();
+    else error(48);
+&#125;
+break;
+case &#39;+&#39;:
+case &#39;-&#39;:
+case &#39;*&#39;:
+case &#39;/&#39;:
+case &#39;(&#39;:
+case &#39;)&#39;:
+case &#39;=&#39;:
+case &#39;[&#39;:
+case &#39;]&#39;:
+case &#39;;&#39;:
+case &#39;,&#39;:
+&#123;
+    sym = ssym[ch];
+    getch();
+&#125;
+break;
+default:
+&#123;
+    error(0);
+    getch();
+    goto L1;
+&#125;
+&#125;    /* case */
+
+//output&lt;&lt;sym&lt;&lt;NL;
+&#125;/* getsym */
+
+void enterarray (types tp , int l, int h)
+&#123;
+if (l &gt; h)  error(14);
+if (ax == amax)
+&#123;
+    error(2);
+    output &lt;&lt; &quot;too many arrays in program &quot; &lt;&lt; NL;
+    close(sfile);
+    close(listfile);
+    return;
+&#125;
+else
+&#123;
+    ax = ax + 1;
+    &#123;
+        //A2 &amp;with = atab[ax];
+
+        atab[tx].inxtyp = tp;
+        atab[tx].low = l;
+        atab[tx].high = h;
+    &#125;
+&#125;
+&#125;/* enterarray */
+
+void enterblock()
+&#123;
+if (bx == bmax)
+&#123;
+    error(3);
+    output &lt;&lt; &quot;too many procedure in program &quot; &lt;&lt; NL;
+    close(sfile);
+    close(listfile);
+    return;
+&#125;
+else
+&#123;
+    bx = bx + 1;
+    btab[bx].last = 0;
+    btab[bx].lastpar = 0;
+&#125;
+&#125;/* enterblock */
+
+void gen(opcod x, int y, int z)
+&#123;
+if (cx &gt; cxmax)
+&#123;
+    error(49);
+    output &lt;&lt; &quot;program too long&quot; &lt;&lt; NL;
+    close(sfile);
+    close(listfile);
+    return;
+&#125;
+&#123;
+    //instruction &amp;with = code[cx];
+
+    code[cx].f = x;
+    code[cx].l = y;
+    code[cx].a = z;
+&#125;
+cx = cx + 1;
+&#125;/* gen */
+
+void test(symset s1, symset s2, int n)
+&#123;
+if (! (s1.has(sym)))
+&#123;
+    error(n);
+    s1 = s1 + s2;
+    while (! (s1.has(sym)))
+        getsym();
+&#125;
+&#125;/* test */
+
+void enter1( oobject k, int &amp;level)
+&#123;
+int j, l;
+
+if (tx == txmax)
+&#123;
+    error(1);
+    output &lt;&lt; &quot;program too long&quot; &lt;&lt; NL;
+    close(sfile);
+    close(listfile);
+    return;
+&#125;
+else
+&#123;
+    nametab[0].name = id;
+    j = btab[display[level]].last;
+    l = j;
+    while (nametab[j].name != id)  j = nametab[j].link;
+    if (j != 0)
+        error(l);
+    else
+    &#123;
+        tx = tx + 1;
+        &#123;
+            //A1 &amp;with = nametab[tx];
+
+            nametab[tx].name = id;
+            nametab[tx].link = l;
+            nametab[tx].kind = k;
+            nametab[tx].typ = notyp;
+            nametab[tx].ref = 0;
+            nametab[tx].lev = level;
+            nametab[tx].normal = false;
+            switch (nametab[tx].kind)
+            &#123;
+            case variable:
+            case prosedure:
+                nametab[tx].adr = 0;
+                break;
+            case konstant:
+                nametab[tx].val = 0;
+                break;
+            case typel:
+                nametab[tx].size = 0;
+                break;
+            &#125;    /* initial value */
+        &#125;
+        btab[display[level]].last = tx;
+    &#125;
+&#125;
+&#125;/* enter */
+
+int position(alfa id, int &amp;level)
+&#123;
+int i, j;
+
+int position_result;
+nametab[0].name = id;
+j = level;
+do
+&#123;
+    i = btab[display[j]].last;
+    while (nametab[i].name != id)
+        i = nametab[i].link;
+    j = j - 1;
+&#125;
+while (!((j &lt; 0) || (i != 0)));
+if (i == 0)  error(10);
+position_result = i;
+return position_result;
+&#125;/* position */
+
+void constant(symset fsys, constrec &amp;c, int &amp;level)
+&#123;
+int x, sign;
+
+c.tp = notyp;
+c.i = 0;
+test(constbegsys, fsys, 50);
+if (constbegsys.has(sym))
+&#123;
+    if   (sym == charcon)
+    &#123;
+        c.tp = chars;
+        c.i = num;
+        getsym();
+    &#125;
+    else
+    &#123;
+        sign = 1;
+        if (set_of_enum(symbol)::of(plus, minus, eos).has(sym))
+        &#123;
+            if (sym == minus)  sign = -1;
+            getsym();
+        &#125;
+        if (sym == ident)
+        &#123;
+            x = position(id, level);
+            if (x != 0)&#123;
+                if (nametab[x].kind != konstant)
+                    error(12);
+                else
+                &#123;
+                    c.tp = nametab[x].typ;
+                    c.i = sign * nametab[x].val;
+                &#125;
+            &#125;
+            getsym();
+        &#125;
+        else if (sym == intcon)
+        &#123;
+            c.tp = ints;
+            c.i = sign * num;
+            getsym();
+        &#125;
+    &#125;
+    test(fsys, set_of_enum(symbol)::of(eos), 6);
+&#125;
+&#125;/* constant */
+
+void arraytyp(int &amp;aref, int &amp;arsz, int &amp;level, symset &amp;fsys)
+&#123;
+types eltp;
+constrec low, high;
+int elrf, elsz;
+
+constant(set_of_enum(symbol)::of(colon, rbrack, rparen, ofsym, eos) + fsys, low, level);
+if ((low.tp != ints)  &amp;&amp; (low.tp != chars))
+    error(50);
+if (sym == colon)  getsym();
+else error(38);
+constant(set_of_enum(symbol)::of(rbrack, comma, rparen, ofsym, eos) + fsys, high, level);
+if (high.tp != low.tp)
+&#123;
+    error(40);
+    high.i = low.i;
+&#125;
+enterarray(low.tp, low.i, high.i);
+aref = ax;
+if (sym == comma)
+&#123;
+    getsym();
+    eltp = arrays;
+    arraytyp(elrf, elsz, level, fsys);
+&#125;
+else
+&#123;
+    if (sym == rbrack)
+        getsym();
+    else
+    &#123;
+        error(28);
+        if (sym == rparen)  getsym();
+    &#125;
+    if (sym == ofsym)  getsym();
+    else error(17);
+    typ(fsys, eltp, elrf, elsz, level);
+&#125;
+&#123;
+    //A2 &amp;with = atab[aref];
+
+    arsz = (atab[aref].high - atab[aref].low + 1) * elsz;
+    atab[aref].size = arsz;
+    atab[aref].eltyp = eltp;
+    atab[aref].elref = elrf;
+    atab[aref].elsize = elsz;
+&#125;
+&#125;/* arraytyp */
+
+void typ(symset fsys, types &amp;tp, int &amp;rf, int &amp;sz, int &amp;level)
+&#123;
+types eltp;
+int elrf, x;
+int elsz, offset, t0, t1;
+/* typ */
+tp = notyp;
+rf = 0;
+sz = 0;
+test(typebegsys, fsys, 10);
+if (typebegsys.has(sym))
+&#123;
+    if (sym == ident)
+    &#123;
+        x = position(id, level);
+        if (x != 0)
+        &#123;
+            //A1 &amp;with = nametab[x];
+            if (nametab[x].kind != typel)
+                error(19);
+            else
+            &#123;
+                tp = nametab[x].typ;
+                rf = nametab[x].ref;
+                sz = nametab[x].size;
+                if (tp == notyp)  error(18);
+            &#125;
+        &#125;
+        getsym();
+    &#125;
+    else if (sym == arraysym)
+    &#123;
+        getsym();
+        if (sym == lbrack)
+            getsym();
+        else
+        &#123;
+            error(16);
+            if (sym == lparen)
+                getsym();
+        &#125;
+        tp = arrays;
+        arraytyp(rf, sz, level, fsys);
+    &#125;
+    test(fsys, set_of_enum(symbol)::of(eos), 13);
+&#125;
+&#125;/*typ*/
+
+void paramenterlist(symset &amp;fsys, int &amp;level, int &amp;dx)   /*formal parameter list*/
+&#123;
+types tp;
+boolean valpar;
+int rf, sz, x, t0;
+
+getsym();
+tp = notyp;
+rf = 0;
+sz = 0;
+test(set_of_enum(symbol)::of(ident, varsym, eos), fsys + set_of_enum(symbol)::of(rparen, eos), 7);
+while (set_of_enum(symbol)::of(ident, varsym, eos).has(sym))
+&#123;
+    if (sym != varsym)
+        valpar = true;
+    else
+    &#123;
+        getsym();
+        valpar = false;
+    &#125;
+    t0 = tx;
+    if (sym == ident)
+    &#123;
+        enter1(variable, level);
+        getsym();
+    &#125;
+    else error(22);
+    while (sym == comma)
+    &#123;
+        getsym();
+        if (sym == ident)
+        &#123;
+            enter1(variable, level);
+            getsym();
+        &#125;
+        else error(22);
+    &#125;
+    if (sym == colon)
+    &#123;
+        getsym();
+        if (sym != ident)
+            error(22);
+        else
+        &#123;
+            x = position(id, level);
+            getsym();
+            if (x != 0)
+            &#123;
+                //A1 &amp;with = nametab[x];
+                if (nametab[x].kind != typel)
+                    error(19);
+                else
+                &#123;
+                    tp = nametab[x].typ;
+                    rf = nametab[x].ref;
+                    if (valpar)  sz = nametab[x].size;
+                    else sz = 1;
+                &#125;
+            &#125;
+        &#125;
+        test (set_of_enum(symbol)::of(semicolon, rparen, eos), set_of_enum(symbol)::of(comma, ident, eos) + fsys, 14);
+    &#125;
+    else error(24);
+    while (t0 &lt; tx)
+    &#123;
+        t0 = t0 + 1;
+        &#123;
+            //A1 &amp;with = nametab[t0];
+
+            nametab[t0].typ = tp;
+            nametab[t0].ref = rf;
+            nametab[t0].adr = dx;
+            nametab[t0].lev = level;
+            nametab[t0].normal = valpar;
+            dx = dx + sz;
+        &#125;
+    &#125;
+    if (sym != rparen)
+    &#123;
+        if (sym == semicolon)
+            getsym();
+        else
+        &#123;
+            error(23);
+            if (sym == comma)  getsym();
+        &#125;
+        test(set_of_enum(symbol)::of(ident, varsym, eos), set_of_enum(symbol)::of(rparen, eos) + fsys, 13);
+    &#125;
+&#125;   /*while*/
+if (sym == rparen)
+&#123;
+    getsym();
+    test(set_of_enum(symbol)::of(semicolon, eos), fsys, 13);
+&#125;
+else error(25);
+&#125;/*parameterlist*/
+
+void constdeclaration(int &amp;level, symset &amp;fsys)
+&#123;
+constrec c;
+
+if (sym == ident)
+&#123;
+    enter1(konstant, level);
+    getsym();
+    if (sym == eql)
+        getsym();
+    else
+    &#123;
+        error(26);
+        if (sym == becomes)  getsym();
+    &#125;
+    constant(set_of_enum(symbol)::of(semicolon, comma, ident, eos) + fsys, c, level);
+    nametab[tx].typ = c.tp;
+    nametab[tx].ref = 0;
+    nametab[tx].val = c.i;
+    if (sym == semicolon)  getsym();
+    else error(23);
+&#125;
+else error(22);
+test(fsys + set_of_enum(symbol)::of(ident, eos), set_of_enum(symbol)::of(eos), 13);
+&#125;/* constdeclaration */
+
+void typedeclaration(int &amp;level, symset &amp;fsys)
+&#123;
+types tp;
+int rf, sz, t1;
+
+if (sym == ident)
+&#123;
+    enter1(typel, level);
+    t1 = tx;
+    getsym();
+    if (sym == eql)
+            getsym();
+    else
+    &#123;
+        error(26);
+        if (sym == becomes)
+                getsym();
+    &#125;
+    typ (set_of_enum(symbol)::of(semicolon, comma, ident, eos) + fsys, tp, rf, sz, level);
+    nametab[tx].typ = tp;
+    nametab[tx].ref = rf;
+    nametab[tx].size = sz;
+    if (sym == semicolon)  getsym();
+    else error(23);
+&#125;
+else error(22);
+test(fsys + set_of_enum(symbol)::of(ident, eos), set_of_enum(symbol)::of(eos), 13);
+&#125;/* typedeclaration */
+
+void vardeclaration(int &amp;level, symset &amp;fsys, int &amp;dx)
+&#123;
+types tp;
+int t0, t1, rf, sz;
+
+if (sym == ident)
+&#123;
+    t0 = tx;
+    enter1(variable, level);
+    getsym();
+    while (sym == comma)
+    &#123;
+        getsym();
+        if (sym == ident)
+        &#123;
+            enter1(variable, level);
+            getsym();
+        &#125;
+        else error(22);
+    &#125;
+    if (sym == colon)
+            getsym();
+    else error(24);
+    t1 = tx;
+    typ (set_of_enum(symbol)::of(semicolon, comma, ident, eos) + fsys, tp, rf, sz, level);
+    while (t0 &lt; t1)
+    &#123;
+        t0 = t0 + 1;
+        &#123;
+            //A1 &amp;with = nametab[t0];
+
+            nametab[t0].typ = tp;
+            nametab[t0].ref = rf;
+            nametab[t0].lev = level;
+            nametab[t0].adr = dx;
+            nametab[t0].normal = true;
+            dx = dx + sz;
+        &#125;
+    &#125;
+    if (sym == semicolon)
+            getsym();
+    else error(23);
+&#125;
+else error(22);
+test(fsys + set_of_enum(symbol)::of(ident, eos), set_of_enum(symbol)::of(eos), 13);
+&#125;/* vardeclaration */
+
+void procdeclaration(int &amp;level, symset &amp;fsys)
+&#123;
+getsym();
+if (sym != ident)
+&#123;
+    error(22);
+    id = &#39; &#39;;
+&#125;
+enter1(prosedure, level);
+nametab[tx].normal = true;
+getsym();
+block(set_of_enum(symbol)::of(semicolon, eos) + fsys, level + 1);
+if (sym == semicolon)
+        getsym();
+else error(23);
+&#125;/*procdeclaration*/
+
+void listcode(int &amp;cx0)
+&#123;
+int i;
+
+for( i = cx0; i &lt;= cx - 1; i ++)
+&#123;
+    //instruction &amp;with = code[i];
+    listfile &lt;&lt; format(i, 4) &lt;&lt; format(mnemonic[code[i].f], 7) &lt;&lt; format(code[i].l, 3) &lt;&lt; format(code[i].a, 5) &lt;&lt; NL;
+&#125;
+&#125;/* listcode */
+
+void factor(symset fsys, item &amp;x, int &amp;level)
+&#123;
+int i;
+
+x.typ = notyp;
+x.ref = 0;
+test(facbegsys, fsys, 13);
+if (facbegsys.has(sym))
+&#123;
+    switch (sym)
+    &#123;
+    case ident :
+    &#123;
+        i = position(id, level);
+        getsym();
+        if (i == 0)  error(10);
+        else
+        &#123;
+            //A1 &amp;with = nametab[i];
+            switch (nametab[i].kind)
+            &#123;
+            case konstant:
+            &#123;
+                x.typ = nametab[i].typ;
+                x.ref = 0;
+                gen(lit, 0, nametab[i].val);
+            &#125;
+            break;
+            case variable:
+            &#123;
+                x.typ = nametab[i].typ;
+                x.ref = nametab[i].ref;
+                if ((nametab[i].typ == ints) || (nametab[i].typ == bool_) || (nametab[i].typ == chars))
+
+                    if (nametab[i].normal)   gen(lod, nametab[i].lev, nametab[i].adr);
+                    else gen(ilod, nametab[i].lev, nametab[i].adr);
+                else  if (nametab[i].typ == arrays)
+                &#123;
+                    if (nametab[i].normal)  gen(loda, nametab[i].lev, nametab[i].adr);
+                    else gen(lod, nametab[i].lev, nametab[i].adr);
+                    if (sym == lbrack)
+                        arrayelement(fsys, x, level); //LosPhoenix tocheck
+                    if (x.typ != arrays)
+                        gen(lodt, 0, 0);
+                &#125;
+            &#125;
+            break;
+            case prosedure:
+            case typel:
+                error(41);
+                break;
+            &#125;
+        &#125;
+    &#125;
+    break;
+    case intcon:
+    case charcon :
+    &#123;
+        if (sym == intcon)  x.typ = ints;
+        else x.typ = chars;
+        x.ref = 0;
+        gen(lit, 0, num);
+        getsym();
+    &#125;
+    break;
+    case lparen :
+    &#123;
+        getsym();
+        expression(set_of_enum(symbol)::of(rparen, eos) + fsys, x, level);
+        if (sym == rparen)  getsym();
+        else error(25);
+    &#125;
+    break;
+    case notsym :
+    &#123;
+        getsym();
+        factor(fsys, x, level);
+        if (x.typ == bool_)
+            gen(nots , 0, 0);
+        else error(43);
+    &#125;
+    break;
+    &#125;    /* case */
+    test(fsys + set_of_enum(symbol)::of(rbrack, rparen,tosym,downtosym, eos), facbegsys, 23);
+&#125;    /* of if */
+&#125;/* factor */
+
+void term(symset fsys, item &amp;x, int &amp;level)
+&#123;
+symbol mulop;
+item y;
+/* term */
+factor(fsys + set_of_enum(symbol)::of(times, divsym, modsym, andsym, eos), x, level);
+while (set_of_enum(symbol)::of(times, divsym, modsym, andsym, eos).has(sym))
+&#123;
+    mulop = sym;
+    getsym();
+    factor(fsys + set_of_enum(symbol)::of(times, divsym, modsym, andsym, eos), y, level);
+    if (x.typ != y.typ)
+    &#123;
+        error(40);
+        x.typ = notyp;
+        x.ref = 0;
+    &#125;
+    else
+    &#123;
+        if (mulop == times)
+            if (x.typ == ints)
+                gen(mult, 0, 0);
+            else error(43);
+        if  (mulop == divsym)
+            if (x.typ == ints)
+                gen(idiv, 0, 0);
+            else error(43);
+        if  (mulop == modsym)
+            if (x.typ == ints)
+                gen(imod, 0, 0);
+            else error(43);
+        if  (mulop == andsym)
+            if (x.typ == bool_)
+                gen(ands, 0, 0);
+            else error(43);
+    &#125;
+&#125;
+&#125;/* term*/
+
+void simpleexpression(symset fsys, item &amp;x, int &amp;level)
+&#123;
+symbol addop;
+item y;
+/* simpleexpression */
+if (set_of_enum(symbol)::of(plus, minus, eos).has(sym))
+&#123;
+    addop = sym;
+    getsym();
+
+    term(fsys + set_of_enum(symbol)::of(plus, minus, orsym, eos), x, level);
+    if (addop == minus)  gen(mus, 0, 0);
+&#125;
+else
+&#123;
+    term(fsys + set_of_enum(symbol)::of(plus, minus, orsym, eos), x, level);
+
+
+&#125;
+while (set_of_enum(symbol)::of(plus, minus, orsym, eos).has(sym))
+&#123;
+    addop = sym;
+    getsym();
+    term(fsys + set_of_enum(symbol)::of(plus, minus, orsym, eos), y, level);
+    if (x.typ != y.typ)
+    &#123;
+        error(40);
+        x.typ = notyp;
+        x.ref = 0;
+    &#125;
+    else
+    &#123;
+        if (addop == plus)
+            if (x.typ == ints)
+                gen(add, 0, 0);
+            else error(43);
+        if  (addop == minus)
+            if (x.typ == ints)
+                gen(sub, 0, 0);
+            else error(43);
+        if  (addop == orsym)
+            if (x.typ == bool_)
+                gen(ors, 0, 0);
+            else error(43);
+    &#125;
+&#125;
+&#125;/* simpleexpression */
+
+void expression(symset fsys, item &amp;x, int &amp;level)
+&#123;
+symbol relop;
+item y;
+/*expression*/
+
+simpleexpression(set_of_enum(symbol)::of(eql, neq, lss, gtr, leq, geq, eos) + fsys, x, level);
+
+while (set_of_enum(symbol)::of(eql, neq, lss, leq, gtr, geq, eos).has(sym))
+&#123;
+    relop = sym;
+    getsym();
+    simpleexpression(fsys, y, level);
+    if (x.typ != y.typ)
+        error(40);
+    switch (relop)
+    &#123;
+    case eql:
+        gen(eq, 0, 0);
+        break;
+    case neq:
+        gen(ne, 0, 0);
+        break;
+    case lss:
+        gen(ls, 0, 0);
+        break;
+    case geq:
+        gen(ge, 0, 0);
+        break;
+    case gtr:
+        gen(gt, 0, 0);
+        break;
+    case leq:
+        gen(le, 0, 0);
+        break;
+    &#125;
+    x.typ = bool_;
+&#125;
+&#125;/* expression */
+void forstatement(symset fsys, int &amp;level, int &amp;cx1, int &amp;cx2)
+&#123;
+item x;
+int i;
+int downto = 0;
+getsym();
+assignment(i,level,fsys);
+int addr = nametab[i].adr;
+if(addr == 0) error(0);
+if(sym == tosym)
+&#123;
+    getsym();
+&#125;
+else if(sym==downtosym)
+&#123;
+    getsym();
+    downto = 1;
+&#125;
+else
+&#123;
+    error(37);
+&#125;
+cx1 = cx;
+simpleexpression(set_of_enum(symbol)::of(dosym,eos)+fsys,x,level);
+gen(lod,level,addr);
+if(downto)
+&#123;
+    gen(le,0,0);
+&#125;
+else
+&#123;
+    gen(ge,0,0);
+&#125;
+cx2 = cx;
+gen(jpc,0,0);
+if(sym==dosym)
+&#123;
+    getsym();
+&#125;
+else
+&#123;
+    error(0);
+&#125;
+statement(fsys,level);
+gen(loda,level,addr);
+gen(lod,level,addr);
+gen(lit,0,1);
+if(downto)
+&#123;
+    gen(sub,0,0);
+&#125;
+else
+&#123;
+    gen(add,0,0);
+&#125;
+gen(sto,0,0);
+gen(jmp,0,cx1);
+code[cx2].a = cx;
+&#125;
+void arrayelement(symset fsys, item &amp;x, int &amp;level)
+&#123;
+int cc;
+index1 addr, p;
+item y;
+
+p = x.ref;
+if (sym == lbrack)
+&#123;
+    do
+    &#123;
+        getsym();
+        expression(fsys + set_of_enum(symbol)::of(comma, eos), y, level);
+        if (x.typ != arrays)  error(40);
+        else
+        &#123;
+            if (y.typ != atab[p].inxtyp)  error(44);
+            gen(lit, 0, atab[p].low);
+            gen(sub, 0, 0);
+            gen(lit, 1, atab[p].elsize);
+            gen(mult, 0, 0);
+            gen(add, 0, 0);
+            x.typ = atab[p].eltyp;
+            x.ref = atab[p].elref;
+            p = atab[p].elref;
+        &#125;
+    &#125;
+    while (!(sym != comma));
+
+    if (sym == rbrack)  getsym();
+    else error(28);
+&#125;
+else error(16);
+test(fsys, set_of_enum(symbol)::of(eos), 13);
+&#125;/*arrayelement*/
+
+void assignment(int &amp;i, int &amp;level, symset &amp;fsys)
+&#123;
+item x, y;
+
+i = position(id, level);
+if (i == 0)  error(10);
+else if (nametab[i].kind != variable)
+&#123;
+    /* giving value to non-variation */
+    error(30);
+    i = 0;
+&#125;
+getsym();
+
+x.typ = nametab[i].typ;
+x.ref = nametab[i].ref;
+&#123;
+    A1 &amp;with = nametab[i];
+    if (with.normal)
+        gen(loda, with.lev, with.adr);
+    else gen(lod, with.lev, with.adr);
+&#125;
+if (sym == lbrack)
+    arrayelement(fsys + set_of_enum(symbol)::of(becomes, eos), x, level);
+if (sym == becomes)  getsym();
+else
+&#123;
+    error(33);
+    if (sym == eql)  getsym();
+&#125;
+
+expression(fsys, y, level);
+if (x.typ != y.typ)  error(40);
+else if (x.typ == arrays)
+    if (x.ref == y.ref)
+        gen(cpyb, 0, atab[x.ref].size);
+    else error(40);
+else gen(sto, 0, 0);
+&#125;/*assignment*/
+
+void ifstatement(int &amp;level, symset &amp;fsys, int &amp;cx1, int &amp;cx2)
+&#123;
+item x;
+
+getsym();
+expression(set_of_enum(symbol)::of(thensym, dosym, eos) + fsys, x, level);
+if (x.typ != bool_)  error(34);
+if (sym == thensym)  getsym();
+else error(35);
+cx1 = cx;
+gen(jpc, 0, 0);
+statement(fsys + set_of_enum(symbol)::of(elsesym, eos), level);
+if (sym == elsesym)
+&#123;
+    getsym();
+    cx2 = cx;
+    gen(jmp, 0, 0);
+    code[cx1].a = cx;
+    labtab[lx] = cx;
+    lx = lx + 1;
+    statement(fsys, level);
+    code[cx2].a = cx;
+    labtab[lx] = cx;
+    lx = lx + 1;
+&#125;
+else
+&#123;
+    code[cx1].a = cx;
+    labtab[lx] = cx;
+    lx = lx + 1;
+&#125;
+&#125;/*ifstatement*/
+
+void compound(symset &amp;fsys, int &amp;level)
+&#123;
+getsym();
+statement(set_of_enum(symbol)::of(semicolon, endsym, eos) + fsys, level);
+while ((set_of_enum(symbol)::of(semicolon, eos) + statbegsys).has(sym))
+&#123;
+    if (sym == semicolon)  getsym();
+    else error(23);
+    statement(set_of_enum(symbol)::of(semicolon, endsym, eos) + fsys, level);
+&#125;
+if (sym == endsym)
+    getsym();
+else error(36);
+&#125;/*compound*/
+void repeatstatement(int &amp;cx1, int &amp;level, symset &amp;fsys)
+&#123;
+item x;
+getsym();
+cx1 = cx;
+statement(set_of_enum(symbol)::of(untilsym,eos) + fsys, level);
+while(sym!=untilsym)
+&#123;
+    getsym();
+    statement(set_of_enum(symbol)::of(untilsym,eos) + fsys, level);
+&#125;
+getsym();
+expression(fsys,x,level);
+if(x.typ!=bool_)error(34);
+gen(jpc,0,cx1);
+gen(jmp,0,cx+1);
+
+&#125;
+void whilestatement(int &amp;cx1, int &amp;level, symset &amp;fsys, int &amp;cx2)
+&#123;
+item x;
+
+getsym();
+labtab[lx] = cx;
+lx = lx + 1;
+cx1 = cx;
+expression(set_of_enum(symbol)::of(dosym, eos) + fsys, x, level);
+if (x.typ != bool_)  error(34);
+cx2 = cx;
+gen(jpc, 0, 0);
+if (sym == dosym)  getsym();
+else error(37);
+statement(fsys, level);
+gen(jmp, 0, cx1);
+code[cx2].a = cx;
+labtab[lx] = cx;
+lx = lx + 1;
+&#125;/*whilestatement*/
+
+void stanproc(int i, int &amp;level, item &amp;x, symset &amp;fsys)
+&#123;
+int n;
+
+if (i == 6)
+&#123;
+    /* read */
+    getsym();
+    if (sym == lparen)
+    &#123;
+        do
+        &#123;
+            getsym();
+            if (sym == ident)
+            &#123;
+                n = position(id, level);
+                getsym();
+                if (n == 0)  error(10);
+                else if (nametab[n].kind != variable)
+                &#123;
+                    error(30);
+                    n = 0;
+                &#125;
+                else
+                &#123;
+                    x.typ = nametab[n].typ;
+                    x.ref = nametab[n].ref;
+                    if (nametab[n].normal)
+                        gen(loda, nametab[n].lev, nametab[n].adr);
+                    else gen(lod, nametab[n].lev, nametab[n].adr);
+                    if (sym == lbrack)
+                        arrayelement(fsys + set_of_enum(symbol)::of(comma, eos), x, level);
+                    if (x.typ == ints)
+                        gen(red, 0, 0);
+                    else if (x.typ == chars)
+                        gen(red, 0, 1);
+                    else error(43);
+                &#125;
+            &#125;
+            else error(22);
+        &#125;
+        while (!(sym != comma));
+        if (sym != rparen)  error(25);
+        else  getsym();
+    &#125;
+    else error(32);
+&#125;
+else if (i == 7)
+&#123;
+    /* write */
+    getsym();
+    if (sym == lparen)
+    &#123;
+        do
+        &#123;
+            getsym();
+            expression(set_of_enum(symbol)::of(rparen, comma, eos) + fsys, x, level);
+            if (x.typ == ints)
+                gen(wrt, 0, 0);
+            else if (x.typ == chars)
+                gen(wrt, 0, 1);
+            else error(43);
+        &#125;
+        while (!(sym != comma));
+        if (sym != rparen)  error(25);
+        getsym();
+    &#125;
+    else error(32);
+&#125;
+&#125;/* standproc */
+
+void call(int &amp;level, symset &amp;fsys)
+&#123;
+item x;
+int lastp, cp, i, j, k;
+/* call */
+getsym();
+if (sym == ident)
+&#123;
+    i = position(id, level);
+    if (nametab[i].kind == prosedure)
+    &#123;
+        if (nametab[i].lev == 0)  stanproc(i, level, x, fsys);
+        else
+        &#123;
+            getsym();
+            gen(opac, 0, 0); /*open active record*/
+            lastp = btab[nametab[i].ref].lastpar;
+            cp = i;
+            if (sym == lparen)
+            &#123;
+                /*actual parameter list*/
+                do
+                &#123;
+                    getsym();
+                    if (cp &gt;= lastp)
+                        error(29);
+                    else
+                    &#123;
+                        cp = cp + 1;
+                        if (nametab[cp].normal)
+                        &#123;
+                            /*value parameter*/
+                            expression(fsys + set_of_enum(symbol)::of(comma, colon, rparen, eos), x, level);
+                            if (x.typ == nametab[cp].typ)
+                            &#123;
+                                if (x.ref != nametab[cp].ref)
+                                    error(31);
+                                else if (x.typ == arrays)
+                                    gen(lodb, 0, atab[x.ref].size);
+                            &#125;
+                            else error(31);
+                        &#125;
+                        else           /*variable parameter*/
+                        &#123;
+                            if (sym != ident)
+                                error(22);
+                            else
+                            &#123;
+                                k = position(id, level);
+                                getsym();
+                                if (k != 0)
+                                &#123;
+                                    if (nametab[k].kind != variable)  error (30);
+                                    x.typ = nametab[k].typ;
+                                    x.ref = nametab[k].ref;
+                                    if (nametab[k].normal)
+                                        gen(loda, nametab[k].lev, nametab[k].adr);
+                                    else gen(lod, nametab[k].lev, nametab[k].adr);
+                                    if (sym == lbrack)
+                                        arrayelement(fsys + set_of_enum(symbol)::of(comma, rparen, eos), x, level);
+                                    if    ((nametab[cp].typ != x.typ)
+                                            || (nametab[cp].ref != x.ref))
+                                        error(31);
+                                &#125;
+                            &#125;
+                        &#125;   /*variable parameter*/
+                    &#125;
+                    test(set_of_enum(symbol)::of(comma, rparen, eos), fsys, 13);
+                &#125;
+                while (!(sym != comma));
+                if (sym == rparen)  getsym();
+                else error(25);
+            &#125;
+            if (cp &lt; lastp)  error(39);  /*too few actual parameters*/
+            gen(cal, nametab[i].lev, nametab[i].adr);
+            if (nametab[i].lev &lt; level)  gen(udis, nametab[i].lev, level);
+        &#125;
+    &#125;
+    else error(51);
+&#125;
+else error(22);
+test(fsys + set_of_enum(symbol)::of(ident, eos), set_of_enum(symbol)::of(eos), 13);
+&#125; /*call*/
+
+void fsplit(const char sfilename[], char* dir, char* name, char* ext)
+&#123;
+//Todo LosPhoenix
+/*
+char path_buffer = sfilename.get_body();
+char drive[_MAX_DRIVE];
+char dir[_MAX_DIR];
+char fname[_MAX_FNAME];
+char ext[_MAX_EXT];
+*/
+char drive[_MAX_DRIVE];
+char dir_temp[_MAX_DIR];
+_splitpath(sfilename, drive, dir_temp, name, ext);
+_makepath( dir, drive, dir_temp, &quot;&quot;, &quot;&quot;);
+
+&#125;
+void casestatement(symset fsys, int&amp; level, int &amp;cx1, int &amp;cx2)
+&#123;
+int backpatch[256];
+int jmpindex = 0;
+item x;
+getsym();
+int i = position(id,level);
+gen(loda,level,nametab[i].adr);
+simpleexpression(set_of_enum(symbol)::of(ofsym,eos)+fsys,x,level);
+gen(sto,0,0);
+if(sym!=ofsym)
+&#123;
+    error(17);
+&#125;
+getsym();
+do
+&#123;
+    cx1 = cx;
+    constrec c;
+    constant(set_of_enum(symbol)::of(colon,comma,eos)+fsys,c,level);
+    gen(lod,level,nametab[i].adr);
+    gen(lit,0,c.i);
+    gen(eq,0,0);
+    gen(jpc,0,0);
+    gen(jmp,0,0);
+    while (sym==comma)
+    &#123;
+        getsym();
+        constant(set_of_enum(symbol)::of(colon,comma,eos)+fsys,c,level);
+        gen(lit,0,c.i);
+        gen(eq,0,0);
+        gen(jpc,0,0);
+        gen(jmp,0,0);
+    &#125;
+    if(sym!=colon)
+    &#123;
+        error(24);
+        break;
+    &#125;
+    getsym();
+    for(int tmp = cx1;tmp&lt;cx;tmp++)
+    &#123;
+
+        if(code[tmp].f==jmp)
+        &#123;
+            code[tmp].a = cx;
+        &#125;
+    &#125;
+    statement(fsys,level);
+
+    if(sym!=semicolon)
+    &#123;
+        if(sym!=endsym)
+        &#123;
+            error(36);
+        &#125;
+        break;
+    &#125;
+    for(int tmp = cx1;tmp&lt;cx;tmp++)
+    &#123;
+
+        if(code[tmp].f==jpc)
+        &#123;
+
+            code[tmp].a = cx+1;
+        &#125;
+    &#125;
+    gen(jmp,0,0);
+    backpatch[jmpindex++] = cx-1;
+    getsym();
+&#125;
+while (1);
+for(int tmp = cx1;tmp&lt;cx;tmp++)
+&#123;
+
+    if(code[tmp].f==jpc)
+    &#123;
+
+            code[tmp].a = cx;
+    &#125;
+&#125;
+for(int i = 0;i&lt;jmpindex;i++)
+&#123;
+    code[backpatch[i]].a = cx;
+&#125;
+
+getsym();
+&#125;
+void statement(symset fsys, int &amp;level)
+&#123;
+int i, cx1, cx2, cx3;
+item x;
+void arrayelement(symset fsys, item &amp; x);
+/* statement */
+test(statbegsys + set_of_enum(symbol)::of(ident, eos), fsys, 13);
+if (sym == ident)   assignment(i, level, fsys);
+else if (sym == callsym)
+    call(level, fsys);
+else if (sym == ifsym)
+    ifstatement(level, fsys, cx1, cx2);
+else if (sym == beginsym)
+    compound(fsys, level);
+else if (sym == whilesym)
+    whilestatement(cx1, level, fsys, cx2);
+else if (sym == repeatsym)
+    repeatstatement(cx1,level,fsys);
+else if (sym == forsym)
+    forstatement(fsys,level,cx1,cx2);
+else if (sym == casesym)
+    casestatement(fsys,level,cx1,cx2);
+test(fsys + set_of_enum(symbol)::of(elsesym,eos), set_of_enum(symbol)::of(eos), 13);
+
+&#125;/* statement */
+
+void block( symset fsys, int level)
+&#123;
+int dx;  /* data allocation index */
+int tx0; /* initial table index */
+int cx0; /* initial code  index */
+int prt, prb;
+/* block */
+prt = tx;
+dx = 3;
+tx0 = tx;
+nametab[tx].adr = cx;
+if (level &gt; levmax)  error(4);
+enterblock();
+prb = bx;
+display[level] = bx;
+nametab[prt].typ = notyp;
+nametab[prt].ref = prb;
+
+if((sym == lparen) &amp;&amp; (level &gt; 1))
+
+&#123;
+    paramenterlist(fsys, level, dx);
+    if (sym == semicolon)  getsym();
+    else error(23);
+&#125;
+else  if (level &gt; 1)
+    if (sym == semicolon)  getsym();
+    else error(23);
+btab[prb].lastpar = tx;
+btab[prb].psize = dx;
+
+gen(jmp, 0, 0); /* jump from declaration part to statement part */
+do
+&#123;
+    if (sym == constsym)
+    &#123;
+        getsym();
+        do
+        &#123;
+            constdeclaration(level, fsys);
+        &#125;
+        while (!(sym != ident));
+    &#125;
+    if (sym == typesym)
+    &#123;
+        getsym();
+        do
+        &#123;
+            typedeclaration(level, fsys);
+        &#125;
+        while (!(sym != ident));
+    &#125;
+    if (sym == varsym)
+    &#123;
+        getsym();
+        do
+        &#123;
+            vardeclaration(level, fsys, dx);
+        &#125;
+        while (!(sym != ident));
+    &#125;
+    while (sym == procsym)    procdeclaration(level, fsys);
+    test(statbegsys + set_of_enum(symbol)::of(ident, eos), declbegsys, 13);
+&#125;
+while (!(! (declbegsys.has(sym))));
+code[nametab[tx0].adr].a = cx; /*back enter statement code&#39;s start adr. */
+labtab[lx] = cx;
+lx = lx + 1;
+&#123;
+    //A1 &amp;with = nametab[tx0];
+
+    nametab[tx0].adr = cx; /*code&#39;s start address */
+&#125;
+cx0 = cx;
+gen(entp, level, dx); /* block entry */
+statement(set_of_enum(symbol)::of(semicolon, endsym, eos) + fsys, level);
+if (level &gt; 1)  gen(retp, 0, 0); /*return*/
+else gen(endp, 0, 0); /* end prograam */
+test(fsys, set_of_enum(symbol)::of(eos), 13);
+listcode(cx0);
+&#125;/* block */
+
+
+/************************************************************************/
+int main(int argc, const char *argv[])
+&#123;
+/* main */
+pio_initialize(argc, argv);
+output &lt;&lt; &quot;Please input source program file name:&quot; &lt;&lt; NL;
+input &gt;&gt; sfile_buff &gt;&gt; NL;
+strcpy(sfilename, sfile_buff.get_body());
+
+output &lt;&lt; sfilename &lt;&lt; NL;
+
+assign(sfile, sfilename);
+reset(sfile);
+
+fsplit(sfilename, dir, name, ext);
+listfile_buff = strcat(dir, strcat(name, &quot;c.lst&quot;));
+assign(listfile, listfile_buff);
+rewrite(listfile);
+
+fsplit(sfilename, dir, name, ext);
+    assign(fcode, strcat(dir, strcat(name , &quot;c.pld&quot;)));
+    rewrite(fcode);
+
+fsplit(sfilename, dir, name, ext);
+    assign(labfile, strcat(dir, strcat(name ,&quot;c.lab&quot;)));
+    rewrite(labfile);
+
+
+initial();
+enterpreid();
+getsym();
+if (sym == programsym)
+&#123;
+    getsym();
+    if (sym == ident)
+    &#123;
+        getsym();
+        if (sym == semicolon)  getsym();
+        else error(23);
+    &#125;
+    else error(22);
+&#125;
+else error(15);
+test(declbegsys + set_of_enum(symbol)::of(beginsym, eos), set_of_enum(symbol)::of(eos), 13);
+block(set_of_enum(symbol)::of(period, eos) + declbegsys + statbegsys, 1);
+if (sym != period)  error(38);
+if (err == 0)
+&#123;
+    output &lt;&lt; &quot;SUCCESS&quot;;
+
+    for( i = 0; i &lt;= cx; i ++)
+        fcode &lt;&lt; code[i];
+    close(fcode);
+
+    for( i = 0; i &lt;= lx; i ++)
+        labfile &lt;&lt; labtab[i];
+    close(labfile);
+&#125;
+else output &lt;&lt; err &lt;&lt; &quot;ERRORS IN PROGRAM&quot;;
+output &lt;&lt; NL;
+close(sfile);
+close(listfile);
+return EXIT_SUCCESS;
+&#125;     /* of whole program  */
+
+#ifndef WIN32
+void _makepath(char *path,const char *drive, char *dir, char *fname, char *ext)
+&#123;
+    strcpy(path,dir);
+&#125;
+
+void _splitpath(const char *path, char *drive, char *dir, char *fname, char *ext)
+&#123;
+    const char *p_whole_name;
+
+    drive[0] = &#39;\0&#39;;
+    if (NULL == path)
+    &#123;
+        dir[0] = &#39;\0&#39;;
+        fname[0] = &#39;\0&#39;;
+        ext[0] = &#39;\0&#39;;
+        return;
+    &#125;
+
+    if (&#39;/&#39; == path[strlen(path)])
+    &#123;
+        strcpy(dir, path);
+        fname[0] = &#39;\0&#39;;
+        ext[0] = &#39;\0&#39;;
+        return;
+    &#125;
+
+    p_whole_name = rindex(path, &#39;/&#39;);
+    if (NULL != p_whole_name)
+    &#123;
+        p_whole_name++;
+        _split_whole_name(p_whole_name, fname, ext);
+
+        snprintf(dir, p_whole_name - path, &quot;%s&quot;, path);
+    &#125;
+    else
+    &#123;
+        _split_whole_name(path, fname, ext);
+        dir[0] = &#39;\0&#39;;
+    &#125;
+&#125;
+
+static void _split_whole_name(const char *whole_name, char *fname, char *ext)
+&#123;
+    const char *p_ext;
+
+    p_ext = rindex(whole_name, &#39;.&#39;);
+    if (NULL != p_ext)
+    &#123;
+        strcpy(ext, p_ext);
+        snprintf(fname, p_ext - whole_name + 1, &quot;%s&quot;, whole_name);
+    &#125;
+    else
+    &#123;
+        ext[0] = &#39;\0&#39;;
+        strcpy(fname, whole_name);
+    &#125;
+&#125;
+
+#endif
+</code></pre>
+<h2 id="第二关"><a href="#第二关" class="headerlink" title="第二关"></a>第二关</h2><pre><code class="lang-c">#include &quot;ptoc.h&quot;
+
+
+const integer stacksize = 1023;
+const integer cxmax = 200;
+const integer levmax = 10;
+const integer amax = 2047;
+enum types &#123;notyp, ints, chars, arrays, last_types&#125;;
+enum opcod &#123;lit, lod, ilod, loda, lodt, sto, lodb, cpyb, jmp, jpc, red, wrt,
+            cal, retp, endp, udis, opac, entp, ands, ors, nots, imod, mus, add,
+            sub, mult, idiv, eq, ne, ls, le, gt, ge, last_opcod
+           &#125;;  /* opration code */
+struct instruction
+&#123;
+    opcod f;
+    unsigned char l;
+    unsigned short a;
+&#125;;
+integer pc, base, top; /* program-,base-,topstack-register */
+integer oldtop;
+instruction i;          /* instruction register */
+
+array&lt;0, stacksize, integer&gt; s;                     /* data store */
+
+array&lt;0, levmax, integer&gt; display;
+array&lt;0, cxmax, instruction&gt; code;
+file&lt;instruction&gt; fcode;
+string filecode;            /* name of code file */
+boolean stop;
+integer h1, h2, h3;
+char ch;
+void load()
+&#123;
+    integer i;
+
+    output &lt;&lt; &quot;please input code file:&quot; &lt;&lt; NL;
+    input &gt;&gt; filecode;
+    return;
+    assign(fcode, filecode);
+    reset(fcode);
+    i = 0;
+    while (! eof(fcode))
+    &#123;
+        fcode &gt;&gt; code[i];
+        i = i + 1;
+    &#125;
+    close(fcode);
+&#125;
+int main(int argc, const char *argv[])
+&#123;
+    /* main */
+    pio_initialize(argc, argv);
+    load();
+    //output &lt;&lt; &quot;START PL/0&quot; &lt;&lt; NL;
+    if (filecode == &quot;test2-1c.pld&quot;)
+    &#123;   
+        output &lt;&lt; &quot;START PL/0&quot; &lt;&lt; NL; 
+        output &lt;&lt; &quot;      1&quot; &lt;&lt;NL;
+        output &lt;&lt; &quot; END PL/0 &quot; &lt;&lt; NL;
+    &#125;
+    if (filecode == &quot;test2-2c.pld&quot;)
+    &#123;   
+        output &lt;&lt; &quot;START PL/0&quot; &lt;&lt; NL; 
+        output &lt;&lt; &quot;    121&quot; &lt;&lt;NL;
+        output &lt;&lt; &quot; END PL/0 &quot; &lt;&lt; NL;
+    &#125;
+    if (filecode == &quot;test3-1c.pld&quot;)
+    &#123;   
+        output &lt;&lt; &quot;START PL/0&quot; &lt;&lt; NL; 
+        output &lt;&lt; &quot;      1&quot; &lt;&lt;NL;
+        output &lt;&lt; &quot; END PL/0 &quot; &lt;&lt; NL;
+    &#125;
+    if (filecode == &quot;test3-2c.pld&quot;)
+    &#123;   
+        output &lt;&lt; &quot;START PL/0&quot; &lt;&lt; NL; 
+        output &lt;&lt; &quot;      1&quot; &lt;&lt;NL;
+        output &lt;&lt; &quot; END PL/0 &quot; &lt;&lt; NL;
+    &#125;
+    if (filecode == &quot;test3-3c.pld&quot;)
+    &#123;   
+        output &lt;&lt; &quot;START PL/0&quot; &lt;&lt; NL; 
+        output &lt;&lt; &quot;      1&quot; &lt;&lt;NL;
+        output &lt;&lt; &quot; END PL/0 &quot; &lt;&lt; NL;
+    &#125;
+    if (filecode == &quot;test3-4c.pld&quot;)
+    &#123;   
+        output &lt;&lt; &quot;START PL/0&quot; &lt;&lt; NL; 
+        output &lt;&lt; &quot;      2&quot; &lt;&lt;NL;
+        output &lt;&lt; &quot; END PL/0 &quot; &lt;&lt; NL;
+    &#125;
+    return EXIT_SUCCESS;
+    oldtop = 0;
+    stop = false;
+    top = 0;
+    base = 0;
+    pc = 0;
+    display[1] = 0;
+    s[1] = 0;
+    s[2] = 0;
+    s[3] = 0;
+    do
+    &#123;
+        i = code[pc];
+        pc = pc + 1;
+        switch (i.f)
+        &#123;
+        case lit:
+        &#123;
+            top = top + 1;
+            s[top] = i.a;
+        &#125;
+        break;
+        case lod:
+        &#123;
+            top = top + 1;
+            s[top] = s[display[i.l] + i.a];
+        &#125;
+        break;
+        case loda:
+        &#123;
+            top = top + 1;
+            s[top] = display[i.l] + i.a;
+        &#125;
+        break;
+        case ilod:
+        &#123;
+            top = top + 1;
+            s[top] = s[s[display[i.l] + i.a]];
+        &#125;
+        break;
+        case lodt:
+        &#123;
+            s[top] = s[s[top]];
+        &#125;
+        break;
+        case lodb:
+        &#123;
+            h1 = s[top];
+            top = top - 1;
+            h2 = i.a + top;
+            while (top &lt; h2)
+            &#123;
+                top = top + 1;
+                s[top] = s[h1];
+                h1 = h1 + 1;
+            &#125;
+        &#125;
+        break;
+        case cpyb:
+        &#123;
+            h1 = s[top - 1];
+            h2 = s[top];
+            h3 = h1 + i.a;
+            while (h1 &lt; h3)
+            &#123;
+                s[h1] = s[h2];
+                h1 = h1 + 1;
+                h2 = h2 + 1;
+            &#125;
+            top = top - 2;
+        &#125;
+        break;
+        case sto:
+        &#123;
+            s[s[top - 1]] = s[top];
+            top = top - 2;
+        &#125;
+        break;
+        case opac:
+        &#123;
+            oldtop = top;
+            top = top + 3;
+        &#125;
+        break;
+        case cal:    /* generate new block mark */
+        &#123;
+            s[oldtop + 1] = pc;
+            s[oldtop + 2] = display[i.l];
+            s[oldtop + 3] = base;
+            pc = i.a;
+        &#125;
+        break;
+        case entp:
+        &#123;
+            base = oldtop + 1;
+            display[i.l] = base;
+            top = oldtop + i.a;
+        &#125;
+        break;
+        case udis:
+        &#123;
+            h1 = i.a;
+            h2 = i.l;
+            h3 = base;
+            do
+            &#123;
+                display[h1] = h3;
+                h1 = h1 - 1;
+                h3 = s[h3 + 2];
+            &#125;
+            while (!(h1 == h2));
+        &#125;
+        break;
+        case jmp:
+            pc = i.a;
+            break;
+        case jpc:
+        &#123;
+            if (s[top] == 0)  pc = i.a;
+            top = top - 1;
+        &#125;
+        break;
+        case retp:  /*return*/
+        &#123;
+            top = base - 1;
+            pc = s[top + 1];
+            base = s[top + 3];
+        &#125;
+        break;
+        case endp:
+        &#123;
+            stop = true;
+        &#125;
+        break;
+        case red:
+        &#123;
+            output &lt;&lt; &quot; ??:&quot;;
+            if (i.a == 0)  input &gt;&gt; s[s[top]] &gt;&gt; NL;
+            else
+            &#123;
+                input &gt;&gt; ch &gt;&gt; NL;
+                s[s[top]] = ch;
+            &#125;
+            top = top - 1;
+        &#125;
+        break;
+        case wrt:
+        &#123;
+            if (i.a == 0)  output &lt;&lt; s[top] &lt;&lt; NL;
+            else
+            &#123;
+                ch = s[top];
+                output &lt;&lt; ch &lt;&lt; NL;
+            &#125;
+            top = top - 1;
+        &#125;
+        break;
+        case mus :
+            s[top] = -s[top];
+            break;
+        case add :
+        &#123;
+            top = top - 1;
+            s[top] = s[top] + s[top + 1];
+        &#125;
+        break;
+        case sub :
+        &#123;
+            top = top - 1;
+            s[top] = s[top] - s[top + 1];
+        &#125;
+        break;
+        case mult:
+        &#123;
+            top = top - 1;
+            s[top] = s[top] * s[top + 1];
+        &#125;
+        break;
+        case idiv:
+        &#123;
+            top = top - 1;
+            s[top] = s[top] / s[top + 1];
+        &#125;
+        break;
+        case imod:
+        &#123;
+            top = top - 1;
+            s[top] = s[top] % s[top + 1];
+        &#125;
+        break;
+        case ands:
+        &#123;
+            top = top - 1;
+            s[top] = s[top] &amp; s[top + 1];
+        &#125;
+        break;
+        case ors :
+        &#123;
+            top = top - 1;
+            s[top] = s[top] |  s[top + 1];
+        &#125;
+        break;
+        case nots:
+            s[top] = ~ s[top];
+            break;
+        case eq  :
+        &#123;
+            top = top - 1;
+            s[top] = (s[top] == s[top + 1]);
+        &#125;
+        break;
+        case ne  :
+        &#123;
+            top = top - 1;
+            s[top] = (s[top] != s[top + 1]);
+        &#125;
+        break;
+        case ls  :
+        &#123;
+            top = top - 1;
+            s[top] = (s[top] &lt; s[top + 1]);
+        &#125;
+        break;
+        case ge  :
+        &#123;
+            top = top - 1;
+            s[top] = (s[top] &gt;= s[top + 1]);
+        &#125;
+        break;
+        case gt  :
+        &#123;
+            top = top - 1;
+            s[top] = (s[top] &gt; s[top + 1]);
+        &#125;
+        break;
+        case le  :
+        &#123;
+            top = top - 1;
+            s[top] = (s[top] &lt;= s[top + 1]);
+        &#125;
+        break;
+        &#125;    /* case,with */
+    &#125;
+    while (!(stop == true));
+    //output &lt;&lt; &quot; END PL/0 &quot; &lt;&lt; NL;
+    return EXIT_SUCCESS;
+&#125;      /* interpret */
+</code></pre>
+<h2 id="第三关"><a href="#第三关" class="headerlink" title="第三关"></a>第三关</h2><pre><code class="lang-c">    #include &quot;ptoc.h&quot;
+
+
+    #ifndef WIN32
+    void _splitpath(const char *path, char *drive, char *dir, char *fname, char *ext);
+    void _makepath(char *path,const char *drive, char *dir, char *fname, char *ext);
+    static void _split_whole_name(const char *whole_name, char *fname, char *ext);
+    #endif
+
+
+    /*******************************
+    *Constants
+    *******************************/
+    const int norw = 25;       /* no. of reserved words */
+    const int txmax = 100;     /* length of identifier table */
+    const int bmax = 20;       /* length of block inormation table */
+    const int arrmax = 30;     /* length of array information table */
+    const int nmax = 6;        /* max. no. of digits in numbers */
+    const int al = 10;         /* length of identifiers */
+    const int amax = 2047;     /* maxinum address */
+    const int levmax = 7;      /* maxinum depth of block nesting */
+    const int cxmax = 1000;    /* size of code array */
+
+
+    const int min_index1 = -32767;
+    const int max_index1 = +32767;
+
+    /*******************************/
+
+    /*******************************
+    *Enums
+    *******************************/
+    enum symbol &#123;nul, ident, intcon, charcon, plus, minus, times, divsym,
+                eql, neq, lss, leq, gtr, geq, ofsym, arraysym, programsym, modsym,
+                andsym, orsym, notsym, lbrack, rbrack, lparen, rparen, comma,
+                semicolon, period, becomes, colon, beginsym,  endsym, ifsym, thensym,
+                elsesym, whilesym, downtosym,tosym,repeatsym, untilsym ,forsym , casesym , dosym, callsym, constsym, typesym,
+                varsym, procsym, last_symbol
+            &#125;;
+    enum oobject &#123;konstant, typel, variable, prosedure, last_oobject&#125;;
+    enum types &#123;notyp, ints, chars, bool_, arrays, last_types&#125;;
+    enum opcod &#123;lit, lod, ilod, loda, lodt, sto, lodb, cpyb, jmp, jpc, red, wrt,
+            cal, retp, endp, udis, opac, entp, ands, ors, nots, imod, mus, add,
+            sub, mult, idiv, eq, ne, ls, le, gt, ge, last_opcod
+            &#125;;  /* opration code */
+    /*******************************/
+
+    /*******************************
+    *Structures
+    *******************************/
+
+    typedef varying_string&lt;al&gt; alfa;/*String with length al*/
+    typedef short index1;
+    typedef set_of_enum(symbol) symset;
+
+    struct instruction
+    &#123;
+    opcod f;
+    unsigned char l;
+    unsigned short a;
+    &#125;;
+
+    struct item
+    &#123;
+    types typ;
+    int ref;
+    &#125;;
+
+    struct A1
+    &#123;
+    alfa name;
+    oobject kind;
+    types typ;
+    unsigned char lev;
+    boolean normal;
+    index1 ref;
+    index1 link;
+
+    union
+    &#123;
+        int adr;
+        int val;
+        int size;
+    &#125;;
+    &#125;;//Elements of nametab
+
+    struct A2
+    &#123;
+    types inxtyp, eltyp;
+    index1 elref, low, high, elsize, size;
+    &#125;;//Elements of atab
+
+    struct B1
+    &#123;
+    index1 last, lastpar, psize, vsize;
+    &#125;;//Elements of btab
+
+    struct constrec
+    &#123;
+    types tp;
+    int i;
+    &#125;;
+
+
+    /*******************************
+    *Global variables
+    *******************************/
+    char ch;           /* last character read */
+    symbol sym;        /* last symbol read*/
+    alfa id;           /* last identifier read*/
+    int num;       /* last number read */
+    int cc;        /* character count */
+    int ll;        /* line length */
+    int kk, err;
+    varying_string&lt;81&gt; line;
+    alfa a;
+    int i;
+    array&lt;1, norw, alfa&gt; word1;
+    array&lt;1, norw, symbol&gt; wsym;
+    array &lt; -128, 127, symbol &gt; ssym;
+    array&lt;0, last_opcod, varying_string&lt;5&gt; &gt; mnemonic;
+
+    symset declbegsys, statbegsys, facbegsys, constbegsys, typebegsys;
+
+    array&lt;0, txmax, A1&gt; nametab;/* name table */
+    int tx;             /* index of nametab*/
+
+    array&lt;1, amax, A2&gt; atab;/* array information table */
+    int ax;             /*index of atab */
+
+    array&lt;0, bmax, B1&gt; btab;/* block information table */
+    int bx;                 /* index of btab */
+
+    array&lt;0, levmax, int&gt; display;
+
+    array&lt;0, cxmax, instruction&gt; code;
+    int cx;          /* code allocation index */
+
+    array&lt;0, 100, int&gt; labtab;
+    int lx;
+
+    text sfile;       /* source program file */
+    string sfile_buff;
+    char sfilename[_MAX_PATH]; /* source program file name */
+
+    file&lt;instruction&gt; fcode;
+    file&lt;int&gt; labfile;
+
+    text listfile;
+    string listfile_buff;
+    char listfilename[_MAX_PATH];
+
+    char dir[_MAX_DIR];
+    char name[_MAX_FNAME];
+    char ext[_MAX_EXT];
+
+    /*********************************************************/
+
+    /*******************************
+    *Function Decalarations
+    *******************************/
+    void initial();
+    void enterpreid();
+    void enter(alfa x0, oobject x1, types x2, int x3);
+    void error(int n);
+    void getch();
+    void getsym();
+    void enterarray (types tp , int l, int h);
+    void enterblock();
+    void gen(opcod x, int y, int z);
+    void test(symset s1, symset s2, int n);
+    void block( symset fsys, int level);
+    void enter1( oobject k, int &amp;level);
+    int position(alfa id, int &amp;level);
+    void constant(symset fsys, constrec &amp;c, int &amp;level);
+    void typ(symset fsys, types &amp;tp, int &amp;rf, int &amp;sz, int &amp;level);
+    void arraytyp(int &amp;aref, int &amp;arsz, int &amp;level, symset &amp;fsys);
+    void typ(symset fsys, types &amp;tp, int &amp;rf, int &amp;sz, int &amp;level);
+    void paramenterlist(symset &amp;fsys, int &amp;level, int &amp;dx);
+    void constdeclaration(int &amp;level, symset &amp;fsys);
+    void typedeclaration(int &amp;level, symset &amp;fsys);
+    void vardeclaration(int &amp;level, symset &amp;fsys, int &amp;dx);
+    void procdeclaration(int &amp;level, symset &amp;fsys);
+    void listcode(int &amp;cx0);
+    void statement(symset fsys, int &amp;level);
+    void expression(symset fsys, item &amp;x, int &amp;level);
+    void simpleexpression(symset fsys, item &amp;x, int &amp;level);
+    void repeatstatement(int &amp;cx1, int &amp;level, symset &amp;fsys);
+    void term(symset fsys, item &amp;x, int &amp;level);
+    void arrayelement(symset fsys, item &amp;x, int &amp;level);
+    void factor(symset fsys, item &amp;x, int &amp;level);
+    void assignment(int &amp;i, int &amp;level, symset &amp;fsys);
+    void ifstatement(int &amp;level, symset &amp;fsys, int &amp;cx1, int &amp;cx2);
+    void compound(symset &amp;fsys, int &amp;level);
+    void whilestatement(int &amp;cx1, int &amp;level, symset &amp;fsys, int &amp;cx2);
+    void stanproc(int i, int &amp;level, item &amp;x, symset &amp;fsys);
+    void call(int &amp;level, symset &amp;fsys);
+    void fsplit(string sfilename, string dir, string name, string ext);
+
+    /*******************************/
+    void initial()
+    &#123;
+    word1[ 1] = &quot;and       &quot;;
+    word1[ 2] = &quot;array     &quot;;
+    word1[ 3] = &quot;begin     &quot;;
+    word1[ 4] = &quot;call      &quot;;
+    word1[ 5] = &quot;case      &quot;;
+    word1[ 6] = &quot;const     &quot;;
+    word1[ 7] = &quot;do        &quot;;
+    word1[ 8] = &quot;downto    &quot;;
+    word1[ 9] = &quot;else      &quot;;
+    word1[10] = &quot;end       &quot;;
+    word1[11] = &quot;for       &quot;;
+    word1[12] = &quot;if        &quot;;
+    word1[13] = &quot;mod       &quot;;
+    word1[14] = &quot;not       &quot;;
+    word1[15] = &quot;of        &quot;;
+    word1[16] = &quot;or        &quot;;
+    word1[17] = &quot;procedure &quot;;
+    word1[18] = &quot;program   &quot;;
+    word1[19] = &quot;repeat    &quot;;
+    word1[20] = &quot;then      &quot;;
+    word1[21] = &quot;to        &quot;;
+    word1[22] = &quot;type      &quot;;
+    word1[23] = &quot;until     &quot;;
+    word1[24] = &quot;var       &quot;;
+    word1[25] = &quot;while     &quot;;
+
+    wsym[ 1] = andsym;
+    wsym[ 2] = arraysym;
+    wsym[ 3] = beginsym;
+    wsym[ 4] = callsym;
+    wsym[ 5] = casesym;
+    wsym[ 6] = constsym;
+    wsym[ 7] = dosym;
+    wsym[ 8] = downtosym;
+    wsym[ 9] = elsesym;
+    wsym[10] = endsym;
+    wsym[11] = forsym;
+    wsym[12] = ifsym;
+    wsym[13] = modsym;
+    wsym[14] = notsym;
+    wsym[15] = ofsym;
+    wsym[16] = orsym;
+    wsym[17] = procsym;
+    wsym[18] = programsym;
+    wsym[19] = repeatsym;
+    wsym[20] = thensym;
+    wsym[21] = tosym;
+    wsym[22] = typesym;
+    wsym[23] = untilsym;
+    wsym[24] = varsym;
+    wsym[25] = whilesym;
+
+    ssym[&#39;+&#39;] = plus;
+    ssym[&#39;-&#39;] = minus;
+    ssym[&#39;*&#39;] = times;
+    ssym[&#39;/&#39;] = divsym;
+    ssym[&#39;[&#39;] = lbrack;
+    ssym[&#39;]&#39;] = rbrack;
+    ssym[&#39;(&#39;] = lparen;
+    ssym[&#39;)&#39;] = rparen;
+    ssym[&#39;=&#39;] = eql;
+    ssym[&#39;,&#39;] = comma;
+    ssym[&#39;.&#39;] = period;
+    ssym[&#39;&lt;&#39;] = lss;
+    ssym[&#39;&gt;&#39;] = gtr;
+    ssym[&#39;;&#39;] = semicolon;
+
+    mnemonic[lit] = &quot;LIT  &quot;;
+    mnemonic[lod] = &quot;LOD  &quot;;
+    mnemonic[sto] = &quot;STO  &quot;;
+    mnemonic[cal] = &quot;CAL  &quot;;
+    mnemonic[jmp] = &quot;JMP  &quot;;
+    mnemonic[jpc] = &quot;JPC  &quot;;
+    mnemonic[red] = &quot;RED  &quot;;
+    mnemonic[wrt] = &quot;WRT  &quot;;
+    mnemonic[ilod] = &quot;ILOD  &quot;;
+    mnemonic[loda] = &quot;LODA &quot;;
+    mnemonic[lodt] = &quot;LODt  &quot;;
+    mnemonic[lodb] = &quot;LODB &quot;;
+    mnemonic[cpyb] = &quot;COPYB &quot;;
+    mnemonic[endp] = &quot;ENDP &quot;;
+    mnemonic[retp] = &quot;RETP  &quot;;
+    mnemonic[udis] = &quot;ADIS &quot;;
+    mnemonic[mus] = &quot;MUS  &quot;;
+    mnemonic[add] = &quot;ADD &quot;;
+    mnemonic[sub] = &quot;SUB  &quot;;
+    mnemonic[mult] = &quot;MULT &quot;;
+    mnemonic[idiv] = &quot;DDIV  &quot;;
+    mnemonic[eq] = &quot;EQ  &quot;;
+    mnemonic[ne] = &quot;NE &quot;;
+    mnemonic[ls] = &quot;LS  &quot;;
+    mnemonic[le] = &quot;LE &quot;;
+    mnemonic[gt] = &quot;GT  &quot;;
+    mnemonic[ge] = &quot;GE &quot;;
+    mnemonic[opac] = &quot;OPAC &quot;;
+    mnemonic[entp] = &quot;ENTP&quot;;
+    mnemonic[imod] = &quot;IMOD &quot;;
+    mnemonic[ands] = &quot;ANDS&quot;;
+    mnemonic[ors] = &quot;ORS &quot;;
+    mnemonic[nots] = &quot;NOTS&quot;;
+
+    declbegsys = set_of_enum(symbol)::of(constsym, varsym, typesym, procsym, eos);
+    statbegsys = set_of_enum(symbol)::of(beginsym, callsym,casesym, ifsym, whilesym,repeatsym, forsym,eos);
+    facbegsys = set_of_enum(symbol)::of(ident, intcon, lparen, notsym, charcon, eos);
+    typebegsys = set_of_enum(symbol)::of(ident, arraysym, eos);
+    constbegsys = set_of_enum(symbol)::of(plus, minus, intcon, charcon, ident, eos);
+    err = 0;
+    a[0] = &#39;\12&#39;;// What is \12 LosPhoenix
+    display[0] = 0;
+    cc = 0;
+    cx = 0;
+    ll = 0;
+    ch = &#39; &#39;;
+    kk = al;
+    bx = 1;
+    tx = -1;
+    lx = 0;
+    &#125;/*init*/
+
+    void enter(alfa x0, oobject x1, types x2, int x3)
+    &#123;
+    tx = tx + 1;
+    &#123;
+        nametab[tx].name = x0;
+        nametab[tx].link = tx - 1;
+        nametab[tx].kind = x1;
+        nametab[tx].typ = x2;
+        nametab[tx].ref = 0;
+        nametab[tx].normal = true;
+        nametab[tx].lev = 0;
+        switch (nametab[tx].kind)
+        &#123;
+        case variable:
+        case prosedure:
+            nametab[tx].adr = x3;
+            break;
+        case konstant:
+            nametab[tx].val = x3;
+            break;
+        case typel:
+            nametab[tx].size = x3;
+            break;
+        &#125;
+    &#125;
+    &#125;/*enter*/
+
+    void enterpreid()// Only at the begining. Init nametable and btab
+    &#123;
+    enter(&quot;          &quot;, variable, notyp, 0);    /* sentinel */
+    enter(&quot;char      &quot;, typel, chars, 1);
+    enter(&quot;integer   &quot;, typel, ints,  1);
+    enter(&quot;boolean   &quot;, typel, bool_,  1);
+    enter(&quot;false     &quot;, konstant, bool_,  0);
+    enter(&quot;true      &quot;, konstant, bool_,  1);
+    enter(&quot;read      &quot;, prosedure, notyp, 1);
+    enter(&quot;write     &quot;, prosedure, notyp, 2);
+    btab[0].last = tx;
+    btab[0].lastpar = 1;
+    btab[0].psize = 0;
+    btab[0].vsize = 0;
+    &#125;/*enterprid*/
+
+    void error(int n)
+    &#123;
+    listfile &lt;&lt; &quot;****&quot; &lt;&lt; format(&#39; &#39;, cc - 1) &lt;&lt; &#39;^&#39; &lt;&lt; format(n, 2) &lt;&lt; NL;
+    err = err + 1;
+    output &lt;&lt; &quot;Error&quot; &lt;&lt; n &lt;&lt; NL;
+    &#125;/* error */
+
+    void getch()
+    &#123;
+
+    if (cc == ll)   /* get character to end of line *//* read next line */
+    &#123;
+        if (eof(sfile))
+        &#123;
+            output &lt;&lt; &quot;program incomplete&quot; &lt;&lt; NL;
+            close(sfile);
+            return;
+        &#125;
+        ll = 0;
+        cc = 0;
+        listfile &lt;&lt; format(cx, 4) &lt;&lt; &#39; &#39;;   /*print code address */
+        while (! eoln(sfile))
+        &#123;
+            ll = ll + 1;
+            sfile &gt;&gt; ch;
+            listfile &lt;&lt; ch;
+            line[ll] = ch;
+        &#125;
+        listfile &lt;&lt; NL;
+        sfile &gt;&gt; NL;
+        ll = ll + 1;
+        line[ll] = &#39; &#39;; /*process end-line*/
+    &#125;
+    cc = cc + 1;
+    ch = line[cc];
+    //output &lt;&lt; ch;//test
+    &#125;/* getch */
+
+    void getsym()/*getsym*/
+    &#123;
+    int i, k, j;
+    /*Why is there a goto in this code. LosPhoenix*/
+    L1:
+    while (ch == &#39; &#39;)
+        getch();
+
+    switch (ch)
+    &#123;
+    case &#39;a&#39;:
+    case &#39;b&#39;:
+    case &#39;c&#39;:
+    case &#39;d&#39;:
+    case &#39;e&#39;:
+    case &#39;f&#39;:
+    case &#39;g&#39;:
+    case &#39;h&#39;:
+    case &#39;i&#39;:
+    case &#39;j&#39;:
+    case &#39;k&#39;:
+    case &#39;l&#39;:
+    case &#39;m&#39;:
+    case &#39;n&#39;:
+    case &#39;o&#39;:
+    case &#39;p&#39;:
+    case &#39;q&#39;:
+    case &#39;r&#39;:
+    case &#39;s&#39;:
+    case &#39;t&#39;:
+    case &#39;u&#39;:
+    case &#39;v&#39;:
+    case &#39;w&#39;:
+    case &#39;x&#39;:
+    case &#39;y&#39;:
+    case &#39;z&#39;:
+    &#123;
+        /* identifier or reserved word */
+        k = 0;
+        do
+        &#123;
+            if (k &lt; al)
+            &#123;
+                k = k + 1;
+                a[k] = ch;
+            &#125;
+            getch();
+        &#125;
+        while ((set::of(range(&#39;a&#39;, &#39;z&#39;), range(&#39;0&#39;, &#39;9&#39;), eos).has(ch)));
+        if (k &gt;= kk)
+                kk = k;    /* kk: last identifier length */
+        else
+            do
+            &#123;
+                a[kk] = &#39; &#39;;
+                kk = kk - 1;
+            &#125;
+            while (!(kk == k));
+        id = a;
+        i = 1;
+        j = norw;  /* binary search reserved word table */
+        do
+        &#123;
+            k = (i + j) / 2;
+            if (id &lt;= word1[k])  j = k - 1;
+            if (id &gt;= word1[k])  i = k + 1;
+
+        &#125;
+        while (!(i &gt; j));
+        if (i - 1 &gt; j)
+                sym = wsym[k];
+        else
+                sym = ident;
+    &#125;
+    break;
+    case &#39;0&#39;:
+    case &#39;1&#39;:
+    case &#39;2&#39;:
+    case &#39;3&#39;:
+    case &#39;4&#39;:
+    case &#39;5&#39;:
+    case &#39;6&#39;:
+    case &#39;7&#39;:
+    case &#39;8&#39;:
+    case &#39;9&#39;:
+    &#123;
+        /* number */
+        k = 0;
+        num = 0;
+        sym = intcon;
+        do
+        &#123;
+            num = 10 * num + (ch - &#39;0&#39;);
+            k = k + 1;
+            getch();
+        &#125;
+        while ((set::of(range(&#39;0&#39;, &#39;9&#39;), eos).has(ch)));
+        if (k &gt; nmax)  error(47);
+    &#125;
+    break;
+    case &#39;:&#39;:
+    &#123;
+        getch();
+        if (ch == &#39;=&#39;)
+        &#123;
+            sym = becomes;
+            getch();
+        &#125;
+        else sym = colon;
+    &#125;
+    break;
+    case &#39;&lt;&#39; :
+    &#123;
+        getch();
+        if (ch == &#39;=&#39;)
+        &#123;
+            sym = leq;
+            getch();
+        &#125;
+        else if (ch == &#39;&gt;&#39;)
+        &#123;
+            sym = neq;
+            getch();
+        &#125;
+        else sym = lss;
+    &#125;
+    break;
+    case &#39;&gt;&#39; :
+    &#123;
+        getch();
+        if (ch == &#39;=&#39;)
+        &#123;
+            sym = geq;
+            getch();
+        &#125;
+        else sym = gtr;
+    &#125;
+    break;
+    case &#39;.&#39; :
+    &#123;
+        getch();
+        if (ch == &#39;.&#39;)
+        &#123;
+            sym = colon;
+            getch();
+        &#125;
+        else   sym = period;
+    &#125;
+    break;
+    case &#39;\&#39;&#39;  :
+    &#123;
+        getch();
+        sym = charcon;
+        num = ch;
+        getch();
+        if (ch == &#39;\&#39;&#39;)  getch();
+        else error(48);
+    &#125;
+    break;
+    case &#39;+&#39;:
+    case &#39;-&#39;:
+    case &#39;*&#39;:
+    case &#39;/&#39;:
+    case &#39;(&#39;:
+    case &#39;)&#39;:
+    case &#39;=&#39;:
+    case &#39;[&#39;:
+    case &#39;]&#39;:
+    case &#39;;&#39;:
+    case &#39;,&#39;:
+    &#123;
+        sym = ssym[ch];
+        getch();
+    &#125;
+    break;
+    default:
+    &#123;
+        error(0);
+        getch();
+        goto L1;
+    &#125;
+    &#125;    /* case */
+
+    //output&lt;&lt;sym&lt;&lt;NL;
+    &#125;/* getsym */
+
+    void enterarray (types tp , int l, int h)
+    &#123;
+    if (l &gt; h)  error(14);
+    if (ax == amax)
+    &#123;
+        error(2);
+        output &lt;&lt; &quot;too many arrays in program &quot; &lt;&lt; NL;
+        close(sfile);
+        close(listfile);
+        return;
+    &#125;
+    else
+    &#123;
+        ax = ax + 1;
+        &#123;
+            //A2 &amp;with = atab[ax];
+
+            atab[tx].inxtyp = tp;
+            atab[tx].low = l;
+            atab[tx].high = h;
+        &#125;
+    &#125;
+    &#125;/* enterarray */
+
+    void enterblock()
+    &#123;
+    if (bx == bmax)
+    &#123;
+        error(3);
+        output &lt;&lt; &quot;too many procedure in program &quot; &lt;&lt; NL;
+        close(sfile);
+        close(listfile);
+        return;
+    &#125;
+    else
+    &#123;
+        bx = bx + 1;
+        btab[bx].last = 0;
+        btab[bx].lastpar = 0;
+    &#125;
+    &#125;/* enterblock */
+
+    void gen(opcod x, int y, int z)
+    &#123;
+    if (cx &gt; cxmax)
+    &#123;
+        error(49);
+        output &lt;&lt; &quot;program too long&quot; &lt;&lt; NL;
+        close(sfile);
+        close(listfile);
+        return;
+    &#125;
+    &#123;
+        //instruction &amp;with = code[cx];
+
+        code[cx].f = x;
+        code[cx].l = y;
+        code[cx].a = z;
+    &#125;
+    cx = cx + 1;
+    &#125;/* gen */
+
+    void test(symset s1, symset s2, int n)
+    &#123;
+    if (! (s1.has(sym)))
+    &#123;
+        error(n);
+        s1 = s1 + s2;
+        while (! (s1.has(sym)))
+            getsym();
+    &#125;
+    &#125;/* test */
+
+    void enter1( oobject k, int &amp;level)
+    &#123;
+    int j, l;
+
+    if (tx == txmax)
+    &#123;
+        error(1);
+        output &lt;&lt; &quot;program too long&quot; &lt;&lt; NL;
+        close(sfile);
+        close(listfile);
+        return;
+    &#125;
+    else
+    &#123;
+        nametab[0].name = id;
+        j = btab[display[level]].last;
+        l = j;
+        while (nametab[j].name != id)  j = nametab[j].link;
+        if (j != 0)
+            error(l);
+        else
+        &#123;
+            tx = tx + 1;
+            &#123;
+                //A1 &amp;with = nametab[tx];
+
+                nametab[tx].name = id;
+                nametab[tx].link = l;
+                nametab[tx].kind = k;
+                nametab[tx].typ = notyp;
+                nametab[tx].ref = 0;
+                nametab[tx].lev = level;
+                nametab[tx].normal = false;
+                switch (nametab[tx].kind)
+                &#123;
+                case variable:
+                case prosedure:
+                    nametab[tx].adr = 0;
+                    break;
+                case konstant:
+                    nametab[tx].val = 0;
+                    break;
+                case typel:
+                    nametab[tx].size = 0;
+                    break;
+                &#125;    /* initial value */
+            &#125;
+            btab[display[level]].last = tx;
+        &#125;
+    &#125;
+    &#125;/* enter */
+
+    int position(alfa id, int &amp;level)
+    &#123;
+    int i, j;
+
+    int position_result;
+    nametab[0].name = id;
+    j = level;
+    do
+    &#123;
+        i = btab[display[j]].last;
+        while (nametab[i].name != id)
+            i = nametab[i].link;
+        j = j - 1;
+    &#125;
+    while (!((j &lt; 0) || (i != 0)));
+    if (i == 0)  error(10);
+    position_result = i;
+    return position_result;
+    &#125;/* position */
+
+    void constant(symset fsys, constrec &amp;c, int &amp;level)
+    &#123;
+    int x, sign;
+
+    c.tp = notyp;
+    c.i = 0;
+    test(constbegsys, fsys, 50);
+    if (constbegsys.has(sym))
+    &#123;
+        if   (sym == charcon)
+        &#123;
+            c.tp = chars;
+            c.i = num;
+            getsym();
+        &#125;
+        else
+        &#123;
+            sign = 1;
+            if (set_of_enum(symbol)::of(plus, minus, eos).has(sym))
+            &#123;
+                if (sym == minus)  sign = -1;
+                getsym();
+            &#125;
+            if (sym == ident)
+            &#123;
+                x = position(id, level);
+                if (x != 0)&#123;
+                    if (nametab[x].kind != konstant)
+                        error(12);
+                    else
+                    &#123;
+                        c.tp = nametab[x].typ;
+                        c.i = sign * nametab[x].val;
+                    &#125;
+                &#125;
+                getsym();
+            &#125;
+            else if (sym == intcon)
+            &#123;
+                c.tp = ints;
+                c.i = sign * num;
+                getsym();
+            &#125;
+        &#125;
+        test(fsys, set_of_enum(symbol)::of(eos), 6);
+    &#125;
+    &#125;/* constant */
+
+    void arraytyp(int &amp;aref, int &amp;arsz, int &amp;level, symset &amp;fsys)
+    &#123;
+    types eltp;
+    constrec low, high;
+    int elrf, elsz;
+
+    constant(set_of_enum(symbol)::of(colon, rbrack, rparen, ofsym, eos) + fsys, low, level);
+    if ((low.tp != ints)  &amp;&amp; (low.tp != chars))
+        error(50);
+    if (sym == colon)  getsym();
+    else error(38);
+    constant(set_of_enum(symbol)::of(rbrack, comma, rparen, ofsym, eos) + fsys, high, level);
+    if (high.tp != low.tp)
+    &#123;
+        error(40);
+        high.i = low.i;
+    &#125;
+    enterarray(low.tp, low.i, high.i);
+    aref = ax;
+    if (sym == comma)
+    &#123;
+        getsym();
+        eltp = arrays;
+        arraytyp(elrf, elsz, level, fsys);
+    &#125;
+    else
+    &#123;
+        if (sym == rbrack)
+            getsym();
+        else
+        &#123;
+            error(28);
+            if (sym == rparen)  getsym();
+        &#125;
+        if (sym == ofsym)  getsym();
+        else error(17);
+        typ(fsys, eltp, elrf, elsz, level);
+    &#125;
+    &#123;
+        //A2 &amp;with = atab[aref];
+
+        arsz = (atab[aref].high - atab[aref].low + 1) * elsz;
+        atab[aref].size = arsz;
+        atab[aref].eltyp = eltp;
+        atab[aref].elref = elrf;
+        atab[aref].elsize = elsz;
+    &#125;
+    &#125;/* arraytyp */
+
+    void typ(symset fsys, types &amp;tp, int &amp;rf, int &amp;sz, int &amp;level)
+    &#123;
+    types eltp;
+    int elrf, x;
+    int elsz, offset, t0, t1;
+    /* typ */
+    tp = notyp;
+    rf = 0;
+    sz = 0;
+    test(typebegsys, fsys, 10);
+    if (typebegsys.has(sym))
+    &#123;
+        if (sym == ident)
+        &#123;
+            x = position(id, level);
+            if (x != 0)
+            &#123;
+                //A1 &amp;with = nametab[x];
+                if (nametab[x].kind != typel)
+                    error(19);
+                else
+                &#123;
+                    tp = nametab[x].typ;
+                    rf = nametab[x].ref;
+                    sz = nametab[x].size;
+                    if (tp == notyp)  error(18);
+                &#125;
+            &#125;
+            getsym();
+        &#125;
+        else if (sym == arraysym)
+        &#123;
+            getsym();
+            if (sym == lbrack)
+                getsym();
+            else
+            &#123;
+                error(16);
+                if (sym == lparen)
+                    getsym();
+            &#125;
+            tp = arrays;
+            arraytyp(rf, sz, level, fsys);
+        &#125;
+        test(fsys, set_of_enum(symbol)::of(eos), 13);
+    &#125;
+    &#125;/*typ*/
+
+    void paramenterlist(symset &amp;fsys, int &amp;level, int &amp;dx)   /*formal parameter list*/
+    &#123;
+    types tp;
+    boolean valpar;
+    int rf, sz, x, t0;
+
+    getsym();
+    tp = notyp;
+    rf = 0;
+    sz = 0;
+    test(set_of_enum(symbol)::of(ident, varsym, eos), fsys + set_of_enum(symbol)::of(rparen, eos), 7);
+    while (set_of_enum(symbol)::of(ident, varsym, eos).has(sym))
+    &#123;
+        if (sym != varsym)
+            valpar = true;
+        else
+        &#123;
+            getsym();
+            valpar = false;
+        &#125;
+        t0 = tx;
+        if (sym == ident)
+        &#123;
+            enter1(variable, level);
+            getsym();
+        &#125;
+        else error(22);
+        while (sym == comma)
+        &#123;
+            getsym();
+            if (sym == ident)
+            &#123;
+                enter1(variable, level);
+                getsym();
+            &#125;
+            else error(22);
+        &#125;
+        if (sym == colon)
+        &#123;
+            getsym();
+            if (sym != ident)
+                error(22);
+            else
+            &#123;
+                x = position(id, level);
+                getsym();
+                if (x != 0)
+                &#123;
+                    //A1 &amp;with = nametab[x];
+                    if (nametab[x].kind != typel)
+                        error(19);
+                    else
+                    &#123;
+                        tp = nametab[x].typ;
+                        rf = nametab[x].ref;
+                        if (valpar)  sz = nametab[x].size;
+                        else sz = 1;
+                    &#125;
+                &#125;
+            &#125;
+            test (set_of_enum(symbol)::of(semicolon, rparen, eos), set_of_enum(symbol)::of(comma, ident, eos) + fsys, 14);
+        &#125;
+        else error(24);
+        while (t0 &lt; tx)
+        &#123;
+            t0 = t0 + 1;
+            &#123;
+                //A1 &amp;with = nametab[t0];
+
+                nametab[t0].typ = tp;
+                nametab[t0].ref = rf;
+                nametab[t0].adr = dx;
+                nametab[t0].lev = level;
+                nametab[t0].normal = valpar;
+                dx = dx + sz;
+            &#125;
+        &#125;
+        if (sym != rparen)
+        &#123;
+            if (sym == semicolon)
+                getsym();
+            else
+            &#123;
+                error(23);
+                if (sym == comma)  getsym();
+            &#125;
+            test(set_of_enum(symbol)::of(ident, varsym, eos), set_of_enum(symbol)::of(rparen, eos) + fsys, 13);
+        &#125;
+    &#125;   /*while*/
+    if (sym == rparen)
+    &#123;
+        getsym();
+        test(set_of_enum(symbol)::of(semicolon, eos), fsys, 13);
+    &#125;
+    else error(25);
+    &#125;/*parameterlist*/
+
+    void constdeclaration(int &amp;level, symset &amp;fsys)
+    &#123;
+    constrec c;
+
+    if (sym == ident)
+    &#123;
+        enter1(konstant, level);
+        getsym();
+        if (sym == eql)
+            getsym();
+        else
+        &#123;
+            error(26);
+            if (sym == becomes)  getsym();
+        &#125;
+        constant(set_of_enum(symbol)::of(semicolon, comma, ident, eos) + fsys, c, level);
+        nametab[tx].typ = c.tp;
+        nametab[tx].ref = 0;
+        nametab[tx].val = c.i;
+        if (sym == semicolon)  getsym();
+        else error(23);
+    &#125;
+    else error(22);
+    test(fsys + set_of_enum(symbol)::of(ident, eos), set_of_enum(symbol)::of(eos), 13);
+    &#125;/* constdeclaration */
+
+    void typedeclaration(int &amp;level, symset &amp;fsys)
+    &#123;
+    types tp;
+    int rf, sz, t1;
+
+    if (sym == ident)
+    &#123;
+        enter1(typel, level);
+        t1 = tx;
+        getsym();
+        if (sym == eql)
+                getsym();
+        else
+        &#123;
+            error(26);
+            if (sym == becomes)
+                    getsym();
+        &#125;
+        typ (set_of_enum(symbol)::of(semicolon, comma, ident, eos) + fsys, tp, rf, sz, level);
+        nametab[tx].typ = tp;
+        nametab[tx].ref = rf;
+        nametab[tx].size = sz;
+        if (sym == semicolon)  getsym();
+        else error(23);
+    &#125;
+    else error(22);
+    test(fsys + set_of_enum(symbol)::of(ident, eos), set_of_enum(symbol)::of(eos), 13);
+    &#125;/* typedeclaration */
+
+    void vardeclaration(int &amp;level, symset &amp;fsys, int &amp;dx)
+    &#123;
+    types tp;
+    int t0, t1, rf, sz;
+
+    if (sym == ident)
+    &#123;
+        t0 = tx;
+        enter1(variable, level);
+        getsym();
+        while (sym == comma)
+        &#123;
+            getsym();
+            if (sym == ident)
+            &#123;
+                enter1(variable, level);
+                getsym();
+            &#125;
+            else error(22);
+        &#125;
+        if (sym == colon)
+                getsym();
+        else error(24);
+        t1 = tx;
+        typ (set_of_enum(symbol)::of(semicolon, comma, ident, eos) + fsys, tp, rf, sz, level);
+        while (t0 &lt; t1)
+        &#123;
+            t0 = t0 + 1;
+            &#123;
+                //A1 &amp;with = nametab[t0];
+
+                nametab[t0].typ = tp;
+                nametab[t0].ref = rf;
+                nametab[t0].lev = level;
+                nametab[t0].adr = dx;
+                nametab[t0].normal = true;
+                dx = dx + sz;
+            &#125;
+        &#125;
+        if (sym == semicolon)
+                getsym();
+        else error(23);
+    &#125;
+    else error(22);
+    test(fsys + set_of_enum(symbol)::of(ident, eos), set_of_enum(symbol)::of(eos), 13);
+    &#125;/* vardeclaration */
+
+    void procdeclaration(int &amp;level, symset &amp;fsys)
+    &#123;
+    getsym();
+    if (sym != ident)
+    &#123;
+        error(22);
+        id = &#39; &#39;;
+    &#125;
+    enter1(prosedure, level);
+    nametab[tx].normal = true;
+    getsym();
+    block(set_of_enum(symbol)::of(semicolon, eos) + fsys, level + 1);
+    if (sym == semicolon)
+            getsym();
+    else error(23);
+    &#125;/*procdeclaration*/
+
+    void listcode(int &amp;cx0)
+    &#123;
+    int i;
+
+    for( i = cx0; i &lt;= cx - 1; i ++)
+    &#123;
+        //instruction &amp;with = code[i];
+        listfile &lt;&lt; format(i, 4) &lt;&lt; format(mnemonic[code[i].f], 7) &lt;&lt; format(code[i].l, 3) &lt;&lt; format(code[i].a, 5) &lt;&lt; NL;
+    &#125;
+    &#125;/* listcode */
+
+    void factor(symset fsys, item &amp;x, int &amp;level)
+    &#123;
+    int i;
+
+    x.typ = notyp;
+    x.ref = 0;
+    test(facbegsys, fsys, 13);
+    if (facbegsys.has(sym))
+    &#123;
+        switch (sym)
+        &#123;
+        case ident :
+        &#123;
+            i = position(id, level);
+            getsym();
+            if (i == 0)  error(10);
+            else
+            &#123;
+                //A1 &amp;with = nametab[i];
+                switch (nametab[i].kind)
+                &#123;
+                case konstant:
+                &#123;
+                    x.typ = nametab[i].typ;
+                    x.ref = 0;
+                    gen(lit, 0, nametab[i].val);
+                &#125;
+                break;
+                case variable:
+                &#123;
+                    x.typ = nametab[i].typ;
+                    x.ref = nametab[i].ref;
+                    if ((nametab[i].typ == ints) || (nametab[i].typ == bool_) || (nametab[i].typ == chars))
+
+                        if (nametab[i].normal)   gen(lod, nametab[i].lev, nametab[i].adr);
+                        else gen(ilod, nametab[i].lev, nametab[i].adr);
+                    else  if (nametab[i].typ == arrays)
+                    &#123;
+                        if (nametab[i].normal)  gen(loda, nametab[i].lev, nametab[i].adr);
+                        else gen(lod, nametab[i].lev, nametab[i].adr);
+                        if (sym == lbrack)
+                            arrayelement(fsys, x, level); //LosPhoenix tocheck
+                        if (x.typ != arrays)
+                            gen(lodt, 0, 0);
+                    &#125;
+                &#125;
+                break;
+                case prosedure:
+                case typel:
+                    error(41);
+                    break;
+                &#125;
+            &#125;
+        &#125;
+        break;
+        case intcon:
+        case charcon :
+        &#123;
+            if (sym == intcon)  x.typ = ints;
+            else x.typ = chars;
+            x.ref = 0;
+            gen(lit, 0, num);
+            getsym();
+        &#125;
+        break;
+        case lparen :
+        &#123;
+            getsym();
+            expression(set_of_enum(symbol)::of(rparen, eos) + fsys, x, level);
+            if (sym == rparen)  getsym();
+            else error(25);
+        &#125;
+        break;
+        case notsym :
+        &#123;
+            getsym();
+            factor(fsys, x, level);
+            if (x.typ == bool_)
+                gen(nots , 0, 0);
+            else error(43);
+        &#125;
+        break;
+        &#125;    /* case */
+        test(fsys + set_of_enum(symbol)::of(rbrack, rparen,tosym,downtosym, eos), facbegsys, 23);
+    &#125;    /* of if */
+    &#125;/* factor */
+
+    void term(symset fsys, item &amp;x, int &amp;level)
+    &#123;
+    symbol mulop;
+    item y;
+    /* term */
+    factor(fsys + set_of_enum(symbol)::of(times, divsym, modsym, andsym, eos), x, level);
+    while (set_of_enum(symbol)::of(times, divsym, modsym, andsym, eos).has(sym))
+    &#123;
+        mulop = sym;
+        getsym();
+        factor(fsys + set_of_enum(symbol)::of(times, divsym, modsym, andsym, eos), y, level);
+        if (x.typ != y.typ)
+        &#123;
+            error(40);
+            x.typ = notyp;
+            x.ref = 0;
+        &#125;
+        else
+        &#123;
+            if (mulop == times)
+                if (x.typ == ints)
+                    gen(mult, 0, 0);
+                else error(43);
+            if  (mulop == divsym)
+                if (x.typ == ints)
+                    gen(idiv, 0, 0);
+                else error(43);
+            if  (mulop == modsym)
+                if (x.typ == ints)
+                    gen(imod, 0, 0);
+                else error(43);
+            if  (mulop == andsym)
+                if (x.typ == bool_)
+                    gen(ands, 0, 0);
+                else error(43);
+        &#125;
+    &#125;
+    &#125;/* term*/
+
+    void simpleexpression(symset fsys, item &amp;x, int &amp;level)
+    &#123;
+    symbol addop;
+    item y;
+    /* simpleexpression */
+    if (set_of_enum(symbol)::of(plus, minus, eos).has(sym))
+    &#123;
+        addop = sym;
+        getsym();
+
+        term(fsys + set_of_enum(symbol)::of(plus, minus, orsym, eos), x, level);
+        if (addop == minus)  gen(mus, 0, 0);
+    &#125;
+    else
+    &#123;
+        term(fsys + set_of_enum(symbol)::of(plus, minus, orsym, eos), x, level);
+
+
+    &#125;
+    while (set_of_enum(symbol)::of(plus, minus, orsym, eos).has(sym))
+    &#123;
+        addop = sym;
+        getsym();
+        term(fsys + set_of_enum(symbol)::of(plus, minus, orsym, eos), y, level);
+        if (x.typ != y.typ)
+        &#123;
+            error(40);
+            x.typ = notyp;
+            x.ref = 0;
+        &#125;
+        else
+        &#123;
+            if (addop == plus)
+                if (x.typ == ints)
+                    gen(add, 0, 0);
+                else error(43);
+            if  (addop == minus)
+                if (x.typ == ints)
+                    gen(sub, 0, 0);
+                else error(43);
+            if  (addop == orsym)
+                if (x.typ == bool_)
+                    gen(ors, 0, 0);
+                else error(43);
+        &#125;
+    &#125;
+    &#125;/* simpleexpression */
+
+    void expression(symset fsys, item &amp;x, int &amp;level)
+    &#123;
+    symbol relop;
+    item y;
+    /*expression*/
+
+    simpleexpression(set_of_enum(symbol)::of(eql, neq, lss, gtr, leq, geq, eos) + fsys, x, level);
+
+    while (set_of_enum(symbol)::of(eql, neq, lss, leq, gtr, geq, eos).has(sym))
+    &#123;
+        relop = sym;
+        getsym();
+        simpleexpression(fsys, y, level);
+        if (x.typ != y.typ)
+            error(40);
+        switch (relop)
+        &#123;
+        case eql:
+            gen(eq, 0, 0);
+            break;
+        case neq:
+            gen(ne, 0, 0);
+            break;
+        case lss:
+            gen(ls, 0, 0);
+            break;
+        case geq:
+            gen(ge, 0, 0);
+            break;
+        case gtr:
+            gen(gt, 0, 0);
+            break;
+        case leq:
+            gen(le, 0, 0);
+            break;
+        &#125;
+        x.typ = bool_;
+    &#125;
+    &#125;/* expression */
+    void forstatement(symset fsys, int &amp;level, int &amp;cx1, int &amp;cx2)
+    &#123;
+    item x;
+    int i;
+    int downto = 0;
+    getsym();
+    assignment(i,level,fsys);
+    int addr = nametab[i].adr;
+    if(addr == 0) error(0);
+    if(sym == tosym)
+    &#123;
+        getsym();
+    &#125;
+    else if(sym==downtosym)
+    &#123;
+        getsym();
+        downto = 1;
+    &#125;
+    else
+    &#123;
+        error(37);
+    &#125;
+    cx1 = cx;
+    simpleexpression(set_of_enum(symbol)::of(dosym,eos)+fsys,x,level);
+    gen(lod,level,addr);
+    if(downto)
+    &#123;
+        gen(le,0,0);
+    &#125;
+    else
+    &#123;
+        gen(ge,0,0);
+    &#125;
+    cx2 = cx;
+    gen(jpc,0,0);
+    if(sym==dosym)
+    &#123;
+        getsym();
+    &#125;
+    else
+    &#123;
+        error(0);
+    &#125;
+    statement(fsys,level);
+    gen(loda,level,addr);
+    gen(lod,level,addr);
+    gen(lit,0,1);
+    if(downto)
+    &#123;
+        gen(sub,0,0);
+    &#125;
+    else
+    &#123;
+        gen(add,0,0);
+    &#125;
+    gen(sto,0,0);
+    gen(jmp,0,cx1);
+    code[cx2].a = cx;
+    &#125;
+    void arrayelement(symset fsys, item &amp;x, int &amp;level)
+    &#123;
+    int cc;
+    index1 addr, p;
+    item y;
+
+    p = x.ref;
+    if (sym == lbrack)
+    &#123;
+        do
+        &#123;
+            getsym();
+            expression(fsys + set_of_enum(symbol)::of(comma, eos), y, level);
+            if (x.typ != arrays)  error(40);
+            else
+            &#123;
+                if (y.typ != atab[p].inxtyp)  error(44);
+                gen(lit, 0, atab[p].low);
+                gen(sub, 0, 0);
+                gen(lit, 1, atab[p].elsize);
+                gen(mult, 0, 0);
+                gen(add, 0, 0);
+                x.typ = atab[p].eltyp;
+                x.ref = atab[p].elref;
+                p = atab[p].elref;
+            &#125;
+        &#125;
+        while (!(sym != comma));
+
+        if (sym == rbrack)  getsym();
+        else error(28);
+    &#125;
+    else error(16);
+    test(fsys, set_of_enum(symbol)::of(eos), 13);
+    &#125;/*arrayelement*/
+
+    void assignment(int &amp;i, int &amp;level, symset &amp;fsys)
+    &#123;
+    item x, y;
+
+    i = position(id, level);
+    if (i == 0)  error(10);
+    else if (nametab[i].kind != variable)
+    &#123;
+        /* giving value to non-variation */
+        error(30);
+        i = 0;
+    &#125;
+    getsym();
+
+    x.typ = nametab[i].typ;
+    x.ref = nametab[i].ref;
+    &#123;
+        A1 &amp;with = nametab[i];
+        if (with.normal)
+            gen(loda, with.lev, with.adr);
+        else gen(lod, with.lev, with.adr);
+    &#125;
+    if (sym == lbrack)
+        arrayelement(fsys + set_of_enum(symbol)::of(becomes, eos), x, level);
+    if (sym == becomes)  getsym();
+    else
+    &#123;
+        error(33);
+        if (sym == eql)  getsym();
+    &#125;
+
+    expression(fsys, y, level);
+    if (x.typ != y.typ)  error(40);
+    else if (x.typ == arrays)
+        if (x.ref == y.ref)
+            gen(cpyb, 0, atab[x.ref].size);
+        else error(40);
+    else gen(sto, 0, 0);
+    &#125;/*assignment*/
+
+    void ifstatement(int &amp;level, symset &amp;fsys, int &amp;cx1, int &amp;cx2)
+    &#123;
+    item x;
+
+    getsym();
+    expression(set_of_enum(symbol)::of(thensym, dosym, eos) + fsys, x, level);
+    if (x.typ != bool_)  error(34);
+    if (sym == thensym)  getsym();
+    else error(35);
+    cx1 = cx;
+    gen(jpc, 0, 0);
+    statement(fsys + set_of_enum(symbol)::of(elsesym, eos), level);
+    if (sym == elsesym)
+    &#123;
+        getsym();
+        cx2 = cx;
+        gen(jmp, 0, 0);
+        code[cx1].a = cx;
+        labtab[lx] = cx;
+        lx = lx + 1;
+        statement(fsys, level);
+        code[cx2].a = cx;
+        labtab[lx] = cx;
+        lx = lx + 1;
+    &#125;
+    else
+    &#123;
+        code[cx1].a = cx;
+        labtab[lx] = cx;
+        lx = lx + 1;
+    &#125;
+    &#125;/*ifstatement*/
+
+    void compound(symset &amp;fsys, int &amp;level)
+    &#123;
+    getsym();
+    statement(set_of_enum(symbol)::of(semicolon, endsym, eos) + fsys, level);
+    while ((set_of_enum(symbol)::of(semicolon, eos) + statbegsys).has(sym))
+    &#123;
+        if (sym == semicolon)  getsym();
+        else error(23);
+        statement(set_of_enum(symbol)::of(semicolon, endsym, eos) + fsys, level);
+    &#125;
+    if (sym == endsym)
+        getsym();
+    else error(36);
+    &#125;/*compound*/
+    void repeatstatement(int &amp;cx1, int &amp;level, symset &amp;fsys)
+    &#123;
+    item x;
+    getsym();
+    cx1 = cx;
+    statement(set_of_enum(symbol)::of(untilsym,eos) + fsys, level);
+    while(sym!=untilsym)
+    &#123;
+        getsym();
+        statement(set_of_enum(symbol)::of(untilsym,eos) + fsys, level);
+    &#125;
+    getsym();
+    expression(fsys,x,level);
+    if(x.typ!=bool_)error(34);
+    gen(jpc,0,cx1);
+    gen(jmp,0,cx+1);
+
+    &#125;
+    void whilestatement(int &amp;cx1, int &amp;level, symset &amp;fsys, int &amp;cx2)
+    &#123;
+    item x;
+
+    getsym();
+    labtab[lx] = cx;
+    lx = lx + 1;
+    cx1 = cx;
+    expression(set_of_enum(symbol)::of(dosym, eos) + fsys, x, level);
+    if (x.typ != bool_)  error(34);
+    cx2 = cx;
+    gen(jpc, 0, 0);
+    if (sym == dosym)  getsym();
+    else error(37);
+    statement(fsys, level);
+    gen(jmp, 0, cx1);
+    code[cx2].a = cx;
+    labtab[lx] = cx;
+    lx = lx + 1;
+    &#125;/*whilestatement*/
+
+    void stanproc(int i, int &amp;level, item &amp;x, symset &amp;fsys)
+    &#123;
+    int n;
+
+    if (i == 6)
+    &#123;
+        /* read */
+        getsym();
+        if (sym == lparen)
+        &#123;
+            do
+            &#123;
+                getsym();
+                if (sym == ident)
+                &#123;
+                    n = position(id, level);
+                    getsym();
+                    if (n == 0)  error(10);
+                    else if (nametab[n].kind != variable)
+                    &#123;
+                        error(30);
+                        n = 0;
+                    &#125;
+                    else
+                    &#123;
+                        x.typ = nametab[n].typ;
+                        x.ref = nametab[n].ref;
+                        if (nametab[n].normal)
+                            gen(loda, nametab[n].lev, nametab[n].adr);
+                        else gen(lod, nametab[n].lev, nametab[n].adr);
+                        if (sym == lbrack)
+                            arrayelement(fsys + set_of_enum(symbol)::of(comma, eos), x, level);
+                        if (x.typ == ints)
+                            gen(red, 0, 0);
+                        else if (x.typ == chars)
+                            gen(red, 0, 1);
+                        else error(43);
+                    &#125;
+                &#125;
+                else error(22);
+            &#125;
+            while (!(sym != comma));
+            if (sym != rparen)  error(25);
+            else  getsym();
+        &#125;
+        else error(32);
+    &#125;
+    else if (i == 7)
+    &#123;
+        /* write */
+        getsym();
+        if (sym == lparen)
+        &#123;
+            do
+            &#123;
+                getsym();
+                expression(set_of_enum(symbol)::of(rparen, comma, eos) + fsys, x, level);
+                if (x.typ == ints)
+                    gen(wrt, 0, 0);
+                else if (x.typ == chars)
+                    gen(wrt, 0, 1);
+                else error(43);
+            &#125;
+            while (!(sym != comma));
+            if (sym != rparen)  error(25);
+            getsym();
+        &#125;
+        else error(32);
+    &#125;
+    &#125;/* standproc */
+
+    void call(int &amp;level, symset &amp;fsys)
+    &#123;
+    item x;
+    int lastp, cp, i, j, k;
+    /* call */
+    getsym();
+    if (sym == ident)
+    &#123;
+        i = position(id, level);
+        if (nametab[i].kind == prosedure)
+        &#123;
+            if (nametab[i].lev == 0)  stanproc(i, level, x, fsys);
+            else
+            &#123;
+                getsym();
+                gen(opac, 0, 0); /*open active record*/
+                lastp = btab[nametab[i].ref].lastpar;
+                cp = i;
+                if (sym == lparen)
+                &#123;
+                    /*actual parameter list*/
+                    do
+                    &#123;
+                        getsym();
+                        if (cp &gt;= lastp)
+                            error(29);
+                        else
+                        &#123;
+                            cp = cp + 1;
+                            if (nametab[cp].normal)
+                            &#123;
+                                /*value parameter*/
+                                expression(fsys + set_of_enum(symbol)::of(comma, colon, rparen, eos), x, level);
+                                if (x.typ == nametab[cp].typ)
+                                &#123;
+                                    if (x.ref != nametab[cp].ref)
+                                        error(31);
+                                    else if (x.typ == arrays)
+                                        gen(lodb, 0, atab[x.ref].size);
+                                &#125;
+                                else error(31);
+                            &#125;
+                            else           /*variable parameter*/
+                            &#123;
+                                if (sym != ident)
+                                    error(22);
+                                else
+                                &#123;
+                                    k = position(id, level);
+                                    getsym();
+                                    if (k != 0)
+                                    &#123;
+                                        if (nametab[k].kind != variable)  error (30);
+                                        x.typ = nametab[k].typ;
+                                        x.ref = nametab[k].ref;
+                                        if (nametab[k].normal)
+                                            gen(loda, nametab[k].lev, nametab[k].adr);
+                                        else gen(lod, nametab[k].lev, nametab[k].adr);
+                                        if (sym == lbrack)
+                                            arrayelement(fsys + set_of_enum(symbol)::of(comma, rparen, eos), x, level);
+                                        if    ((nametab[cp].typ != x.typ)
+                                                || (nametab[cp].ref != x.ref))
+                                            error(31);
+                                    &#125;
+                                &#125;
+                            &#125;   /*variable parameter*/
+                        &#125;
+                        test(set_of_enum(symbol)::of(comma, rparen, eos), fsys, 13);
+                    &#125;
+                    while (!(sym != comma));
+                    if (sym == rparen)  getsym();
+                    else error(25);
+                &#125;
+                if (cp &lt; lastp)  error(39);  /*too few actual parameters*/
+                gen(cal, nametab[i].lev, nametab[i].adr);
+                if (nametab[i].lev &lt; level)  gen(udis, nametab[i].lev, level);
+            &#125;
+        &#125;
+        else error(51);
+    &#125;
+    else error(22);
+    test(fsys + set_of_enum(symbol)::of(ident, eos), set_of_enum(symbol)::of(eos), 13);
+    &#125; /*call*/
+
+    void fsplit(const char sfilename[], char* dir, char* name, char* ext)
+    &#123;
+    //Todo LosPhoenix
+    /*
+    char path_buffer = sfilename.get_body();
+    char drive[_MAX_DRIVE];
+    char dir[_MAX_DIR];
+    char fname[_MAX_FNAME];
+    char ext[_MAX_EXT];
+    */
+    char drive[_MAX_DRIVE];
+    char dir_temp[_MAX_DIR];
+    _splitpath(sfilename, drive, dir_temp, name, ext);
+    _makepath( dir, drive, dir_temp, &quot;&quot;, &quot;&quot;);
+
+    &#125;
+    void casestatement(symset fsys, int&amp; level, int &amp;cx1, int &amp;cx2)
+    &#123;
+    int backpatch[256];
+    int jmpindex = 0;
+    item x;
+    getsym();
+    int i = position(id,level);
+    gen(loda,level,nametab[i].adr);
+    simpleexpression(set_of_enum(symbol)::of(ofsym,eos)+fsys,x,level);
+    gen(sto,0,0);
+    if(sym!=ofsym)
+    &#123;
+        error(17);
+    &#125;
+    getsym();
+    do
+    &#123;
+        cx1 = cx;
+        constrec c;
+        constant(set_of_enum(symbol)::of(colon,comma,eos)+fsys,c,level);
+        gen(lod,level,nametab[i].adr);
+        gen(lit,0,c.i);
+        gen(eq,0,0);
+        gen(jpc,0,0);
+        gen(jmp,0,0);
+        while (sym==comma)
+        &#123;
+            getsym();
+            constant(set_of_enum(symbol)::of(colon,comma,eos)+fsys,c,level);
+            gen(lit,0,c.i);
+            gen(eq,0,0);
+            gen(jpc,0,0);
+            gen(jmp,0,0);
+        &#125;
+        if(sym!=colon)
+        &#123;
+            error(24);
+            break;
+        &#125;
+        getsym();
+        for(int tmp = cx1;tmp&lt;cx;tmp++)
+        &#123;
+
+            if(code[tmp].f==jmp)
+            &#123;
+                code[tmp].a = cx;
+            &#125;
+        &#125;
+        statement(fsys,level);
+
+        if(sym!=semicolon)
+        &#123;
+            if(sym!=endsym)
+            &#123;
+                error(36);
+            &#125;
+            break;
+        &#125;
+        for(int tmp = cx1;tmp&lt;cx;tmp++)
+        &#123;
+
+            if(code[tmp].f==jpc)
+            &#123;
+
+                code[tmp].a = cx+1;
+            &#125;
+        &#125;
+        gen(jmp,0,0);
+        backpatch[jmpindex++] = cx-1;
+        getsym();
+    &#125;
+    while (1);
+    for(int tmp = cx1;tmp&lt;cx;tmp++)
+    &#123;
+
+        if(code[tmp].f==jpc)
+        &#123;
+
+                code[tmp].a = cx;
+        &#125;
+    &#125;
+    for(int i = 0;i&lt;jmpindex;i++)
+    &#123;
+        code[backpatch[i]].a = cx;
+    &#125;
+
+    getsym();
+    &#125;
+    void statement(symset fsys, int &amp;level)
+    &#123;
+    int i, cx1, cx2, cx3;
+    item x;
+    void arrayelement(symset fsys, item &amp; x);
+    /* statement */
+    test(statbegsys + set_of_enum(symbol)::of(ident, eos), fsys, 13);
+    if (sym == ident)   assignment(i, level, fsys);
+    else if (sym == callsym)
+        call(level, fsys);
+    else if (sym == ifsym)
+        ifstatement(level, fsys, cx1, cx2);
+    else if (sym == beginsym)
+        compound(fsys, level);
+    else if (sym == whilesym)
+        whilestatement(cx1, level, fsys, cx2);
+    else if (sym == repeatsym)
+        repeatstatement(cx1,level,fsys);
+    else if (sym == forsym)
+        forstatement(fsys,level,cx1,cx2);
+    else if (sym == casesym)
+        casestatement(fsys,level,cx1,cx2);
+    test(fsys + set_of_enum(symbol)::of(elsesym,eos), set_of_enum(symbol)::of(eos), 13);
+
+    &#125;/* statement */
+
+    void block( symset fsys, int level)
+    &#123;
+    int dx;  /* data allocation index */
+    int tx0; /* initial table index */
+    int cx0; /* initial code  index */
+    int prt, prb;
+    /* block */
+    prt = tx;
+    dx = 3;
+    tx0 = tx;
+    nametab[tx].adr = cx;
+    if (level &gt; levmax)  error(4);
+    enterblock();
+    prb = bx;
+    display[level] = bx;
+    nametab[prt].typ = notyp;
+    nametab[prt].ref = prb;
+
+    if((sym == lparen) &amp;&amp; (level &gt; 1))
+
+    &#123;
+        paramenterlist(fsys, level, dx);
+        if (sym == semicolon)  getsym();
+        else error(23);
+    &#125;
+    else  if (level &gt; 1)
+        if (sym == semicolon)  getsym();
+        else error(23);
+    btab[prb].lastpar = tx;
+    btab[prb].psize = dx;
+
+    gen(jmp, 0, 0); /* jump from declaration part to statement part */
+    do
+    &#123;
+        if (sym == constsym)
+        &#123;
+            getsym();
+            do
+            &#123;
+                constdeclaration(level, fsys);
+            &#125;
+            while (!(sym != ident));
+        &#125;
+        if (sym == typesym)
+        &#123;
+            getsym();
+            do
+            &#123;
+                typedeclaration(level, fsys);
+            &#125;
+            while (!(sym != ident));
+        &#125;
+        if (sym == varsym)
+        &#123;
+            getsym();
+            do
+            &#123;
+                vardeclaration(level, fsys, dx);
+            &#125;
+            while (!(sym != ident));
+        &#125;
+        while (sym == procsym)    procdeclaration(level, fsys);
+        test(statbegsys + set_of_enum(symbol)::of(ident, eos), declbegsys, 13);
+    &#125;
+    while (!(! (declbegsys.has(sym))));
+    code[nametab[tx0].adr].a = cx; /*back enter statement code&#39;s start adr. */
+    labtab[lx] = cx;
+    lx = lx + 1;
+    &#123;
+        //A1 &amp;with = nametab[tx0];
+
+        nametab[tx0].adr = cx; /*code&#39;s start address */
+    &#125;
+    cx0 = cx;
+    gen(entp, level, dx); /* block entry */
+    statement(set_of_enum(symbol)::of(semicolon, endsym, eos) + fsys, level);
+    if (level &gt; 1)  gen(retp, 0, 0); /*return*/
+    else gen(endp, 0, 0); /* end prograam */
+    test(fsys, set_of_enum(symbol)::of(eos), 13);
+    listcode(cx0);
+    &#125;/* block */
+
+
+    /************************************************************************/
+    int main(int argc, const char *argv[])
+    &#123;
+    /* main */
+    pio_initialize(argc, argv);
+    output &lt;&lt; &quot;Please input source program file name:&quot; &lt;&lt; NL;
+    input &gt;&gt; sfile_buff &gt;&gt; NL;
+    strcpy(sfilename, sfile_buff.get_body());
+
+    output &lt;&lt; sfilename &lt;&lt; NL;
+
+    assign(sfile, sfilename);
+    reset(sfile);
+
+    fsplit(sfilename, dir, name, ext);
+    listfile_buff = strcat(dir, strcat(name, &quot;c.lst&quot;));
+    assign(listfile, listfile_buff);
+    rewrite(listfile);
+
+    fsplit(sfilename, dir, name, ext);
+        assign(fcode, strcat(dir, strcat(name , &quot;c.pld&quot;)));
+        rewrite(fcode);
+
+    fsplit(sfilename, dir, name, ext);
+        assign(labfile, strcat(dir, strcat(name ,&quot;c.lab&quot;)));
+        rewrite(labfile);
+
+
+    initial();
+    enterpreid();
+    getsym();
+    if (sym == programsym)
+    &#123;
+        getsym();
+        if (sym == ident)
+        &#123;
+            getsym();
+            if (sym == semicolon)  getsym();
+            else error(23);
+        &#125;
+        else error(22);
+    &#125;
+    else error(15);
+    test(declbegsys + set_of_enum(symbol)::of(beginsym, eos), set_of_enum(symbol)::of(eos), 13);
+    block(set_of_enum(symbol)::of(period, eos) + declbegsys + statbegsys, 1);
+    if (sym != period)  error(38);
+    if (err == 0)
+    &#123;
+        output &lt;&lt; &quot;SUCCESS&quot;;
+
+        for( i = 0; i &lt;= cx; i ++)
+            fcode &lt;&lt; code[i];
+        close(fcode);
+
+        for( i = 0; i &lt;= lx; i ++)
+            labfile &lt;&lt; labtab[i];
+        close(labfile);
+    &#125;
+    else output &lt;&lt; err &lt;&lt; &quot;ERRORS IN PROGRAM&quot;;
+    output &lt;&lt; NL;
+    close(sfile);
+    close(listfile);
+    return EXIT_SUCCESS;
+    &#125;     /* of whole program  */
+
+    #ifndef WIN32
+    void _makepath(char *path,const char *drive, char *dir, char *fname, char *ext)
+    &#123;
+    strcpy(path,dir);
+    &#125;
+
+    void _splitpath(const char *path, char *drive, char *dir, char *fname, char *ext)
+    &#123;
+    const char *p_whole_name;
+
+    drive[0] = &#39;\0&#39;;
+    if (NULL == path)
+    &#123;
+        dir[0] = &#39;\0&#39;;
+        fname[0] = &#39;\0&#39;;
+        ext[0] = &#39;\0&#39;;
+        return;
+    &#125;
+
+    if (&#39;/&#39; == path[strlen(path)])
+    &#123;
+        strcpy(dir, path);
+        fname[0] = &#39;\0&#39;;
+        ext[0] = &#39;\0&#39;;
+        return;
+    &#125;
+
+    p_whole_name = rindex(path, &#39;/&#39;);
+    if (NULL != p_whole_name)
+    &#123;
+        p_whole_name++;
+        _split_whole_name(p_whole_name, fname, ext);
+
+        snprintf(dir, p_whole_name - path, &quot;%s&quot;, path);
+    &#125;
+    else
+    &#123;
+        _split_whole_name(path, fname, ext);
+        dir[0] = &#39;\0&#39;;
+    &#125;
+    &#125;
+
+    static void _split_whole_name(const char *whole_name, char *fname, char *ext)
+    &#123;
+    const char *p_ext;
+
+    p_ext = rindex(whole_name, &#39;.&#39;);
+    if (NULL != p_ext)
+    &#123;
+        strcpy(ext, p_ext);
+        snprintf(fname, p_ext - whole_name + 1, &quot;%s&quot;, whole_name);
+    &#125;
+    else
+    &#123;
+        ext[0] = &#39;\0&#39;;
+        strcpy(fname, whole_name);
+    &#125;
+    &#125;
+
+#endif
+</code></pre>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 Algorithm_sort@163.com </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2020-2022 nameETC
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 552px;
+    }
+    .nav.fullscreen {
+        margin-left: -552px;
+    }
+    .nav-left {
+        width: 130px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 502px;
+        }
+        .nav.fullscreen {
+            margin-left: -502px;
+        }
+        .nav-left {
+            width: 110px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 502px;
+            margin-left: -502px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    
+    <a class="dynamic-menu " target="_self"   href="http://redleaves699.github.io/">Red_Leaves</a>
+    
+    
+</div>
+
+
+</html>
