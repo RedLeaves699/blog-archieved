@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>对数几率回归 | Set sail!</title>
+  <meta name="keywords" content=" 算法 , 数学 , 机器学习 , 学习笔记 , 分类问题 ">
+  <meta name="description" content="对数几率回归 | Set sail!">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="404 ERROR 看起来这个页面现在不存在 不过它以后还是有存在的可能的？ Is it possible existing in the future?  速速回到首页！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="该页面无法显示">
+<meta property="og:url" content="http://redleaves699.github.io/404/index.html">
+<meta property="og:site_name" content="Set sail!">
+<meta property="og:description" content="404 ERROR 看起来这个页面现在不存在 不过它以后还是有存在的可能的？ Is it possible existing in the future?  速速回到首页！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/others/th/hit.png">
+<meta property="article:published_time" content="2022-02-16T14:02:14.000Z">
+<meta property="article:modified_time" content="2022-03-10T15:52:08.938Z">
+<meta property="article:author" content="Red_Leaves">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/others/th/hit.png">
+
+
+<link rel="icon" href="/img/favicon.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Red_Leaves</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/redleaves699"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:Algorithm_sort@163.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+    <a class="more-menus">更多菜单</a>
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(60)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="前沿技术">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        前沿技术
+                        <small>(14)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="前沿技术<--->机器学习">
+                                        
+                                        机器学习
+                                        
+                                            <small>(14
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="数学">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        数学
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="数学<--->概率论">
+                                        
+                                        概率论
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="数学<--->高等数学">
+                                        
+                                        高等数学
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="数学<--->线性代数">
+                                        
+                                        线性代数
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="算法">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        算法
+                        <small>(9)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="算法<--->理论">
+                                        
+                                        理论
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="算法<--->题解">
+                                        
+                                        题解
+                                        
+                                            <small>(5
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="编程语言">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        编程语言
+                        <small>(7)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->基础">
+                                        
+                                        基础
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->进阶">
+                                        
+                                        进阶
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->硬件设计">
+                                        
+                                        硬件设计
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="软件">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        软件
+                        <small>(6)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="软件<--->数据库">
+                                        
+                                        数据库
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="软件<--->Android">
+                                        
+                                        Android
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="软件<--->Git">
+                                        
+                                        Git
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="操作系统">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        操作系统
+                        <small>(9)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="操作系统<--->平时应用">
+                                        
+                                        平时应用
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="操作系统<--->实训">
+                                        
+                                        实训
+                                        
+                                            <small>(8
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="前端">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        前端
+                        <small>(9)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="前端<--->编译器前端">
+                                        
+                                        编译器前端
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="前端<--->网页前端">
+                                        
+                                        网页前端
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="前端<--->Markdown">
+                                        
+                                        Markdown
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="感想随笔">
+                        
+                        感想随笔
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+                <a class="dynamic-menu "
+                   target="_self"
+                   
+                   href="http://redleaves699.github.io/">Red_Leaves</a>
+        
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="60">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="/www.github.com/redleaves699">My GitHub</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>2021牛客暑期多校第二场</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>2021牛客暑期多校第一场</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>贝叶斯方法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>编程语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>编译原理</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>博客搭建</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>操作系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>递归</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>分类问题</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>概率论</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>高等数学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>高级</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>格式化文本</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>回归问题</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>汇编</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>机器学习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>计时</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>计算机系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>技巧</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>矩阵论</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>决策树</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>课程实践</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>模拟实训</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>逆向分析</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>排序</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>前端</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>软件开发</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>深度学习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>神经网络</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>生活</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>实验环境配置</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>实用</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数据结构</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数据库</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>随机数</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>统计学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>网页内容</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>信息论</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>学习笔记</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>硬件描述语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>政治历史</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>指针</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>中间层</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Android</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>c</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>c++</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>C语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Debian</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Educoder</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GIS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GitHub</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>javascript</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>json</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>LearnGitBranch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux0.11</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>markdown</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>stack</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>SVM</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>toposort</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Verilog</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Windows</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/03/11/machine%20learning/svm3/"
+           data-tag="算法,数学,机器学习,学习笔记,回归问题"
+           data-author="" >
+            <span class="post-title" title="支持向量机3-支持向量回归">支持向量机3-支持向量回归</span>
+            <span class="post-date" title="2022-03-11 21:10:00">2022/03/11</span>
+        </a>
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/03/09/machine%20learning/km/"
+           data-tag="算法,数学,机器学习,学习笔记"
+           data-author="" >
+            <span class="post-title" title="支持向量机的核方法">支持向量机的核方法</span>
+            <span class="post-date" title="2022-03-09 21:15:00">2022/03/09</span>
+        </a>
+        
+        <a  class="All 算法 理论 "
+           href="/2022/03/09/Algorithm/sort/"
+           data-tag="算法,排序"
+           data-author="" >
+            <span class="post-title" title="常用的排序算法分析和实现">常用的排序算法分析和实现</span>
+            <span class="post-date" title="2022-03-09 15:13:47">2022/03/09</span>
+        </a>
+        
+        <a  class="All 数学 高等数学 "
+           href="/2022/03/09/math/%E7%BA%A6%E6%9D%9F%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98/"
+           data-tag="算法,数学,学习笔记,高等数学,矩阵论,SVM"
+           data-author="" >
+            <span class="post-title" title="约束优化问题">约束优化问题</span>
+            <span class="post-date" title="2022-03-09 14:30:00">2022/03/09</span>
+        </a>
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/03/09/machine%20learning/svm2/"
+           data-tag="算法,数学,机器学习,学习笔记,分类问题"
+           data-author="" >
+            <span class="post-title" title="支持向量机2-软间隔">支持向量机2-软间隔</span>
+            <span class="post-date" title="2022-03-09 08:00:00">2022/03/09</span>
+        </a>
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/03/08/machine%20learning/svm1/"
+           data-tag="算法,数学,机器学习,学习笔记,分类问题"
+           data-author="" >
+            <span class="post-title" title="支持向量机1-硬间隔">支持向量机1-硬间隔</span>
+            <span class="post-date" title="2022-03-08 08:00:00">2022/03/08</span>
+        </a>
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/03/07/machine%20learning/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B3/"
+           data-tag="算法,数学,机器学习,学习笔记,分类问题"
+           data-author="" >
+            <span class="post-title" title="对数几率回归">对数几率回归</span>
+            <span class="post-date" title="2022-03-07 08:00:00">2022/03/07</span>
+        </a>
+        
+        <a  class="All 数学 线性代数 "
+           href="/2022/03/05/math/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/"
+           data-tag="算法,数学,学习笔记,高等数学,矩阵论"
+           data-author="" >
+            <span class="post-title" title="矩阵，向量求导">矩阵，向量求导</span>
+            <span class="post-date" title="2022-03-05 08:00:00">2022/03/05</span>
+        </a>
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/03/05/machine%20learning/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B2/"
+           data-tag="算法,数学,机器学习,学习笔记,分类问题"
+           data-author="" >
+            <span class="post-title" title="LDA模型">LDA模型</span>
+            <span class="post-date" title="2022-03-05 08:00:00">2022/03/05</span>
+        </a>
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/03/03/machine%20learning/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/"
+           data-tag="算法,数学,机器学习,学习笔记,回归问题"
+           data-author="" >
+            <span class="post-title" title="线性回归模型">线性回归模型</span>
+            <span class="post-date" title="2022-03-03 08:00:00">2022/03/03</span>
+        </a>
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/03/02/machine%20learning/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8b/"
+           data-tag="算法,数学,机器学习,概率论,学习笔记,贝叶斯方法"
+           data-author="" >
+            <span class="post-title" title="贝叶斯分类器（下）">贝叶斯分类器（下）</span>
+            <span class="post-date" title="2022-03-02 08:00:00">2022/03/02</span>
+        </a>
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/03/01/machine%20learning/%E5%82%A8%E5%A4%87%E7%9F%A5%E8%AF%86/"
+           data-tag="机器学习,学习笔记"
+           data-author="" >
+            <span class="post-title" title="机器学习的储备知识">机器学习的储备知识</span>
+            <span class="post-date" title="2022-03-01 08:00:00">2022/03/01</span>
+        </a>
+        
+        <a  class="All 算法 题解 "
+           href="/2022/02/28/Algorithm/%E6%95%B4%E6%95%B0%E5%88%92%E5%88%86%E9%97%AE%E9%A2%98/"
+           data-tag="算法,递归"
+           data-author="" >
+            <span class="post-title" title="整数划分问题">整数划分问题</span>
+            <span class="post-date" title="2022-02-28 15:13:47">2022/02/28</span>
+        </a>
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/02/27/machine%20learning/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8a/"
+           data-tag="算法,数学,机器学习,概率论,学习笔记,贝叶斯方法"
+           data-author="" >
+            <span class="post-title" title="贝叶斯分类器（上）">贝叶斯分类器（上）</span>
+            <span class="post-date" title="2022-02-27 08:00:00">2022/02/27</span>
+        </a>
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/02/24/machine%20learning/%E5%86%B3%E7%AD%96%E6%A0%91/"
+           data-tag="机器学习,学习笔记,决策树,信息论,数据结构"
+           data-author="" >
+            <span class="post-title" title="决策树">决策树</span>
+            <span class="post-date" title="2022-02-24 08:00:00">2022/02/24</span>
+        </a>
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/02/23/machine%20learning/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"
+           data-tag="算法,数学,机器学习,学习笔记,神经网络,深度学习"
+           data-author="" >
+            <span class="post-title" title="人工神经网络">人工神经网络</span>
+            <span class="post-date" title="2022-02-23 08:00:00">2022/02/23</span>
+        </a>
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/02/20/machine%20learning/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0b/"
+           data-tag="算法,数学,机器学习,概率论,统计学,学习笔记"
+           data-author="" >
+            <span class="post-title" title="集成学习的原理（下篇）">集成学习的原理（下篇）</span>
+            <span class="post-date" title="2022-02-20 08:00:00">2022/02/20</span>
+        </a>
+        
+        <a  class="All 数学 高等数学 "
+           href="/2022/02/19/math/%E6%B3%B0%E5%8B%92%E5%B1%95%E5%BC%80/"
+           data-tag="算法,数学,学习笔记,高等数学"
+           data-author="" >
+            <span class="post-title" title="泰勒展开">泰勒展开</span>
+            <span class="post-date" title="2022-02-19 08:00:00">2022/02/19</span>
+        </a>
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/02/14/machine%20learning/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0a/"
+           data-tag="算法,数学,机器学习,概率论,统计学,学习笔记"
+           data-author="" >
+            <span class="post-title" title="集成学习的原理（上篇）">集成学习的原理（上篇）</span>
+            <span class="post-date" title="2022-02-14 08:00:00">2022/02/14</span>
+        </a>
+        
+        <a  class="All 数学 概率论 "
+           href="/2022/02/13/math/%E6%9E%81%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/"
+           data-tag="算法,数学,机器学习,概率论,学习笔记"
+           data-author="" >
+            <span class="post-title" title="极大似然估计">极大似然估计</span>
+            <span class="post-date" title="2022-02-13 08:00:00">2022/02/13</span>
+        </a>
+        
+        <a  class="All 编程语言 基础 "
+           href="/2022/02/10/Programming%20Language/json%E8%AF%AD%E6%B3%95/"
+           data-tag="前端,javascript,json,格式化文本"
+           data-author="" >
+            <span class="post-title" title="json语法">json语法</span>
+            <span class="post-date" title="2022-02-10 21:25:47">2022/02/10</span>
+        </a>
+        
+        <a  class="All 软件 Git "
+           href="/2022/01/22/Git/github%E6%93%8D%E4%BD%9C/"
+           data-tag="Git,GitHub"
+           data-author="" >
+            <span class="post-title" title="GitHub代码仓库的使用">GitHub代码仓库的使用</span>
+            <span class="post-date" title="2022-01-22 17:10:35">2022/01/22</span>
+        </a>
+        
+        <a  class="All 前端 编译器前端 "
+           href="/2021/12/29/Compiler/PL%E8%AF%AD%E8%A8%80%E7%9A%84%E6%89%A9%E5%B1%95/"
+           data-tag="Educoder,编译原理,模拟实训"
+           data-author="" >
+            <span class="post-title" title="Educoder 编译原理PL语言编译器的扩展（转载）">Educoder 编译原理PL语言编译器的扩展（转载）</span>
+            <span class="post-date" title="2021-12-29 23:53:00">2021/12/29</span>
+        </a>
+        
+        <a  class="All 算法 理论 "
+           href="/2021/12/05/Algorithm/Space%20coordinate%20transformation/"
+           data-tag="算法,数学,GIS"
+           data-author="" >
+            <span class="post-title" title="空间坐标转换方法">空间坐标转换方法</span>
+            <span class="post-date" title="2021-12-05 20:38:47">2021/12/05</span>
+        </a>
+        
+        <a  class="All 编程语言 基础 "
+           href="/2021/12/05/Programming%20Language/C,C++%E8%AF%AD%E6%B3%95/"
+           data-tag="c,c++"
+           data-author="" >
+            <span class="post-title" title="C,C++语法">C,C++语法</span>
+            <span class="post-date" title="2021-12-05 19:49:47">2021/12/05</span>
+        </a>
+        
+        <a  class="All 前端 网页前端 "
+           href="/2021/11/15/Front/noLimit/"
+           data-tag="前端,网页内容"
+           data-author="" >
+            <span class="post-title" title="常用网页用户限制的解除">常用网页用户限制的解除</span>
+            <span class="post-date" title="2021-11-15 16:41:17">2021/11/15</span>
+        </a>
+        
+        <a  class="All 前端 Markdown "
+           href="/2021/11/15/Markdown/MarkdownIndent/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="关于markdown格式排版">关于markdown格式排版</span>
+            <span class="post-date" title="2021-11-15 15:13:47">2021/11/15</span>
+        </a>
+        
+        <a  class="All 操作系统 实训 "
+           href="/2021/11/11/Operation%20System/Educoder%20%E8%AF%84%E6%B5%8B%E7%A8%8B%E5%BA%8F/"
+           data-tag="Educoder,模拟实训,操作系统,逆向分析"
+           data-author="" >
+            <span class="post-title" title="Educoder 实训平台评测程序代码的获取">Educoder 实训平台评测程序代码的获取</span>
+            <span class="post-date" title="2021-11-11 23:41:15">2021/11/11</span>
+        </a>
+        
+        <a  class="All 操作系统 实训 "
+           href="/2021/11/08/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD7.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训7.x实验">Educoder 操作系统实训7.x实验</span>
+            <span class="post-date" title="2021-11-08 20:49:56">2021/11/08</span>
+        </a>
+        
+        <a  class="All 软件 数据库 "
+           href="/2021/11/07/SQL/PostgreSql/"
+           data-tag="数据库,课程实践"
+           data-author="" >
+            <span class="post-title" title="学习PostgreSQL">学习PostgreSQL</span>
+            <span class="post-date" title="2021-11-07 10:17:33">2021/11/07</span>
+        </a>
+        
+        <a  class="All 操作系统 实训 "
+           href="/2021/11/03/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD6.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训6.x实验">Educoder 操作系统实训6.x实验</span>
+            <span class="post-date" title="2021-11-03 20:49:56">2021/11/03</span>
+        </a>
+        
+        <a  class="All 软件 Git "
+           href="/2021/11/02/Git/GitHub%20resource/"
+           data-tag="Git,GitHub"
+           data-author="" >
+            <span class="post-title" title="解决GitHub资源访问问题">解决GitHub资源访问问题</span>
+            <span class="post-date" title="2021-11-02 17:10:35">2021/11/02</span>
+        </a>
+        
+        <a  class="All 软件 Android "
+           href="/2021/10/28/Android/Android%20UI%E8%AE%BE%E8%AE%A1/"
+           data-tag="软件开发,Android"
+           data-author="" >
+            <span class="post-title" title="Android项目的阅读 - UI（总第二篇）">Android项目的阅读 - UI（总第二篇）</span>
+            <span class="post-date" title="2021-10-28 23:23:19">2021/10/28</span>
+        </a>
+        
+        <a  class="All 编程语言 硬件设计 "
+           href="/2021/10/25/Programming%20Language/Verilog%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E7%94%A8%E6%93%8D%E4%BD%9C/"
+           data-tag="硬件描述语言,Verilog"
+           data-author="" >
+            <span class="post-title" title="Verilog的一些实用操作">Verilog的一些实用操作</span>
+            <span class="post-date" title="2021-10-25 19:48:45">2021/10/25</span>
+        </a>
+        
+        <a  class="All 操作系统 实训 "
+           href="/2021/10/20/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD5.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训5.x实验">Educoder 操作系统实训5.x实验</span>
+            <span class="post-date" title="2021-10-20 23:35:23">2021/10/20</span>
+        </a>
+        
+        <a  class="All 操作系统 平时应用 "
+           href="/2021/10/12/Operation%20System/Windows%20%E5%92%8C%20Linux%E7%9A%84%E4%BD%BF%E7%94%A8/"
+           data-tag="操作系统,Windows,Linux"
+           data-author="" >
+            <span class="post-title" title="Windows和Linux的日常琐事">Windows和Linux的日常琐事</span>
+            <span class="post-date" title="2021-10-12 16:25:15">2021/10/12</span>
+        </a>
+        
+        <a  class="All 操作系统 实训 "
+           href="/2021/10/07/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD4.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训4.x实验">Educoder 操作系统实训4.x实验</span>
+            <span class="post-date" title="2021-10-07 11:49:00">2021/10/07</span>
+        </a>
+        
+        <a  class="All 前端 编译器前端 "
+           href="/2021/10/06/Compiler/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AE%9E%E8%AE%AD1/"
+           data-tag="Educoder,编译原理,模拟实训"
+           data-author="" >
+            <span class="post-title" title="Educoder 编译原理实训1">Educoder 编译原理实训1</span>
+            <span class="post-date" title="2021-10-06 23:53:00">2021/10/06</span>
+        </a>
+        
+        <a  class="All 编程语言 进阶 "
+           href="/2021/10/03/Programming%20Language/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"
+           data-tag="汇编,中间层,计算机系统"
+           data-author="" >
+            <span class="post-title" title="计算机基本概念">计算机基本概念</span>
+            <span class="post-date" title="2021-10-03 09:15:35">2021/10/03</span>
+        </a>
+        
+        <a  class="All 编程语言 "
+           href="/2021/09/29/Programming%20Language/%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/"
+           data-tag="c,编程语言,技巧,python"
+           data-author="" >
+            <span class="post-title" title="程序实现方法">程序实现方法</span>
+            <span class="post-date" title="2021-09-29 17:29:00">2021/09/29</span>
+        </a>
+        
+        <a  class="All 软件 Git "
+           href="/2021/09/29/Git/Gitignore/"
+           data-tag="Git,GitHub"
+           data-author="" >
+            <span class="post-title" title=".gitignore的使用">.gitignore的使用</span>
+            <span class="post-date" title="2021-09-29 16:42:35">2021/09/29</span>
+        </a>
+        
+        <a  class="All 前端 Markdown "
+           href="/2021/09/22/Markdown/MarkdownSpecialSign/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown latex的特殊符号">markdown latex的特殊符号</span>
+            <span class="post-date" title="2021-09-22 22:30:32">2021/09/22</span>
+        </a>
+        
+        <a  class="All 操作系统 实训 "
+           href="/2021/09/17/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD3.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训3.x实验">Educoder 操作系统实训3.x实验</span>
+            <span class="post-date" title="2021-09-17 10:42:35">2021/09/17</span>
+        </a>
+        
+        <a  class="All 前端 网页前端 "
+           href="/2021/09/14/Git/%E5%9C%A8%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2LearnGitBranch/"
+           data-tag="前端,Git,LearnGitBranch"
+           data-author="" >
+            <span class="post-title" title="在本地部署LearnGitBranch">在本地部署LearnGitBranch</span>
+            <span class="post-date" title="2021-09-14 17:30:26">2021/09/14</span>
+        </a>
+        
+        <a  class="All 编程语言 进阶 "
+           href="/2021/09/12/Programming%20Language/%E6%8C%87%E9%92%88%E7%9A%84%E6%B4%BB%E7%94%A8/"
+           data-tag="技巧,C语言,指针,高级"
+           data-author="" >
+            <span class="post-title" title="指针的活用">指针的活用</span>
+            <span class="post-date" title="2021-09-12 13:49:00">2021/09/12</span>
+        </a>
+        
+        <a  class="All 软件 Android "
+           href="/2021/09/11/Android/Andorid%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"
+           data-tag="软件开发,Android"
+           data-author="" >
+            <span class="post-title" title="Android项目的阅读 - 让项目运行起来（总第一篇）">Android项目的阅读 - 让项目运行起来（总第一篇）</span>
+            <span class="post-date" title="2021-09-11 11:23:19">2021/09/11</span>
+        </a>
+        
+        <a  class="All 操作系统 实训 "
+           href="/2021/09/09/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD2.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训2.x实验">Educoder 操作系统实训2.x实验</span>
+            <span class="post-date" title="2021-09-09 09:25:45">2021/09/09</span>
+        </a>
+        
+        <a  class="All 操作系统 实训 "
+           href="/2021/09/07/Operation%20System/Debian%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AELinux0.11/"
+           data-tag="实验环境配置,Debian,Linux0.11"
+           data-author="" >
+            <span class="post-title" title="Debian系统配置Linux0.11">Debian系统配置Linux0.11</span>
+            <span class="post-date" title="2021-09-07 11:45:05">2021/09/07</span>
+        </a>
+        
+        <a  class="All 前端 网页前端 "
+           href="/2021/09/02/Front/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cnode.js%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"
+           data-tag="前端,博客搭建"
+           data-author="" >
+            <span class="post-title" title="使用Node.js和hexo搭建GitHub博客（以windows为例）">使用Node.js和hexo搭建GitHub博客（以windows为例）</span>
+            <span class="post-date" title="2021-09-02 21:20:23">2021/09/02</span>
+        </a>
+        
+        <a  class="All 编程语言 基础 "
+           href="/2021/08/17/Programming%20Language/%E5%90%84%E7%A7%8D%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E9%9A%8F%E6%9C%BA%E6%95%B0%E5%92%8C%E8%AE%A1%E6%97%B6/"
+           data-tag="编程语言,随机数,计时,实用"
+           data-author="" >
+            <span class="post-title" title="各种语言实现随机数和计时">各种语言实现随机数和计时</span>
+            <span class="post-date" title="2021-08-17 09:15:35">2021/08/17</span>
+        </a>
+        
+        <a  class="All 感想随笔 "
+           href="/2021/07/26/%E7%99%BE%E5%B9%B4/"
+           data-tag="政治历史"
+           data-author="" >
+            <span class="post-title" title="百年未有之大变局">百年未有之大变局</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 算法 题解 "
+           href="/2021/07/26/Algorithm/A%20-%20Alice%20and%20Bob/"
+           data-tag="2021牛客暑期多校第一场"
+           data-author="" >
+            <span class="post-title" title="A - Alice and Bob">A - Alice and Bob</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 算法 理论 "
+           href="/2021/07/26/Algorithm/Monotone%20Priority%20Stack/"
+           data-tag="算法,stack"
+           data-author="" >
+            <span class="post-title" title="单调栈（Monotone Priority Stack）">单调栈（Monotone Priority Stack）</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 算法 理论 "
+           href="/2021/07/26/Algorithm/Toposort/"
+           data-tag="算法,toposort"
+           data-author="" >
+            <span class="post-title" title="拓扑排序">拓扑排序</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 前端 Markdown "
+           href="/2021/07/26/Markdown/MarkdownImage/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="在markdown中插入图片">在markdown中插入图片</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 前端 Markdown "
+           href="/2021/07/26/Markdown/MarkdownFont/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown 字体，字号，颜色">markdown 字体，字号，颜色</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 算法 题解 "
+           href="/2021/07/26/Algorithm/G%20-%20League%20of%20Legends/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="G - League of Legends">G - League of Legends</span>
+            <span class="post-date" title="2021-07-26 09:47:05">2021/07/26</span>
+        </a>
+        
+        <a  class="All 算法 题解 "
+           href="/2021/07/26/Algorithm/K%20-%20Stack/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="K - Stack">K - Stack</span>
+            <span class="post-date" title="2021-07-26 09:37:47">2021/07/26</span>
+        </a>
+        
+        <a  class="All 算法 题解 "
+           href="/2021/07/20/Algorithm/F%20-%20Girlfriend/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="F - Girlfriend">F - Girlfriend</span>
+            <span class="post-date" title="2021-07-20 09:53:17">2021/07/20</span>
+        </a>
+        
+        <a  class="All 感想随笔 "
+           href="/2021/07/17/Essay-2021-7-17/"
+           data-tag="生活"
+           data-author="" >
+            <span class="post-title" title="2021-07-17 关于自己读书的有趣现象">2021-07-17 关于自己读书的有趣现象</span>
+            <span class="post-date" title="2021-07-17 12:13:26">2021/07/17</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-machine learning/线性模型3" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">对数几率回归</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="前沿技术">前沿技术</a> > 
+            
+            <a  data-rel="前沿技术&lt;---&gt;机器学习">机器学习</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color3">算法</a>
+            
+            <a class="color3">数学</a>
+            
+            <a class="color5">机器学习</a>
+            
+            <a class="color5">学习笔记</a>
+            
+            <a class="color5">分类问题</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2022-03-07 20:33:20'>2022-03-07 08:00</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%E4%B8%80%E4%BA%9B%E8%AF%8D%E8%AF%AD%E7%9A%84%E5%90%AB%E4%B9%89"><span class="toc-text">解释一些词语的含义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%A0%E7%8E%87"><span class="toc-text">几率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E6%95%B0%E5%87%A0%E7%8E%87%E5%9B%9E%E5%BD%92logistic-regression"><span class="toc-text">对数几率回归(logistic regression)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">需要解决的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-text">问题的解决方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E6%95%B0%E5%87%A0%E7%8E%87%E5%9B%9E%E5%BD%92%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%80%9D%E8%B7%AF"><span class="toc-text">对数几率回归的基本思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AE%E5%AE%9A%E7%9B%B8%E5%BA%94%E7%9A%84%E5%8F%82%E6%95%B0"><span class="toc-text">确定相应的参数</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-4 i,
+    .toc-level-4 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="解释一些词语的含义">解释一些词语的含义</h2>
+<h3 id="几率">几率</h3>
+<ol type="1">
+<li>(odds)在统计学中被称为<strong>几率</strong>，是事件发生的概率与该事件不发生的概率的比值。</li>
+<li>(probability)在统计学中被称为<strong>概率</strong>，是随机事件出现的可能性（likelihood)大小。</li>
+</ol>
+<h3 id="对数几率回归logistic-regression">对数几率回归(logistic regression)</h3>
+<p>直译的“逻辑回归”并不是<strong>logistic regression</strong>的本意。<strong>logistic regression</strong>起初叫做<strong>logit regression</strong>，logit是统计学家为<strong>“对几率取对数的式子”</strong>取的名字。但logit这个词不符合构词法，所以用logistic顶替了logit。</p>
+<h2 id="需要解决的问题">需要解决的问题</h2>
+<p>二分类问题：给定数据集<span class="math inline">\(D=\{(\pmb{x}_i,y_i)\}_{i=1}^m,\pmb{x}_i=\{x_1,x_2,\dots,x_d\},y_i\in\{0,1\}\)</span>，将<span class="math inline">\(D\)</span>中数据进行分类。</p>
+<h2 id="问题的解决方法">问题的解决方法</h2>
+<h3 id="对数几率回归的基本思路">对数几率回归的基本思路</h3>
+<p>二分类任务的输出值是0和1，而线性回归模型产生的预测值<span class="math inline">\(z=\pmb{w}^\text{T}\pmb{x}+b\)</span>是实数值。于是，我们需要将实值映射到0/1函数上。最直观的方法应该是构造一个如下的<strong>阶跃函数</strong>，若预测值小于0，判断为反例，若预测值大于0，判断为正例，预测值等于0，随机判定： <span class="math display">\[
+y=\begin{cases}0,z&lt;0\\1,z&gt;0\\0.5,z=0\end{cases}
+\]</span> <strong>阶跃函数</strong>有一个问题，就是它不连续，不能用于式<span class="math inline">\(y=g^{-1}(\pmb{w}^\text{T}\pmb{x}+b)\)</span>，我们希望找到能在一定程度上近似阶跃函数的连续可微函数。<strong>对数几率函数</strong>就是这样一个常用的替代函数： <span class="math display">\[
+y=\frac{1}{1+e^{-z}}
+\]</span> 对数几率函数是一个Sigmoid函数，它将<span class="math inline">\(z\)</span>值转化为一个接近0/1的<span class="math inline">\(y\)</span>值，并且其输出值在<span class="math inline">\(z=0\)</span>附近变化很陡。将对数几率函数作为<span class="math inline">\(g^{-1}(\cdot)\)</span>代入，得到： <span class="math display">\[
+y=\frac{1}{1+e^{-(\pmb{w}^\text{T}\pmb{x}+b)}}\tag{3.18}
+\]</span> 上式还可以变化为： <span class="math display">\[
+\ln \frac{y}{1-y}=\pmb{w}^\text{T}\pmb{x}+b\tag{3.19}
+\]</span> 由此可看出，式(3.18)实际上是在用线性回归模型的预测结果去逼近真实标记的对数几率。因此，其对应的模型称为对数几率回归。注意，虽然名字里有回归，但是它是解决<strong>分类问题</strong>的方法。这种方法有很多优点，例如它是直接对分类可能性进行建模，无需事先假设数据分布，这样就避免了假设分布不准确所带来的问题；它不是仅预测出“类别”，而是可得到近似概率预测，这对许多需利用概率辅助决策的任务很有用；此外，对率函数是任意阶可导的凸函数，有很好的数学性质。现有的许多数值优化算法都可直接用于求取最优解。</p>
+<h3 id="确定相应的参数">确定相应的参数</h3>
+<p>下面我们来看如何确定式(3.18)的<span class="math inline">\(\pmb{w}\)</span>和<span class="math inline">\(b\)</span>。</p>
+<p>若将式(3.18)中的<span class="math inline">\(y\)</span>视为类后验概率估计<span class="math inline">\(P(y=1\ |\ \pmb{x})\)</span>，即 <span class="math display">\[
+P(y=1\ |\ \pmb{x})=\frac{1}{1+e^{-(\pmb{w}^\text{T}\pmb{x}+b)}}
+\]</span> 则式(3.19)可写为： <span class="math display">\[
+\ln \frac{P(y=1\ |\ \pmb{x})}{P(y=0\ |\ \pmb{x})}=\pmb{w}^\text{T}\pmb{x}+b
+\]</span> 显然有： <span class="math display">\[
+P(y=1\ |\ \pmb{x})=\frac{e^{\pmb{w}^\text{T}\pmb{x}+b}}{1+e^{\pmb{w}^\text{T}\pmb{x}+b}}\tag{3.23}
+\]</span></p>
+<p><span class="math display">\[
+P(y=0\ |\ \pmb{x})=1-P(y=1\ |\ \pmb{x})=\frac{1}{1+e^{\pmb{w}^\text{T}\pmb{x}+b}}\tag{3.24}
+\]</span></p>
+<p>于是，我们可以通过“极大似然法”来估计<span class="math inline">\(\pmb{w}\)</span>和<span class="math inline">\(b\)</span>。给定数据集<span class="math inline">\(D=\{(\pmb{x}_i,y_i)\}_{i=1}^m\)</span>，对率回归模型最大化对数似然(log-likelihood)： <span class="math display">\[
+\mathscr{l}(\pmb{w},b)=\stackrel{m}{\underset{i=1}\sum}\ln p(y_i\ |\ \pmb{x}_i;\pmb{w},b)\tag{3.25}
+\]</span> 即每个样本属于其真实标记的概率越大越好。为便于讨论，令<span class="math inline">\(\pmb{\beta}=(\pmb{w};b)\)</span>，<span class="math inline">\(\hat{\pmb{x}}=(\pmb{x};1)\)</span>，则<span class="math inline">\(\pmb{w}^\text{T}\pmb{x}+b\)</span>可简写为<span class="math inline">\(\pmb{\beta}^\text{T}\pmb{x}\)</span>。则式(3.25)的似然项可重写为： <span class="math display">\[
+p(y_i\ |\ \pmb{x}_i;\pmb{w},b)=y_iP(y=1\ |\ \hat{\pmb{x}_i};\pmb{\beta})+(1-y_i)P(y=0\ |\ \hat{\pmb{x}_i};\pmb{\beta})\tag{3.26}
+\]</span> 将式(3.26)代入(3.25)，并根据式(3.23)和(3.24)可得： <span class="math display">\[
+\mathscr{l}(\pmb{\beta})=\stackrel{m}{\underset{i=1}\sum}(\ln(y_ie^{\pmb{\beta}^\text{T}\hat{\pmb{x}}_i}+1-y_i)-\ln(1+e^{\pmb{\beta}^\text{T}\hat{\pmb{x}}_i}))\\
+\mathscr{l}(\pmb{\beta})=\begin{cases}\stackrel{m}{\underset{i=1}\sum}-\ln(1+e^{\pmb{\beta}^\text{T}\hat{\pmb{x}}_i}),y_i=0\\ \stackrel{m}{\underset{i=1}\sum}(\pmb{\beta}^\text{T}\hat{\pmb{x}_i}-\ln (1+e^{\pmb{\beta}^\text{T}\hat{\pmb{x}}_i})),y_i=1
+\end{cases}
+\]</span> 分类讨论，进行综合： <span class="math display">\[
+\mathscr{l}(\pmb{\beta})=\stackrel{m}{\underset{i=1}\sum}(y_i\pmb{\beta}^\text{T}\hat{\pmb{x}_i}-\ln (1+e^{\pmb{\beta}^\text{T}\hat{\pmb{x}}_i}))
+\]</span></p>
+<p>一般来说，最优化问题总是求解最小化，所以最大化(3.25)等于最小化<span class="math inline">\(\mathscr{l}&#39;(\pmb{\beta})=-\mathscr{l}(\pmb{\beta})\)</span>： <span class="math display">\[
+\mathscr{l}&#39;(\pmb{\beta})=\stackrel{m}{\underset{i=1}\sum}(-y_i\pmb{\beta}^\text{T}\hat{\pmb{x}_i}+\ln (1+e^{\pmb{\beta}^\text{T}\hat{\pmb{x}}_i}))\tag{3.27}
+\]</span> 式(3.27) 是关于<span class="math inline">\(\pmb{\beta}\)</span>的高阶可导连续凸函数，根据凸优化理论[Boyd and Vandenberghe, 2004] ，经典的数值优化算法如梯度下降法(gradient descentmethod) 、牛顿法(Newton method) 等都可求得其最优解，于是就得到： <span class="math display">\[
+\pmb{\beta}^*=\underset{\pmb{\beta}}{\arg\min}\mathscr{l}&#39;(\pmb{\beta})
+\]</span> 以牛顿法为例，其第<span class="math inline">\(t+1\)</span>轮迭代解得更新公式为： <span class="math display">\[
+\pmb{\beta}^{t+1}=\pmb{\beta}^t-\frac{\partial^2\mathscr{l}(\pmb{\beta})}{\partial\pmb{\beta}\partial\pmb{\beta}^\text{T}}^{-1}\frac{\partial \mathscr{l}(\pmb{\beta})}{\partial\pmb{\beta}}
+\]</span> 其中关于<span class="math inline">\(\pmb{\beta}\)</span>的一阶，二阶导数分别为： <span class="math display">\[
+\frac{\partial \mathscr{l}(\pmb{\beta})}{\partial\pmb{\beta}}=-\stackrel{m}{\underset{i=1}\sum}\hat{\pmb{x}}_i(y_i-P(y=1\ |\ \hat{\pmb{x}_i};\pmb{\beta}))\\
+\frac{\partial^2\mathscr{l}(\pmb{\beta})}{\partial\pmb{\beta}\partial\pmb{\beta}^\text{T}}=\stackrel{m}{\underset{i=1}\sum}\hat{\pmb{x}}_i\hat{\pmb{x}}_i^\text{T}(1-P(y=1\ |\ \hat{\pmb{x}_i};\pmb{\beta}))P(y=1\ |\ \hat{\pmb{x}_i};\pmb{\beta})\\
+\]</span> 损失函数的由来也可以通过信息论的角度去解释，<span class="math inline">\(\mathscr{l}(\pmb{\beta})\)</span>可以通过最小化相对熵（度量两个分布的差别）<span class="math inline">\(D(p||q)=\sum^m_{i=1}p(x)\log\frac{p(x)}{q(x)}\)</span>得来，而交叉熵为<span class="math inline">\(-\sum^m_{i=1}p(x)\log{q(x)}\)</span>，所以<span class="math inline">\(\mathscr{l}(\pmb{\beta})\)</span>又被称作交叉熵损失函数。其中p，q分别表示两个不同的分布。</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 Algorithm_sort@163.com </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2020-2022 nameETC
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 552px;
+    }
+    .nav.fullscreen {
+        margin-left: -552px;
+    }
+    .nav-left {
+        width: 130px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 502px;
+        }
+        .nav.fullscreen {
+            margin-left: -502px;
+        }
+        .nav-left {
+            width: 110px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 502px;
+            margin-left: -502px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.6;
+        background: url("/img/article-list-background.jpg");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    
+    <a class="dynamic-menu " target="_self"   href="http://redleaves699.github.io/">Red_Leaves</a>
+    
+    
+</div>
+
+
+</html>
