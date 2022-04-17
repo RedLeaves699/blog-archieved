@@ -2,23 +2,27 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>LDA模型 | Set sail!</title>
+  <title>LDA(fisher)模型 | Set sail!</title>
   <meta name="keywords" content=" 算法 , 数学 , 机器学习 , 学习笔记 , 分类问题 ">
-  <meta name="description" content="LDA模型 | Set sail!">
+  <meta name="description" content="LDA(fisher)模型 | Set sail!">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="404 ERROR 看起来这个页面现在不存在 不过它以后还是有存在的可能的？ Is it possible existing in the future?  速速回到首页！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="该页面无法显示">
-<meta property="og:url" content="http://redleaves699.github.io/404/index.html">
+<meta name="description" content="题目描述 给定一个\(n\)行\(m\)列的棋盘，任意给出一个马的周游路线。周游路线是指从起始点开始，不重不漏的经过棋盘上的每一个格子，最后再回到起始点的路线。 样例输入 6 5 样例输出     2   25   22   13    4    23   12    3   30   21    26    1   24    5   14    11   16    9   2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="马的周游问题(knight move circuit)">
+<meta property="og:url" content="http://redleaves699.github.io/2022/04/12/Algorithm/Knignt%20move%20circuit/index.html">
 <meta property="og:site_name" content="Set sail!">
-<meta property="og:description" content="404 ERROR 看起来这个页面现在不存在 不过它以后还是有存在的可能的？ Is it possible existing in the future?  速速回到首页！">
+<meta property="og:description" content="题目描述 给定一个\(n\)行\(m\)列的棋盘，任意给出一个马的周游路线。周游路线是指从起始点开始，不重不漏的经过棋盘上的每一个格子，最后再回到起始点的路线。 样例输入 6 5 样例输出     2   25   22   13    4    23   12    3   30   21    26    1   24    5   14    11   16    9   2">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/others/th/hit.png">
-<meta property="article:published_time" content="2022-02-16T14:02:14.000Z">
-<meta property="article:modified_time" content="2022-03-10T15:52:08.938Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/al/horse-c.png">
+<meta property="article:published_time" content="2022-04-12T01:56:00.000Z">
+<meta property="article:modified_time" content="2022-04-17T09:23:27.154Z">
 <meta property="article:author" content="Red_Leaves">
+<meta property="article:tag" content="回溯法">
+<meta property="article:tag" content="分治法">
+<meta property="article:tag" content="启发式算法">
+<meta property="article:tag" content="高性能">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/others/th/hit.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/al/horse-c.png">
 
 
 <link rel="icon" href="/img/favicon.png">
@@ -110,7 +114,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(60)</small>
+                <small>(71)</small>
             
         </div>
     </li>
@@ -122,7 +126,7 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         前沿技术
-                        <small>(14)</small>
+                        <small>(16)</small>
                         
                     </div>
                     
@@ -133,7 +137,7 @@
                                         
                                         机器学习
                                         
-                                            <small>(14
+                                            <small>(16
                                                 )</small>
                                         
                                     </div>
@@ -153,7 +157,7 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         数学
-                        <small>(4)</small>
+                        <small>(6)</small>
                         
                     </div>
                     
@@ -164,7 +168,7 @@
                                         
                                         概率论
                                         
-                                            <small>(1
+                                            <small>(2
                                                 )</small>
                                         
                                     </div>
@@ -195,6 +199,18 @@
                                     
                                 </li>
                             
+                                <li>
+                                    <div data-rel="数学<--->应用">
+                                        
+                                        应用
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
                         </ul>
                     
                 </li>
@@ -208,7 +224,7 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         算法
-                        <small>(9)</small>
+                        <small>(16)</small>
                         
                     </div>
                     
@@ -219,7 +235,7 @@
                                         
                                         理论
                                         
-                                            <small>(4
+                                            <small>(6
                                                 )</small>
                                         
                                     </div>
@@ -231,7 +247,7 @@
                                         
                                         题解
                                         
-                                            <small>(5
+                                            <small>(10
                                                 )</small>
                                         
                                     </div>
@@ -534,6 +550,10 @@
             
         
     
+        
+            
+        
+    
 </ul>
 <div class="left-bottom">
     <div class="menus">
@@ -559,7 +579,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="60">
+<input type="hidden" id="yelog_site_posts_number" value="71">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -606,6 +626,14 @@
     <div class="tag-wrapper">
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>01背包</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>2018</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>2021牛客暑期多校第二场</a>
             </li>
         
@@ -615,6 +643,10 @@
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>贝叶斯方法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>背包问题</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -638,7 +670,19 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>动态规划</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>多重背包</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>分类问题</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>分治法</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -654,11 +698,19 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>高性能</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>格式化文本</a>
             </li>
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>回归问题</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>回溯法</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -703,6 +755,10 @@
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>排序</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>启发式算法</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -754,11 +810,27 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>贪心</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>统计学</a>
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>完全背包</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>网页内容</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>线性代数</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>线性规划</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -846,6 +918,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>NOIP-J</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>python</a>
             </li>
         
@@ -862,6 +938,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>USACO</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>Verilog</a>
             </li>
         
@@ -875,6 +955,94 @@
 
     
     <nav id="title-list-nav">
+        
+        <a  class="All 算法 题解 "
+           href="/2022/04/12/Algorithm/Knignt%20move%20circuit/"
+           data-tag="回溯法,分治法,启发式算法,高性能"
+           data-author="" >
+            <span class="post-title" title="马的周游问题(knight move circuit)">马的周游问题(knight move circuit)</span>
+            <span class="post-date" title="2022-04-12 09:56:00">2022/04/12</span>
+        </a>
+        
+        <a  class="All 算法 理论 "
+           href="/2022/04/10/Algorithm/%E6%B1%82%E8%A7%A3%E5%A4%9A%E6%9C%BA%E8%B0%83%E5%BA%A6/"
+           data-tag="算法,排序,贪心,回溯法"
+           data-author="" >
+            <span class="post-title" title="求解多机调度问题">求解多机调度问题</span>
+            <span class="post-date" title="2022-04-10 22:15:08">2022/04/10</span>
+        </a>
+        
+        <a  class="All 算法 题解 "
+           href="/2022/04/03/Algorithm/MQ%20optimize%20DP/"
+           data-tag="背包问题,多重背包"
+           data-author="" >
+            <span class="post-title" title="单调队列优化动态规划">单调队列优化动态规划</span>
+            <span class="post-date" title="2022-04-03 07:46:50">2022/04/03</span>
+        </a>
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/03/31/machine%20learning/+%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B-Hidden%20Markov/"
+           data-tag="算法,数学,机器学习,概率论,学习笔记,贝叶斯方法"
+           data-author="" >
+            <span class="post-title" title="隐马尔可夫模型">隐马尔可夫模型</span>
+            <span class="post-date" title="2022-03-31 20:20:00">2022/03/31</span>
+        </a>
+        
+        <a  class="All 算法 理论 "
+           href="/2022/03/31/Algorithm/Stochastic%20gradient%20descent/"
+           data-tag="算法,机器学习,高等数学,线性代数"
+           data-author="" >
+            <span class="post-title" title="随机梯度下降法">随机梯度下降法</span>
+            <span class="post-date" title="2022-03-31 15:20:30">2022/03/31</span>
+        </a>
+        
+        <a  class="All 算法 理论 "
+           href="/2022/03/29/Algorithm/Monotonic%20Stack%20and%20Queue/"
+           data-tag="算法,stack"
+           data-author="" >
+            <span class="post-title" title="单调栈和单调队列">单调栈和单调队列</span>
+            <span class="post-date" title="2022-03-29 20:59:27">2022/03/29</span>
+        </a>
+        
+        <a  class="All 算法 题解 "
+           href="/2022/03/28/Algorithm/Luogu.org.P1616/"
+           data-tag="完全背包,背包问题"
+           data-author="" >
+            <span class="post-title" title="完全背包">完全背包</span>
+            <span class="post-date" title="2022-03-28 09:40:24">2022/03/28</span>
+        </a>
+        
+        <a  class="All 算法 题解 "
+           href="/2022/03/27/Algorithm/Luogu.org.P1156/"
+           data-tag="2018,USACO,动态规划,01背包"
+           data-author="" >
+            <span class="post-title" title="USACO 垃圾陷阱">USACO 垃圾陷阱</span>
+            <span class="post-date" title="2022-03-27 20:19:37">2022/03/27</span>
+        </a>
+        
+        <a  class="All 数学 概率论 "
+           href="/2022/03/26/math/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/"
+           data-tag="数学,概率论,学习笔记,矩阵论"
+           data-author="" >
+            <span class="post-title" title="贝叶斯概率">贝叶斯概率</span>
+            <span class="post-date" title="2022-03-26 12:00:00">2022/03/26</span>
+        </a>
+        
+        <a  class="All 算法 题解 "
+           href="/2022/03/22/Algorithm/Luogu.org.P5017/"
+           data-tag="NOIP-J,2018,动态规划,线性规划"
+           data-author="" >
+            <span class="post-title" title="NOIP2018-J 摆渡车">NOIP2018-J 摆渡车</span>
+            <span class="post-date" title="2022-03-22 21:19:37">2022/03/22</span>
+        </a>
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/03/19/machine%20learning/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B4/"
+           data-tag="算法,数学,机器学习,学习笔记,分类问题"
+           data-author="" >
+            <span class="post-title" title="感知机">感知机</span>
+            <span class="post-date" title="2022-03-19 21:00:00">2022/03/19</span>
+        </a>
         
         <a  class="All 前沿技术 机器学习 "
            href="/2022/03/11/machine%20learning/svm3/"
@@ -893,7 +1061,7 @@
         </a>
         
         <a  class="All 算法 理论 "
-           href="/2022/03/09/Algorithm/sort/"
+           href="/2022/03/09/Algorithm/Sort/"
            data-tag="算法,排序"
            data-author="" >
             <span class="post-title" title="常用的排序算法分析和实现">常用的排序算法分析和实现</span>
@@ -944,7 +1112,7 @@
            href="/2022/03/05/machine%20learning/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B2/"
            data-tag="算法,数学,机器学习,学习笔记,分类问题"
            data-author="" >
-            <span class="post-title" title="LDA模型">LDA模型</span>
+            <span class="post-title" title="LDA(fisher)模型">LDA(fisher)模型</span>
             <span class="post-date" title="2022-03-05 08:00:00">2022/03/05</span>
         </a>
         
@@ -964,11 +1132,11 @@
             <span class="post-date" title="2022-03-02 08:00:00">2022/03/02</span>
         </a>
         
-        <a  class="All 前沿技术 机器学习 "
-           href="/2022/03/01/machine%20learning/%E5%82%A8%E5%A4%87%E7%9F%A5%E8%AF%86/"
-           data-tag="机器学习,学习笔记"
+        <a  class="All 数学 应用 "
+           href="/2022/03/01/math/%E5%82%A8%E5%A4%87%E7%9F%A5%E8%AF%86/"
+           data-tag="数学,机器学习,学习笔记"
            data-author="" >
-            <span class="post-title" title="机器学习的储备知识">机器学习的储备知识</span>
+            <span class="post-title" title="机器学习的数学知识">机器学习的数学知识</span>
             <span class="post-date" title="2022-03-01 08:00:00">2022/03/01</span>
         </a>
         
@@ -985,6 +1153,14 @@
            data-tag="算法,数学,机器学习,概率论,学习笔记,贝叶斯方法"
            data-author="" >
             <span class="post-title" title="贝叶斯分类器（上）">贝叶斯分类器（上）</span>
+            <span class="post-date" title="2022-02-27 08:00:00">2022/02/27</span>
+        </a>
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/02/27/machine%20learning/%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B-Bayes%20Network/"
+           data-tag="算法,数学,机器学习,概率论,学习笔记,贝叶斯方法"
+           data-author="" >
+            <span class="post-title" title="贝叶斯网络">贝叶斯网络</span>
             <span class="post-date" title="2022-02-27 08:00:00">2022/02/27</span>
         </a>
         
@@ -1293,14 +1469,6 @@
         </a>
         
         <a  class="All 算法 理论 "
-           href="/2021/07/26/Algorithm/Monotone%20Priority%20Stack/"
-           data-tag="算法,stack"
-           data-author="" >
-            <span class="post-title" title="单调栈（Monotone Priority Stack）">单调栈（Monotone Priority Stack）</span>
-            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
-        </a>
-        
-        <a  class="All 算法 理论 "
            href="/2021/07/26/Algorithm/Toposort/"
            data-tag="算法,toposort"
            data-author="" >
@@ -1376,7 +1544,7 @@
     <div class="pjax">
         <article id="post-machine learning/线性模型2" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">LDA模型</h1>
+        <h1 class="article-title">LDA(fisher)模型</h1>
     
     <div class="article-meta">
         
@@ -1411,7 +1579,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-03-07 20:34:35'>2022-03-05 08:00</time>
+            Created At : <time class="date" title='Updated At: 2022-04-07 23:40:53'>2022-03-05 08:00</time>
         
     </div>
     <div class="article-meta">
@@ -1433,7 +1601,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">解决的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">线性分类的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lda%E8%A7%A3%E5%86%B3%E4%BA%8C%E5%88%86%E7%B1%BB%E5%AD%A6%E4%B9%A0%E9%97%AE%E9%A2%98"><span class="toc-text">LDA解决二分类学习问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E5%88%86%E7%B1%BB%E5%AD%A6%E4%B9%A0"><span class="toc-text">多分类学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lda%E6%8B%93%E5%B1%95"><span class="toc-text">LDA拓展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E4%BA%8C%E5%88%86%E7%B1%BB%E5%AD%A6%E4%B9%A0%E5%99%A8"><span class="toc-text">组合二分类学习器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%A0%E9%94%99%E8%BE%93%E5%87%BA%E7%A0%81"><span class="toc-text">纠错输出码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%88%AB%E4%B8%8D%E5%B9%B3%E8%A1%A1%E9%97%AE%E9%A2%98"><span class="toc-text">类别不平衡问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%E7%9A%84%E6%80%9D%E6%83%B3"><span class="toc-text">解决问题的思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%B0%E6%9C%89%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-text">现有的解决方法</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">解决的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E5%88%86%E7%B1%BB%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">线性分类的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E4%BD%93%E6%80%9D%E6%83%B3"><span class="toc-text">总体思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lda%E8%A7%A3%E5%86%B3%E4%BA%8C%E5%88%86%E7%B1%BB%E5%AD%A6%E4%B9%A0%E9%97%AE%E9%A2%98"><span class="toc-text">LDA解决二分类学习问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E5%88%86%E7%B1%BB%E5%AD%A6%E4%B9%A0"><span class="toc-text">多分类学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lda%E6%8B%93%E5%B1%95"><span class="toc-text">LDA拓展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E5%90%88%E4%BA%8C%E5%88%86%E7%B1%BB%E5%AD%A6%E4%B9%A0%E5%99%A8"><span class="toc-text">组合二分类学习器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%A0%E9%94%99%E8%BE%93%E5%87%BA%E7%A0%81"><span class="toc-text">纠错输出码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E5%88%AB%E4%B8%8D%E5%B9%B3%E8%A1%A1%E9%97%AE%E9%A2%98"><span class="toc-text">类别不平衡问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98%E7%9A%84%E6%80%9D%E6%83%B3"><span class="toc-text">解决问题的思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%B0%E6%9C%89%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-text">现有的解决方法</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1453,8 +1621,13 @@
 <p>简单来说，就是两个字，<strong>分类</strong>。展开来说，就是把同类样本和不同样本通过某种形式区分开。</p>
 <p>线性判别分析（LDA）是解决<strong>二分类问题</strong>的有效方法。使用LDA，那么问题转化为：给定数据集<span class="math inline">\(D=\{(\pmb{x}_i,y_i)\}_{i=1}^m,\pmb{x}_i=\{x_1,x_2,\dots,x_d\},y_i\in\{0,1\}\)</span>，求使得<span class="math inline">\(D\)</span>中数据分类效果最好的直线<span class="math inline">\(\pmb{w}\)</span>。</p>
 <h2 id="线性分类的方法">线性分类的方法</h2>
+<h3 id="总体思想">总体思想</h3>
+<p><span class="math display">\[
+线性回归\stackrel{\underline{\textbf{降维}}}{\underset{激活函数}{\Rightarrow}}线性分类
+\]</span></p>
+<p>投影即降维的具体方法。</p>
 <h3 id="lda解决二分类学习问题">LDA解决二分类学习问题</h3>
-<p>给定训练样例集，设法将样例投影到一个直线上，使得同类样例在直线上的的投影点尽可能的接近（同类样本投影<strong>协方差要小</strong>），异类样本在直线上的的投影点尽可能远离（异类样本投影<strong>距离要大</strong>）。在对样本进行分类时，将其投影到同样的直线上，再根据投影点的位置来确定样本的类别。下图是样例属性为二维的分类示意图。</p>
+<p>给定训练样例集，设法将样例<strong>投影</strong>到一个直线上，使得同类样例在直线上的的投影点尽可能的接近（同类样本投影<strong>协方差要小</strong>），异类样本在直线上的的投影点尽可能远离（异类样本投影<strong>距离要大</strong>）。在对样本进行分类时，将其投影到同样的直线上，再根据投影点的位置来确定样本的类别。下图是样例属性为二维的分类示意图。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/ml/LD1.png" alt="LDA二维示意图" /></p>
 <p>设第<span class="math inline">\(i\)</span>类样本的集合为<span class="math inline">\(X_i\)</span>，均值向量<span class="math inline">\(\pmb{\mu}_i\)</span>，协方差矩阵<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>为<span class="math inline">\(\pmb{\Sigma}_i\)</span>，则第<span class="math inline">\(i\)</span>类样本<span class="math inline">\((\pmb{x}_i,y_i)\)</span>在直线<span class="math inline">\(\pmb{w}\)</span>上的投影长度<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>可以表示为<span class="math inline">\(\pmb{w}^\text{T}\pmb{\mu}_i\)</span>，​投影距离的协方差为<span class="math inline">\(\pmb{w}^\text{T}\pmb{\Sigma}_i\pmb{w}\)</span>。</p>
 <p>补充：投影距离协方差公式的来历，协方差矩阵的计算公式是形式化的（和上面讲过的<strong>均方误差函数</strong>一样，凑出来的），为<span class="math inline">\(\pmb{\Sigma}_i=\underset{\pmb{x}\in X_i}\sum (\pmb{x}-\pmb{\mu}_i)(\pmb{x}-\pmb{\mu}_i)^\text{T}\)</span>，投影距离协方差的公式推导如下： <span class="math display">\[
@@ -1526,7 +1699,7 @@ J=\underset{\pmb{W}}\max\ \frac{\text{tr}(\pmb{W}^\text{T}\pmb{S}_b\pmb{W})}{\te
 <p>ECOC是将编码的思想引入类别拆分，并尽可能在解码过程中具有容错性。ECOC工作过程共分为两步：</p>
 <ol type="1">
 <li><strong>编码</strong>：对<span class="math inline">\(N\)</span>个类别做<span class="math inline">\(M\)</span>次划分，每次划分将一部分类别标记为正类，一部分化为反类，从而形成一个二分类训练集。这样一共产生<span class="math inline">\(M\)</span>个训练集，可训练出<span class="math inline">\(M\)</span>个分类器。</li>
-<li><span class="math inline">\(M\)</span>个分类器同时对测试样本进行预测，这些预测标记组合成一个编码，将这个预测编码与类别各自的编码进行比较，返回其中距离最小的类别作为最终预测结果。</li>
+<li><strong>预测</strong>：<span class="math inline">\(M\)</span>个分类器同时对测试样本进行预测，这些预测标记组合成一个编码，将这个预测编码与类别各自的编码进行比较，返回其中距离最小的类别作为最终预测结果。</li>
 </ol>
 <p>类别划分由“编码矩阵”指定。常见的ECOC码有两种，二元码和三元码。前者将每个类别指定为正类和反类。后者增加了一个停用类，表示当前的学习器不使用该类样本。</p>
 <p>下图中的+1,-1表示分类器将样本作为正例/反例，注意在三元码计算距离时，不使用的样本也要算上。</p>
@@ -1534,7 +1707,7 @@ J=\underset{\pmb{W}}\max\ \frac{\text{tr}(\pmb{W}^\text{T}\pmb{S}_b\pmb{W})}{\te
 <p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/ml/LD5.svg" alt="三元ECOC码示例" /></p>
 <p>测试阶段， ECOC 编码对分类器的错误有一定的容忍和修正能力。如果某一个分类器出错，它对整体输出的分类结果影响很小。一般来说对同一个学习任务， ECOC编码越长，纠错能力越强。然而，编码越长，意味着所需训练的分类器越多，计算、存储开销都会增大；另一方面，对有限类别数，可能的组合数目是有限的，码长超过一定范围后就失去了意义。</p>
 <p>对同等长度的编码，理论上来说，任意两个类别之间的编码距离越远，则纠错能力越强．因此，在码长较小时可根据这个原则计算出理论最优编码。这是一个NP难问题。</p>
-<p>一般情况下，我们无需最优编码。一是非最优编码在实践中往往己能产生足够好的分类器，二是并不是编码的理论性质越好，分类性能就越好。不同拆解方式形成的学习器分类难度可能有所不同。分类难度可能会对性能产生较大影响。</p>
+<p>一般情况下，我们无需最优编码。一是非最优编码在实践中往往已能产生足够好的分类器，二是并不是编码的理论性质越好，分类性能就越好。不同拆解方式形成的学习器分类难度可能有所不同。分类难度可能会对性能产生较大影响。</p>
 <h2 id="类别不平衡问题">类别不平衡问题</h2>
 <p>以下内容均来自《机器学习》P66-P67.</p>
 <h3 id="解决问题的思想">解决问题的思想</h3>
@@ -1548,8 +1721,8 @@ J=\underset{\pmb{W}}\max\ \frac{\text{tr}(\pmb{W}^\text{T}\pmb{S}_b\pmb{W})}{\te
 \]</span> 这就是类别不平衡学习的一个基本策略——“再缩放”(rescaling)。</p>
 <p>再缩放的思想虽简单，但实际操作却并不平凡，主要因为“<strong>训练集是真实样本总体的无偏采样</strong>”这个假设<strong>往往并不成立</strong>，也就是说我们未必能有效地基于训练集观测几率来推断出真实几率。</p>
 <h3 id="现有的解决方法">现有的解决方法</h3>
-<p>现有技术大体上有三类做法：第一类是直接对训练集里的反类样例进行“欠采样”(undersampling) ，即去除 一些反例使得正、反例数目接近，然后再进行学习；第二类是对训练集里的正类样例进行“过采样”(oversampling) ，即增加一些正例使得正、反例数目接近，然后再进行学习；第三类则是直接基于原始训练集进行学习，但在用训练好的分类器进行预测时，将式(3.48) 嵌入到其决策过程中，称为“阈值移动”(threshold-moving)。</p>
-<p>欠采样法的时间开销通常远小于过采样法，因为前者丢弃了很多反例，使得分类器训练集远小于初始训练集，而过采样法增加了很多正例，其训练集大于初始训练集。需注意的是，过采样法不能简单地对初始正例样本进行重复采样，否则会招致严重的过拟合，过采样法的代表性算法SMOTE [Chawlaet al., 2002] 是通过对训练集里的正例进行插值来产生额外的正例。另一方面，欠采样法若随机丢弃反例，可能丢失一些重要信息；欠采样法的代表性算法EasyEnsemble [Liu et al., 2009] 则是利用集成学习机制，将反例划分为若干个 集合供不同学习器使用，这样对每个学习器来看都进行了欠采样，但在全局来看却不会丢失重要信息。</p>
+<p>现有技术大体上有三类做法：第一类是直接对训练集里的反类样例进行“<strong>欠采样</strong>”(undersampling) ，即去除一些反例使得正、反例数目接近，然后再进行学习；第二类是对训练集里的正类样例进行“<strong>过采样</strong>”(oversampling) ，即增加一些正例使得正、反例数目接近，然后再进行学习；第三类则是直接基于原始训练集进行学习，但在用训练好的分类器进行预测时，将式(3.48) 嵌入到其决策过程中，称为“<strong>阈值移动</strong>”(threshold-moving)。</p>
+<p>欠采样法的时间开销通常远小于过采样法，因为前者丢弃了很多反例，使得分类器训练集远小于初始训练集，而过采样法增加了很多正例，其训练集大于初始训练集。需注意的是，过采样法不能简单地对初始正例样本进行重复采样，否则会招致严重的过拟合，过采样法的代表性算法SMOTE [Chawlaet al., 2002] 是通过对训练集里的正例进行插值来产生额外的正例。另一方面，欠采样法若随机丢弃反例，可能丢失一些重要信息；欠采样法的代表性算法EasyEnsemble [Liu et al., 2009] 则是利用集成学习机制，将反例划分为若干个集合供不同学习器使用，这样对每个学习器来看都进行了欠采样，但在全局来看却不会丢失重要信息。</p>
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
@@ -1557,14 +1730,14 @@ J=\underset{\pmb{W}}\max\ \frac{\text{tr}(\pmb{W}^\text{T}\pmb{S}_b\pmb{W})}{\te
 <li id="fn2" role="doc-endnote"><p>注意，线性代数中所有的向量都是从原点开始的，投影长度的计算实际上就是向量的点积<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3" role="doc-endnote"><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/432080955">广义瑞利商介绍</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4" role="doc-endnote"><p>参见《机器学习》周志华 习题7.5<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5" role="doc-endnote"><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/SL_World/article/details/106568070">广义特征值详细介绍</a><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/SL_World/article/details/106568070">广义特征值介绍</a><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn6" role="doc-endnote"><p>最多有N-1个非零特征值<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn7" role="doc-endnote"><p>即“正态分布”<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
       
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 Algorithm_sort@163.com </span>
+       <hr><span style="font-style: italic;color: gray;"> 本内容依据“CC BY-NC-SA 4.0”许可证进行授权。要查看该许可证，可访问https://creativecommons.org/licenses/by-nc-sa/4.0/ </span>
     </div>
 </article>
 

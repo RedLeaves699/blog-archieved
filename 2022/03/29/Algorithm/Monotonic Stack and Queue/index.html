@@ -2,23 +2,27 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>机器学习的储备知识 | Set sail!</title>
-  <meta name="keywords" content=" 机器学习 , 学习笔记 ">
-  <meta name="description" content="机器学习的储备知识 | Set sail!">
+  <title>单调栈和单调队列 | Set sail!</title>
+  <meta name="keywords" content=" 算法 , stack ">
+  <meta name="description" content="单调栈和单调队列 | Set sail!">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="404 ERROR 看起来这个页面现在不存在 不过它以后还是有存在的可能的？ Is it possible existing in the future?  速速回到首页！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="该页面无法显示">
-<meta property="og:url" content="http://redleaves699.github.io/404/index.html">
+<meta name="description" content="题目描述 给定一个\(n\)行\(m\)列的棋盘，任意给出一个马的周游路线。周游路线是指从起始点开始，不重不漏的经过棋盘上的每一个格子，最后再回到起始点的路线。 样例输入 6 5 样例输出     2   25   22   13    4    23   12    3   30   21    26    1   24    5   14    11   16    9   2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="马的周游问题(knight move circuit)">
+<meta property="og:url" content="http://redleaves699.github.io/2022/04/12/Algorithm/Knignt%20move%20circuit/index.html">
 <meta property="og:site_name" content="Set sail!">
-<meta property="og:description" content="404 ERROR 看起来这个页面现在不存在 不过它以后还是有存在的可能的？ Is it possible existing in the future?  速速回到首页！">
+<meta property="og:description" content="题目描述 给定一个\(n\)行\(m\)列的棋盘，任意给出一个马的周游路线。周游路线是指从起始点开始，不重不漏的经过棋盘上的每一个格子，最后再回到起始点的路线。 样例输入 6 5 样例输出     2   25   22   13    4    23   12    3   30   21    26    1   24    5   14    11   16    9   2">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/others/th/hit.png">
-<meta property="article:published_time" content="2022-02-16T14:02:14.000Z">
-<meta property="article:modified_time" content="2022-03-10T15:52:08.938Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/al/horse-c.png">
+<meta property="article:published_time" content="2022-04-12T01:56:00.000Z">
+<meta property="article:modified_time" content="2022-04-17T09:23:27.154Z">
 <meta property="article:author" content="Red_Leaves">
+<meta property="article:tag" content="回溯法">
+<meta property="article:tag" content="分治法">
+<meta property="article:tag" content="启发式算法">
+<meta property="article:tag" content="高性能">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/others/th/hit.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/al/horse-c.png">
 
 
 <link rel="icon" href="/img/favicon.png">
@@ -110,7 +114,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(60)</small>
+                <small>(71)</small>
             
         </div>
     </li>
@@ -122,7 +126,7 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         前沿技术
-                        <small>(14)</small>
+                        <small>(16)</small>
                         
                     </div>
                     
@@ -133,7 +137,7 @@
                                         
                                         机器学习
                                         
-                                            <small>(14
+                                            <small>(16
                                                 )</small>
                                         
                                     </div>
@@ -153,7 +157,7 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         数学
-                        <small>(4)</small>
+                        <small>(6)</small>
                         
                     </div>
                     
@@ -164,7 +168,7 @@
                                         
                                         概率论
                                         
-                                            <small>(1
+                                            <small>(2
                                                 )</small>
                                         
                                     </div>
@@ -195,6 +199,18 @@
                                     
                                 </li>
                             
+                                <li>
+                                    <div data-rel="数学<--->应用">
+                                        
+                                        应用
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
                         </ul>
                     
                 </li>
@@ -208,7 +224,7 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         算法
-                        <small>(9)</small>
+                        <small>(16)</small>
                         
                     </div>
                     
@@ -219,7 +235,7 @@
                                         
                                         理论
                                         
-                                            <small>(4
+                                            <small>(6
                                                 )</small>
                                         
                                     </div>
@@ -231,7 +247,7 @@
                                         
                                         题解
                                         
-                                            <small>(5
+                                            <small>(10
                                                 )</small>
                                         
                                     </div>
@@ -534,6 +550,10 @@
             
         
     
+        
+            
+        
+    
 </ul>
 <div class="left-bottom">
     <div class="menus">
@@ -559,7 +579,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="60">
+<input type="hidden" id="yelog_site_posts_number" value="71">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -606,6 +626,14 @@
     <div class="tag-wrapper">
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>01背包</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>2018</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>2021牛客暑期多校第二场</a>
             </li>
         
@@ -615,6 +643,10 @@
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>贝叶斯方法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>背包问题</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -638,7 +670,19 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>动态规划</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>多重背包</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>分类问题</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>分治法</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -654,11 +698,19 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>高性能</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>格式化文本</a>
             </li>
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>回归问题</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>回溯法</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -703,6 +755,10 @@
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>排序</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>启发式算法</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -754,11 +810,27 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>贪心</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>统计学</a>
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>完全背包</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>网页内容</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>线性代数</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>线性规划</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -846,6 +918,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>NOIP-J</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>python</a>
             </li>
         
@@ -862,6 +938,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>USACO</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>Verilog</a>
             </li>
         
@@ -875,6 +955,94 @@
 
     
     <nav id="title-list-nav">
+        
+        <a  class="All 算法 题解 "
+           href="/2022/04/12/Algorithm/Knignt%20move%20circuit/"
+           data-tag="回溯法,分治法,启发式算法,高性能"
+           data-author="" >
+            <span class="post-title" title="马的周游问题(knight move circuit)">马的周游问题(knight move circuit)</span>
+            <span class="post-date" title="2022-04-12 09:56:00">2022/04/12</span>
+        </a>
+        
+        <a  class="All 算法 理论 "
+           href="/2022/04/10/Algorithm/%E6%B1%82%E8%A7%A3%E5%A4%9A%E6%9C%BA%E8%B0%83%E5%BA%A6/"
+           data-tag="算法,排序,贪心,回溯法"
+           data-author="" >
+            <span class="post-title" title="求解多机调度问题">求解多机调度问题</span>
+            <span class="post-date" title="2022-04-10 22:15:08">2022/04/10</span>
+        </a>
+        
+        <a  class="All 算法 题解 "
+           href="/2022/04/03/Algorithm/MQ%20optimize%20DP/"
+           data-tag="背包问题,多重背包"
+           data-author="" >
+            <span class="post-title" title="单调队列优化动态规划">单调队列优化动态规划</span>
+            <span class="post-date" title="2022-04-03 07:46:50">2022/04/03</span>
+        </a>
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/03/31/machine%20learning/+%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B-Hidden%20Markov/"
+           data-tag="算法,数学,机器学习,概率论,学习笔记,贝叶斯方法"
+           data-author="" >
+            <span class="post-title" title="隐马尔可夫模型">隐马尔可夫模型</span>
+            <span class="post-date" title="2022-03-31 20:20:00">2022/03/31</span>
+        </a>
+        
+        <a  class="All 算法 理论 "
+           href="/2022/03/31/Algorithm/Stochastic%20gradient%20descent/"
+           data-tag="算法,机器学习,高等数学,线性代数"
+           data-author="" >
+            <span class="post-title" title="随机梯度下降法">随机梯度下降法</span>
+            <span class="post-date" title="2022-03-31 15:20:30">2022/03/31</span>
+        </a>
+        
+        <a  class="All 算法 理论 "
+           href="/2022/03/29/Algorithm/Monotonic%20Stack%20and%20Queue/"
+           data-tag="算法,stack"
+           data-author="" >
+            <span class="post-title" title="单调栈和单调队列">单调栈和单调队列</span>
+            <span class="post-date" title="2022-03-29 20:59:27">2022/03/29</span>
+        </a>
+        
+        <a  class="All 算法 题解 "
+           href="/2022/03/28/Algorithm/Luogu.org.P1616/"
+           data-tag="完全背包,背包问题"
+           data-author="" >
+            <span class="post-title" title="完全背包">完全背包</span>
+            <span class="post-date" title="2022-03-28 09:40:24">2022/03/28</span>
+        </a>
+        
+        <a  class="All 算法 题解 "
+           href="/2022/03/27/Algorithm/Luogu.org.P1156/"
+           data-tag="2018,USACO,动态规划,01背包"
+           data-author="" >
+            <span class="post-title" title="USACO 垃圾陷阱">USACO 垃圾陷阱</span>
+            <span class="post-date" title="2022-03-27 20:19:37">2022/03/27</span>
+        </a>
+        
+        <a  class="All 数学 概率论 "
+           href="/2022/03/26/math/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/"
+           data-tag="数学,概率论,学习笔记,矩阵论"
+           data-author="" >
+            <span class="post-title" title="贝叶斯概率">贝叶斯概率</span>
+            <span class="post-date" title="2022-03-26 12:00:00">2022/03/26</span>
+        </a>
+        
+        <a  class="All 算法 题解 "
+           href="/2022/03/22/Algorithm/Luogu.org.P5017/"
+           data-tag="NOIP-J,2018,动态规划,线性规划"
+           data-author="" >
+            <span class="post-title" title="NOIP2018-J 摆渡车">NOIP2018-J 摆渡车</span>
+            <span class="post-date" title="2022-03-22 21:19:37">2022/03/22</span>
+        </a>
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/03/19/machine%20learning/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B4/"
+           data-tag="算法,数学,机器学习,学习笔记,分类问题"
+           data-author="" >
+            <span class="post-title" title="感知机">感知机</span>
+            <span class="post-date" title="2022-03-19 21:00:00">2022/03/19</span>
+        </a>
         
         <a  class="All 前沿技术 机器学习 "
            href="/2022/03/11/machine%20learning/svm3/"
@@ -893,7 +1061,7 @@
         </a>
         
         <a  class="All 算法 理论 "
-           href="/2022/03/09/Algorithm/sort/"
+           href="/2022/03/09/Algorithm/Sort/"
            data-tag="算法,排序"
            data-author="" >
             <span class="post-title" title="常用的排序算法分析和实现">常用的排序算法分析和实现</span>
@@ -944,7 +1112,7 @@
            href="/2022/03/05/machine%20learning/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B2/"
            data-tag="算法,数学,机器学习,学习笔记,分类问题"
            data-author="" >
-            <span class="post-title" title="LDA模型">LDA模型</span>
+            <span class="post-title" title="LDA(fisher)模型">LDA(fisher)模型</span>
             <span class="post-date" title="2022-03-05 08:00:00">2022/03/05</span>
         </a>
         
@@ -964,11 +1132,11 @@
             <span class="post-date" title="2022-03-02 08:00:00">2022/03/02</span>
         </a>
         
-        <a  class="All 前沿技术 机器学习 "
-           href="/2022/03/01/machine%20learning/%E5%82%A8%E5%A4%87%E7%9F%A5%E8%AF%86/"
-           data-tag="机器学习,学习笔记"
+        <a  class="All 数学 应用 "
+           href="/2022/03/01/math/%E5%82%A8%E5%A4%87%E7%9F%A5%E8%AF%86/"
+           data-tag="数学,机器学习,学习笔记"
            data-author="" >
-            <span class="post-title" title="机器学习的储备知识">机器学习的储备知识</span>
+            <span class="post-title" title="机器学习的数学知识">机器学习的数学知识</span>
             <span class="post-date" title="2022-03-01 08:00:00">2022/03/01</span>
         </a>
         
@@ -985,6 +1153,14 @@
            data-tag="算法,数学,机器学习,概率论,学习笔记,贝叶斯方法"
            data-author="" >
             <span class="post-title" title="贝叶斯分类器（上）">贝叶斯分类器（上）</span>
+            <span class="post-date" title="2022-02-27 08:00:00">2022/02/27</span>
+        </a>
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/02/27/machine%20learning/%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B-Bayes%20Network/"
+           data-tag="算法,数学,机器学习,概率论,学习笔记,贝叶斯方法"
+           data-author="" >
+            <span class="post-title" title="贝叶斯网络">贝叶斯网络</span>
             <span class="post-date" title="2022-02-27 08:00:00">2022/02/27</span>
         </a>
         
@@ -1293,14 +1469,6 @@
         </a>
         
         <a  class="All 算法 理论 "
-           href="/2021/07/26/Algorithm/Monotone%20Priority%20Stack/"
-           data-tag="算法,stack"
-           data-author="" >
-            <span class="post-title" title="单调栈（Monotone Priority Stack）">单调栈（Monotone Priority Stack）</span>
-            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
-        </a>
-        
-        <a  class="All 算法 理论 "
            href="/2021/07/26/Algorithm/Toposort/"
            data-tag="算法,toposort"
            data-author="" >
@@ -1374,9 +1542,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-machine learning/储备知识" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Algorithm/Monotonic Stack and Queue" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">机器学习的储备知识</h1>
+        <h1 class="article-title">单调栈和单调队列</h1>
     
     <div class="article-meta">
         
@@ -1386,9 +1554,9 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="前沿技术">前沿技术</a> > 
+            <a  data-rel="算法">算法</a> > 
             
-            <a  data-rel="前沿技术&lt;---&gt;机器学习">机器学习</a>
+            <a  data-rel="算法&lt;---&gt;理论">理论</a>
             
         </span>
         
@@ -1396,16 +1564,16 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color5">机器学习</a>
+            <a class="color3">算法</a>
             
-            <a class="color5">学习笔记</a>
+            <a class="color1">stack</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-03-01 20:32:38'>2022-03-01 08:00</time>
+            Created At : <time class="date" title='Updated At: 2022-04-02 17:32:32'>2022-03-29 20:59</time>
         
     </div>
     <div class="article-meta">
@@ -1427,7 +1595,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E5%85%AC%E5%BC%8F%E4%B8%AD%E7%9A%84%E5%88%86%E5%8F%B7%E9%80%97%E5%8F%B7%E7%AB%96%E7%BA%BF"><span class="toc-text">概率公式中的分号、逗号、竖线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%8F%B7"><span class="toc-text">分号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AB%96%E7%BA%BF"><span class="toc-text">竖线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%97%E5%8F%B7"><span class="toc-text">逗号</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E8%B0%83%E6%A0%88"><span class="toc-text">单调栈</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%AA%E4%BB%A3%E7%A0%81%E6%8F%8F%E8%BF%B0"><span class="toc-text">伪代码描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">解决的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5"><span class="toc-text">样例输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA"><span class="toc-text">样例输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81"><span class="toc-text">示例代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97"><span class="toc-text">单调队列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C"><span class="toc-text">例题：最大子序和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E7%AD%941"><span class="toc-text">解答1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81-1"><span class="toc-text">示例代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-1"><span class="toc-text">总结</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1443,32 +1611,125 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="概率公式中的分号逗号竖线">概率公式中的分号、逗号、竖线</h2>
-<p>优先级：分号&gt;逗号&gt;竖线</p>
-<h3 id="分号">分号</h3>
-<p><span class="math display">\[
-P(x;\theta)
-\]</span></p>
-<p>可以看作变量 <span class="math inline">\(\theta\)</span>的函数，x代表确定的采样值， <span class="math inline">\(\theta\)</span>表示代表待估参数。</p>
-<h3 id="竖线">竖线</h3>
-<p><span class="math display">\[
-P(A|B)\\
-P(x;\theta)
-\]</span></p>
-<p>竖线的意义分两种情况：</p>
+        <h2 id="单调栈">单调栈</h2>
+<h3 id="定义">定义</h3>
+<p>单调栈（monotonic stack），顾名思义，即满足单调性的栈结构</p>
+<h3 id="伪代码描述">伪代码描述</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>insert x</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">!</span>sta<span class="op">.</span>empty<span class="op">()</span> <span class="op">&amp;&amp;</span> sta<span class="op">.</span>top<span class="op">()&lt;</span>x</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    sta<span class="op">.</span>pop<span class="op">()</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>sta<span class="op">.</span>push<span class="op">(</span>x<span class="op">)</span></span></code></pre></div>
+<h3 id="解决的问题">解决的问题</h3>
+<p>定义函数 <span class="math inline">\(f(i)\)</span> 代表数列中第 <span class="math inline">\(i\)</span> 个元素之后第一个大于 <span class="math inline">\(a_{i}\)</span>的元素的下标，即 <span class="math inline">\(f(i)=min_{i&lt;j\leq n, a_{j} &gt; a_{i}}\{j\}\)</span>。若不存在，则 <span class="math inline">\(f(i)=0\)</span>。 给定长度为<span class="math inline">\(n\)</span>的序列，分别求出<span class="math inline">\(f(1),f(2)\dots f(n)\)</span>的值。</p>
+<h3 id="样例输入">样例输入</h3>
+<pre><code>5
+1 4 2 3 5</code></pre>
+<h3 id="样例输出">样例输出</h3>
+<pre><code>2 5 4 5 0</code></pre>
+<h3 id="示例代码">示例代码</h3>
+<p><a target="_blank" rel="noopener" href="http://poj.org/problem?id=3250">[USACO06NOV] POJ3250 Bad Hair Day</a></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;string.h&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="pp">#define MAXN 3000000 + 100</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> num <span class="op">&#123;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> p<span class="op">,</span> val<span class="op">;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span>stack<span class="op">[</span>MAXN<span class="op">];</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> Print_array<span class="op">(</span><span class="dt">int</span> <span class="op">*</span>a<span class="op">,</span> <span class="dt">int</span> n<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>i <span class="op">==</span> <span class="dv">1</span><span class="op">)</span>printf<span class="op">(</span><span class="st">&quot;%d&quot;</span><span class="op">,</span> a<span class="op">[</span>i<span class="op">]);</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>i <span class="op">&gt;</span> <span class="dv">1</span><span class="op">)</span>printf<span class="op">(</span><span class="st">&quot; %d&quot;</span><span class="op">,</span> a<span class="op">[</span>i<span class="op">]);</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">&#125;</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">);</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> ans<span class="op">[</span>MAXN<span class="op">];</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> solve<span class="op">()</span> <span class="op">&#123;</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> top <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> n<span class="op">,</span> x<span class="op">;</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    scanf<span class="op">(</span><span class="st">&quot;%d&quot;</span><span class="op">,</span> <span class="op">&amp;</span>n<span class="op">);</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        scanf<span class="op">(</span><span class="st">&quot;%d&quot;</span><span class="op">,</span> <span class="op">&amp;</span>x<span class="op">);</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>        <span class="kw">struct</span> num xx <span class="op">=</span> <span class="op">&#123;</span>i<span class="op">,</span> x<span class="op">&#125;;</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span>top <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> stack<span class="op">[++</span>top<span class="op">]</span> <span class="op">=</span> xx<span class="op">,</span> ans<span class="op">[</span>stack<span class="op">[</span>top<span class="op">].</span>p<span class="op">]</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> <span class="op">&#123;</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">while</span> <span class="op">(</span>top <span class="op">&amp;&amp;</span> xx<span class="op">.</span>val <span class="op">&gt;</span> stack<span class="op">[</span>top<span class="op">].</span>val<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>                ans<span class="op">[</span>stack<span class="op">[</span>top<span class="op">].</span>p<span class="op">]</span> <span class="op">=</span> xx<span class="op">.</span>p<span class="op">;</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>                <span class="op">--</span>top<span class="op">;</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>            <span class="op">&#125;</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>            stack<span class="op">[++</span>top<span class="op">]</span> <span class="op">=</span> xx<span class="op">;</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        <span class="op">&#125;</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="op">&#125;</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>top<span class="op">--)</span> <span class="op">&#123;</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>        ans<span class="op">[</span>stack<span class="op">[</span>top<span class="op">].</span>p<span class="op">]</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">&#125;</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    Print_array<span class="op">(</span>ans<span class="op">,</span> n<span class="op">);</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">&#123;</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    solve<span class="op">();</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
+<h2 id="单调队列">单调队列</h2>
+<h3 id="定义-1">定义</h3>
+<p>单调队列（monotonic queue），即内部元素具有单调性的队列。</p>
+<h3 id="例题最大子序和">例题：最大子序和</h3>
+<p>给定一个长度为<span class="math inline">\(N\)</span>的整数序列<span class="math inline">\(a_1,a_2,\dots,a_N\)</span>，从中找出一段长度不超过<span class="math inline">\(M\)</span>的连续子序列，使得子序列中所有数的和最大。其中<span class="math inline">\(0\leq M\leq N\leq 5\times10^5,-500\leq a_i\leq 500\)</span>，且保证答案的绝对值在<span class="math inline">\([0,2^{31}-1]\)</span>之内。</p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1714">提交</a></p>
+<ul>
+<li>样例输入</li>
+</ul>
+<pre><code>6 3
+1 -2 3 -4 5 -6</code></pre>
+<ul>
+<li>样例输出</li>
+</ul>
+<pre><code>5</code></pre>
+<h3 id="解答1">解答<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></h3>
+<p>计算区间和的问题，一般转化为“两个前缀和相减的形式求解。令<span class="math inline">\(S[i]\)</span>表示序列前<span class="math inline">\(i\)</span>项的和，我们要求解的问题可以用数学方式描述为： <span class="math display">\[
+J=\max\{S[i]-\underset{i-M\leq j\leq i-1}{\min}\ S[j]\}
+\]</span> 对于这种问题，我们可以使用最直观的方法求解，即枚举每个<span class="math inline">\(i\)</span>，固定<span class="math inline">\(i\)</span>的值后枚举<span class="math inline">\(j &lt; i\)</span>，最后获得<span class="math inline">\(S[i]-S[j]\)</span>的最大值，时间复杂度是<span class="math inline">\(O(NM)\)</span>的。</p>
+<p>但我们发现，在枚举过程中，在已知当前最大值的情况下，有些<span class="math inline">\(i,j\)</span>的出现是无意义的。考虑如下的情况，现有<span class="math inline">\(j&lt;k&lt;i\)</span>，而<span class="math inline">\(S[j]&gt;S[k]\)</span>，那么，<span class="math inline">\(j\)</span>这个位置在<span class="math inline">\(i\)</span>以后的枚举中就可以舍弃掉，因为如果今后枚举到<span class="math inline">\(S[c](i&lt;c\leq N)\)</span>时，<span class="math inline">\(S[c]-S[k]\)</span>一定大于<span class="math inline">\(S[c]-S[j]\)</span>。且<span class="math inline">\(k\)</span>离<span class="math inline">\(c\)</span>更近，<span class="math inline">\(c-k+1\)</span>更不容易超过<span class="math inline">\(m\)</span>。</p>
+<p>总结上面的分析，<strong>可能成为最优选择的策略集合</strong><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>一定是一个<strong>”下标位置递增，对应的前缀和S的值也递增”</strong>的序列。我们可以用一个双端队列保存这个序列。随着右端点从前向后扫描。我们对<span class="math inline">\(i\)</span>进行以下步骤：</p>
 <ol type="1">
-<li>当竖线右侧出现了随机变量，竖线表示条件概率</li>
-<li>当竖线右侧出现了参数，则与<span class="math inline">\(P(x;\theta)\)</span>等价</li>
+<li>判断队头决策与<span class="math inline">\(i\)</span>的距离是否超过<span class="math inline">\(M\)</span>，若超出则出队。</li>
+<li>此时队头就是右端点为<span class="math inline">\(i\)</span>时，左端点<span class="math inline">\(j\)</span>的最优选择。</li>
+<li>不断删除队尾决策，直到队尾下标对应的<span class="math inline">\(S\)</span>值小于<span class="math inline">\(S[i]\)</span>。然后把<span class="math inline">\(i\)</span>作为新的决策入队。</li>
 </ol>
-<h3 id="逗号">逗号</h3>
-<p>右侧出现了参数，将参数全部放在后边： <span class="math display">\[
-P(Y|Z,\theta)\Leftrightarrow P(Y|Z;\theta)
-\]</span> 逗号的两侧都是随机变量，表示两个随机变量的联合概率分布： <span class="math display">\[
-P(X,Y)
-\]</span></p>
+<h3 id="总结">总结</h3>
+<ol type="1">
+<li><p>本题的难点是对决策单调性的发掘。</p></li>
+<li><p>使用单调队列优化的前提是找出决策序列的单调性。</p></li>
+</ol>
+<h3 id="示例代码-1">示例代码</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> solve<span class="op">(</span><span class="dt">int</span> n<span class="op">,</span> <span class="dt">int</span> m<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    s<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> s<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> s<span class="op">[</span>i <span class="op">-</span> <span class="dv">1</span><span class="op">]</span> <span class="op">+</span> a<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> l <span class="op">=</span> <span class="dv">1</span><span class="op">,</span> r <span class="op">=</span> <span class="dv">1</span><span class="op">,</span> ans <span class="op">=</span> <span class="op">-</span>INF<span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    q<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="op">(</span>l <span class="op">&lt;=</span> r <span class="op">&amp;&amp;</span> i <span class="op">-</span> q<span class="op">[</span>l<span class="op">]</span> <span class="op">&gt;</span> m<span class="op">)</span> l<span class="op">++;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        ans <span class="op">=</span> max<span class="op">(</span>ans<span class="op">,</span> s<span class="op">[</span>i<span class="op">]</span> <span class="op">-</span> s<span class="op">[</span>q<span class="op">[</span>l<span class="op">]]);</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="op">(</span>l <span class="op">&lt;=</span> r <span class="op">&amp;&amp;</span> s<span class="op">[</span>i<span class="op">]</span> <span class="op">&lt;=</span> s<span class="op">[</span>q<span class="op">[</span>r<span class="op">]])</span> r<span class="op">--;</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        q<span class="op">[++</span>r<span class="op">]</span> <span class="op">=</span> i<span class="op">;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">&#125;</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ans<span class="op">;</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
+<h2 id="总结-1">总结</h2>
+<p>单调栈和单调队列的本质，是借助单调性，及时排除不可能的决策，保持候选集合的高度有效性和秩序性。<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>参考资料：《算法竞赛进阶指南》<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>一个有点拗口的概念，它是单调队列优化的目标。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>参考资料：《算法竞赛进阶指南》<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
       
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 Algorithm_sort@163.com </span>
+       <hr><span style="font-style: italic;color: gray;"> 本内容依据“CC BY-NC-SA 4.0”许可证进行授权。要查看该许可证，可访问https://creativecommons.org/licenses/by-nc-sa/4.0/ </span>
     </div>
 </article>
 

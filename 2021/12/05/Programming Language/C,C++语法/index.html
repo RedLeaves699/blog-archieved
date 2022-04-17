@@ -6,19 +6,23 @@
   <meta name="keywords" content=" c , c++ ">
   <meta name="description" content="C,C++语法 | Set sail!">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="404 ERROR 看起来这个页面现在不存在 不过它以后还是有存在的可能的？ Is it possible existing in the future?  速速回到首页！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="该页面无法显示">
-<meta property="og:url" content="http://redleaves699.github.io/404/index.html">
+<meta name="description" content="题目描述 给定一个\(n\)行\(m\)列的棋盘，任意给出一个马的周游路线。周游路线是指从起始点开始，不重不漏的经过棋盘上的每一个格子，最后再回到起始点的路线。 样例输入 6 5 样例输出     2   25   22   13    4    23   12    3   30   21    26    1   24    5   14    11   16    9   2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="马的周游问题(knight move circuit)">
+<meta property="og:url" content="http://redleaves699.github.io/2022/04/12/Algorithm/Knignt%20move%20circuit/index.html">
 <meta property="og:site_name" content="Set sail!">
-<meta property="og:description" content="404 ERROR 看起来这个页面现在不存在 不过它以后还是有存在的可能的？ Is it possible existing in the future?  速速回到首页！">
+<meta property="og:description" content="题目描述 给定一个\(n\)行\(m\)列的棋盘，任意给出一个马的周游路线。周游路线是指从起始点开始，不重不漏的经过棋盘上的每一个格子，最后再回到起始点的路线。 样例输入 6 5 样例输出     2   25   22   13    4    23   12    3   30   21    26    1   24    5   14    11   16    9   2">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/others/th/hit.png">
-<meta property="article:published_time" content="2022-02-16T14:02:14.000Z">
-<meta property="article:modified_time" content="2022-03-10T15:52:08.938Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/al/horse-c.png">
+<meta property="article:published_time" content="2022-04-12T01:56:00.000Z">
+<meta property="article:modified_time" content="2022-04-17T09:23:27.154Z">
 <meta property="article:author" content="Red_Leaves">
+<meta property="article:tag" content="回溯法">
+<meta property="article:tag" content="分治法">
+<meta property="article:tag" content="启发式算法">
+<meta property="article:tag" content="高性能">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/others/th/hit.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/al/horse-c.png">
 
 
 <link rel="icon" href="/img/favicon.png">
@@ -110,7 +114,7 @@
     <li>
         <div class="all active" data-rel="All">All
             
-                <small>(60)</small>
+                <small>(71)</small>
             
         </div>
     </li>
@@ -122,7 +126,7 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         前沿技术
-                        <small>(14)</small>
+                        <small>(16)</small>
                         
                     </div>
                     
@@ -133,7 +137,7 @@
                                         
                                         机器学习
                                         
-                                            <small>(14
+                                            <small>(16
                                                 )</small>
                                         
                                     </div>
@@ -153,7 +157,7 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         数学
-                        <small>(4)</small>
+                        <small>(6)</small>
                         
                     </div>
                     
@@ -164,7 +168,7 @@
                                         
                                         概率论
                                         
-                                            <small>(1
+                                            <small>(2
                                                 )</small>
                                         
                                     </div>
@@ -195,6 +199,18 @@
                                     
                                 </li>
                             
+                                <li>
+                                    <div data-rel="数学<--->应用">
+                                        
+                                        应用
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
                         </ul>
                     
                 </li>
@@ -208,7 +224,7 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         算法
-                        <small>(9)</small>
+                        <small>(16)</small>
                         
                     </div>
                     
@@ -219,7 +235,7 @@
                                         
                                         理论
                                         
-                                            <small>(4
+                                            <small>(6
                                                 )</small>
                                         
                                     </div>
@@ -231,7 +247,7 @@
                                         
                                         题解
                                         
-                                            <small>(5
+                                            <small>(10
                                                 )</small>
                                         
                                     </div>
@@ -534,6 +550,10 @@
             
         
     
+        
+            
+        
+    
 </ul>
 <div class="left-bottom">
     <div class="menus">
@@ -559,7 +579,7 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="60">
+<input type="hidden" id="yelog_site_posts_number" value="71">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -606,6 +626,14 @@
     <div class="tag-wrapper">
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>01背包</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>2018</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>2021牛客暑期多校第二场</a>
             </li>
         
@@ -615,6 +643,10 @@
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>贝叶斯方法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>背包问题</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -638,7 +670,19 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>动态规划</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>多重背包</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>分类问题</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>分治法</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -654,11 +698,19 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>高性能</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>格式化文本</a>
             </li>
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>回归问题</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>回溯法</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -703,6 +755,10 @@
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>排序</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>启发式算法</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -754,11 +810,27 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>贪心</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>统计学</a>
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>完全背包</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>网页内容</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>线性代数</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>线性规划</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -846,6 +918,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>NOIP-J</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>python</a>
             </li>
         
@@ -862,6 +938,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>USACO</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>Verilog</a>
             </li>
         
@@ -875,6 +955,94 @@
 
     
     <nav id="title-list-nav">
+        
+        <a  class="All 算法 题解 "
+           href="/2022/04/12/Algorithm/Knignt%20move%20circuit/"
+           data-tag="回溯法,分治法,启发式算法,高性能"
+           data-author="" >
+            <span class="post-title" title="马的周游问题(knight move circuit)">马的周游问题(knight move circuit)</span>
+            <span class="post-date" title="2022-04-12 09:56:00">2022/04/12</span>
+        </a>
+        
+        <a  class="All 算法 理论 "
+           href="/2022/04/10/Algorithm/%E6%B1%82%E8%A7%A3%E5%A4%9A%E6%9C%BA%E8%B0%83%E5%BA%A6/"
+           data-tag="算法,排序,贪心,回溯法"
+           data-author="" >
+            <span class="post-title" title="求解多机调度问题">求解多机调度问题</span>
+            <span class="post-date" title="2022-04-10 22:15:08">2022/04/10</span>
+        </a>
+        
+        <a  class="All 算法 题解 "
+           href="/2022/04/03/Algorithm/MQ%20optimize%20DP/"
+           data-tag="背包问题,多重背包"
+           data-author="" >
+            <span class="post-title" title="单调队列优化动态规划">单调队列优化动态规划</span>
+            <span class="post-date" title="2022-04-03 07:46:50">2022/04/03</span>
+        </a>
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/03/31/machine%20learning/+%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B-Hidden%20Markov/"
+           data-tag="算法,数学,机器学习,概率论,学习笔记,贝叶斯方法"
+           data-author="" >
+            <span class="post-title" title="隐马尔可夫模型">隐马尔可夫模型</span>
+            <span class="post-date" title="2022-03-31 20:20:00">2022/03/31</span>
+        </a>
+        
+        <a  class="All 算法 理论 "
+           href="/2022/03/31/Algorithm/Stochastic%20gradient%20descent/"
+           data-tag="算法,机器学习,高等数学,线性代数"
+           data-author="" >
+            <span class="post-title" title="随机梯度下降法">随机梯度下降法</span>
+            <span class="post-date" title="2022-03-31 15:20:30">2022/03/31</span>
+        </a>
+        
+        <a  class="All 算法 理论 "
+           href="/2022/03/29/Algorithm/Monotonic%20Stack%20and%20Queue/"
+           data-tag="算法,stack"
+           data-author="" >
+            <span class="post-title" title="单调栈和单调队列">单调栈和单调队列</span>
+            <span class="post-date" title="2022-03-29 20:59:27">2022/03/29</span>
+        </a>
+        
+        <a  class="All 算法 题解 "
+           href="/2022/03/28/Algorithm/Luogu.org.P1616/"
+           data-tag="完全背包,背包问题"
+           data-author="" >
+            <span class="post-title" title="完全背包">完全背包</span>
+            <span class="post-date" title="2022-03-28 09:40:24">2022/03/28</span>
+        </a>
+        
+        <a  class="All 算法 题解 "
+           href="/2022/03/27/Algorithm/Luogu.org.P1156/"
+           data-tag="2018,USACO,动态规划,01背包"
+           data-author="" >
+            <span class="post-title" title="USACO 垃圾陷阱">USACO 垃圾陷阱</span>
+            <span class="post-date" title="2022-03-27 20:19:37">2022/03/27</span>
+        </a>
+        
+        <a  class="All 数学 概率论 "
+           href="/2022/03/26/math/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/"
+           data-tag="数学,概率论,学习笔记,矩阵论"
+           data-author="" >
+            <span class="post-title" title="贝叶斯概率">贝叶斯概率</span>
+            <span class="post-date" title="2022-03-26 12:00:00">2022/03/26</span>
+        </a>
+        
+        <a  class="All 算法 题解 "
+           href="/2022/03/22/Algorithm/Luogu.org.P5017/"
+           data-tag="NOIP-J,2018,动态规划,线性规划"
+           data-author="" >
+            <span class="post-title" title="NOIP2018-J 摆渡车">NOIP2018-J 摆渡车</span>
+            <span class="post-date" title="2022-03-22 21:19:37">2022/03/22</span>
+        </a>
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/03/19/machine%20learning/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B4/"
+           data-tag="算法,数学,机器学习,学习笔记,分类问题"
+           data-author="" >
+            <span class="post-title" title="感知机">感知机</span>
+            <span class="post-date" title="2022-03-19 21:00:00">2022/03/19</span>
+        </a>
         
         <a  class="All 前沿技术 机器学习 "
            href="/2022/03/11/machine%20learning/svm3/"
@@ -893,7 +1061,7 @@
         </a>
         
         <a  class="All 算法 理论 "
-           href="/2022/03/09/Algorithm/sort/"
+           href="/2022/03/09/Algorithm/Sort/"
            data-tag="算法,排序"
            data-author="" >
             <span class="post-title" title="常用的排序算法分析和实现">常用的排序算法分析和实现</span>
@@ -944,7 +1112,7 @@
            href="/2022/03/05/machine%20learning/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B2/"
            data-tag="算法,数学,机器学习,学习笔记,分类问题"
            data-author="" >
-            <span class="post-title" title="LDA模型">LDA模型</span>
+            <span class="post-title" title="LDA(fisher)模型">LDA(fisher)模型</span>
             <span class="post-date" title="2022-03-05 08:00:00">2022/03/05</span>
         </a>
         
@@ -964,11 +1132,11 @@
             <span class="post-date" title="2022-03-02 08:00:00">2022/03/02</span>
         </a>
         
-        <a  class="All 前沿技术 机器学习 "
-           href="/2022/03/01/machine%20learning/%E5%82%A8%E5%A4%87%E7%9F%A5%E8%AF%86/"
-           data-tag="机器学习,学习笔记"
+        <a  class="All 数学 应用 "
+           href="/2022/03/01/math/%E5%82%A8%E5%A4%87%E7%9F%A5%E8%AF%86/"
+           data-tag="数学,机器学习,学习笔记"
            data-author="" >
-            <span class="post-title" title="机器学习的储备知识">机器学习的储备知识</span>
+            <span class="post-title" title="机器学习的数学知识">机器学习的数学知识</span>
             <span class="post-date" title="2022-03-01 08:00:00">2022/03/01</span>
         </a>
         
@@ -985,6 +1153,14 @@
            data-tag="算法,数学,机器学习,概率论,学习笔记,贝叶斯方法"
            data-author="" >
             <span class="post-title" title="贝叶斯分类器（上）">贝叶斯分类器（上）</span>
+            <span class="post-date" title="2022-02-27 08:00:00">2022/02/27</span>
+        </a>
+        
+        <a  class="All 前沿技术 机器学习 "
+           href="/2022/02/27/machine%20learning/%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B-Bayes%20Network/"
+           data-tag="算法,数学,机器学习,概率论,学习笔记,贝叶斯方法"
+           data-author="" >
+            <span class="post-title" title="贝叶斯网络">贝叶斯网络</span>
             <span class="post-date" title="2022-02-27 08:00:00">2022/02/27</span>
         </a>
         
@@ -1293,14 +1469,6 @@
         </a>
         
         <a  class="All 算法 理论 "
-           href="/2021/07/26/Algorithm/Monotone%20Priority%20Stack/"
-           data-tag="算法,stack"
-           data-author="" >
-            <span class="post-title" title="单调栈（Monotone Priority Stack）">单调栈（Monotone Priority Stack）</span>
-            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
-        </a>
-        
-        <a  class="All 算法 理论 "
            href="/2021/07/26/Algorithm/Toposort/"
            data-tag="算法,toposort"
            data-author="" >
@@ -1405,7 +1573,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-02-09 22:51:40'>2021-12-05 19:49</time>
+            Created At : <time class="date" title='Updated At: 2022-04-11 11:51:27'>2021-12-05 19:49</time>
         
     </div>
     <div class="article-meta">
@@ -1427,7 +1595,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#c%E8%AF%AD%E8%A8%80%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-text">C语言结构体</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#c%E8%AF%AD%E8%A8%80%E5%AE%9A%E4%B9%89%E5%92%8C%E5%A3%B0%E6%98%8E%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-text">1. C语言定义和声明结构体</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E7%9A%84%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-text">1.1 一般的结构体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BF%E5%90%8D%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-text">1.2 匿名结构体</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c%E8%AF%AD%E8%A8%80%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">2. C语言结构体的初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%8D%95%E4%B8%AA%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">2.1 成员变量单个初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">2.2 顺序初始化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#c%E7%BB%93%E6%9E%84%E4%BD%93%E5%87%BD%E6%95%B0%E7%9A%84%E9%87%8D%E8%BD%BD"><span class="toc-text">C++结构体函数的重载</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#c-pair%E7%B1%BB%E5%9E%8B%E9%87%8D%E8%BD%BD"><span class="toc-text">1. C++ pair类型重载</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#c%E8%AF%AD%E8%A8%80%E5%AE%9A%E4%B9%89%E5%92%8C%E5%A3%B0%E6%98%8E%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-text">1. C语言定义和声明结构体</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E8%88%AC%E7%9A%84%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-text">1.1 一般的结构体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BF%E5%90%8D%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-text">1.2 匿名结构体</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c%E8%AF%AD%E8%A8%80%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">2. C语言结构体的初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E5%8D%95%E4%B8%AA%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">2.1 成员变量单个初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-text">2.2 顺序初始化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c%E8%AF%AD%E8%A8%80%E5%85%B3%E9%94%AE%E5%AD%97%E5%92%8C%E8%AE%BF%E9%97%AE%E7%BB%9D%E5%AF%B9%E5%9C%B0%E5%9D%80"><span class="toc-text">2. C语言关键字和访问绝对地址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97static"><span class="toc-text">2.1 关键字static</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97const"><span class="toc-text">2.2 关键字const</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97volatile"><span class="toc-text">2.3 关键字volatile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E7%BB%9D%E5%AF%B9%E5%9C%B0%E5%9D%80"><span class="toc-text">2.4 访问绝对地址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c-pair%E7%B1%BB%E5%9E%8B%E9%87%8D%E8%BD%BD"><span class="toc-text">3. C++ pair类型重载</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1443,8 +1611,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="c语言结构体">C语言结构体</h1>
-<h2 id="c语言定义和声明结构体">1. C语言定义和声明结构体</h2>
+        <h2 id="c语言定义和声明结构体">1. C语言定义和声明结构体</h2>
 <h3 id="一般的结构体">1.1 一般的结构体</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> Student<span class="op">&#123;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> name<span class="op">[</span><span class="dv">21</span><span class="op">];</span><span class="co">//学生姓名</span></span>
@@ -1471,21 +1638,61 @@
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>s<span class="op">.</span>name  <span class="op">=</span> <span class="st">&quot;Jack&quot;</span><span class="op">;</span></span></code></pre></div>
 <h3 id="顺序初始化">2.2 顺序初始化</h3>
 <div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Student s <span class="op">=</span> <span class="op">&#123;</span><span class="dv">16</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="st">&quot;Tom&quot;</span><span class="op">&#125;;</span></span></code></pre></div>
-<h1 id="c结构体函数的重载">C++结构体函数的重载</h1>
-<h2 id="c-pair类型重载">1. C++ pair类型重载</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span><span class="op">&lt;</span><span class="kw">typename</span> T1<span class="op">,</span> <span class="kw">typename</span> T2<span class="op">&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="kw">operator</span><span class="op">&lt;(</span><span class="at">const</span> pair<span class="op">&lt;</span>T1<span class="op">,</span> T2<span class="op">&gt;</span> <span class="op">&amp;</span>lhs<span class="op">,</span> <span class="at">const</span> pair<span class="op">&lt;</span>T1<span class="op">,</span> T2<span class="op">&gt;</span> <span class="op">&amp;</span>rhs<span class="op">)</span> <span class="op">&#123;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> lhs<span class="op">.</span>first <span class="op">&lt;</span> rhs<span class="op">.</span>first <span class="op">||</span> <span class="op">(!(</span>rhs<span class="op">.</span>first <span class="op">&lt;</span> lhs<span class="op">.</span>first<span class="op">)</span> <span class="op">&amp;&amp;</span> lhs<span class="op">.</span>second <span class="op">&lt;</span> rhs<span class="op">.</span>second<span class="op">);</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
+<h2 id="c语言关键字和访问绝对地址">2. C语言关键字和访问绝对地址</h2>
+<h3 id="关键字static">2.1 关键字static</h3>
+<ol type="1">
+<li>在<strong>函数体内</strong> ，一个被声明为静态的变量 在这一函数被调用过程中维持其值不变。</li>
+<li>在文件域内（但在函数体外），一个被声明为静态的变量 可以被文件域内所有函数访问，但不能被文件域外其它函数访问。它是一个<strong>本地的全局变量</strong>。</li>
+<li>在文件域内 ，一个被声明为静态的函数只可被这一文件域内的其它函数调用。那就是，这个函数被限制在<strong>声明它的文件的本地范围内使用</strong>。</li>
+</ol>
+<h3 id="关键字const">2.2 关键字const</h3>
+<p>只读 ：不能简单说 “常数 使用关键字 const 能产生更紧凑的代码。 使编译器保护那些不希望被改变的参数，防止其被无意的代码修改。</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">const</span> <span class="dt">int</span> a <span class="op">;</span> <span class="co">// a 是一个常整数</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="dt">const</span> a<span class="op">;</span>a<span class="op">;</span><span class="co">// a 是一个常整数</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="dt">const</span> <span class="dt">int</span> <span class="op">*</span> a<span class="op">;</span><span class="co">// a 是一个指向常整数的指针</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> <span class="dt">const</span> a<span class="op">;</span>a<span class="op">;</span><span class="co">// a 是一个指向整数的常指针</span></span></code></pre></div>
+<h3 id="关键字volatile">2.3 关键字volatile</h3>
+<ol type="1">
+<li><p>阻止编译器优化 定义为 volatile 的变量是说这变量可能会被意想不到地改变 优化器在用到这个变量时必须每次都重新读取这个变量的值，而不是使用保存在寄存器里的备份。</p></li>
+<li><p>volatile 变量使用的几种情况（主要用于嵌入式系统）</p>
+<ul>
+<li>I/O 接口电路的硬件寄存器 （如：状态寄存器）</li>
+<li>中断服务子程序中会访问到的非自动变量</li>
+<li>多任务中被几个任务共享的变量</li>
+</ul></li>
+<li><p>举例</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">volatile</span> <span class="dt">const</span> <span class="dt">unsigned</span> <span class="dt">char</span> eventI2C<span class="op">;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 声明只读的无符号字符变量 eventI2C</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">// const ：本程序不应该试图去修改它</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">// volatile ：可能被外界（硬件、其他进程）改变</span></span></code></pre></div></li>
+</ol>
+<h3 id="访问绝对地址">2.4 访问绝对地址</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// UART寄存器定义</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#define ULCON0 (*(volatile unsigned long*) 0x01D00000)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#define UCON0 (*(volatile unsigned long*) 0x01D00004)</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="pp">#define UFCON0 (*(volatile unsigned long*) 0x01D00008)</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="pp">#define UMCON0 (*(volatile unsigned long*) 0x01D0000C)</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">// 使用方式</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="op">*</span>pULCON0 <span class="op">=</span> <span class="bn">0x03</span><span class="op">;</span> <span class="co">// 帧长度 8 位，停止位 1 位，无校验</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="op">*</span>pUFCON0 <span class="op">=</span> <span class="bn">0x21</span><span class="op">;</span> <span class="co">// 启用 FIFO ，发送 FIFO 触发级别为空，</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                 <span class="co">// 接收 FIFO 触发级别为 12 字节</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="op">*</span>pUCON0 <span class="op">=</span> <span class="bn">0xC5</span><span class="op">;</span>  <span class="co">// 接收中断 查询允许，发送中断 查询允许</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>                 <span class="co">// 允许接收错误中断，允许接收超时中断</span></span></code></pre></div>
+<h2 id="c-pair类型重载">3. C++ pair类型重载</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span><span class="op">&lt;</span><span class="kw">typename</span> T1<span class="op">,</span> <span class="kw">typename</span> T2<span class="op">&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="kw">operator</span><span class="op">&lt;(</span><span class="at">const</span> pair<span class="op">&lt;</span>T1<span class="op">,</span> T2<span class="op">&gt;</span> <span class="op">&amp;</span>lhs<span class="op">,</span> <span class="at">const</span> pair<span class="op">&lt;</span>T1<span class="op">,</span> T2<span class="op">&gt;</span> <span class="op">&amp;</span>rhs<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> lhs<span class="op">.</span>first <span class="op">&lt;</span> rhs<span class="op">.</span>first <span class="op">||</span> <span class="op">(!(</span>rhs<span class="op">.</span>first <span class="op">&lt;</span> lhs<span class="op">.</span>first<span class="op">)</span> <span class="op">&amp;&amp;</span> lhs<span class="op">.</span>second <span class="op">&lt;</span> rhs<span class="op">.</span>second<span class="op">);</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
 <p>意义：如果lhs的第一个变量小于rhs的第一个变量，返回<strong>true</strong>，否则，如果rhs的第一个变量不小于lhs的第一个变量（即<code>lhs.first &lt;= rhs.first</code>，由于前面已经处理过<code>lhs.first &lt; rhs.first</code>的情况，所以相当于<code>lhs.first == rhs.first</code>），且lhs的第二个变量小于rhs的第二个变量，返回<strong>true</strong>。逻辑和下面的代码相同：</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span><span class="op">&lt;</span><span class="kw">typename</span> T1<span class="op">,</span> <span class="kw">typename</span> T2<span class="op">&gt;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="kw">operator</span><span class="op">&lt;(</span><span class="at">const</span> pair<span class="op">&lt;</span>T1<span class="op">,</span> T2<span class="op">&gt;</span> <span class="op">&amp;</span>lhs<span class="op">,</span> <span class="at">const</span> pair<span class="op">&lt;</span>T1<span class="op">,</span> T2<span class="op">&gt;</span> <span class="op">&amp;</span>rhs<span class="op">)</span> <span class="op">&#123;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>lhs<span class="op">.</span>first <span class="op">==</span> rhs<span class="op">.</span>first<span class="op">)</span> <span class="cf">return</span> lhs<span class="op">.</span>second <span class="op">&lt;</span> rhs<span class="op">.</span>second<span class="op">;</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">return</span> lhs<span class="op">.</span>first <span class="op">&lt;</span> rhs<span class="op">.</span>first<span class="op">;</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">template</span><span class="op">&lt;</span><span class="kw">typename</span> T1<span class="op">,</span> <span class="kw">typename</span> T2<span class="op">&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> <span class="kw">operator</span><span class="op">&lt;(</span><span class="at">const</span> pair<span class="op">&lt;</span>T1<span class="op">,</span> T2<span class="op">&gt;</span> <span class="op">&amp;</span>lhs<span class="op">,</span> <span class="at">const</span> pair<span class="op">&lt;</span>T1<span class="op">,</span> T2<span class="op">&gt;</span> <span class="op">&amp;</span>rhs<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>lhs<span class="op">.</span>first <span class="op">==</span> rhs<span class="op">.</span>first<span class="op">)</span> <span class="cf">return</span> lhs<span class="op">.</span>second <span class="op">&lt;</span> rhs<span class="op">.</span>second<span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span> <span class="cf">return</span> lhs<span class="op">.</span>first <span class="op">&lt;</span> rhs<span class="op">.</span>first<span class="op">;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
 
       
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 Algorithm_sort@163.com </span>
+       <hr><span style="font-style: italic;color: gray;"> 本内容依据“CC BY-NC-SA 4.0”许可证进行授权。要查看该许可证，可访问https://creativecommons.org/licenses/by-nc-sa/4.0/ </span>
     </div>
 </article>
 
