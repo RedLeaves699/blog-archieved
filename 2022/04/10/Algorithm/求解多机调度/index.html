@@ -6,23 +6,19 @@
   <meta name="keywords" content=" 算法 , 排序 , 贪心 , 回溯法 ">
   <meta name="description" content="求解多机调度问题 | Set sail!">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="题目描述 给定一个\(n\)行\(m\)列的棋盘，任意给出一个马的周游路线。周游路线是指从起始点开始，不重不漏的经过棋盘上的每一个格子，最后再回到起始点的路线。 样例输入 6 5 样例输出     2   25   22   13    4    23   12    3   30   21    26    1   24    5   14    11   16    9   2">
-<meta property="og:type" content="article">
-<meta property="og:title" content="马的周游问题(knight move circuit)">
-<meta property="og:url" content="http://redleaves699.github.io/2022/04/12/Algorithm/Knignt%20move%20circuit/index.html">
+<meta name="description" content="404 ERROR 看起来这个页面现在不存在 不过它以后还是有存在的可能的？ Is it possible existing in the future?  速速回到首页！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="该页面无法显示">
+<meta property="og:url" content="http://redleaves699.github.io/404/index.html">
 <meta property="og:site_name" content="Set sail!">
-<meta property="og:description" content="题目描述 给定一个\(n\)行\(m\)列的棋盘，任意给出一个马的周游路线。周游路线是指从起始点开始，不重不漏的经过棋盘上的每一个格子，最后再回到起始点的路线。 样例输入 6 5 样例输出     2   25   22   13    4    23   12    3   30   21    26    1   24    5   14    11   16    9   2">
+<meta property="og:description" content="404 ERROR 看起来这个页面现在不存在 不过它以后还是有存在的可能的？ Is it possible existing in the future?  速速回到首页！">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/al/horse-c.png">
-<meta property="article:published_time" content="2022-04-12T01:56:00.000Z">
-<meta property="article:modified_time" content="2022-04-17T09:23:27.154Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/others/th/hit.png">
+<meta property="article:published_time" content="2022-02-16T14:02:14.000Z">
+<meta property="article:modified_time" content="2022-04-06T15:42:57.204Z">
 <meta property="article:author" content="Red_Leaves">
-<meta property="article:tag" content="回溯法">
-<meta property="article:tag" content="分治法">
-<meta property="article:tag" content="启发式算法">
-<meta property="article:tag" content="高性能">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/al/horse-c.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/others/th/hit.png">
 
 
 <link rel="icon" href="/img/favicon.png">
@@ -1577,7 +1573,7 @@
     </div>
     <div class="article-meta">
         
-            Created At : <time class="date" title='Updated At: 2022-04-10 23:56:09'>2022-04-10 22:15</time>
+            Created At : <time class="date" title='Updated At: 2022-04-17 17:34:41'>2022-04-10 22:15</time>
         
     </div>
     <div class="article-meta">
@@ -1599,7 +1595,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-text">分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E6%9C%BA%E8%B0%83%E5%BA%A6"><span class="toc-text">双机调度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E6%9C%BA%E8%B0%83%E5%BA%A6"><span class="toc-text">多机调度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%AA%E5%BF%83%E6%B3%95"><span class="toc-text">贪心法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%AA%E5%BF%83%E6%B3%951%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-text">贪心法1：负载均衡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%AA%E5%BF%83%E6%B3%952%E9%80%92%E9%99%8D%E8%B4%AA%E5%BF%83%E7%AD%96%E7%95%A5"><span class="toc-text">贪心法2：递降贪心策略</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-text">分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8C%E6%9C%BA%E8%B0%83%E5%BA%A6"><span class="toc-text">双机调度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E6%9C%BA%E8%B0%83%E5%BA%A6"><span class="toc-text">多机调度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%AA%E5%BF%83%E6%B3%95"><span class="toc-text">贪心法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%AA%E5%BF%83%E6%B3%951%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-text">贪心法1：负载均衡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%AA%E5%BF%83%E6%B3%952%E9%80%92%E9%99%8D%E8%B4%AA%E5%BF%83%E7%AD%96%E7%95%A5"><span class="toc-text">贪心法2：递降贪心策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E7%A1%AE%E7%8E%87"><span class="toc-text">正确率</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1621,7 +1617,7 @@
 \underset{\{S_1,S_2,\dots,S_m\}}\min {\underset{1\leq j\leq m}\max\underset{k\in S_j}\sum t_k}
 \]</span></p>
 <h2 id="分析">分析</h2>
-<p>多机调度问题是典型的NP完全问题。如果<span class="math inline">\(m\)</span>的值比较小，可以使用动态规划。但是<span class="math inline">\(m\)</span>值太大，需要的空间就会成指数式的增长。</p>
+<p>多机调度问题是典型的NP完全问题。如果<span class="math inline">\(m\)</span>的值比较小，可以使用动态规划。但是<span class="math inline">\(m\)</span>值太大，需要的空间就会成指数式的增长。例如下面的双机调度问题，就可以使用（伪）多项式复杂度求解。</p>
 <h3 id="双机调度">双机调度</h3>
 <p>即本题中<span class="math inline">\(m=2\)</span>的情形。设<span class="math inline">\(F[i][j][k]\)</span>为前<span class="math inline">\(i\)</span>个任务已经调度完成，0号机的负载为<span class="math inline">\(j\)</span>，1号机的负载为<span class="math inline">\(k\)</span>时的最优调度时间，我们很容易得到： <span class="math display">\[
 F[i][j][k]=\min\{F[i-1][j-t_i][k],F[i-1][j][k-t_i]\}+t_i
@@ -1630,8 +1626,8 @@ F[i][j][k]=\min\{F[i-1][j-t_i][k],F[i-1][j][k-t_i]\}+t_i
 F[i][j]=\min\{F[i-1][j]+t_i,F[i-1][j-t_i]\}
 \]</span> 寻找最终答案需要遍历<span class="math inline">\(F[n][j]\)</span>，找到<span class="math inline">\(\min\{\max\{j,F[n][j]\}\}\)</span>。复杂度<span class="math inline">\(O(nT)\)</span>，其中<span class="math inline">\(T=\sum t_k\)</span></p>
 <h3 id="多机调度">多机调度</h3>
-<p>上面的优化只能优化一维。如果<span class="math inline">\(m=100\)</span>，那么要开一个100维的数组，计算<span class="math inline">\(O(nT^m)\)</span>次。。。任何计算机都无法算出如此规模的问题。</p>
-<p>下面给出回溯法的程序实现：</p>
+<p>上面的优化只能优化一维。如果<span class="math inline">\(m=100\)</span>，那么要开一个100维的数组，计算<span class="math inline">\(O(nT^m)\)</span>次。。。任何计算机都无法算出如此规模的问题。这样的问题，我们只能使用回溯法，减少信息的存储，用时间来换空间。</p>
+<p>下面给出回溯法的程序实现，回溯法暴力枚举任务所在的机器编号和任务的排列顺序，将可能情况全部遍历，从而找到最优解：</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> task<span class="op">&#123;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> No<span class="op">,</span> time<span class="op">;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span>t<span class="op">[</span>MAXN<span class="op">];</span></span>
@@ -1698,10 +1694,10 @@ F[i][j]=\min\{F[i-1][j]+t_i,F[i-1][j-t_i]\}
 <span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
 <p>所以我们考虑贪心法近似求解。</p>
 <h2 id="贪心法">贪心法</h2>
-<p>贪心法只能找到多机调度问题的局部最优解，但它的效率很高，经过优化后，误差相比全局最优解可以进一步降低。</p>
+<p>贪心法不能保证一定能找到多机调度问题的全局最优解，但它的效率很高，经过优化后，误差相比全局最优解可以进一步降低。贪心策略比较符合我们的直觉，即让各个机器的任务负载均衡。</p>
 <h3 id="贪心法1负载均衡">贪心法1：负载均衡</h3>
 <ol type="1">
-<li><p>思想：一个任务到来，选择一个当前负载最小的机器接收此任务。使用二叉堆，时间复杂度是<span class="math inline">\(O(n\log n)\)</span>的。</p></li>
+<li><p>思想：一个任务到来，选择一个当前负载最小的机器接收此任务。我们使用二叉堆维护当前机器的负载，对于每一个任务，当为这个任务选择机器时，直接选择堆顶的机器即可。这样就可以实现对机器选择过程的优化，使得总时间复杂度是<span class="math inline">\(O(n\log n)\)</span>的。</p></li>
 <li><p>程序实现：</p></li>
 </ol>
 <div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> machine<span class="op">&#123;</span></span>
@@ -1732,7 +1728,8 @@ F[i][j]=\min\{F[i-1][j]+t_i,F[i-1][j-t_i]\}
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ans<span class="op">;</span></span>
 <span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
 <ol start="3" type="1">
-<li><p>效率分析</p>
+<li><p>正确率分析</p>
+<p>本次算法分析，主要分析贪心值与实际值的误差<span class="math inline">\(bias\)</span>。以回溯法求解的正确值为准，计算出相同测试集下每组数据的结果，求出误差值，误差每增大<span class="math inline">\(10\)</span>，就统计<span class="math inline">\([x,x+10)\)</span>之间的样本数量。作出条形统计图和折线统计图。</p>
 <p>其中横轴为求出的值与实际值的偏差，纵轴为偏差在<span class="math inline">\([x,x+10)\)</span>之间的测试样本数量。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/al/load_sim.png" alt="负载均衡" /></p></li>
 </ol>
@@ -1746,10 +1743,20 @@ F[i][j]=\min\{F[i-1][j]+t_i,F[i-1][j-t_i]\}
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Load_Balance<span class="op">(</span>n<span class="op">,</span> m<span class="op">);</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
 <ol start="3" type="1">
-<li><p>效率分析</p>
-<p>相比于上面的算法，正确率明显提高，但有部分结果得到的数值不如负载均衡。</p>
+<li><p>正确率分析</p>
+<p>相比于上面的算法，正确率明显提高，平均误差相比负载均衡策略也大幅减小。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/al/dec_sim.png" alt="递降贪心" /></p></li>
 </ol>
+<h3 id="正确率">正确率</h3>
+<p>固定<span class="math inline">\(m\)</span>，对于变化的<span class="math inline">\(n\)</span>，贪心法求解误差变化图（我们使用正确率更高的贪心法2）如下，我们使用偏差率<span class="math inline">\(\frac{bias}{ 准确值(prec)}\)</span>作为纵轴，<span class="math inline">\(n\)</span>作为横轴：</p>
+<ol type="1">
+<li><p>当<span class="math inline">\(m=2\)</span>时</p>
+<p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/al/sim_n2.png" alt="m=2" /></p></li>
+<li><p>当<span class="math inline">\(m=4\)</span>时</p>
+<p><img src=".https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/al/sim_n4.png" alt="m=4" /></p></li>
+</ol>
+<p>由于<span class="math inline">\(m\)</span>过大，暴力算法不能求解，所以只能给出最多<span class="math inline">\(m=4, n=12\)</span>的情况。</p>
+<p>经过上面的实验，我们发现，<span class="math inline">\(m=2\)</span>的情况相比于<span class="math inline">\(m=4\)</span>的情况，在<span class="math inline">\(n\)</span>增大时，偏差率接近0的倾向更明显。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 本内容依据“CC BY-NC-SA 4.0”许可证进行授权。要查看该许可证，可访问https://creativecommons.org/licenses/by-nc-sa/4.0/ </span>
