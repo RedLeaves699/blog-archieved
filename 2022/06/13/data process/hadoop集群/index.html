@@ -1,0 +1,2910 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hadoop集群的配置 | Set sail!</title>
+  <meta name="keywords" content=" Hadoop , java , 学习笔记 ">
+  <meta name="description" content="Hadoop集群的配置 | Set sail!">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="404 ERROR 页面不存在  点此回到首页！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="该页面无法显示">
+<meta property="og:url" content="http://redleaves699.github.io/404/index.html">
+<meta property="og:site_name" content="Set sail!">
+<meta property="og:description" content="404 ERROR 页面不存在  点此回到首页！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://redleaves699.github.io/assets/others/th/hit1.png">
+<meta property="og:image" content="http://redleaves699.github.io/404/index/Everydayonecat-hi.gif">
+<meta property="article:published_time" content="2022-02-16T14:02:14.000Z">
+<meta property="article:modified_time" content="2024-06-01T12:17:52.507Z">
+<meta property="article:author" content="Red_Leaves">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://redleaves699.github.io/assets/others/th/hit1.png">
+
+
+<link rel="icon" href="/img/favicon.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="false" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Red_Leaves</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/redleaves699"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:Algorithm_sort@163.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+    <a class="more-menus">更多菜单</a>
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(108)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="数学">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        数学
+                        <small>(8)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="数学<--->概率论">
+                                        
+                                        概率论
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="数学<--->高等数学">
+                                        
+                                        高等数学
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="数学<--->密码学">
+                                        
+                                        密码学
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="数学<--->线性代数">
+                                        
+                                        线性代数
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="数学<--->应用">
+                                        
+                                        应用
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="算法">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        算法
+                        <small>(23)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="算法<--->理论">
+                                        
+                                        理论
+                                        
+                                            <small>(9
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="算法<--->题解">
+                                        
+                                        题解
+                                        
+                                            <small>(14
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="前端">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        前端
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="前端<--->Markdown">
+                                        
+                                        Markdown
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="大数据">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        大数据
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="大数据<--->Hadoop">
+                                        
+                                        Hadoop
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="编程语言">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        编程语言
+                        <small>(15)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->编译器">
+                                        
+                                        编译器
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->功能">
+                                        
+                                        功能
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->硬件设计">
+                                        
+                                        硬件设计
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->C">
+                                        
+                                        C
+                                        
+                                            <small>(5
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->C++">
+                                        
+                                        C++
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->Java">
+                                        
+                                        Java
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->Python">
+                                        
+                                        Python
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="体系结构">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        体系结构
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="体系结构<--->原理">
+                                        
+                                        原理
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="机器学习">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        机器学习
+                        <small>(17)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="机器学习<--->实践">
+                                        
+                                        实践
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="应用软件">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        应用软件
+                        <small>(27)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="应用软件<--->操作系统">
+                                        
+                                        操作系统
+                                        
+                                            <small>(20
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="应用软件<--->软件使用">
+                                        
+                                        软件使用
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="应用软件<--->数据库">
+                                        
+                                        数据库
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="应用软件<--->Android">
+                                        
+                                        Android
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="应用软件<--->Git">
+                                        
+                                        Git
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="感想随笔">
+                        
+                        感想随笔
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="嵌入式">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        嵌入式
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="嵌入式<--->实践">
+                                        
+                                        实践
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Web">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Web
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Web<--->js">
+                                        <i class="fold iconfont icon-right"></i>
+                                        
+                                        js
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                        <ul class="sub hide">
+                                            
+                                                <li>
+                                                    <div data-rel="Web<--->jsVue">
+                                                        
+                                                        Vue
+                                                        
+                                                            <small>(1)</small>
+                                                        
+                                                    </div>
+                                                </li>
+                                            
+                                        </ul>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+                <a class="dynamic-menu "
+                   target="_self"
+                   
+                   href="/">Red_Leaves</a>
+        
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="108">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="/www.github.com/redleaves699">My GitHub</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>01背包</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>2018</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>2021牛客暑期多校第二场</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>2021牛客暑期多校第一场</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>贝叶斯方法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>背包问题</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>编程语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>编译原理</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>博客搭建</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>操作系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>大数据</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>待完善</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>递归</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>动态规划</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>多重背包</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>非对称加密</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>分类问题</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>分治法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>概率论</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>高等数学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>高级</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>高性能</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>格式化文本</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>回归问题</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>回溯法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>机器学习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>计时</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>计算机系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>技巧</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>矩阵论</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>决策树</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>开发</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>课程实践</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>类型</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>密码学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>模拟实训</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>逆向分析</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>排序</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>启发式算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>前端</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>软件开发</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>深度学习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>神经网络</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>生活</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>声明</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>实验环境配置</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>实用</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数据结构</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数据库</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>随机数</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>贪心</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>题解</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>题目</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>统计学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>完全背包</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>网页内容</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>线性代数</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>线性规划</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>信息论</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>学习笔记</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>英语</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>硬件</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>硬件描述语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>运算</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>运算符</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>正则表达式</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>政治历史</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>指针</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>字符串</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Anaconda</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Android</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>c</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>C</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>c++</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>C语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Debian</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Educoder</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GIS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GitHub</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Hadoop</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>IO</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>java</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Java</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>javascript</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>json</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>kmp</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>LearnGitBranch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux0.11</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>markdown</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>NOIP-J</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>riscv</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>stack</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>STM32</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>SVM</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>toposort</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>USACO</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Verilog</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Windows</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="All 算法 理论 "
+           href="/2024/07/28/Algorithm/basic/kmp/"
+           data-tag="字符串,算法,kmp,待完善"
+           data-author="" >
+            <span class="post-title" title="KMP字符串匹配算法">KMP字符串匹配算法</span>
+            <span class="post-date" title="2024-07-28 15:01:00">2024/07/28</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 C "
+           href="/2024/07/04/Programming%20Language/C/%E4%B8%8D%E5%AE%9A%E5%8F%82%E6%95%B0/"
+           data-tag="C"
+           data-author="" >
+            <span class="post-title" title="C语言不定参数">C语言不定参数</span>
+            <span class="post-date" title="2024-07-04 19:49:47">2024/07/04</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 C "
+           href="/2024/07/03/Programming%20Language/C/C%E8%AF%AD%E8%A8%80%E5%A3%B0%E6%98%8E%E8%A7%84%E5%88%99%E4%B8%8E%E7%A4%BA%E4%BE%8B/"
+           data-tag="C语言,指针,声明,类型"
+           data-author="" >
+            <span class="post-title" title="C语言声明规则与示例">C语言声明规则与示例</span>
+            <span class="post-date" title="2024-07-03 21:13:00">2024/07/03</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 数据库 "
+           href="/2024/06/12/apps/sql/PostgreSql/"
+           data-tag="数据库,课程实践"
+           data-author="" >
+            <span class="post-title" title="学习PostgreSQL">学习PostgreSQL</span>
+            <span class="post-date" title="2024-06-12 10:17:33">2024/06/12</span>
+        </a>
+        
+        
+        <a  class="All 数学 密码学 "
+           href="/2024/04/14/apps/crypt/RSA%E7%AE%97%E6%B3%95/"
+           data-tag="密码学,非对称加密"
+           data-author="" >
+            <span class="post-title" title="RSA算法">RSA算法</span>
+            <span class="post-date" title="2024-04-14 20:05:00">2024/04/14</span>
+        </a>
+        
+        
+        <a  class="All 数学 密码学 "
+           href="/2024/04/14/apps/crypt/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/"
+           data-tag="密码学,非对称加密"
+           data-author="" >
+            <span class="post-title" title="非对称加密简介">非对称加密简介</span>
+            <span class="post-date" title="2024-04-14 13:05:00">2024/04/14</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 C "
+           href="/2023/12/05/Programming%20Language/C/%E7%96%91%E9%9A%BE%E9%97%AE%E9%A2%98/"
+           data-tag="c"
+           data-author="" >
+            <span class="post-title" title="C语言答疑">C语言答疑</span>
+            <span class="post-date" title="2023-12-05 19:49:47">2023/12/05</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/10/13/apps/Operating%20System/bare%20Hello%20world/"
+           data-tag="操作系统,硬件,riscv"
+           data-author="" >
+            <span class="post-title" title="裸机Hello World程序">裸机Hello World程序</span>
+            <span class="post-date" title="2023-10-13 14:06:50">2023/10/13</span>
+        </a>
+        
+        
+        <a  class="All 嵌入式 实践 "
+           href="/2023/06/09/STM32/%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8/"
+           data-tag="C,STM32"
+           data-author="" >
+            <span class="post-title" title="STM32启动方式">STM32启动方式</span>
+            <span class="post-date" title="2023-06-09 09:11:30">2023/06/09</span>
+        </a>
+        
+        
+        <a  class="All 感想随笔 "
+           href="/2023/04/12/essay/handwrite/"
+           data-tag="生活"
+           data-author="" >
+            <span class="post-title" title="学学写字">学学写字</span>
+            <span class="post-date" title="2023-04-12 23:13:47">2023/04/12</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/04/07/apps/Operating%20System/CS07%20Lecture28-32/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="磁盘管理——外设L28-32笔记">磁盘管理——外设L28-32笔记</span>
+            <span class="post-date" title="2023-04-07 08:56:00">2023/04/07</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/04/06/apps/Operating%20System/CS07%20Lecture26-27/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="让外设工作起来——外设L26-27笔记">让外设工作起来——外设L26-27笔记</span>
+            <span class="post-date" title="2023-04-06 14:45:00">2023/04/06</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/04/04/apps/Operating%20System/CS07%20Lecture20-25/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="内存管理——内存L20-L25笔记">内存管理——内存L20-L25笔记</span>
+            <span class="post-date" title="2023-04-04 09:43:00">2023/04/04</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/04/02/apps/Operating%20System/CS07%20Lecture14,15/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="进程调度——进程L14-15笔记">进程调度——进程L14-15笔记</span>
+            <span class="post-date" title="2023-04-02 22:39:00">2023/04/02</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/04/02/apps/Operating%20System/CS07%20Lecture16-19/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="进程同步——进程L16-L19笔记">进程同步——进程L16-L19笔记</span>
+            <span class="post-date" title="2023-04-02 22:39:00">2023/04/02</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/04/01/apps/Operating%20System/CS07%20Lecture10-13/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="进程与线程的切换——进程L10-L13笔记">进程与线程的切换——进程L10-L13笔记</span>
+            <span class="post-date" title="2023-04-01 11:00:00">2023/04/01</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/03/31/apps/Operating%20System/CS07%20Lecture8,9/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="进程与线程——进程L8-9笔记">进程与线程——进程L8-9笔记</span>
+            <span class="post-date" title="2023-03-31 22:00:00">2023/03/31</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/03/30/apps/Operating%20System/CS07%20Lecture4,5/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="创建一个进程——基础篇L4-5笔记">创建一个进程——基础篇L4-5笔记</span>
+            <span class="post-date" title="2023-03-30 22:00:00">2023/03/30</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/03/30/apps/Operating%20System/CS07%20Lecture6,7/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="操作系统发展史——基础篇L6-7笔记">操作系统发展史——基础篇L6-7笔记</span>
+            <span class="post-date" title="2023-03-30 22:00:00">2023/03/30</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/03/28/apps/Operating%20System/CS07%20Lecture2,3/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="操作系统启动——基础篇L1-3笔记">操作系统启动——基础篇L1-3笔记</span>
+            <span class="post-date" title="2023-03-28 23:19:04">2023/03/28</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 实践 "
+           href="/2023/02/26/machine%20learning/%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E8%B7%B5/"
+           data-tag="学习笔记,机器学习"
+           data-author="" >
+            <span class="post-title" title="数字识别实践">数字识别实践</span>
+            <span class="post-date" title="2023-02-26 08:00:00">2023/02/26</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 Python "
+           href="/2023/02/05/Programming%20Language/Python/Anaconda%20python/"
+           data-tag="python,Anaconda"
+           data-author="" >
+            <span class="post-title" title="Anaconda Python工具的使用">Anaconda Python工具的使用</span>
+            <span class="post-date" title="2023-02-05 19:49:47">2023/02/05</span>
+        </a>
+        
+        
+        <a  class="All 感想随笔 "
+           href="/2022/08/26/essay/Words/"
+           data-tag="英语"
+           data-author="" >
+            <span class="post-title" title="英语单词-咬文嚼字">英语单词-咬文嚼字</span>
+            <span class="post-date" title="2022-08-26 15:13:47">2022/08/26</span>
+        </a>
+        
+        
+        <a  class="All 大数据 Hadoop "
+           href="/2022/06/29/data%20process/hadoop%E9%9B%86%E7%BE%A44/"
+           data-tag="Hadoop,java,学习笔记,大数据"
+           data-author="" >
+            <span class="post-title" title="Hadoop 的应用进阶">Hadoop 的应用进阶</span>
+            <span class="post-date" title="2022-06-29 08:00:00">2022/06/29</span>
+        </a>
+        
+        
+        <a  class="All 大数据 Hadoop "
+           href="/2022/06/27/data%20process/hadoop%E9%9B%86%E7%BE%A43/"
+           data-tag="Hadoop,java,学习笔记,大数据"
+           data-author="" >
+            <span class="post-title" title="Hadoop 运行Wordcount程序及程序解读">Hadoop 运行Wordcount程序及程序解读</span>
+            <span class="post-date" title="2022-06-27 08:00:00">2022/06/27</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/06/21/Algorithm/solution/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%A5%BD%E9%A2%98%E8%A7%A3%E7%AD%94/"
+           data-tag="动态规划,题解"
+           data-author="" >
+            <span class="post-title" title="动态规划好题解答">动态规划好题解答</span>
+            <span class="post-date" title="2022-06-21 21:19:37">2022/06/21</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/06/21/Algorithm/solution/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E5%A5%BD%E9%A2%98/"
+           data-tag="动态规划,题目"
+           data-author="" >
+            <span class="post-title" title="动态规划好题">动态规划好题</span>
+            <span class="post-date" title="2022-06-21 21:19:37">2022/06/21</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/06/20/Algorithm/solution/The%20nearest%20pair%20problem/"
+           data-tag="算法,分治法"
+           data-author="" >
+            <span class="post-title" title="POJ-3714 Raid">POJ-3714 Raid</span>
+            <span class="post-date" title="2022-06-20 15:20:30">2022/06/20</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 Java "
+           href="/2022/06/18/Programming%20Language/Java%20and%20Android/Javaio/"
+           data-tag="高性能,IO,Java"
+           data-author="" >
+            <span class="post-title" title="Java高速输入输出">Java高速输入输出</span>
+            <span class="post-date" title="2022-06-18 09:15:35">2022/06/18</span>
+        </a>
+        
+        
+        <a  class="All 大数据 Hadoop "
+           href="/2022/06/15/data%20process/hadoop%E9%9B%86%E7%BE%A42/"
+           data-tag="Hadoop,java,学习笔记"
+           data-author="" >
+            <span class="post-title" title="Hadoop 进行文件节点的访问">Hadoop 进行文件节点的访问</span>
+            <span class="post-date" title="2022-06-15 08:00:00">2022/06/15</span>
+        </a>
+        
+        
+        <a  class="All 大数据 Hadoop "
+           href="/2022/06/13/data%20process/hadoop%E9%9B%86%E7%BE%A4/"
+           data-tag="Hadoop,java,学习笔记"
+           data-author="" >
+            <span class="post-title" title="Hadoop集群的配置">Hadoop集群的配置</span>
+            <span class="post-date" title="2022-06-13 08:00:00">2022/06/13</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 C "
+           href="/2022/05/26/Programming%20Language/C/C%E8%AF%AD%E8%A8%80%E7%9A%84%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/"
+           data-tag="c,运算符"
+           data-author="" >
+            <span class="post-title" title="C,C++语言的算符优先级">C,C++语言的算符优先级</span>
+            <span class="post-date" title="2022-05-26 09:06:21">2022/05/26</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 功能 "
+           href="/2022/05/25/Useful%20functions/strings/"
+           data-tag="c,c++,python,字符串,正则表达式"
+           data-author="" >
+            <span class="post-title" title="字符串处理指南">字符串处理指南</span>
+            <span class="post-date" title="2022-05-25 08:52:21">2022/05/25</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 软件使用 "
+           href="/2022/04/28/apps/others/%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E5%85%B7curl/"
+           data-tag="Windows,Linux"
+           data-author="" >
+            <span class="post-title" title="命令行实现的浏览器——curl">命令行实现的浏览器——curl</span>
+            <span class="post-date" title="2022-04-28 16:25:15">2022/04/28</span>
+        </a>
+        
+        
+        <a  class="All 算法 理论 "
+           href="/2022/04/21/Algorithm/basic/greedy1/"
+           data-tag="算法,贪心"
+           data-author="" >
+            <span class="post-title" title="贪心理论和常见的证明方法">贪心理论和常见的证明方法</span>
+            <span class="post-date" title="2022-04-21 19:36:20">2022/04/21</span>
+        </a>
+        
+        
+        <a  class="All 算法 理论 "
+           href="/2022/04/21/Algorithm/basic/greedy2/"
+           data-tag="算法,贪心"
+           data-author="" >
+            <span class="post-title" title="贪心方法的产生">贪心方法的产生</span>
+            <span class="post-date" title="2022-04-21 19:36:20">2022/04/21</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/04/12/Algorithm/solution/Knignt%20move%20circuit/"
+           data-tag="分治法,回溯法,启发式算法,高性能"
+           data-author="" >
+            <span class="post-title" title="马的周游问题(knight move circuit)">马的周游问题(knight move circuit)</span>
+            <span class="post-date" title="2022-04-12 09:56:00">2022/04/12</span>
+        </a>
+        
+        
+        <a  class="All 算法 理论 "
+           href="/2022/04/10/Algorithm/solution/%E6%B1%82%E8%A7%A3%E5%A4%9A%E6%9C%BA%E8%B0%83%E5%BA%A6/"
+           data-tag="算法,排序,贪心,回溯法"
+           data-author="" >
+            <span class="post-title" title="求解多机调度问题">求解多机调度问题</span>
+            <span class="post-date" title="2022-04-10 22:15:08">2022/04/10</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/04/03/Algorithm/solution/MQ%20optimize%20DP/"
+           data-tag="背包问题,多重背包"
+           data-author="" >
+            <span class="post-title" title="单调队列优化动态规划">单调队列优化动态规划</span>
+            <span class="post-date" title="2022-04-03 07:46:50">2022/04/03</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/03/31/machine%20learning/%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B-Hidden%20Markov/"
+           data-tag="数学,学习笔记,机器学习,概率论,算法,贝叶斯方法"
+           data-author="" >
+            <span class="post-title" title="隐马尔可夫模型">隐马尔可夫模型</span>
+            <span class="post-date" title="2022-03-31 20:20:00">2022/03/31</span>
+        </a>
+        
+        
+        <a  class="All 算法 理论 "
+           href="/2022/03/31/machine%20learning/Stochastic%20gradient%20descent/"
+           data-tag="机器学习,算法,高等数学,线性代数"
+           data-author="" >
+            <span class="post-title" title="随机梯度下降法">随机梯度下降法</span>
+            <span class="post-date" title="2022-03-31 15:20:30">2022/03/31</span>
+        </a>
+        
+        
+        <a  class="All 算法 理论 "
+           href="/2022/03/29/Algorithm/solution/Monotonic%20Stack%20and%20Queue/"
+           data-tag="算法,stack"
+           data-author="" >
+            <span class="post-title" title="单调栈和单调队列">单调栈和单调队列</span>
+            <span class="post-date" title="2022-03-29 20:59:27">2022/03/29</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/03/28/Algorithm/solution/Luogu.org.P1616/"
+           data-tag="完全背包,背包问题"
+           data-author="" >
+            <span class="post-title" title="完全背包">完全背包</span>
+            <span class="post-date" title="2022-03-28 09:40:24">2022/03/28</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/03/27/Algorithm/solution/Luogu.org.P1156/"
+           data-tag="USACO,2018,动态规划,01背包"
+           data-author="" >
+            <span class="post-title" title="USACO 垃圾陷阱">USACO 垃圾陷阱</span>
+            <span class="post-date" title="2022-03-27 20:19:37">2022/03/27</span>
+        </a>
+        
+        
+        <a  class="All 数学 概率论 "
+           href="/2022/03/26/math/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/"
+           data-tag="数学,学习笔记,概率论,矩阵论"
+           data-author="" >
+            <span class="post-title" title="贝叶斯概率">贝叶斯概率</span>
+            <span class="post-date" title="2022-03-26 12:00:00">2022/03/26</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/03/22/Algorithm/solution/Luogu.org.P5017/"
+           data-tag="2018,动态规划,NOIP-J,线性规划"
+           data-author="" >
+            <span class="post-title" title="NOIP2018-J 摆渡车">NOIP2018-J 摆渡车</span>
+            <span class="post-date" title="2022-03-22 21:19:37">2022/03/22</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/03/19/machine%20learning/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B4/"
+           data-tag="数学,学习笔记,机器学习,算法,分类问题"
+           data-author="" >
+            <span class="post-title" title="感知机">感知机</span>
+            <span class="post-date" title="2022-03-19 21:00:00">2022/03/19</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/03/11/machine%20learning/svm3/"
+           data-tag="数学,学习笔记,机器学习,算法,回归问题"
+           data-author="" >
+            <span class="post-title" title="支持向量机3-支持向量回归">支持向量机3-支持向量回归</span>
+            <span class="post-date" title="2022-03-11 21:10:00">2022/03/11</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/03/09/machine%20learning/km/"
+           data-tag="数学,学习笔记,机器学习,算法"
+           data-author="" >
+            <span class="post-title" title="支持向量机的核方法">支持向量机的核方法</span>
+            <span class="post-date" title="2022-03-09 21:15:00">2022/03/09</span>
+        </a>
+        
+        
+        <a  class="All 算法 理论 "
+           href="/2022/03/09/Algorithm/basic/Sort/"
+           data-tag="算法,排序"
+           data-author="" >
+            <span class="post-title" title="常用的排序算法分析和实现">常用的排序算法分析和实现</span>
+            <span class="post-date" title="2022-03-09 15:13:47">2022/03/09</span>
+        </a>
+        
+        
+        <a  class="All 数学 高等数学 "
+           href="/2022/03/09/math/%E7%BA%A6%E6%9D%9F%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98/"
+           data-tag="数学,学习笔记,算法,高等数学,矩阵论,SVM"
+           data-author="" >
+            <span class="post-title" title="约束优化问题">约束优化问题</span>
+            <span class="post-date" title="2022-03-09 14:30:00">2022/03/09</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/03/09/machine%20learning/svm2/"
+           data-tag="数学,学习笔记,机器学习,算法,分类问题"
+           data-author="" >
+            <span class="post-title" title="支持向量机2-软间隔">支持向量机2-软间隔</span>
+            <span class="post-date" title="2022-03-09 08:00:00">2022/03/09</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/03/08/machine%20learning/svm1/"
+           data-tag="数学,学习笔记,机器学习,算法,分类问题"
+           data-author="" >
+            <span class="post-title" title="支持向量机1-硬间隔">支持向量机1-硬间隔</span>
+            <span class="post-date" title="2022-03-08 08:00:00">2022/03/08</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/03/07/machine%20learning/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B3/"
+           data-tag="数学,学习笔记,机器学习,算法,分类问题"
+           data-author="" >
+            <span class="post-title" title="对数几率回归">对数几率回归</span>
+            <span class="post-date" title="2022-03-07 08:00:00">2022/03/07</span>
+        </a>
+        
+        
+        <a  class="All 数学 线性代数 "
+           href="/2022/03/05/math/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/"
+           data-tag="数学,学习笔记,算法,高等数学,矩阵论"
+           data-author="" >
+            <span class="post-title" title="矩阵，向量求导">矩阵，向量求导</span>
+            <span class="post-date" title="2022-03-05 08:00:00">2022/03/05</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/03/05/machine%20learning/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B2/"
+           data-tag="数学,学习笔记,机器学习,算法,分类问题"
+           data-author="" >
+            <span class="post-title" title="LDA(fisher)模型">LDA(fisher)模型</span>
+            <span class="post-date" title="2022-03-05 08:00:00">2022/03/05</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/03/03/machine%20learning/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/"
+           data-tag="数学,学习笔记,机器学习,算法,回归问题"
+           data-author="" >
+            <span class="post-title" title="线性回归模型">线性回归模型</span>
+            <span class="post-date" title="2022-03-03 08:00:00">2022/03/03</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/03/02/machine%20learning/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8b/"
+           data-tag="数学,学习笔记,机器学习,概率论,算法,贝叶斯方法"
+           data-author="" >
+            <span class="post-title" title="贝叶斯分类器（下）">贝叶斯分类器（下）</span>
+            <span class="post-date" title="2022-03-02 08:00:00">2022/03/02</span>
+        </a>
+        
+        
+        <a  class="All 数学 应用 "
+           href="/2022/03/01/math/%E5%82%A8%E5%A4%87%E7%9F%A5%E8%AF%86/"
+           data-tag="数学,学习笔记,机器学习"
+           data-author="" >
+            <span class="post-title" title="机器学习的数学知识">机器学习的数学知识</span>
+            <span class="post-date" title="2022-03-01 08:00:00">2022/03/01</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/02/28/Algorithm/solution/%E6%95%B4%E6%95%B0%E5%88%92%E5%88%86%E9%97%AE%E9%A2%98/"
+           data-tag="算法,递归"
+           data-author="" >
+            <span class="post-title" title="整数划分问题">整数划分问题</span>
+            <span class="post-date" title="2022-02-28 15:13:47">2022/02/28</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/02/28/Algorithm/solution/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="最大子段和问题">最大子段和问题</span>
+            <span class="post-date" title="2022-02-28 15:13:47">2022/02/28</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/02/27/machine%20learning/%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B-Bayes%20Network/"
+           data-tag="数学,学习笔记,机器学习,概率论,算法,贝叶斯方法"
+           data-author="" >
+            <span class="post-title" title="贝叶斯网络">贝叶斯网络</span>
+            <span class="post-date" title="2022-02-27 08:00:00">2022/02/27</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/02/27/machine%20learning/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8a/"
+           data-tag="数学,学习笔记,机器学习,概率论,算法,贝叶斯方法"
+           data-author="" >
+            <span class="post-title" title="贝叶斯分类器（上）">贝叶斯分类器（上）</span>
+            <span class="post-date" title="2022-02-27 08:00:00">2022/02/27</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/02/24/machine%20learning/%E5%86%B3%E7%AD%96%E6%A0%91/"
+           data-tag="学习笔记,机器学习,决策树,信息论,数据结构"
+           data-author="" >
+            <span class="post-title" title="决策树">决策树</span>
+            <span class="post-date" title="2022-02-24 08:00:00">2022/02/24</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/02/23/machine%20learning/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"
+           data-tag="数学,学习笔记,机器学习,算法,神经网络,深度学习"
+           data-author="" >
+            <span class="post-title" title="人工神经网络">人工神经网络</span>
+            <span class="post-date" title="2022-02-23 08:00:00">2022/02/23</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/02/20/machine%20learning/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0b/"
+           data-tag="数学,学习笔记,机器学习,概率论,算法,统计学"
+           data-author="" >
+            <span class="post-title" title="集成学习的原理（下篇）">集成学习的原理（下篇）</span>
+            <span class="post-date" title="2022-02-20 08:00:00">2022/02/20</span>
+        </a>
+        
+        
+        <a  class="All 数学 高等数学 "
+           href="/2022/02/19/math/%E6%B3%B0%E5%8B%92%E5%B1%95%E5%BC%80/"
+           data-tag="数学,学习笔记,算法,高等数学"
+           data-author="" >
+            <span class="post-title" title="泰勒展开">泰勒展开</span>
+            <span class="post-date" title="2022-02-19 08:00:00">2022/02/19</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/02/14/machine%20learning/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0a/"
+           data-tag="数学,学习笔记,机器学习,概率论,算法,统计学"
+           data-author="" >
+            <span class="post-title" title="集成学习的原理（上篇）">集成学习的原理（上篇）</span>
+            <span class="post-date" title="2022-02-14 08:00:00">2022/02/14</span>
+        </a>
+        
+        
+        <a  class="All 数学 概率论 "
+           href="/2022/02/13/math/%E6%9E%81%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/"
+           data-tag="数学,学习笔记,机器学习,概率论,算法"
+           data-author="" >
+            <span class="post-title" title="极大似然估计">极大似然估计</span>
+            <span class="post-date" title="2022-02-13 08:00:00">2022/02/13</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 功能 "
+           href="/2022/02/10/Useful%20functions/json%E8%AF%AD%E6%B3%95/"
+           data-tag="javascript,json,前端,格式化文本"
+           data-author="" >
+            <span class="post-title" title="json语法">json语法</span>
+            <span class="post-date" title="2022-02-10 21:25:47">2022/02/10</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 Git "
+           href="/2022/01/22/apps/Git/git%E6%93%8D%E4%BD%9C/"
+           data-tag="Git,GitHub"
+           data-author="" >
+            <span class="post-title" title="Git代码仓库的使用">Git代码仓库的使用</span>
+            <span class="post-date" title="2022-01-22 17:10:35">2022/01/22</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 编译器 "
+           href="/2021/12/29/apps/Compiler/PL%E8%AF%AD%E8%A8%80%E7%9A%84%E6%89%A9%E5%B1%95/"
+           data-tag="Educoder,编译原理,模拟实训"
+           data-author="" >
+            <span class="post-title" title="Educoder 编译原理PL语言编译器的扩展（转载）">Educoder 编译原理PL语言编译器的扩展（转载）</span>
+            <span class="post-date" title="2021-12-29 23:53:00">2021/12/29</span>
+        </a>
+        
+        
+        <a  class="All 算法 理论 "
+           href="/2021/12/05/Algorithm/solution/Space%20coordinate%20transformation/"
+           data-tag="数学,算法,GIS"
+           data-author="" >
+            <span class="post-title" title="空间坐标转换方法">空间坐标转换方法</span>
+            <span class="post-date" title="2021-12-05 20:38:47">2021/12/05</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 C++ "
+           href="/2021/12/05/Programming%20Language/Cpp/C++%E8%AF%AD%E6%B3%95/"
+           data-tag="c++"
+           data-author="" >
+            <span class="post-title" title="C++语法">C++语法</span>
+            <span class="post-date" title="2021-12-05 19:49:47">2021/12/05</span>
+        </a>
+        
+        
+        <a  class="All Web js "
+           href="/2021/11/15/Programming%20Language/JavaScript%20and%20Web/noLimit/"
+           data-tag="前端,网页内容"
+           data-author="" >
+            <span class="post-title" title="常用网页用户限制的解除">常用网页用户限制的解除</span>
+            <span class="post-date" title="2021-11-15 16:41:17">2021/11/15</span>
+        </a>
+        
+        
+        <a  class="All Web js Vue "
+           href="/2021/11/15/Programming%20Language/JavaScript%20and%20Web/%E5%87%86%E5%A4%87%E4%BD%BF%E7%94%A8Vue/"
+           data-tag="前端,开发"
+           data-author="" >
+            <span class="post-title" title="准备使用Vue">准备使用Vue</span>
+            <span class="post-date" title="2021-11-15 16:41:17">2021/11/15</span>
+        </a>
+        
+        
+        <a  class="All 前端 Markdown "
+           href="/2021/11/15/Markdown/MarkdownIndent/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="关于markdown格式排版">关于markdown格式排版</span>
+            <span class="post-date" title="2021-11-15 15:13:47">2021/11/15</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/11/11/apps/Operating%20System/Educoder%20%E8%AF%84%E6%B5%8B%E7%A8%8B%E5%BA%8F/"
+           data-tag="Educoder,模拟实训,操作系统,逆向分析"
+           data-author="" >
+            <span class="post-title" title="Educoder 实训平台评测程序代码的获取">Educoder 实训平台评测程序代码的获取</span>
+            <span class="post-date" title="2021-11-11 23:41:15">2021/11/11</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/11/08/apps/Operating%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD7.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训7.x实验">Educoder 操作系统实训7.x实验</span>
+            <span class="post-date" title="2021-11-08 20:49:56">2021/11/08</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/11/03/apps/Operating%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD6.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训6.x实验">Educoder 操作系统实训6.x实验</span>
+            <span class="post-date" title="2021-11-03 20:49:56">2021/11/03</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 Git "
+           href="/2021/11/02/apps/Git/GitHub%20resource/"
+           data-tag="Git,GitHub"
+           data-author="" >
+            <span class="post-title" title="解决GitHub资源访问问题">解决GitHub资源访问问题</span>
+            <span class="post-date" title="2021-11-02 17:10:35">2021/11/02</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 硬件设计 "
+           href="/2021/10/25/Programming%20Language/Verilog/Verilog%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E7%94%A8%E6%93%8D%E4%BD%9C/"
+           data-tag="硬件描述语言,Verilog"
+           data-author="" >
+            <span class="post-title" title="Verilog的一些实用操作">Verilog的一些实用操作</span>
+            <span class="post-date" title="2021-10-25 19:48:45">2021/10/25</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/10/20/apps/Operating%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD5.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训5.x实验">Educoder 操作系统实训5.x实验</span>
+            <span class="post-date" title="2021-10-20 23:35:23">2021/10/20</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/10/12/apps/Operating%20System/Windows%20%E5%92%8C%20Linux%E7%9A%84%E4%BD%BF%E7%94%A8/"
+           data-tag="操作系统,Windows,Linux"
+           data-author="" >
+            <span class="post-title" title="Windows和Debian Linux的使用技巧">Windows和Debian Linux的使用技巧</span>
+            <span class="post-date" title="2021-10-12 16:25:15">2021/10/12</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/10/07/apps/Operating%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD4.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训4.x实验">Educoder 操作系统实训4.x实验</span>
+            <span class="post-date" title="2021-10-07 11:49:00">2021/10/07</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 编译器 "
+           href="/2021/10/06/apps/Compiler/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AE%9E%E8%AE%AD1/"
+           data-tag="Educoder,编译原理,模拟实训"
+           data-author="" >
+            <span class="post-title" title="Educoder 编译原理实训1">Educoder 编译原理实训1</span>
+            <span class="post-date" title="2021-10-06 23:53:00">2021/10/06</span>
+        </a>
+        
+        
+        <a  class="All 体系结构 原理 "
+           href="/2021/10/03/Computer%20system/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/"
+           data-tag="运算,数学,计算机系统"
+           data-author="" >
+            <span class="post-title" title="计算机运算原理">计算机运算原理</span>
+            <span class="post-date" title="2021-10-03 09:15:35">2021/10/03</span>
+        </a>
+        
+        
+        <a  class="All 体系结构 原理 "
+           href="/2021/10/03/Computer%20system/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"
+           data-tag="计算机系统"
+           data-author="" >
+            <span class="post-title" title="计算机系统大纲">计算机系统大纲</span>
+            <span class="post-date" title="2021-10-03 09:15:35">2021/10/03</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 功能 "
+           href="/2021/09/29/Useful%20functions/%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/"
+           data-tag="c,编程语言,技巧,Python"
+           data-author="" >
+            <span class="post-title" title="程序实现方法">程序实现方法</span>
+            <span class="post-date" title="2021-09-29 17:29:00">2021/09/29</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 Git "
+           href="/2021/09/29/apps/Git/Gitignore/"
+           data-tag="Git,GitHub"
+           data-author="" >
+            <span class="post-title" title=".gitignore的使用">.gitignore的使用</span>
+            <span class="post-date" title="2021-09-29 16:42:35">2021/09/29</span>
+        </a>
+        
+        
+        <a  class="All 前端 Markdown "
+           href="/2021/09/22/Markdown/MarkdownSpecialSign/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown latex的特殊符号">markdown latex的特殊符号</span>
+            <span class="post-date" title="2021-09-22 22:30:32">2021/09/22</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/09/17/apps/Operating%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD3.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训3.x实验">Educoder 操作系统实训3.x实验</span>
+            <span class="post-date" title="2021-09-17 10:42:35">2021/09/17</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 Git "
+           href="/2021/09/14/apps/Git/%E5%9C%A8%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2LearnGitBranch/"
+           data-tag="前端,Git,LearnGitBranch"
+           data-author="" >
+            <span class="post-title" title="在本地部署LearnGitBranch">在本地部署LearnGitBranch</span>
+            <span class="post-date" title="2021-09-14 17:30:26">2021/09/14</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 C "
+           href="/2021/09/12/Programming%20Language/C/%E6%8C%87%E9%92%88%E7%9A%84%E6%B4%BB%E7%94%A8/"
+           data-tag="技巧,C语言,指针,高级"
+           data-author="" >
+            <span class="post-title" title="指针的活用">指针的活用</span>
+            <span class="post-date" title="2021-09-12 13:49:00">2021/09/12</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 Android "
+           href="/2021/09/11/apps/Android/Andorid%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"
+           data-tag="软件开发,Android"
+           data-author="" >
+            <span class="post-title" title="Android项目的阅读 - 让项目运行起来（总第一篇）">Android项目的阅读 - 让项目运行起来（总第一篇）</span>
+            <span class="post-date" title="2021-09-11 11:23:19">2021/09/11</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/09/09/apps/Operating%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD2.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训2.x实验">Educoder 操作系统实训2.x实验</span>
+            <span class="post-date" title="2021-09-09 09:25:45">2021/09/09</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/09/07/apps/Operating%20System/Debian%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AELinux0.11/"
+           data-tag="实验环境配置,Debian,Linux0.11"
+           data-author="" >
+            <span class="post-title" title="Debian系统配置Linux0.11">Debian系统配置Linux0.11</span>
+            <span class="post-date" title="2021-09-07 11:45:05">2021/09/07</span>
+        </a>
+        
+        
+        <a  class="All Web js "
+           href="/2021/09/02/Programming%20Language/JavaScript%20and%20Web/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cnode.js%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"
+           data-tag="前端,博客搭建"
+           data-author="" >
+            <span class="post-title" title="使用Node.js和hexo搭建GitHub博客（以windows为例）">使用Node.js和hexo搭建GitHub博客（以windows为例）</span>
+            <span class="post-date" title="2021-09-02 21:20:23">2021/09/02</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 功能 "
+           href="/2021/08/17/Useful%20functions/%E5%90%84%E7%A7%8D%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E9%9A%8F%E6%9C%BA%E6%95%B0%E5%92%8C%E8%AE%A1%E6%97%B6/"
+           data-tag="编程语言,随机数,计时,实用"
+           data-author="" >
+            <span class="post-title" title="各种语言实现随机数和计时">各种语言实现随机数和计时</span>
+            <span class="post-date" title="2021-08-17 09:15:35">2021/08/17</span>
+        </a>
+        
+        
+        <a  class="All 前端 Markdown "
+           href="/2021/07/26/Markdown/MarkdownFont/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown 字体，字号，颜色">markdown 字体，字号，颜色</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        
+        <a  class="All 前端 Markdown "
+           href="/2021/07/26/Markdown/MarkdownImage/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="在markdown中插入图片">在markdown中插入图片</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        
+        <a  class="All 感想随笔 "
+           href="/2021/07/26/essay/%E7%99%BE%E5%B9%B4/"
+           data-tag="政治历史"
+           data-author="" >
+            <span class="post-title" title="百年未有之大变局">百年未有之大变局</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        
+        <a  class="All 算法 理论 "
+           href="/2021/07/26/Algorithm/basic/Toposort/"
+           data-tag="算法,toposort"
+           data-author="" >
+            <span class="post-title" title="拓扑排序">拓扑排序</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2021/07/26/Algorithm/solution/A%20-%20Alice%20and%20Bob/"
+           data-tag="2021牛客暑期多校第一场"
+           data-author="" >
+            <span class="post-title" title="A - Alice and Bob">A - Alice and Bob</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2021/07/26/Algorithm/solution/G%20-%20League%20of%20Legends/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="G - League of Legends">G - League of Legends</span>
+            <span class="post-date" title="2021-07-26 09:47:05">2021/07/26</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2021/07/26/Algorithm/solution/K%20-%20Stack/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="K - Stack">K - Stack</span>
+            <span class="post-date" title="2021-07-26 09:37:47">2021/07/26</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2021/07/20/Algorithm/solution/F%20-%20Girlfriend/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="F - Girlfriend">F - Girlfriend</span>
+            <span class="post-date" title="2021-07-20 09:53:17">2021/07/20</span>
+        </a>
+        
+        
+        <a  class="All 感想随笔 "
+           href="/2021/07/17/essay/Essay-2021-7-17/"
+           data-tag="生活"
+           data-author="" >
+            <span class="post-title" title="2021-07-17 关于自己读书的有趣现象">2021-07-17 关于自己读书的有趣现象</span>
+            <span class="post-date" title="2021-07-17 12:13:26">2021/07/17</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-data process/hadoop集群" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Hadoop集群的配置</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="大数据">大数据</a> > 
+            
+            <a  data-rel="大数据&lt;---&gt;Hadoop">Hadoop</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color2">Hadoop</a>
+            
+            <a class="color5">java</a>
+            
+            <a class="color5">学习笔记</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2024-07-03 20:50:50'>2022-06-13 08:00</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%9A%84%E6%80%BB%E4%BD%93%E6%80%9D%E6%83%B3"><span class="toc-text">配置的总体思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B7%E5%A7%8B%E5%B7%A5%E4%BD%9C"><span class="toc-text">起始工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%88%AB%E6%B3%A8%E6%84%8F"><span class="toc-text">特别注意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="toc-text">在树莓派上安装操作系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C%E5%AE%9E%E7%8E%B0ssh%E7%99%BB%E5%BD%95"><span class="toc-text">配置网络实现SSH登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BAhadoop%E9%9B%86%E7%BE%A4"><span class="toc-text">使用树莓派搭建Hadoop集群</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%8D%A2%E8%BD%AF%E4%BB%B6%E6%BA%90"><span class="toc-text">更换软件源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85openjdk"><span class="toc-text">安装OpenJDK</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%90%8D%E5%92%8C%E9%85%8D%E7%BD%AE%E7%BD%91%E7%BB%9C%E6%98%A0%E5%B0%84"><span class="toc-text">修改主机名和配置网络映射</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-ssh-%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95"><span class="toc-text">配置 SSH 免密码登录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85hadoop"><span class="toc-text">安装Hadoop</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEhadoop"><span class="toc-text">配置Hadoop</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-core-site.xml-%E6%96%87%E4%BB%B6"><span class="toc-text">配置 core-site.xml 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-hdfs-site.xml-%E6%96%87%E4%BB%B6"><span class="toc-text">配置 hdfs-site.xml 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEyarn-site.xml%E6%96%87%E4%BB%B6"><span class="toc-text">配置yarn-site.xml文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEmapred-site.xml%E6%96%87%E4%BB%B6"><span class="toc-text">配置mapred-site.xml文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%BE%91workers%E6%96%87%E4%BB%B6%E6%8F%92%E5%85%A5%E4%BB%A5%E4%B8%8B%E5%86%85%E5%AE%B9"><span class="toc-text">编辑Workers文件，插入以下内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E5%85%A5java%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">加入JAVA环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%8F%91%E9%9B%86%E7%BE%A4"><span class="toc-text">分发集群</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E5%92%8C%E5%81%9C%E6%AD%A2%E9%9B%86%E7%BE%A4"><span class="toc-text">启动和停止集群</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98"><span class="toc-text">其他问题</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-6 i,
+    .toc-level-6 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="配置的总体思想">配置的总体思想</h2>
+<p>下面的具体过程只是针对我当前的实验环境。如果换了环境，那么下面的操作就没什么参考价值了。不过，配置的<strong>总体思想</strong>是放之四海而皆准的。</p>
+<p>首先，Hadoop集群是依靠网络来通信的，所以要让所有的机器网络通联。</p>
+<p>其次，Hadoop是用Java写的，它具有良好的跨平台特性。但是它的缺点也很明显，它需要JRE来运行。所以要现在集群的每台机器上配置Java环境。由于Hadoop集群不能使用密码来访问每个节点，所以需要配置SSH来实现主节点对从节点的无密码访问。</p>
+<p>接着，配置Hadoop集群，主要修改几个xml文件，然后将Hadoop设置为环境变量。配置Hadoop有一个小技巧，你只需要配置主机机器的Hadoop，然后直接将配置好的Hadoop目录使用<code>scp</code>命令分发给所有从机即可。</p>
+<p>最后，你就可以使用API接口或命令行来直接操作文件系统了。配置过程也宣告完成。</p>
+<h2 id="起始工作">起始工作</h2>
+<h3 id="特别注意">特别注意</h3>
+<p>如果使用Hadoop，SSH三台机器的用户名必须相同，切记！</p>
+<h3 id="在树莓派上安装操作系统">在树莓派上安装操作系统</h3>
+<p>在树莓派官网或<a
+target="_blank" rel="noopener" href="https://github.com/raspberrypi/rpi-imager/releases">GitHub</a>下载烧录软件。</p>
+<p>下载完成后，先选择写入的操作系统和储存卡，然后进行设置。设置时要开启SSH服务来实现远程操控终端，设置用户名和密码，配置WIFI来安装必要的程序。其他设置使用默认即可。</p>
+<p><img src="/assets/mdpics/image-20220613145242119.png" /></p>
+<p><img src="/assets/mdpics/image-20220613145312532.png" /></p>
+<p>接下来就可以进行烧录了</p>
+<p><img src="/assets/mdpics/image-20220613145430614.png" /></p>
+<p><img src="/assets/mdpics/image-20220613144454993.png" /></p>
+<p>这就完成了吗？不，<strong>记得将树莓派设为固定ip！</strong>
+具体方法是修改<code>cmdline.txt</code>中的文件，在最后加一个空格，写上<code>ip=192.168.168.2</code>。</p>
+<h3 id="配置网络实现ssh登录">配置网络实现SSH登录</h3>
+<p>配置网络的大概思路：</p>
+<p>先想好分配的网段，和主机号，然后进行对网卡的配置</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">类型</th>
+<th style="text-align: center;">ip地址</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">PC主机网卡</td>
+<td style="text-align: center;">192.168.168.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">raspberrypi01</td>
+<td style="text-align: center;">192.168.168.2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">raspberrypi02</td>
+<td style="text-align: center;">192.168.168.3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">raspberrypi03</td>
+<td style="text-align: center;">192.168.168.4</td>
+</tr>
+</tbody>
+</table>
+<p>在插入网卡后，会出现如图的一个以太网网卡的标识：</p>
+<p><img src="/assets/mdpics/image-20220615005514343.png" /></p>
+<p>右键点击，选择属性，双击蓝色的部分，进入IPv4设置。</p>
+<p><img src="/assets/mdpics/image-20220615005626478.png"
+alt="IPv4设置" /></p>
+<p>在下面的设置窗口中，设置网卡地址，注意，网卡地址要和虚拟机网络地址在同一个网段。</p>
+<p><img src="/assets/mdpics/image-20220615005801823.png"
+alt="网络设置" /></p>
+<p>设置完后直接确认即可。接着看看能不能ping通网卡和每个树莓派。</p>
+<p>然后就可以使用SSH登录树莓派了。</p>
+<pre class="shell"><code>ssh redleaves@192.168.168.2</code></pre>
+<p>如果SSH报出以下的错误，可以删除一下之前保存的认证密钥。</p>
+<pre><code>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+SHA256:EqIFQoWYDISyGnJggyqnk8888LeNn3tr1+QmBQaso0.
+Please contact your system administrator.
+Add correct host key in /Users/caolijian/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /Users/caolijian/.ssh/known_hosts:12
+ECDSA host key for 192.168.1.112 has changed and you have requested strict checking.
+Host key verification failed.</code></pre>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ssh<span class="op">-</span>keygen <span class="op">-</span>R 192<span class="op">.</span><span class="fu">168</span><span class="op">.</span><span class="fu">168</span><span class="op">.</span><span class="fu">2</span></span></code></pre></div>
+<h3 id="使用树莓派搭建hadoop集群">使用树莓派搭建Hadoop集群</h3>
+<h4 id="更换软件源">更换软件源</h4>
+<p>使用apt-get下载时，如果提示空间不足，可以按照如下的方法创建一个软链接：</p>
+<pre class="shell"><code>sudo mkdir -p &quot;/dev/debs/partial&quot;
+sudo rm -rf /var/cache/apt/archives
+sudo ln -s &quot;/dev/debs&quot; /var/cache/apt/archives</code></pre>
+<p>使用vim更改软件源，注释所有内容，并添加如下内容。</p>
+<p>下面是需要修改<code>/etc/apt/sources.list</code>文件的内容</p>
+<pre><code>deb http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/ bullseye main non-free contrib rpi
+deb [arch=arm64] http://mirrors.tuna.tsinghua.edu.cn/raspbian/multiarch/ bullseye main</code></pre>
+<p>注意，我的开发板系统架构是armv7l的。如果是aarch64，可能有所不同：</p>
+<p>下面的命令用来确定系统架构：</p>
+<pre class="shell"><code>uname -m</code></pre>
+<p>另外，我们还需要编辑<code>/etc/apt/sources.list.d/raspi.list</code>
+文件，删除原文件所有内容，用以下内容取代：</p>
+<pre><code>deb http://mirrors.tuna.tsinghua.edu.cn/raspberrypi/ bullseye main</code></pre>
+<p>全部编辑完后，使用</p>
+<pre class="shell"><code>sudo apt update</code></pre>
+<p>命令进行更新的确认。</p>
+<p>在整个过程中，终端会有少量报错，不过不影响后续的操作。忽略即可。</p>
+<h4 id="安装openjdk">安装OpenJDK</h4>
+<p>输入以下命令即可安装：</p>
+<pre class="shell"><code>sudo apt update
+sudo apt-get install default-jdk</code></pre>
+<p>补充：如果按照上面的软连接操作，安装时<strong>可能</strong>会出现<code>/var/cache/apt/archives/partial is missing.</code>的问题，这是我们只要运行<code>sudo mkdir -p "/dev/debs/partial"</code>即可。</p>
+<p>接着配置 Java
+环境变量。编辑<code>/etc/profile</code>文件，插入以下内容：</p>
+<pre><code># java
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-armhf/
+export PATH=$PATH:$JAVA_HOME/bin</code></pre>
+<p>最后可以使用</p>
+<pre class="shell"><code>java --version</code></pre>
+<p>验证安装是否成功。</p>
+<h4 id="修改主机名和配置网络映射">修改主机名和配置网络映射</h4>
+<p>修改主机名 在支持 mDNS(multicast DNS)
+的局域网中，使用主机名加上“.local”即
+可直接访问主机名对应的设备。例如，树莓派 Raspbian 系统默认的主机名为
+raspberrypi， 那么当树莓派接入网络之后，就可以使用 ping
+raspberrypi.local 来获得树莓派 IP 地址， 当然也可以通过
+http://raspberrypi.local 来访问树莓派的 80 端口上的 Web 服务（如果已
+经部署了的话）。
+修改树莓派的名字涉及两个地方。首先，编辑<code>/etc/hosts</code>，将<code>192.168.168.1</code>后面的名字改为想要的主机名，比如修改为
+master</p>
+<pre><code>192.168.168.1 master</code></pre>
+<p>再编辑<code>/etc/hostname</code>，将<code>raspberrypi</code>修改为想要的名字，如
+<code>master</code>。</p>
+<pre><code>master</code></pre>
+<p>重复上面的过程修改 slave01 和 slave02 的主机名。</p>
+<p>上述两部修改完的示例如下：</p>
+<ol type="1">
+<li><p>在<code>/etc/hosts</code>中添加：</p>
+<pre><code>192.168.168.1 master
+192.168.168.2 raspberrypi01
+192.168.168.3 raspberrypi02
+192.168.168.4 raspberrypi03</code></pre></li>
+<li><p>/etc/hostname：由于安装系统时指定了主机名，所以不必再修改。</p></li>
+</ol>
+<h4 id="配置-ssh-免密码登录">配置 SSH 免密码登录</h4>
+<p>首先使用 ssh-keygen 命令产生密钥对，然后通过命令 ssh-copy-id
+将登录信息复制到验证文件。</p>
+<p>先在Windows上进行配置，配置之前要在Linux Home创建.ssh文件夹</p>
+<p>Linux</p>
+<pre><code>mkdir ~/.ssh</code></pre>
+<p>Windows</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 生成密钥</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>ssh<span class="op">-</span>keygen <span class="op">-</span>t rsa</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 发送密钥</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>scp C<span class="op">:</span>\Users\Red_Leaves\<span class="op">.</span><span class="fu">ssh</span>\id_rsa<span class="op">.</span><span class="fu">pub</span> redleaves@192<span class="op">.</span><span class="fu">168</span><span class="op">.</span><span class="fu">168</span><span class="op">.</span><span class="fu">2</span><span class="op">:~/.</span><span class="fu">ssh</span></span></code></pre></div>
+<p>然后去树莓派配置</p>
+<ol type="1">
+<li><p>重命名公钥文件</p>
+<pre><code>mv ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys</code></pre></li>
+<li><p>修改文件权限</p>
+<pre><code>chmod 600 ~/.ssh/authorized_keys
+chmod 700 ~/.ssh</code></pre></li>
+<li><p>修改SSH配置文件</p>
+<pre><code>sudo vim /etc/ssh/sshd_config</code></pre></li>
+<li><p>添加语句，保证这三句不被注释掉，没有则手动添加</p>
+<pre><code>RSAAuthentication yes 
+PubkeyAuthentication yes 
+AuthorizedKeysFile .ssh/authorized_keys</code></pre></li>
+<li><p>重启SSH服务</p>
+<pre><code>sudo service sshd restart</code></pre></li>
+</ol>
+<p>接下来再登录就不再需要密码了。参考：<a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/401327519">这里</a></p>
+<h3 id="安装hadoop">安装Hadoop</h3>
+<ol type="1">
+<li><p>下载安装包并解压：</p>
+<pre><code>wget https://dlcdn.apache.org/hadoop/common/hadoop-3.3.2/hadoop-3.3.2.tar.gz
+tar -zxvf hadoop-3.3.2.tar.gz</code></pre></li>
+<li><p>进入到 Hadoop-3.3.2 目录，使用 pwd 命令打印 hadoop
+安装路径，并利用鼠标选择复制该路径</p>
+<pre><code>cd hadoop-3.3.2
+pwd</code></pre></li>
+<li><p>配置Hadoop环境变量并检测是否安装成功</p>
+<pre><code>sudo vim /etc/profile</code></pre>
+<p>插入：</p>
+<pre><code># hadoop
+export HADOOP_HOME=/home/redleaves/Downloads/hadoop-3.3.2
+export PATH=$HADOOP_HOME/bin:$HADOOP_HOME/sbin:$PATH
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export YARN_HOME=$HADOOP_HOME
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+export HADOOP_OPTS=&quot;-Djava.library.path-$HADOOP_HOME/lib&quot;
+export JAVA_LIBRARY_PATH=$HADOOP_HOME/lib/native:$JAVA_LIBRARY_PATH</code></pre>
+<p>确认环境变量更新：</p>
+<pre><code>source /etc/profile</code></pre>
+<p>直接输入</p>
+<pre><code>hadoop</code></pre>
+<p>如果输出软件命令提示，说明安装成功。</p></li>
+</ol>
+<h2 id="配置hadoop">配置Hadoop</h2>
+<p>Hadoop所有的配置文件都在其安装目录的etc文件中，配置时终端要进入Hadoop安装目录。</p>
+<h3 id="配置-core-site.xml-文件">配置 core-site.xml 文件</h3>
+<pre class="shell"><code>vim etc/hadoop/core-site.xml</code></pre>
+<p>该配置文件属于 Hadoop 的全局配置文件，我们主要进行配置分布式文件系统
+HDFS 的入口地址（即 NameNode 的地址）和 HDFS
+运行时所生产数据的保存位置，如下：</p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">configuration</span>&gt;</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- 指定 HDFS 中 NameNode 的地址 --&gt;</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">property</span>&gt;</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- 该参数是配置指定 HDFS 的通信地址。其值为 hdfs://BigData01:9000，9000 为端口号。--&gt;</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;fs.defaultFS&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- 其中 hdfs 为协议名称，hadoop102 为 namenode 的节点主机名称，端口号为</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co">    9000 --&gt;</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;hdfs://raspberrypi01:9000&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">property</span>&gt;</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- 指定 hadoop 运行时产生文件的存储目录，该目录需要单独创建 --&gt;</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">property</span>&gt;</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- hadoop.tmp.dir：该参数配置的是 Hadoop 临时目录，即指定 Hadoop 运行时产生</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="co">    文件的存储路径，其值可以自行设置，不能设置为/tmp（/tmp 是 Linux 的临时目</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="co">    录）。--&gt;</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;hadoop.tmp.dir&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;/home/redleaves/hadoop_data/tmp&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">property</span>&gt;</span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">configuration</span>&gt;</span></code></pre></div>
+<h3 id="配置-hdfs-site.xml-文件">配置 hdfs-site.xml 文件</h3>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">configuration</span>&gt;</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">property</span>&gt;</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- dfs.namenode.http-address：该参数是配置 NameNode 的 http 访问地址和端口号。</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co">因为在集群规划中指定raspberrypi01 设为 NameNode 的服务器，故设置为 raspberrypi01:50070。--&gt;</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;dfs.namenode.http-address&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;raspberrypi01:50070&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">property</span>&gt;</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">property</span>&gt;</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- dfs.namenode.secondary.http-address：该参数是配置 SecondaryNameNode 的 http 访问地址和端口号。在集群规划中指定 raspberrypi02 设为 SecondaryNameNode 的服务</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co">器，故设置为 raspberrypi02:50090。--&gt;</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;dfs.namenode.secondary.http-address&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;raspberrypi02:50090&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">property</span>&gt;</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">property</span>&gt;</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- fs.replication：该参数是配置 HDFS 副本数量。--&gt;</span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;dfs.replication&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;3&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">property</span>&gt;</span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">property</span>&gt;</span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- dfs.namenode.name.dir：该参数是设置 NameNode 存放的路径--&gt;</span></span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;dfs.namenode.name.dir&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;/home/redleaves/hadoop_data/dfs/name&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">property</span>&gt;</span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">property</span>&gt;</span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- dfs.datanode.data.dir：该参数是设置 DataNode 存放的路径--&gt;</span></span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;dfs.datanode.data.dir&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;/home/redleaves/hadoop_data/dfs/data&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">property</span>&gt;</span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">configuration</span>&gt;</span></code></pre></div>
+<h3 id="配置yarn-site.xml文件">配置yarn-site.xml文件</h3>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">configuration</span>&gt;</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">property</span>&gt; </span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;yarn.resourcemanager.hostsname&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;raspberrypi01&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">property</span>&gt;</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">property</span>&gt;</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- yarn.resourcemanager.webapp.address：该参数是指定 ResourceManager 服务器的</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co">web 地址和端口。--&gt;</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;yarn.resourcemanager.webapp.address&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;raspberrypi01:8088&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">property</span>&gt;</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">property</span>&gt;</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- yarn.nodemanager,aux-services：该参数是指定 NodeManager 启动时加载 server 的方式--&gt;</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;yarn.nodemanager.aux-services&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;mapreduce_shuffle&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">property</span>&gt;</span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">property</span>&gt;</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- yarn.nodemanager.aux-services.mapreduce.shuffle.class：该参数是指定使用mapreduce_shuffle 中的类。--&gt;</span></span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;yarn.nodemanager.aux-services.mapreduce.shuffle.class&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;org.apache.hadoop.mapred.ShuffleHandler&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">property</span>&gt;</span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">property</span>&gt;</span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- yarn.log-aggregation-enable：该参数是配置是否启用日志聚集功能--&gt;</span></span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;yarn.log-aggregation-enable&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;true&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">property</span>&gt;</span>
+<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">property</span>&gt;</span>
+<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- yarn.log-aggregation.retain-seconds：该参数是配置聚集的日志在 HDFS 上保存的</span></span>
+<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a><span class="co">最长时间。--&gt;</span></span>
+<span id="cb31-30"><a href="#cb31-30" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;yarn.log-aggregation.retain-seconds&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb31-31"><a href="#cb31-31" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;106800&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb31-32"><a href="#cb31-32" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">property</span>&gt;</span>
+<span id="cb31-33"><a href="#cb31-33" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">property</span>&gt;</span>
+<span id="cb31-34"><a href="#cb31-34" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- yarn.nodemanager.remote-app-log-dir：该参数是指定日志聚合目录。--&gt;</span></span>
+<span id="cb31-35"><a href="#cb31-35" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;yarn.nodemanager.remote-app-log-dir&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb31-36"><a href="#cb31-36" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;/home/redleaves/container/logs&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb31-37"><a href="#cb31-37" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">property</span>&gt;</span>
+<span id="cb31-38"><a href="#cb31-38" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">configuration</span>&gt;</span></code></pre></div>
+<h3 id="配置mapred-site.xml文件">配置mapred-site.xml文件</h3>
+<ul>
+<li><p>使用<code>hadoop class</code>查询到一串环境变量。</p></li>
+<li><p>注意：文件中<code>$&#123;full path of your hadoop distribution directory&#125;</code>这一部分使用上面得到的环境变量串替换。</p></li>
+</ul>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode xml"><code class="sourceCode xml"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">configuration</span>&gt;</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">property</span>&gt;</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- mapreduce.framework.name：该参数是指定 MapReduce 框架运行在 YARN 上。--&gt;</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;mapreduce.framework.name&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;yarn&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">property</span>&gt;</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">property</span>&gt;</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- mapreduce.jobhistory.address：该参数是设置 MapReduce 的历史服务器安装的位置</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="co">及端口号。--&gt;</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;mapreduce.jobhistory.address&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;raspberrypi01:10020&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">property</span>&gt;</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">property</span>&gt;</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- mapreduce.jobhistory.webapp.address：该参数是设置历史服务器的 web 页面地址和</span></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a><span class="co">端口。--&gt;</span></span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;mapreduce.jobhistory.webapp.address&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;raspberrypi01:19888&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">property</span>&gt;</span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">property</span>&gt;</span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- mapreduce.jobhistory.intermediate-done-dir：该参数是设置存放日志文件的临时目</span></span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a><span class="co">录。--&gt;</span></span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;mapreduce.jobhistory.intermediate-done-dir&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;$&#123;hadoop.tmp.dir&#125;/mr-history/tmp&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">property</span>&gt;</span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">property</span>&gt;</span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- mapreduce.jobhistory.done-dir：该参数是设置存放运行日志文件的最终目录。--&gt;</span></span>
+<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;mapreduce.jobhistory.done-dir&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;$&#123;hadoop.tmp.dir&#125;/mr-history/done&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">property</span>&gt;</span>
+<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">property</span>&gt;</span>
+<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;yarn.app.mapreduce.am.env&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;HADOOP_MAPRED_HOME=$&#123;full path of your hadoop distribution directory&#125;&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">property</span>&gt;</span>
+<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">property</span>&gt;</span>
+<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;mapreduce.map.env&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;HADOOP_MAPRED_HOME=$&#123;full path of your hadoop distribution directory&#125;&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">property</span>&gt;</span>
+<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">property</span>&gt;</span>
+<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;mapreduce.reduce.env&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb32-40"><a href="#cb32-40" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">value</span>&gt;HADOOP_MAPRED_HOME=$&#123;full path of your hadoop distribution directory&#125;&lt;/<span class="kw">value</span>&gt;</span>
+<span id="cb32-41"><a href="#cb32-41" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">property</span>&gt;</span>
+<span id="cb32-42"><a href="#cb32-42" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">configuration</span>&gt;</span></code></pre></div>
+<h3 id="编辑workers文件插入以下内容">编辑Workers文件，插入以下内容</h3>
+<pre><code>raspberrypi01
+raspberrypi02
+raspberrypi03</code></pre>
+<h3 id="加入java环境变量">加入JAVA环境变量</h3>
+<p>在安装目录中的 ./etc/hadoop/hadoop-env.sh 中在显式的重新声明一遍
+JAVA_HOME。</p>
+<pre class="shell"><code>export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-armhf/</code></pre>
+<p>不声明会出现如下的错误</p>
+<pre><code>JAVA_HOME is not set and could not be found.</code></pre>
+<h3 id="分发集群">分发集群</h3>
+<pre class="shell"><code>scp -r ~/Downloads/hadoop-3.3.2 redleaves@raspberrypi02:~/Downloads/hadoop-3.3.2
+scp -r ~/Downloads/hadoop-3.3.2 redleaves@raspberrypi03:~/Downloads/hadoop-3.3.2</code></pre>
+<h3 id="启动和停止集群">启动和停止集群</h3>
+<p>在启动hadoop集群前，需要先格式化NameNode，在Master主机(raspberrypi01)下操作：</p>
+<pre class="shell"><code>hdfs namenode -format</code></pre>
+<p>格式化后即可启动集群的节点，可以分别启动HDFS和YARN，也可以一起启动：</p>
+<p>全部启动命令：<code>start-all.sh</code></p>
+<p>启动和停止HDFS：</p>
+<pre class="shell"><code>start-dfs.sh        #启动HDFS
+stop-dfs.sh         #停止HDFS</code></pre>
+<p>启动和停止YARN：</p>
+<pre class="shell"><code>start-yarn.sh       #启动YARN
+stop-yarn.sh        #停止YARN</code></pre>
+<p>全部启动和停止：</p>
+<pre class="shell"><code>start-all.sh        #启动HDFS和YARN
+stop-all.sh         #停止HDFS和YARN</code></pre>
+<p>启动和停止历史（日志）服务器：</p>
+<pre><code>mr-jobhistory-daemon.sh start historyserver     #启动historyserver
+mr-jobhistory-daemon.sh start historyserver     #停止historyserver</code></pre>
+<p>最后验证是否启动成功，命令为</p>
+<pre><code>jps</code></pre>
+<p>成功开启后，会看到如下节点：</p>
+<p><img src="/assets/mdpics/image-20220615003959848.png"
+alt="主机" /></p>
+<p><img src="/assets/mdpics/image-20220615004025262.png"
+alt="1号从机" /></p>
+<p><img src="/assets/mdpics/image-20220615004133504.png"
+alt="2号从机" /></p>
+<p>终于配置完了。。。</p>
+<p><img src="/assets/others/th/shotBa007.png" alt="庆祝一下吧" /></p>
+<p>完成配置后，使用以下的命令查看和创建文件</p>
+<pre><code>hadoop fs -ls /
+hadoop dfs -touchz /main.c
+hadoop fs -ls</code></pre>
+<h3 id="其他问题">其他问题</h3>
+<ol type="1">
+<li>如果出现permission
+denied错误，说明主机和从机的SSH连接没有配置好。应该在主机上重新生成SSH，再将公钥分发到从机上。也就是说，生成SSH密钥的过程有两次。第一次是在PC连接树莓派时，第二次是主机连接从机时。</li>
+</ol>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 本内容依据“CC BY-NC-SA 4.0”许可证进行授权。要查看该许可证，可访问https://creativecommons.org/licenses/by-nc-sa/4.0/ </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2020-2022 nameETC
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 552px;
+    }
+    .nav.fullscreen {
+        margin-left: -552px;
+    }
+    .nav-left {
+        width: 130px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 502px;
+        }
+        .nav.fullscreen {
+            margin-left: -502px;
+        }
+        .nav-left {
+            width: 110px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 502px;
+            margin-left: -502px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.6;
+        background: url("/img/article-list-background.jpg");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    
+    <a class="dynamic-menu " target="_self"   href="/">Red_Leaves</a>
+    
+    
+</div>
+
+
+</html>

@@ -1,0 +1,2830 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>进程同步——进程L16-L19笔记 | Set sail!</title>
+  <meta name="keywords" content=" 操作系统 ">
+  <meta name="description" content="进程同步——进程L16-L19笔记 | Set sail!">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="404 ERROR 页面不存在  点此回到首页！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="该页面无法显示">
+<meta property="og:url" content="http://redleaves699.github.io/404/index.html">
+<meta property="og:site_name" content="Set sail!">
+<meta property="og:description" content="404 ERROR 页面不存在  点此回到首页！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://redleaves699.github.io/assets/others/th/hit1.png">
+<meta property="og:image" content="http://redleaves699.github.io/404/index/Everydayonecat-hi.gif">
+<meta property="article:published_time" content="2022-02-16T14:02:14.000Z">
+<meta property="article:modified_time" content="2024-06-01T12:17:52.507Z">
+<meta property="article:author" content="Red_Leaves">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://redleaves699.github.io/assets/others/th/hit1.png">
+
+
+<link rel="icon" href="/img/favicon.png">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="false" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Red_Leaves</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/redleaves699"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:Algorithm_sort@163.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+    <a class="more-menus">更多菜单</a>
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(108)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="数学">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        数学
+                        <small>(8)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="数学<--->概率论">
+                                        
+                                        概率论
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="数学<--->高等数学">
+                                        
+                                        高等数学
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="数学<--->密码学">
+                                        
+                                        密码学
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="数学<--->线性代数">
+                                        
+                                        线性代数
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="数学<--->应用">
+                                        
+                                        应用
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="算法">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        算法
+                        <small>(23)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="算法<--->理论">
+                                        
+                                        理论
+                                        
+                                            <small>(9
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="算法<--->题解">
+                                        
+                                        题解
+                                        
+                                            <small>(14
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="前端">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        前端
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="前端<--->Markdown">
+                                        
+                                        Markdown
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="大数据">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        大数据
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="大数据<--->Hadoop">
+                                        
+                                        Hadoop
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="编程语言">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        编程语言
+                        <small>(15)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->编译器">
+                                        
+                                        编译器
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->功能">
+                                        
+                                        功能
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->硬件设计">
+                                        
+                                        硬件设计
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->C">
+                                        
+                                        C
+                                        
+                                            <small>(5
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->C++">
+                                        
+                                        C++
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->Java">
+                                        
+                                        Java
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->Python">
+                                        
+                                        Python
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="体系结构">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        体系结构
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="体系结构<--->原理">
+                                        
+                                        原理
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="机器学习">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        机器学习
+                        <small>(17)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="机器学习<--->实践">
+                                        
+                                        实践
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="应用软件">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        应用软件
+                        <small>(27)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="应用软件<--->操作系统">
+                                        
+                                        操作系统
+                                        
+                                            <small>(20
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="应用软件<--->软件使用">
+                                        
+                                        软件使用
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="应用软件<--->数据库">
+                                        
+                                        数据库
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="应用软件<--->Android">
+                                        
+                                        Android
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="应用软件<--->Git">
+                                        
+                                        Git
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="感想随笔">
+                        
+                        感想随笔
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="嵌入式">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        嵌入式
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="嵌入式<--->实践">
+                                        
+                                        实践
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Web">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Web
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Web<--->js">
+                                        <i class="fold iconfont icon-right"></i>
+                                        
+                                        js
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                        <ul class="sub hide">
+                                            
+                                                <li>
+                                                    <div data-rel="Web<--->jsVue">
+                                                        
+                                                        Vue
+                                                        
+                                                            <small>(1)</small>
+                                                        
+                                                    </div>
+                                                </li>
+                                            
+                                        </ul>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+                <a class="dynamic-menu "
+                   target="_self"
+                   
+                   href="/">Red_Leaves</a>
+        
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="108">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="/www.github.com/redleaves699">My GitHub</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>01背包</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>2018</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>2021牛客暑期多校第二场</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>2021牛客暑期多校第一场</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>贝叶斯方法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>背包问题</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>编程语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>编译原理</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>博客搭建</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>操作系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>大数据</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>待完善</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>递归</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>动态规划</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>多重背包</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>非对称加密</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>分类问题</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>分治法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>概率论</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>高等数学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>高级</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>高性能</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>格式化文本</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>回归问题</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>回溯法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>机器学习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>计时</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>计算机系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>技巧</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>矩阵论</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>决策树</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>开发</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>课程实践</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>类型</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>密码学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>模拟实训</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>逆向分析</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>排序</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>启发式算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>前端</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>软件开发</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>深度学习</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>神经网络</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>生活</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>声明</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>实验环境配置</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>实用</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数据结构</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数据库</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>随机数</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>贪心</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>题解</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>题目</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>统计学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>完全背包</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>网页内容</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>线性代数</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>线性规划</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>信息论</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>学习笔记</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>英语</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>硬件</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>硬件描述语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>运算</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>运算符</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>正则表达式</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>政治历史</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>指针</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>字符串</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Anaconda</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Android</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>c</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>C</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>c++</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>C语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Debian</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Educoder</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GIS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Git</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>GitHub</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Hadoop</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>IO</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>java</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Java</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>javascript</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>json</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>kmp</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>LearnGitBranch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux0.11</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>markdown</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>NOIP-J</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>riscv</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>stack</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>STM32</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>SVM</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>toposort</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>USACO</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Verilog</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Windows</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="All 算法 理论 "
+           href="/2024/07/28/Algorithm/basic/kmp/"
+           data-tag="字符串,算法,kmp,待完善"
+           data-author="" >
+            <span class="post-title" title="KMP字符串匹配算法">KMP字符串匹配算法</span>
+            <span class="post-date" title="2024-07-28 15:01:00">2024/07/28</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 C "
+           href="/2024/07/04/Programming%20Language/C/%E4%B8%8D%E5%AE%9A%E5%8F%82%E6%95%B0/"
+           data-tag="C"
+           data-author="" >
+            <span class="post-title" title="C语言不定参数">C语言不定参数</span>
+            <span class="post-date" title="2024-07-04 19:49:47">2024/07/04</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 C "
+           href="/2024/07/03/Programming%20Language/C/C%E8%AF%AD%E8%A8%80%E5%A3%B0%E6%98%8E%E8%A7%84%E5%88%99%E4%B8%8E%E7%A4%BA%E4%BE%8B/"
+           data-tag="C语言,指针,声明,类型"
+           data-author="" >
+            <span class="post-title" title="C语言声明规则与示例">C语言声明规则与示例</span>
+            <span class="post-date" title="2024-07-03 21:13:00">2024/07/03</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 数据库 "
+           href="/2024/06/12/apps/sql/PostgreSql/"
+           data-tag="数据库,课程实践"
+           data-author="" >
+            <span class="post-title" title="学习PostgreSQL">学习PostgreSQL</span>
+            <span class="post-date" title="2024-06-12 10:17:33">2024/06/12</span>
+        </a>
+        
+        
+        <a  class="All 数学 密码学 "
+           href="/2024/04/14/apps/crypt/RSA%E7%AE%97%E6%B3%95/"
+           data-tag="密码学,非对称加密"
+           data-author="" >
+            <span class="post-title" title="RSA算法">RSA算法</span>
+            <span class="post-date" title="2024-04-14 20:05:00">2024/04/14</span>
+        </a>
+        
+        
+        <a  class="All 数学 密码学 "
+           href="/2024/04/14/apps/crypt/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/"
+           data-tag="密码学,非对称加密"
+           data-author="" >
+            <span class="post-title" title="非对称加密简介">非对称加密简介</span>
+            <span class="post-date" title="2024-04-14 13:05:00">2024/04/14</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 C "
+           href="/2023/12/05/Programming%20Language/C/%E7%96%91%E9%9A%BE%E9%97%AE%E9%A2%98/"
+           data-tag="c"
+           data-author="" >
+            <span class="post-title" title="C语言答疑">C语言答疑</span>
+            <span class="post-date" title="2023-12-05 19:49:47">2023/12/05</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/10/13/apps/Operating%20System/bare%20Hello%20world/"
+           data-tag="操作系统,硬件,riscv"
+           data-author="" >
+            <span class="post-title" title="裸机Hello World程序">裸机Hello World程序</span>
+            <span class="post-date" title="2023-10-13 14:06:50">2023/10/13</span>
+        </a>
+        
+        
+        <a  class="All 嵌入式 实践 "
+           href="/2023/06/09/STM32/%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8/"
+           data-tag="C,STM32"
+           data-author="" >
+            <span class="post-title" title="STM32启动方式">STM32启动方式</span>
+            <span class="post-date" title="2023-06-09 09:11:30">2023/06/09</span>
+        </a>
+        
+        
+        <a  class="All 感想随笔 "
+           href="/2023/04/12/essay/handwrite/"
+           data-tag="生活"
+           data-author="" >
+            <span class="post-title" title="学学写字">学学写字</span>
+            <span class="post-date" title="2023-04-12 23:13:47">2023/04/12</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/04/07/apps/Operating%20System/CS07%20Lecture28-32/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="磁盘管理——外设L28-32笔记">磁盘管理——外设L28-32笔记</span>
+            <span class="post-date" title="2023-04-07 08:56:00">2023/04/07</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/04/06/apps/Operating%20System/CS07%20Lecture26-27/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="让外设工作起来——外设L26-27笔记">让外设工作起来——外设L26-27笔记</span>
+            <span class="post-date" title="2023-04-06 14:45:00">2023/04/06</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/04/04/apps/Operating%20System/CS07%20Lecture20-25/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="内存管理——内存L20-L25笔记">内存管理——内存L20-L25笔记</span>
+            <span class="post-date" title="2023-04-04 09:43:00">2023/04/04</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/04/02/apps/Operating%20System/CS07%20Lecture14,15/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="进程调度——进程L14-15笔记">进程调度——进程L14-15笔记</span>
+            <span class="post-date" title="2023-04-02 22:39:00">2023/04/02</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/04/02/apps/Operating%20System/CS07%20Lecture16-19/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="进程同步——进程L16-L19笔记">进程同步——进程L16-L19笔记</span>
+            <span class="post-date" title="2023-04-02 22:39:00">2023/04/02</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/04/01/apps/Operating%20System/CS07%20Lecture10-13/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="进程与线程的切换——进程L10-L13笔记">进程与线程的切换——进程L10-L13笔记</span>
+            <span class="post-date" title="2023-04-01 11:00:00">2023/04/01</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/03/31/apps/Operating%20System/CS07%20Lecture8,9/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="进程与线程——进程L8-9笔记">进程与线程——进程L8-9笔记</span>
+            <span class="post-date" title="2023-03-31 22:00:00">2023/03/31</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/03/30/apps/Operating%20System/CS07%20Lecture4,5/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="创建一个进程——基础篇L4-5笔记">创建一个进程——基础篇L4-5笔记</span>
+            <span class="post-date" title="2023-03-30 22:00:00">2023/03/30</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/03/30/apps/Operating%20System/CS07%20Lecture6,7/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="操作系统发展史——基础篇L6-7笔记">操作系统发展史——基础篇L6-7笔记</span>
+            <span class="post-date" title="2023-03-30 22:00:00">2023/03/30</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/03/28/apps/Operating%20System/CS07%20Lecture2,3/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="操作系统启动——基础篇L1-3笔记">操作系统启动——基础篇L1-3笔记</span>
+            <span class="post-date" title="2023-03-28 23:19:04">2023/03/28</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 实践 "
+           href="/2023/02/26/machine%20learning/%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E8%B7%B5/"
+           data-tag="学习笔记,机器学习"
+           data-author="" >
+            <span class="post-title" title="数字识别实践">数字识别实践</span>
+            <span class="post-date" title="2023-02-26 08:00:00">2023/02/26</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 Python "
+           href="/2023/02/05/Programming%20Language/Python/Anaconda%20python/"
+           data-tag="python,Anaconda"
+           data-author="" >
+            <span class="post-title" title="Anaconda Python工具的使用">Anaconda Python工具的使用</span>
+            <span class="post-date" title="2023-02-05 19:49:47">2023/02/05</span>
+        </a>
+        
+        
+        <a  class="All 感想随笔 "
+           href="/2022/08/26/essay/Words/"
+           data-tag="英语"
+           data-author="" >
+            <span class="post-title" title="英语单词-咬文嚼字">英语单词-咬文嚼字</span>
+            <span class="post-date" title="2022-08-26 15:13:47">2022/08/26</span>
+        </a>
+        
+        
+        <a  class="All 大数据 Hadoop "
+           href="/2022/06/29/data%20process/hadoop%E9%9B%86%E7%BE%A44/"
+           data-tag="Hadoop,java,学习笔记,大数据"
+           data-author="" >
+            <span class="post-title" title="Hadoop 的应用进阶">Hadoop 的应用进阶</span>
+            <span class="post-date" title="2022-06-29 08:00:00">2022/06/29</span>
+        </a>
+        
+        
+        <a  class="All 大数据 Hadoop "
+           href="/2022/06/27/data%20process/hadoop%E9%9B%86%E7%BE%A43/"
+           data-tag="Hadoop,java,学习笔记,大数据"
+           data-author="" >
+            <span class="post-title" title="Hadoop 运行Wordcount程序及程序解读">Hadoop 运行Wordcount程序及程序解读</span>
+            <span class="post-date" title="2022-06-27 08:00:00">2022/06/27</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/06/21/Algorithm/solution/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%A5%BD%E9%A2%98%E8%A7%A3%E7%AD%94/"
+           data-tag="动态规划,题解"
+           data-author="" >
+            <span class="post-title" title="动态规划好题解答">动态规划好题解答</span>
+            <span class="post-date" title="2022-06-21 21:19:37">2022/06/21</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/06/21/Algorithm/solution/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E5%A5%BD%E9%A2%98/"
+           data-tag="动态规划,题目"
+           data-author="" >
+            <span class="post-title" title="动态规划好题">动态规划好题</span>
+            <span class="post-date" title="2022-06-21 21:19:37">2022/06/21</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/06/20/Algorithm/solution/The%20nearest%20pair%20problem/"
+           data-tag="算法,分治法"
+           data-author="" >
+            <span class="post-title" title="POJ-3714 Raid">POJ-3714 Raid</span>
+            <span class="post-date" title="2022-06-20 15:20:30">2022/06/20</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 Java "
+           href="/2022/06/18/Programming%20Language/Java%20and%20Android/Javaio/"
+           data-tag="高性能,IO,Java"
+           data-author="" >
+            <span class="post-title" title="Java高速输入输出">Java高速输入输出</span>
+            <span class="post-date" title="2022-06-18 09:15:35">2022/06/18</span>
+        </a>
+        
+        
+        <a  class="All 大数据 Hadoop "
+           href="/2022/06/15/data%20process/hadoop%E9%9B%86%E7%BE%A42/"
+           data-tag="Hadoop,java,学习笔记"
+           data-author="" >
+            <span class="post-title" title="Hadoop 进行文件节点的访问">Hadoop 进行文件节点的访问</span>
+            <span class="post-date" title="2022-06-15 08:00:00">2022/06/15</span>
+        </a>
+        
+        
+        <a  class="All 大数据 Hadoop "
+           href="/2022/06/13/data%20process/hadoop%E9%9B%86%E7%BE%A4/"
+           data-tag="Hadoop,java,学习笔记"
+           data-author="" >
+            <span class="post-title" title="Hadoop集群的配置">Hadoop集群的配置</span>
+            <span class="post-date" title="2022-06-13 08:00:00">2022/06/13</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 C "
+           href="/2022/05/26/Programming%20Language/C/C%E8%AF%AD%E8%A8%80%E7%9A%84%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/"
+           data-tag="c,运算符"
+           data-author="" >
+            <span class="post-title" title="C,C++语言的算符优先级">C,C++语言的算符优先级</span>
+            <span class="post-date" title="2022-05-26 09:06:21">2022/05/26</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 功能 "
+           href="/2022/05/25/Useful%20functions/strings/"
+           data-tag="c,c++,python,字符串,正则表达式"
+           data-author="" >
+            <span class="post-title" title="字符串处理指南">字符串处理指南</span>
+            <span class="post-date" title="2022-05-25 08:52:21">2022/05/25</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 软件使用 "
+           href="/2022/04/28/apps/others/%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E5%85%B7curl/"
+           data-tag="Windows,Linux"
+           data-author="" >
+            <span class="post-title" title="命令行实现的浏览器——curl">命令行实现的浏览器——curl</span>
+            <span class="post-date" title="2022-04-28 16:25:15">2022/04/28</span>
+        </a>
+        
+        
+        <a  class="All 算法 理论 "
+           href="/2022/04/21/Algorithm/basic/greedy1/"
+           data-tag="算法,贪心"
+           data-author="" >
+            <span class="post-title" title="贪心理论和常见的证明方法">贪心理论和常见的证明方法</span>
+            <span class="post-date" title="2022-04-21 19:36:20">2022/04/21</span>
+        </a>
+        
+        
+        <a  class="All 算法 理论 "
+           href="/2022/04/21/Algorithm/basic/greedy2/"
+           data-tag="算法,贪心"
+           data-author="" >
+            <span class="post-title" title="贪心方法的产生">贪心方法的产生</span>
+            <span class="post-date" title="2022-04-21 19:36:20">2022/04/21</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/04/12/Algorithm/solution/Knignt%20move%20circuit/"
+           data-tag="分治法,回溯法,启发式算法,高性能"
+           data-author="" >
+            <span class="post-title" title="马的周游问题(knight move circuit)">马的周游问题(knight move circuit)</span>
+            <span class="post-date" title="2022-04-12 09:56:00">2022/04/12</span>
+        </a>
+        
+        
+        <a  class="All 算法 理论 "
+           href="/2022/04/10/Algorithm/solution/%E6%B1%82%E8%A7%A3%E5%A4%9A%E6%9C%BA%E8%B0%83%E5%BA%A6/"
+           data-tag="算法,排序,贪心,回溯法"
+           data-author="" >
+            <span class="post-title" title="求解多机调度问题">求解多机调度问题</span>
+            <span class="post-date" title="2022-04-10 22:15:08">2022/04/10</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/04/03/Algorithm/solution/MQ%20optimize%20DP/"
+           data-tag="背包问题,多重背包"
+           data-author="" >
+            <span class="post-title" title="单调队列优化动态规划">单调队列优化动态规划</span>
+            <span class="post-date" title="2022-04-03 07:46:50">2022/04/03</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/03/31/machine%20learning/%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B-Hidden%20Markov/"
+           data-tag="数学,学习笔记,机器学习,概率论,算法,贝叶斯方法"
+           data-author="" >
+            <span class="post-title" title="隐马尔可夫模型">隐马尔可夫模型</span>
+            <span class="post-date" title="2022-03-31 20:20:00">2022/03/31</span>
+        </a>
+        
+        
+        <a  class="All 算法 理论 "
+           href="/2022/03/31/machine%20learning/Stochastic%20gradient%20descent/"
+           data-tag="机器学习,算法,高等数学,线性代数"
+           data-author="" >
+            <span class="post-title" title="随机梯度下降法">随机梯度下降法</span>
+            <span class="post-date" title="2022-03-31 15:20:30">2022/03/31</span>
+        </a>
+        
+        
+        <a  class="All 算法 理论 "
+           href="/2022/03/29/Algorithm/solution/Monotonic%20Stack%20and%20Queue/"
+           data-tag="算法,stack"
+           data-author="" >
+            <span class="post-title" title="单调栈和单调队列">单调栈和单调队列</span>
+            <span class="post-date" title="2022-03-29 20:59:27">2022/03/29</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/03/28/Algorithm/solution/Luogu.org.P1616/"
+           data-tag="完全背包,背包问题"
+           data-author="" >
+            <span class="post-title" title="完全背包">完全背包</span>
+            <span class="post-date" title="2022-03-28 09:40:24">2022/03/28</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/03/27/Algorithm/solution/Luogu.org.P1156/"
+           data-tag="USACO,2018,动态规划,01背包"
+           data-author="" >
+            <span class="post-title" title="USACO 垃圾陷阱">USACO 垃圾陷阱</span>
+            <span class="post-date" title="2022-03-27 20:19:37">2022/03/27</span>
+        </a>
+        
+        
+        <a  class="All 数学 概率论 "
+           href="/2022/03/26/math/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/"
+           data-tag="数学,学习笔记,概率论,矩阵论"
+           data-author="" >
+            <span class="post-title" title="贝叶斯概率">贝叶斯概率</span>
+            <span class="post-date" title="2022-03-26 12:00:00">2022/03/26</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/03/22/Algorithm/solution/Luogu.org.P5017/"
+           data-tag="2018,动态规划,NOIP-J,线性规划"
+           data-author="" >
+            <span class="post-title" title="NOIP2018-J 摆渡车">NOIP2018-J 摆渡车</span>
+            <span class="post-date" title="2022-03-22 21:19:37">2022/03/22</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/03/19/machine%20learning/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B4/"
+           data-tag="数学,学习笔记,机器学习,算法,分类问题"
+           data-author="" >
+            <span class="post-title" title="感知机">感知机</span>
+            <span class="post-date" title="2022-03-19 21:00:00">2022/03/19</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/03/11/machine%20learning/svm3/"
+           data-tag="数学,学习笔记,机器学习,算法,回归问题"
+           data-author="" >
+            <span class="post-title" title="支持向量机3-支持向量回归">支持向量机3-支持向量回归</span>
+            <span class="post-date" title="2022-03-11 21:10:00">2022/03/11</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/03/09/machine%20learning/km/"
+           data-tag="数学,学习笔记,机器学习,算法"
+           data-author="" >
+            <span class="post-title" title="支持向量机的核方法">支持向量机的核方法</span>
+            <span class="post-date" title="2022-03-09 21:15:00">2022/03/09</span>
+        </a>
+        
+        
+        <a  class="All 算法 理论 "
+           href="/2022/03/09/Algorithm/basic/Sort/"
+           data-tag="算法,排序"
+           data-author="" >
+            <span class="post-title" title="常用的排序算法分析和实现">常用的排序算法分析和实现</span>
+            <span class="post-date" title="2022-03-09 15:13:47">2022/03/09</span>
+        </a>
+        
+        
+        <a  class="All 数学 高等数学 "
+           href="/2022/03/09/math/%E7%BA%A6%E6%9D%9F%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98/"
+           data-tag="数学,学习笔记,算法,高等数学,矩阵论,SVM"
+           data-author="" >
+            <span class="post-title" title="约束优化问题">约束优化问题</span>
+            <span class="post-date" title="2022-03-09 14:30:00">2022/03/09</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/03/09/machine%20learning/svm2/"
+           data-tag="数学,学习笔记,机器学习,算法,分类问题"
+           data-author="" >
+            <span class="post-title" title="支持向量机2-软间隔">支持向量机2-软间隔</span>
+            <span class="post-date" title="2022-03-09 08:00:00">2022/03/09</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/03/08/machine%20learning/svm1/"
+           data-tag="数学,学习笔记,机器学习,算法,分类问题"
+           data-author="" >
+            <span class="post-title" title="支持向量机1-硬间隔">支持向量机1-硬间隔</span>
+            <span class="post-date" title="2022-03-08 08:00:00">2022/03/08</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/03/07/machine%20learning/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B3/"
+           data-tag="数学,学习笔记,机器学习,算法,分类问题"
+           data-author="" >
+            <span class="post-title" title="对数几率回归">对数几率回归</span>
+            <span class="post-date" title="2022-03-07 08:00:00">2022/03/07</span>
+        </a>
+        
+        
+        <a  class="All 数学 线性代数 "
+           href="/2022/03/05/math/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/"
+           data-tag="数学,学习笔记,算法,高等数学,矩阵论"
+           data-author="" >
+            <span class="post-title" title="矩阵，向量求导">矩阵，向量求导</span>
+            <span class="post-date" title="2022-03-05 08:00:00">2022/03/05</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/03/05/machine%20learning/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B2/"
+           data-tag="数学,学习笔记,机器学习,算法,分类问题"
+           data-author="" >
+            <span class="post-title" title="LDA(fisher)模型">LDA(fisher)模型</span>
+            <span class="post-date" title="2022-03-05 08:00:00">2022/03/05</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/03/03/machine%20learning/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/"
+           data-tag="数学,学习笔记,机器学习,算法,回归问题"
+           data-author="" >
+            <span class="post-title" title="线性回归模型">线性回归模型</span>
+            <span class="post-date" title="2022-03-03 08:00:00">2022/03/03</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/03/02/machine%20learning/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8b/"
+           data-tag="数学,学习笔记,机器学习,概率论,算法,贝叶斯方法"
+           data-author="" >
+            <span class="post-title" title="贝叶斯分类器（下）">贝叶斯分类器（下）</span>
+            <span class="post-date" title="2022-03-02 08:00:00">2022/03/02</span>
+        </a>
+        
+        
+        <a  class="All 数学 应用 "
+           href="/2022/03/01/math/%E5%82%A8%E5%A4%87%E7%9F%A5%E8%AF%86/"
+           data-tag="数学,学习笔记,机器学习"
+           data-author="" >
+            <span class="post-title" title="机器学习的数学知识">机器学习的数学知识</span>
+            <span class="post-date" title="2022-03-01 08:00:00">2022/03/01</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/02/28/Algorithm/solution/%E6%95%B4%E6%95%B0%E5%88%92%E5%88%86%E9%97%AE%E9%A2%98/"
+           data-tag="算法,递归"
+           data-author="" >
+            <span class="post-title" title="整数划分问题">整数划分问题</span>
+            <span class="post-date" title="2022-02-28 15:13:47">2022/02/28</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/02/28/Algorithm/solution/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="最大子段和问题">最大子段和问题</span>
+            <span class="post-date" title="2022-02-28 15:13:47">2022/02/28</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/02/27/machine%20learning/%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B-Bayes%20Network/"
+           data-tag="数学,学习笔记,机器学习,概率论,算法,贝叶斯方法"
+           data-author="" >
+            <span class="post-title" title="贝叶斯网络">贝叶斯网络</span>
+            <span class="post-date" title="2022-02-27 08:00:00">2022/02/27</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/02/27/machine%20learning/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8a/"
+           data-tag="数学,学习笔记,机器学习,概率论,算法,贝叶斯方法"
+           data-author="" >
+            <span class="post-title" title="贝叶斯分类器（上）">贝叶斯分类器（上）</span>
+            <span class="post-date" title="2022-02-27 08:00:00">2022/02/27</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/02/24/machine%20learning/%E5%86%B3%E7%AD%96%E6%A0%91/"
+           data-tag="学习笔记,机器学习,决策树,信息论,数据结构"
+           data-author="" >
+            <span class="post-title" title="决策树">决策树</span>
+            <span class="post-date" title="2022-02-24 08:00:00">2022/02/24</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/02/23/machine%20learning/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"
+           data-tag="数学,学习笔记,机器学习,算法,神经网络,深度学习"
+           data-author="" >
+            <span class="post-title" title="人工神经网络">人工神经网络</span>
+            <span class="post-date" title="2022-02-23 08:00:00">2022/02/23</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/02/20/machine%20learning/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0b/"
+           data-tag="数学,学习笔记,机器学习,概率论,算法,统计学"
+           data-author="" >
+            <span class="post-title" title="集成学习的原理（下篇）">集成学习的原理（下篇）</span>
+            <span class="post-date" title="2022-02-20 08:00:00">2022/02/20</span>
+        </a>
+        
+        
+        <a  class="All 数学 高等数学 "
+           href="/2022/02/19/math/%E6%B3%B0%E5%8B%92%E5%B1%95%E5%BC%80/"
+           data-tag="数学,学习笔记,算法,高等数学"
+           data-author="" >
+            <span class="post-title" title="泰勒展开">泰勒展开</span>
+            <span class="post-date" title="2022-02-19 08:00:00">2022/02/19</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
+           href="/2022/02/14/machine%20learning/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0a/"
+           data-tag="数学,学习笔记,机器学习,概率论,算法,统计学"
+           data-author="" >
+            <span class="post-title" title="集成学习的原理（上篇）">集成学习的原理（上篇）</span>
+            <span class="post-date" title="2022-02-14 08:00:00">2022/02/14</span>
+        </a>
+        
+        
+        <a  class="All 数学 概率论 "
+           href="/2022/02/13/math/%E6%9E%81%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/"
+           data-tag="数学,学习笔记,机器学习,概率论,算法"
+           data-author="" >
+            <span class="post-title" title="极大似然估计">极大似然估计</span>
+            <span class="post-date" title="2022-02-13 08:00:00">2022/02/13</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 功能 "
+           href="/2022/02/10/Useful%20functions/json%E8%AF%AD%E6%B3%95/"
+           data-tag="javascript,json,前端,格式化文本"
+           data-author="" >
+            <span class="post-title" title="json语法">json语法</span>
+            <span class="post-date" title="2022-02-10 21:25:47">2022/02/10</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 Git "
+           href="/2022/01/22/apps/Git/git%E6%93%8D%E4%BD%9C/"
+           data-tag="Git,GitHub"
+           data-author="" >
+            <span class="post-title" title="Git代码仓库的使用">Git代码仓库的使用</span>
+            <span class="post-date" title="2022-01-22 17:10:35">2022/01/22</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 编译器 "
+           href="/2021/12/29/apps/Compiler/PL%E8%AF%AD%E8%A8%80%E7%9A%84%E6%89%A9%E5%B1%95/"
+           data-tag="Educoder,编译原理,模拟实训"
+           data-author="" >
+            <span class="post-title" title="Educoder 编译原理PL语言编译器的扩展（转载）">Educoder 编译原理PL语言编译器的扩展（转载）</span>
+            <span class="post-date" title="2021-12-29 23:53:00">2021/12/29</span>
+        </a>
+        
+        
+        <a  class="All 算法 理论 "
+           href="/2021/12/05/Algorithm/solution/Space%20coordinate%20transformation/"
+           data-tag="数学,算法,GIS"
+           data-author="" >
+            <span class="post-title" title="空间坐标转换方法">空间坐标转换方法</span>
+            <span class="post-date" title="2021-12-05 20:38:47">2021/12/05</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 C++ "
+           href="/2021/12/05/Programming%20Language/Cpp/C++%E8%AF%AD%E6%B3%95/"
+           data-tag="c++"
+           data-author="" >
+            <span class="post-title" title="C++语法">C++语法</span>
+            <span class="post-date" title="2021-12-05 19:49:47">2021/12/05</span>
+        </a>
+        
+        
+        <a  class="All Web js "
+           href="/2021/11/15/Programming%20Language/JavaScript%20and%20Web/noLimit/"
+           data-tag="前端,网页内容"
+           data-author="" >
+            <span class="post-title" title="常用网页用户限制的解除">常用网页用户限制的解除</span>
+            <span class="post-date" title="2021-11-15 16:41:17">2021/11/15</span>
+        </a>
+        
+        
+        <a  class="All Web js Vue "
+           href="/2021/11/15/Programming%20Language/JavaScript%20and%20Web/%E5%87%86%E5%A4%87%E4%BD%BF%E7%94%A8Vue/"
+           data-tag="前端,开发"
+           data-author="" >
+            <span class="post-title" title="准备使用Vue">准备使用Vue</span>
+            <span class="post-date" title="2021-11-15 16:41:17">2021/11/15</span>
+        </a>
+        
+        
+        <a  class="All 前端 Markdown "
+           href="/2021/11/15/Markdown/MarkdownIndent/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="关于markdown格式排版">关于markdown格式排版</span>
+            <span class="post-date" title="2021-11-15 15:13:47">2021/11/15</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/11/11/apps/Operating%20System/Educoder%20%E8%AF%84%E6%B5%8B%E7%A8%8B%E5%BA%8F/"
+           data-tag="Educoder,模拟实训,操作系统,逆向分析"
+           data-author="" >
+            <span class="post-title" title="Educoder 实训平台评测程序代码的获取">Educoder 实训平台评测程序代码的获取</span>
+            <span class="post-date" title="2021-11-11 23:41:15">2021/11/11</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/11/08/apps/Operating%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD7.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训7.x实验">Educoder 操作系统实训7.x实验</span>
+            <span class="post-date" title="2021-11-08 20:49:56">2021/11/08</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/11/03/apps/Operating%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD6.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训6.x实验">Educoder 操作系统实训6.x实验</span>
+            <span class="post-date" title="2021-11-03 20:49:56">2021/11/03</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 Git "
+           href="/2021/11/02/apps/Git/GitHub%20resource/"
+           data-tag="Git,GitHub"
+           data-author="" >
+            <span class="post-title" title="解决GitHub资源访问问题">解决GitHub资源访问问题</span>
+            <span class="post-date" title="2021-11-02 17:10:35">2021/11/02</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 硬件设计 "
+           href="/2021/10/25/Programming%20Language/Verilog/Verilog%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E7%94%A8%E6%93%8D%E4%BD%9C/"
+           data-tag="硬件描述语言,Verilog"
+           data-author="" >
+            <span class="post-title" title="Verilog的一些实用操作">Verilog的一些实用操作</span>
+            <span class="post-date" title="2021-10-25 19:48:45">2021/10/25</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/10/20/apps/Operating%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD5.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训5.x实验">Educoder 操作系统实训5.x实验</span>
+            <span class="post-date" title="2021-10-20 23:35:23">2021/10/20</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/10/12/apps/Operating%20System/Windows%20%E5%92%8C%20Linux%E7%9A%84%E4%BD%BF%E7%94%A8/"
+           data-tag="操作系统,Windows,Linux"
+           data-author="" >
+            <span class="post-title" title="Windows和Debian Linux的使用技巧">Windows和Debian Linux的使用技巧</span>
+            <span class="post-date" title="2021-10-12 16:25:15">2021/10/12</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/10/07/apps/Operating%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD4.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训4.x实验">Educoder 操作系统实训4.x实验</span>
+            <span class="post-date" title="2021-10-07 11:49:00">2021/10/07</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 编译器 "
+           href="/2021/10/06/apps/Compiler/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AE%9E%E8%AE%AD1/"
+           data-tag="Educoder,编译原理,模拟实训"
+           data-author="" >
+            <span class="post-title" title="Educoder 编译原理实训1">Educoder 编译原理实训1</span>
+            <span class="post-date" title="2021-10-06 23:53:00">2021/10/06</span>
+        </a>
+        
+        
+        <a  class="All 体系结构 原理 "
+           href="/2021/10/03/Computer%20system/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/"
+           data-tag="运算,数学,计算机系统"
+           data-author="" >
+            <span class="post-title" title="计算机运算原理">计算机运算原理</span>
+            <span class="post-date" title="2021-10-03 09:15:35">2021/10/03</span>
+        </a>
+        
+        
+        <a  class="All 体系结构 原理 "
+           href="/2021/10/03/Computer%20system/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"
+           data-tag="计算机系统"
+           data-author="" >
+            <span class="post-title" title="计算机系统大纲">计算机系统大纲</span>
+            <span class="post-date" title="2021-10-03 09:15:35">2021/10/03</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 功能 "
+           href="/2021/09/29/Useful%20functions/%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/"
+           data-tag="c,编程语言,技巧,Python"
+           data-author="" >
+            <span class="post-title" title="程序实现方法">程序实现方法</span>
+            <span class="post-date" title="2021-09-29 17:29:00">2021/09/29</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 Git "
+           href="/2021/09/29/apps/Git/Gitignore/"
+           data-tag="Git,GitHub"
+           data-author="" >
+            <span class="post-title" title=".gitignore的使用">.gitignore的使用</span>
+            <span class="post-date" title="2021-09-29 16:42:35">2021/09/29</span>
+        </a>
+        
+        
+        <a  class="All 前端 Markdown "
+           href="/2021/09/22/Markdown/MarkdownSpecialSign/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown latex的特殊符号">markdown latex的特殊符号</span>
+            <span class="post-date" title="2021-09-22 22:30:32">2021/09/22</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/09/17/apps/Operating%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD3.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训3.x实验">Educoder 操作系统实训3.x实验</span>
+            <span class="post-date" title="2021-09-17 10:42:35">2021/09/17</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 Git "
+           href="/2021/09/14/apps/Git/%E5%9C%A8%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2LearnGitBranch/"
+           data-tag="前端,Git,LearnGitBranch"
+           data-author="" >
+            <span class="post-title" title="在本地部署LearnGitBranch">在本地部署LearnGitBranch</span>
+            <span class="post-date" title="2021-09-14 17:30:26">2021/09/14</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 C "
+           href="/2021/09/12/Programming%20Language/C/%E6%8C%87%E9%92%88%E7%9A%84%E6%B4%BB%E7%94%A8/"
+           data-tag="技巧,C语言,指针,高级"
+           data-author="" >
+            <span class="post-title" title="指针的活用">指针的活用</span>
+            <span class="post-date" title="2021-09-12 13:49:00">2021/09/12</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 Android "
+           href="/2021/09/11/apps/Android/Andorid%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"
+           data-tag="软件开发,Android"
+           data-author="" >
+            <span class="post-title" title="Android项目的阅读 - 让项目运行起来（总第一篇）">Android项目的阅读 - 让项目运行起来（总第一篇）</span>
+            <span class="post-date" title="2021-09-11 11:23:19">2021/09/11</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/09/09/apps/Operating%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD2.x/"
+           data-tag="Educoder,模拟实训,操作系统"
+           data-author="" >
+            <span class="post-title" title="Educoder 操作系统实训2.x实验">Educoder 操作系统实训2.x实验</span>
+            <span class="post-date" title="2021-09-09 09:25:45">2021/09/09</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/09/07/apps/Operating%20System/Debian%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AELinux0.11/"
+           data-tag="实验环境配置,Debian,Linux0.11"
+           data-author="" >
+            <span class="post-title" title="Debian系统配置Linux0.11">Debian系统配置Linux0.11</span>
+            <span class="post-date" title="2021-09-07 11:45:05">2021/09/07</span>
+        </a>
+        
+        
+        <a  class="All Web js "
+           href="/2021/09/02/Programming%20Language/JavaScript%20and%20Web/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cnode.js%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"
+           data-tag="前端,博客搭建"
+           data-author="" >
+            <span class="post-title" title="使用Node.js和hexo搭建GitHub博客（以windows为例）">使用Node.js和hexo搭建GitHub博客（以windows为例）</span>
+            <span class="post-date" title="2021-09-02 21:20:23">2021/09/02</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 功能 "
+           href="/2021/08/17/Useful%20functions/%E5%90%84%E7%A7%8D%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E9%9A%8F%E6%9C%BA%E6%95%B0%E5%92%8C%E8%AE%A1%E6%97%B6/"
+           data-tag="编程语言,随机数,计时,实用"
+           data-author="" >
+            <span class="post-title" title="各种语言实现随机数和计时">各种语言实现随机数和计时</span>
+            <span class="post-date" title="2021-08-17 09:15:35">2021/08/17</span>
+        </a>
+        
+        
+        <a  class="All 前端 Markdown "
+           href="/2021/07/26/Markdown/MarkdownFont/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="markdown 字体，字号，颜色">markdown 字体，字号，颜色</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        
+        <a  class="All 前端 Markdown "
+           href="/2021/07/26/Markdown/MarkdownImage/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="在markdown中插入图片">在markdown中插入图片</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        
+        <a  class="All 感想随笔 "
+           href="/2021/07/26/essay/%E7%99%BE%E5%B9%B4/"
+           data-tag="政治历史"
+           data-author="" >
+            <span class="post-title" title="百年未有之大变局">百年未有之大变局</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        
+        <a  class="All 算法 理论 "
+           href="/2021/07/26/Algorithm/basic/Toposort/"
+           data-tag="算法,toposort"
+           data-author="" >
+            <span class="post-title" title="拓扑排序">拓扑排序</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2021/07/26/Algorithm/solution/A%20-%20Alice%20and%20Bob/"
+           data-tag="2021牛客暑期多校第一场"
+           data-author="" >
+            <span class="post-title" title="A - Alice and Bob">A - Alice and Bob</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2021/07/26/Algorithm/solution/G%20-%20League%20of%20Legends/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="G - League of Legends">G - League of Legends</span>
+            <span class="post-date" title="2021-07-26 09:47:05">2021/07/26</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2021/07/26/Algorithm/solution/K%20-%20Stack/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="K - Stack">K - Stack</span>
+            <span class="post-date" title="2021-07-26 09:37:47">2021/07/26</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2021/07/20/Algorithm/solution/F%20-%20Girlfriend/"
+           data-tag="2021牛客暑期多校第二场"
+           data-author="" >
+            <span class="post-title" title="F - Girlfriend">F - Girlfriend</span>
+            <span class="post-date" title="2021-07-20 09:53:17">2021/07/20</span>
+        </a>
+        
+        
+        <a  class="All 感想随笔 "
+           href="/2021/07/17/essay/Essay-2021-7-17/"
+           data-tag="生活"
+           data-author="" >
+            <span class="post-title" title="2021-07-17 关于自己读书的有趣现象">2021-07-17 关于自己读书的有趣现象</span>
+            <span class="post-date" title="2021-07-17 12:13:26">2021/07/17</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-apps/Operating System/CS07 Lecture16-19" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">进程同步——进程L16-L19笔记</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="应用软件">应用软件</a> > 
+            
+            <a  data-rel="应用软件&lt;---&gt;操作系统">操作系统</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color5">操作系统</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2024-06-01 20:17:52'>2023-04-02 22:39</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5%E4%B8%8E%E4%BF%A1%E5%8F%B7%E9%87%8F"><span class="toc-text">进程同步与信号量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85%E5%AE%9E%E4%BE%8B"><span class="toc-text">生产者-消费者实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%9D%E8%AF%95%E8%A7%A3%E5%86%B3%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%96%87%E6%8F%8F%E8%BF%B0%E9%83%A8%E5%88%86%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">尝试解决代码中文描述部分的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E4%BF%A1%E5%8F%B7%E9%87%8F%E8%A7%A3%E5%86%B3%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98"><span class="toc-text">使用信号量解决生产者消费者问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%B4%E7%95%8C%E5%8C%BA%E4%BF%9D%E6%8A%A4%E4%BF%A1%E5%8F%B7%E9%87%8F"><span class="toc-text">临界区保护信号量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BF%9D%E6%8A%A4%E4%BF%A1%E5%8F%B7%E9%87%8F"><span class="toc-text">为什么要保护信号量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8A%A4%E4%BF%A1%E5%8F%B7%E9%87%8F"><span class="toc-text">如何保护信号量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E4%BF%9D%E6%8A%A4wip..."><span class="toc-text">软件保护（）WIP...</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E5%8F%82%E4%B8%8E%E7%9A%84%E4%BF%9D%E6%8A%A4wip..."><span class="toc-text">硬件参与的保护（）WIP...</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7%E9%87%8F%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="toc-text">信号量的代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%BF%A1%E5%8F%B7%E9%87%8F%E7%BC%96%E5%86%99%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F"><span class="toc-text">怎么使用操作系统信号量编写应用程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%BF%A1%E5%8F%B7%E9%87%8F%E5%92%8C%E7%A8%8B%E5%BA%8F%E5%90%8C%E6%AD%A5%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">操作系统信号量和程序同步的实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E5%A4%84%E7%90%86"><span class="toc-text">死锁处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%AD%BB%E9%94%81"><span class="toc-text">什么是死锁？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E7%9A%84%E6%88%90%E5%9B%A0"><span class="toc-text">死锁的成因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86%E6%AD%BB%E9%94%81"><span class="toc-text">怎么处理死锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%B6%E8%A1%8C%E5%AE%B6%E7%AE%97%E6%B3%95"><span class="toc-text">银行家算法</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-6 i,
+    .toc-level-6 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="进程同步与信号量">进程同步与信号量</h2>
+<p>Q1 : 进程怎么同步？ A1 :
+让进程走走停停来保证多进程合作的合理有序。没有资源就停，有资源就走。</p>
+<h3 id="生产者-消费者实例">生产者-消费者实例</h3>
+<p>生产者生产 item 占用缓冲区资源，消费者使用 item 释放缓冲区资源</p>
+<p>生产者</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span><span class="dv">1</span><span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span><span class="op">(</span>counter<span class="op">==</span> BUFFER_SIZE<span class="op">)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        缓存区满，生产者要停<span class="op">;</span> <span class="co">// 如何实现？</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    buffer<span class="op">[</span>in<span class="op">]</span> <span class="op">=</span> item<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    in <span class="op">=</span> <span class="op">(</span>in <span class="op">+</span> <span class="dv">1</span><span class="op">)</span> <span class="op">%</span> BUFFER_SIZE<span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    counter<span class="op">++;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
+<p>消费者</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span><span class="dv">1</span><span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span><span class="op">(</span>counter <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        缓存区空，消费者要停<span class="op">;</span> <span class="co">// 如何实现？</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    item <span class="op">=</span> buffer<span class="op">[</span>out<span class="op">];</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> <span class="op">(</span>out <span class="op">+</span> <span class="dv">1</span><span class="op">)</span> <span class="op">%</span> BUFFER_SIZE<span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    counter<span class="op">--;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
+<h3
+id="尝试解决代码中文描述部分的问题">尝试解决代码中文描述部分的问题</h3>
+<p>我们可以使用通信的方式解决。生产者在buffer中有元素时唤醒消费者，消费者在buffer有空缺时唤醒生产者。
+生产者</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span><span class="dv">1</span><span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span><span class="op">(</span>counter <span class="op">&gt;</span> BUFFER_SIZE<span class="op">)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        sleep<span class="op">();</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    buffer<span class="op">[</span>in<span class="op">]</span> <span class="op">=</span> item<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    in <span class="op">=</span> <span class="op">(</span>in <span class="op">+</span> <span class="dv">1</span><span class="op">)</span> <span class="op">%</span> BUFFER_SIZE<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    counter<span class="op">++;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>counter <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span> wake_up<span class="op">(</span>消费者<span class="op">);</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
+<p>消费者</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">(</span><span class="dv">1</span><span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span><span class="op">(</span>counter <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        sleep<span class="op">();</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    item <span class="op">=</span> buffer<span class="op">[</span>out<span class="op">];</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> <span class="op">(</span>out <span class="op">+</span> <span class="dv">1</span><span class="op">)</span> <span class="op">%</span> BUFFER_SIZE<span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    counter<span class="op">--;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>counter <span class="op">&lt;</span> BUFFER_SIZE<span class="op">)</span> wake_up<span class="op">(</span>生产者<span class="op">);</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
+<p>存在的问题：两个消费者程序同时在counter ==
+1时执行，两个生产者同时在counter == BUFFER_SIZE -
+1时执行。。。会出现错误。</p>
+<p>上面的示例告诉我们，要使进程有序执行，不能简单地设置一个表示buffer大小的全局变量来实现通信。</p>
+<p>为了避免消费者程序多于生产者（反之亦然），这个变量应该显示当前有多少个程序在等待执行。</p>
+<p>在编写程序时，还应该在一些位置设置与其他进程互斥的指令，防止不可控的进程切换影响程序运行顺序。</p>
+<p>Linux 系统使用信号量实现上述目的。</p>
+<p>关于信号量，可以用生产者 P 消费者 C 的示例解释： 1.
+缓冲区满，P1执行，P1 sleep，sem = -1 2. P2执行，P2 sleep, sem = -2 3.
+C执行1次循环，wakeup P1，sem = -1 4. C再执行1次循环，wakeup P2，sem = 0
+5. C再执行1次循环，sem = 1 6. P3执行，sem = 0</p>
+<p>sem &lt;= 0表示当前阻塞的程序数量，sem &gt; 0表示当前剩余资源数量
+信号量是这样实现的：</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> semaphore <span class="op">&#123;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> value<span class="op">;</span> <span class="co">// 记录资源个数</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    PCB <span class="op">*</span>queue<span class="op">;</span> <span class="co">// 记录等待在该信号量上的进程</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>P<span class="op">(</span>semaphore s<span class="op">)</span> <span class="op">&#123;</span> <span class="co">// 消费资源，荷兰语的test</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    s<span class="op">.</span>value<span class="op">--;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>s<span class="op">.</span>value <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        sleep<span class="op">(</span>s<span class="op">.</span>queue<span class="op">);</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">&#125;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>V<span class="op">(</span>semaphore s<span class="op">)</span> <span class="op">&#123;</span> <span class="co">// 产生资源，荷兰语的increment</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    s<span class="op">.</span>value<span class="op">++;</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>s<span class="op">.</span>value <span class="op">&lt;=</span> <span class="dv">0</span><span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        wake_up<span class="op">(</span>s<span class="op">.</span>queue<span class="op">);</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">&#125;</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
+<h3
+id="使用信号量解决生产者消费者问题">使用信号量解决生产者消费者问题</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>semaphore full <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="co">// 产品到在缓冲区的数量</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>semaphore empty <span class="op">=</span> BUFFER_SIZE<span class="op">;</span> <span class="co">// 缓冲区剩余空间</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>semaphore mutex <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> <span class="co">// 实现互斥信号量</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> Producer<span class="op">(</span>item<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    P<span class="op">(</span>empty<span class="op">);</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    P<span class="op">(</span>mutex<span class="op">);</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    将item写入buffer<span class="op">;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    V<span class="op">(</span>mutex<span class="op">);</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    V<span class="op">(</span>full<span class="op">);</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> Consumer<span class="op">()</span> <span class="op">&#123;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    P<span class="op">(</span>full<span class="op">);</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    P<span class="op">(</span>mutex<span class="op">);</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    读取item，从buffer删除item<span class="op">;</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    V<span class="op">(</span>mutex<span class="op">);</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    V<span class="op">(</span>empty<span class="op">);</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
+<h2 id="临界区保护信号量">临界区保护信号量</h2>
+<h3 id="为什么要保护信号量">为什么要保护信号量</h3>
+<p>数据竞争：多个进程都在执行，不可控的进程切换可能导致共同修改信号量。</p>
+<p>示例：为了修改信号量<code>empty=-1</code>，程序 P1，P2
+都会执行下面的代码：</p>
+<pre><code>register = empty;                
+register = register - 1;
+empty = register;</code></pre>
+<p>这是我们期望的执行序列，在读写变量empty时，程序 P1，P2
+之间没有发生调度：</p>
+<pre><code>P1.register = empty;
+P1.register = P1.register - 1;
+empty = P1.register;
+P2.register = empty;
+P2.register = P2.register - 1;
+empty = P2.register;</code></pre>
+<p>我们期望程序执行出的结果是-3</p>
+<p>然而程序的调度顺序可能是这样：</p>
+<pre><code>P1.register = empty;
+P1.register = P1.register - 1;
+P2.register = empty;
+P2.register = P2.register - 1;
+empty = P1.register;
+empty = P2.register;</code></pre>
+<p>程序输出empty=-2，发生了读后写，写后写的问题。</p>
+<h3 id="如何保护信号量">如何保护信号量</h3>
+<p>解决竞争条件的直观方法：</p>
+<p>为变量“上锁”。一次只能有一个进程修改共享变量，其他修改操作必须阻塞。这段修改变量的操作序列被称为“<strong>临界区</strong>”。我们需要找到进程的临界区代码，并编写相应的<strong>进入临界区</strong>和<strong>退出临界区</strong>的代码。</p>
+<p>修改信号量的代码是一个临界区代码。</p>
+<p>临界区代码保护原则： 1.
+互斥进入：一个进程在临界区执行，则其他进程不允许进入。 2.
+有空让进：若干进程要求进入空闲临界区时，应尽快让一个进程进入临界区。 3.
+有限等待：从进程发出请求到允许进入，不能无限等待。</p>
+<h3 id="软件保护wip...">软件保护（）WIP...</h3>
+<p>轮换法 标记法 非对称标记 Peterson算法 面包店算法</p>
+<h3 id="硬件参与的保护wip...">硬件参与的保护（）WIP...</h3>
+<p>关中断 硬件原子指令法</p>
+<h2 id="信号量的代码实现">信号量的代码实现</h2>
+<h3
+id="怎么使用操作系统信号量编写应用程序">怎么使用操作系统信号量编写应用程序</h3>
+<p>producer.c</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 用户态程序</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">&#123;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    sd <span class="op">=</span> sem_open<span class="op">(</span><span class="st">&quot;empty&quot;</span><span class="op">);</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        sem_wait<span class="op">(</span>sd<span class="op">);</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        write<span class="op">(</span>fd<span class="op">,</span> <span class="op">&amp;</span>i<span class="op">,</span> <span class="dv">4</span><span class="op">);</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">&#125;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">// 进入内核</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> <span class="op">&#123;</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> name<span class="op">[</span>NAME_LENGTH<span class="op">];</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> value<span class="op">;</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    task_struct <span class="op">*</span>queue<span class="op">;</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span> semtable<span class="op">[</span><span class="dv">20</span><span class="op">];</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> sys_sem_open<span class="op">(</span><span class="dt">char</span> <span class="op">*</span>name<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> sd <span class="op">=</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(!</span>found<span class="op">(</span>name<span class="op">,</span> semtable<span class="op">))</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>        sd <span class="op">=</span> semtable_create<span class="op">(</span>name<span class="op">);</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sd<span class="op">;</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> sys_sem_wait<span class="op">(</span><span class="dt">int</span> sd<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    cli<span class="op">();</span> <span class="co">// 关中断，防止CPU调度，只对单核有用</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>semtable<span class="op">[</span>sd<span class="op">].</span>value<span class="op">--</span> <span class="op">&lt;</span> <span class="dv">0</span><span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>        set_block<span class="op">();</span> <span class="co">// 设置自己为阻塞</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>        semtable_enqueue<span class="op">(</span>sd<span class="op">);</span> <span class="co">// 将自己加入semtable[sd].queue</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>        schedule<span class="op">();</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">&#125;</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>    sti<span class="op">();</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
+<h3
+id="操作系统信号量和程序同步的实现">操作系统信号量和程序同步的实现</h3>
+<p>从Linux0.11学点东西，这是读取磁盘块的代码：</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> bread<span class="op">(</span><span class="dt">int</span> dev<span class="op">,</span> <span class="dt">int</span> block<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">struct</span> buffer_head <span class="op">*</span>bh<span class="op">;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    ll_rw block<span class="op">(</span>READ<span class="op">,</span> bh<span class="op">);</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    wait_on_buffer<span class="op">(</span>bh<span class="op">);</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">...</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
+<p>进程启动磁盘读之后睡眠，等待磁盘读完由磁盘中断将其唤醒。</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>lock_buffer<span class="op">(</span>buffer_head <span class="op">*</span>bh<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    cli<span class="op">();</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Q : 为什么用while()? </span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// A : 唤醒好的程序在调度函数的调配下竞争运行，有利于优先级调度的实现</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="op">(</span>bh<span class="op">-&gt;</span>b_lock<span class="op">)</span> </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        sleep_on<span class="op">(&amp;</span>bh<span class="op">-&gt;</span>b_wait<span class="op">);</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    bh<span class="op">-&gt;</span>b_lock <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    sti<span class="op">();</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> sleep_on<span class="op">(</span><span class="kw">struct</span> task_struct <span class="op">**</span>p<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">struct</span> task_struct <span class="op">*</span>tmp<span class="op">;</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    tmp <span class="op">=</span> <span class="op">*</span>p<span class="op">;</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">*</span>p <span class="op">=</span> current<span class="op">;</span> <span class="co">// 这是一个队列！</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    current<span class="op">-&gt;</span>state <span class="op">=</span> TASK_UNINTERRUPTIBLE<span class="op">;</span> <span class="co">// 置为阻塞态</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    schedule<span class="op">();</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>tmp<span class="op">)</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        tmp<span class="op">-&gt;</span>state<span class="op">=</span><span class="dv">0</span><span class="op">;</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
+<p>进程等待队列构建过程：
+因为当前进程<code>sleep_on()</code>函数的局部变量会被保存在栈中，所以
+tmp 的值可以在当前 PCB 中找到。找到 tmp 后，tmp 指向了下一个 PCB
+的地址，所以 <code>bh-&gt;bwait</code> 相当于一个队列。 <img
+src="/assets/shixun/tsq.svg" alt="隐式队列构建" /></p>
+<p>磁盘读完，产生系统中断，唤醒进程</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">static</span> <span class="dt">void</span> read_intr<span class="op">()</span> <span class="op">&#123;</span><span class="co">// 磁盘中断</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">...</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    end_request<span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>end_request<span class="op">(</span><span class="dt">int</span> uptodate<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">...</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    unlock_buffer<span class="op">(</span>CURRENT<span class="op">-&gt;</span>bh<span class="op">);</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>unlock_buffer<span class="op">(</span><span class="kw">struct</span> buffer_head <span class="op">*</span>bh<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    bh<span class="op">-&gt;</span>b_lock<span class="op">=</span><span class="dv">0</span><span class="op">;</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">/* 这个唤醒函数首先唤醒队首进程，队首进程会从sleep_on函数的schedule</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">     * 函数的下一句开始执行，而schedule函数后面的语句可以唤醒队列中下一个</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">     * 进程。这样就能不断循环，直到唤醒最后一个进程。</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co">     */</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    wake_up<span class="op">(&amp;</span>bh<span class="op">-&gt;</span>b_wait<span class="op">);</span>    </span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>wake_up<span class="op">(</span><span class="kw">struct</span> task_struct <span class="op">**</span>p<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>p <span class="op">&amp;&amp;</span> <span class="op">*</span>p<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>        <span class="op">(**</span>p<span class="op">).</span>state<span class="op">=</span><span class="dv">0</span><span class="op">;</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>        <span class="op">*</span>p<span class="op">=</span>NULL<span class="op">;</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">&#125;</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
+<h2 id="死锁处理">死锁处理</h2>
+<h3 id="什么是死锁">什么是死锁？</h3>
+<p>把生产者和消费者的代码稍作修改，让produce先请求锁。此时buffer满了，empty
+= 0。这时，produce 程序停在 empty，等待 consumer 执行，但由于此时的锁
+mutex 被 produce 占用，所以 consumer
+也不能执行。进程双方互相等待，信号量之间发生环路等待，发生死锁。</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>semaphore full <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="co">// 产品到在缓冲区的数量</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>semaphore empty <span class="op">=</span> BUFFER_SIZE<span class="op">;</span> <span class="co">// 缓冲区剩余空间</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>semaphore mutex <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> <span class="co">// 实现互斥信号量</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> Producer<span class="op">(</span>item<span class="op">)</span> <span class="op">&#123;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    P<span class="op">(</span>mutex<span class="op">);</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    P<span class="op">(</span>empty<span class="op">);</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    将item写入buffer<span class="op">;</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    V<span class="op">(</span>mutex<span class="op">);</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    V<span class="op">(</span>full<span class="op">);</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> Consumer<span class="op">()</span> <span class="op">&#123;</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    P<span class="op">(</span>full<span class="op">);</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    P<span class="op">(</span>mutex<span class="op">);</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    读取item，从buffer删除item<span class="op">;</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    V<span class="op">(</span>mutex<span class="op">);</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    V<span class="op">(</span>empty<span class="op">);</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span></code></pre></div>
+<h3 id="死锁的成因">死锁的成因</h3>
+<ol type="1">
+<li>资源互斥使用</li>
+<li>进程占有了一些资源，又不释放，再去申请其他资源</li>
+<li>各自占有的资源和互相申请的资源形成了环路等待</li>
+</ol>
+<p>四个必要条件： 1. 互斥使用(Mutual exclusion)：资源的固有属性 2.
+不可抢占(No preemption)：资源只能自愿放弃 3. 请求和保持(hold and
+wait)：进程必须占有资源，再去申请 4. 循环等待(Circular
+wait)：资源分配图中出现环路</p>
+<h3 id="怎么处理死锁">怎么处理死锁</h3>
+<ol type="1">
+<li>死锁预防：破坏死锁条件
+<ul>
+<li>1.1
+在进程执行前，一次性申请所有需要的资源，不会占有资源再去申请其它资源。
+缺点：需要预知未来，编程困难。许多资源分配很长时间后才使用，资源利用率低。</li>
+<li>1.2 对资源类型进行排序，资源申请必须按序进行，不会出现环路等待。
+缺点： 造成资源浪费</li>
+</ul></li>
+<li>死锁避免：判断请求会不会造成死锁
+<ul>
+<li>如果系统中所有进程存在一个可完成的执行序列<span
+class="math inline">\(P_1,
+P_2,\dots,P_n\)</span>，则称系统处于安全状态</li>
+<li>算法：银行家算法<span
+class="math inline">\(O(mn^2)\)</span>，执行代价大。</li>
+</ul></li>
+<li>死锁检测+恢复：发现死锁，立刻回滚进程
+<ul>
+<li>银行家算法每次申请都要执行一次。可以考虑发现问题再处理。
+缺点：回滚操作的代价大。</li>
+</ul></li>
+<li>死锁忽略：死不死锁无所谓，我会重新启动（这是PC机操作系统使用的方法）
+<ul>
+<li>死锁出现不是确定的，重启就可以解决，代价最小。</li>
+</ul></li>
+</ol>
+<h3 id="银行家算法">银行家算法</h3>
+<p>如果一个程序运行时的可用资源大于需要的资源，那么将可用资源分给这个程序，这个程序即可执行完毕，并释放它已经占用的资源。释放的资源重新成为可用资源。</p>
+<p>循环上面的过程，如果一个进程调度序列的所有程序满足上面的条件（可用资源大于需要的资源），则称这个序列是一个<strong>安全序列</strong>。</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> Available<span class="op">[</span>m<span class="op">];</span> <span class="co">//每种资源剩余数量</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> Allocation<span class="op">[</span>n<span class="op">,</span>m<span class="op">];</span> <span class="co">//已分配资源数量</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> Need<span class="op">[</span>n<span class="op">][</span>m<span class="op">];</span><span class="co">//进程还需的各种资源数量</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> Work<span class="op">[</span>m<span class="op">];</span> <span class="co">//工作向量</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> Finish<span class="op">[</span>n<span class="op">];</span> <span class="co">//进程是否结束</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>memcpy<span class="op">(</span>work<span class="op">,</span> Available<span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>Available<span class="op">));</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>memset<span class="op">(</span>Finish<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="kw">sizeof</span><span class="op">(</span>Finish<span class="op">));</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span><span class="op">(</span><span class="dv">1</span><span class="op">)&#123;</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span><span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)&#123;</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span><span class="op">(</span>Finish<span class="op">[</span>i<span class="op">]</span> <span class="op">==</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> Need<span class="op">[</span>i<span class="op">]</span> <span class="op">&lt;=</span> Work<span class="op">)&#123;</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>            <span class="co">/* the code &quot;Need[i]&lt;=Work&quot; means (all elements of </span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">             * Need[i]) &lt;= (all elements of Work)</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co">             */</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>            Work <span class="op">=</span> Work <span class="op">+</span> Allocation<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>            <span class="co">// for (int j = 0; j &lt; m; ++j) Work[j] += Allocation[j]</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>            Finish<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> true<span class="op">;</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>        <span class="op">&#125;</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> <span class="op">&#123;</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>            <span class="cf">goto</span> end<span class="op">;</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>        <span class="op">&#125;</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>    <span class="op">&#125;</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="op">&#125;</span></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>End<span class="op">:</span> <span class="cf">for</span><span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span>i <span class="op">&lt;=</span> n<span class="op">;++</span>i<span class="op">)</span></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span><span class="op">(</span>Finish<span class="op">[</span>i<span class="op">]</span> <span class="op">==</span> false<span class="op">)</span> <span class="cf">return</span> deadlock<span class="op">;</span></span></code></pre></div>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 本内容依据“CC BY-NC-SA 4.0”许可证进行授权。要查看该许可证，可访问https://creativecommons.org/licenses/by-nc-sa/4.0/ </span>
+    </div>
+</article>
+
+
+
+
+
+
+
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2020-2022 nameETC
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 552px;
+    }
+    .nav.fullscreen {
+        margin-left: -552px;
+    }
+    .nav-left {
+        width: 130px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 502px;
+        }
+        .nav.fullscreen {
+            margin-left: -502px;
+        }
+        .nav-left {
+            width: 110px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 502px;
+            margin-left: -502px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.6;
+        background: url("/img/article-list-background.jpg");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+<div class="mobile-menus-out" >
+
+</div>
+<div class="mobile-menus">
+    
+    
+    
+    <a class="dynamic-menu " target="_self"   href="/">Red_Leaves</a>
+    
+    
+</div>
+
+
+</html>

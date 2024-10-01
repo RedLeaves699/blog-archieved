@@ -3,22 +3,23 @@
 <head>
   <meta charset="utf-8">
   <title>贝叶斯网络 | Set sail!</title>
-  <meta name="keywords" content=" 算法 , 数学 , 机器学习 , 概率论 , 学习笔记 , 贝叶斯方法 ">
+  <meta name="keywords" content=" 数学 , 学习笔记 , 机器学习 , 概率论 , 算法 , 贝叶斯方法 ">
   <meta name="description" content="贝叶斯网络 | Set sail!">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="尝试用状态转移的角度思考 由上一篇文章，我们知道，贪心算法，来自于对搜索和动态规划产生的大量状态空间的简化。所以，在这篇文章中，我们主要讨论如何从搜索和动态规划得到贪心算法。 下面将使用大量的例子来总结经验教训。 问题和实战 问题一：任务分配问题 【描述】有\(n\)项工作，每项工作的起止时间为\(s_i, t_i\)。每次只能做一项工作，每项工作一旦开始就必须做完，求最多能做多少个工作">
-<meta property="og:type" content="article">
-<meta property="og:title" content="贪心方法的产生">
-<meta property="og:url" content="http://redleaves699.github.io/2022/04/21/Algorithm/greedy2/index.html">
+<meta name="description" content="404 ERROR 页面不存在  点此回到首页！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="该页面无法显示">
+<meta property="og:url" content="http://redleaves699.github.io/404/index.html">
 <meta property="og:site_name" content="Set sail!">
-<meta property="og:description" content="尝试用状态转移的角度思考 由上一篇文章，我们知道，贪心算法，来自于对搜索和动态规划产生的大量状态空间的简化。所以，在这篇文章中，我们主要讨论如何从搜索和动态规划得到贪心算法。 下面将使用大量的例子来总结经验教训。 问题和实战 问题一：任务分配问题 【描述】有\(n\)项工作，每项工作的起止时间为\(s_i, t_i\)。每次只能做一项工作，每项工作一旦开始就必须做完，求最多能做多少个工作">
+<meta property="og:description" content="404 ERROR 页面不存在  点此回到首页！">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-04-21T11:36:20.000Z">
-<meta property="article:modified_time" content="2022-04-23T14:20:13.472Z">
+<meta property="og:image" content="http://redleaves699.github.io/assets/others/th/hit1.png">
+<meta property="og:image" content="http://redleaves699.github.io/404/index/Everydayonecat-hi.gif">
+<meta property="article:published_time" content="2022-02-16T14:02:14.000Z">
+<meta property="article:modified_time" content="2024-06-01T12:17:52.507Z">
 <meta property="article:author" content="Red_Leaves">
-<meta property="article:tag" content="算法">
-<meta property="article:tag" content="贪心">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://redleaves699.github.io/assets/others/th/hit1.png">
 
 
 <link rel="icon" href="/img/favicon.png">
@@ -49,12 +50,12 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head>
 <div style="display: none">
   <input class="theme_disqus_on" value="false">
   <input class="theme_preload_comment" value="">
   <input class="theme_blog_path" value="">
-  <input id="theme_shortcut" value="true" />
+  <input id="theme_shortcut" value="false" />
   <input id="theme_highlight_on" value="true" />
   <input id="theme_code_copy" value="true" />
 </div>
@@ -108,43 +109,12 @@
 
 <ul>
     <li>
-        <div class="all active" data-rel="全部文章">全部文章
+        <div class="all active" data-rel="All">All
             
-                <small>(74)</small>
+                <small>(108)</small>
             
         </div>
     </li>
-    
-        
-            
-                <li>
-                    <div data-rel="前沿技术">
-                        <i class="fold iconfont icon-right"></i>
-                        
-                        前沿技术
-                        <small>(16)</small>
-                        
-                    </div>
-                    
-                        <ul class="sub hide">
-                            
-                                <li>
-                                    <div data-rel="前沿技术<--->机器学习">
-                                        
-                                        机器学习
-                                        
-                                            <small>(16
-                                                )</small>
-                                        
-                                    </div>
-                                    
-                                </li>
-                            
-                        </ul>
-                    
-                </li>
-            
-        
     
         
             
@@ -153,7 +123,7 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         数学
-                        <small>(6)</small>
+                        <small>(8)</small>
                         
                     </div>
                     
@@ -175,6 +145,18 @@
                                     <div data-rel="数学<--->高等数学">
                                         
                                         高等数学
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="数学<--->密码学">
+                                        
+                                        密码学
                                         
                                             <small>(2
                                                 )</small>
@@ -220,7 +202,7 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         算法
-                        <small>(19)</small>
+                        <small>(23)</small>
                         
                     </div>
                     
@@ -231,7 +213,7 @@
                                         
                                         理论
                                         
-                                            <small>(8
+                                            <small>(9
                                                 )</small>
                                         
                                     </div>
@@ -243,160 +225,7 @@
                                         
                                         题解
                                         
-                                            <small>(11
-                                                )</small>
-                                        
-                                    </div>
-                                    
-                                </li>
-                            
-                        </ul>
-                    
-                </li>
-            
-        
-    
-        
-            
-                <li>
-                    <div data-rel="编程语言">
-                        <i class="fold iconfont icon-right"></i>
-                        
-                        编程语言
-                        <small>(7)</small>
-                        
-                    </div>
-                    
-                        <ul class="sub hide">
-                            
-                                <li>
-                                    <div data-rel="编程语言<--->基础">
-                                        
-                                        基础
-                                        
-                                            <small>(3
-                                                )</small>
-                                        
-                                    </div>
-                                    
-                                </li>
-                            
-                                <li>
-                                    <div data-rel="编程语言<--->进阶">
-                                        
-                                        进阶
-                                        
-                                            <small>(2
-                                                )</small>
-                                        
-                                    </div>
-                                    
-                                </li>
-                            
-                                <li>
-                                    <div data-rel="编程语言<--->硬件设计">
-                                        
-                                        硬件设计
-                                        
-                                            <small>(1
-                                                )</small>
-                                        
-                                    </div>
-                                    
-                                </li>
-                            
-                        </ul>
-                    
-                </li>
-            
-        
-    
-        
-            
-                <li>
-                    <div data-rel="软件">
-                        <i class="fold iconfont icon-right"></i>
-                        
-                        软件
-                        <small>(6)</small>
-                        
-                    </div>
-                    
-                        <ul class="sub hide">
-                            
-                                <li>
-                                    <div data-rel="软件<--->数据库">
-                                        
-                                        数据库
-                                        
-                                            <small>(1
-                                                )</small>
-                                        
-                                    </div>
-                                    
-                                </li>
-                            
-                                <li>
-                                    <div data-rel="软件<--->Android">
-                                        
-                                        Android
-                                        
-                                            <small>(2
-                                                )</small>
-                                        
-                                    </div>
-                                    
-                                </li>
-                            
-                                <li>
-                                    <div data-rel="软件<--->Git">
-                                        
-                                        Git
-                                        
-                                            <small>(3
-                                                )</small>
-                                        
-                                    </div>
-                                    
-                                </li>
-                            
-                        </ul>
-                    
-                </li>
-            
-        
-    
-        
-            
-                <li>
-                    <div data-rel="操作系统">
-                        <i class="fold iconfont icon-right"></i>
-                        
-                        操作系统
-                        <small>(9)</small>
-                        
-                    </div>
-                    
-                        <ul class="sub hide">
-                            
-                                <li>
-                                    <div data-rel="操作系统<--->平时应用">
-                                        
-                                        平时应用
-                                        
-                                            <small>(1
-                                                )</small>
-                                        
-                                    </div>
-                                    
-                                </li>
-                            
-                                <li>
-                                    <div data-rel="操作系统<--->实训">
-                                        
-                                        实训
-                                        
-                                            <small>(8
+                                            <small>(14
                                                 )</small>
                                         
                                     </div>
@@ -416,35 +245,11 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         前端
-                        <small>(9)</small>
+                        <small>(4)</small>
                         
                     </div>
                     
                         <ul class="sub hide">
-                            
-                                <li>
-                                    <div data-rel="前端<--->编译器前端">
-                                        
-                                        编译器前端
-                                        
-                                            <small>(2
-                                                )</small>
-                                        
-                                    </div>
-                                    
-                                </li>
-                            
-                                <li>
-                                    <div data-rel="前端<--->网页前端">
-                                        
-                                        网页前端
-                                        
-                                            <small>(3
-                                                )</small>
-                                        
-                                    </div>
-                                    
-                                </li>
                             
                                 <li>
                                     <div data-rel="前端<--->Markdown">
@@ -467,12 +272,346 @@
         
             
                 <li>
-                    <div data-rel="感想随笔">
+                    <div data-rel="大数据">
+                        <i class="fold iconfont icon-right"></i>
                         
-                        感想随笔
+                        大数据
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="大数据<--->Hadoop">
+                                        
+                                        Hadoop
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="编程语言">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        编程语言
+                        <small>(15)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->编译器">
+                                        
+                                        编译器
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->功能">
+                                        
+                                        功能
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->硬件设计">
+                                        
+                                        硬件设计
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->C">
+                                        
+                                        C
+                                        
+                                            <small>(5
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->C++">
+                                        
+                                        C++
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->Java">
+                                        
+                                        Java
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="编程语言<--->Python">
+                                        
+                                        Python
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="体系结构">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        体系结构
                         <small>(2)</small>
                         
                     </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="体系结构<--->原理">
+                                        
+                                        原理
+                                        
+                                            <small>(2
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="机器学习">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        机器学习
+                        <small>(17)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="机器学习<--->实践">
+                                        
+                                        实践
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="应用软件">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        应用软件
+                        <small>(27)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="应用软件<--->操作系统">
+                                        
+                                        操作系统
+                                        
+                                            <small>(20
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="应用软件<--->软件使用">
+                                        
+                                        软件使用
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="应用软件<--->数据库">
+                                        
+                                        数据库
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="应用软件<--->Android">
+                                        
+                                        Android
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="应用软件<--->Git">
+                                        
+                                        Git
+                                        
+                                            <small>(4
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="感想随笔">
+                        
+                        感想随笔
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="嵌入式">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        嵌入式
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="嵌入式<--->实践">
+                                        
+                                        实践
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
                     
                 </li>
             
@@ -550,6 +689,56 @@
             
         
     
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Web">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        Web
+                        <small>(3)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="Web<--->js">
+                                        <i class="fold iconfont icon-right"></i>
+                                        
+                                        js
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                        <ul class="sub hide">
+                                            
+                                                <li>
+                                                    <div data-rel="Web<--->jsVue">
+                                                        
+                                                        Vue
+                                                        
+                                                            <small>(1)</small>
+                                                        
+                                                    </div>
+                                                </li>
+                                            
+                                        </ul>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
 </ul>
 <div class="left-bottom">
     <div class="menus">
@@ -559,7 +748,7 @@
                 <a class="dynamic-menu "
                    target="_self"
                    
-                   href="http://redleaves699.github.io/">Red_Leaves</a>
+                   href="/">Red_Leaves</a>
         
             
     </div>
@@ -567,15 +756,15 @@
         
             <a class="about  hasFriend  site_url"
                
-               href="/about">关于</a>
+               href="/about">About</a>
         
         <a style="width: 50%"
                 
-                                           class="friends">友链</a>
+                                           class="friends">Friends</a>
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="74">
+<input type="hidden" id="yelog_site_posts_number" value="108">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -586,7 +775,7 @@
     <div class="nav-right">
         <div class="friends-area">
     <div class="friends-title">
-        友情链接
+        Links
         <i class="iconfont icon-left"></i>
     </div>
     <div class="friends-content">
@@ -600,9 +789,9 @@
         <div class="title-list">
     <div class="right-top">
         <div id="default-panel">
-            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
-            <div class="right-title">全部文章</div>
-            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+            <i class="iconfont icon-search" data-title="搜索"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图"></i>
         </div>
         <div id="search-panel">
             <i class="iconfont icon-left" data-title="返回"></i>
@@ -662,6 +851,14 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>大数据</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>待完善</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>递归</a>
             </li>
         
@@ -671,6 +868,10 @@
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>多重背包</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>非对称加密</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -710,10 +911,6 @@
             </li>
         
             <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>汇编</a>
-            </li>
-        
-            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>机器学习</a>
             </li>
         
@@ -738,7 +935,19 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>开发</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>课程实践</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>类型</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>密码学</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -778,6 +987,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>声明</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>实验环境配置</a>
             </li>
         
@@ -810,6 +1023,14 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>题解</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>题目</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>统计学</a>
             </li>
         
@@ -838,7 +1059,27 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>英语</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>硬件</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>硬件描述语言</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>运算</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>运算符</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>正则表达式</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -850,7 +1091,11 @@
             </li>
         
             <li class="article-tag-list-item">
-                <i class="iconfont icon-tag"></i><a>中间层</a>
+                <i class="iconfont icon-tag"></i><a>字符串</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Anaconda</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -859,6 +1104,10 @@
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>c</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>C</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -890,11 +1139,31 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Hadoop</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>IO</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>java</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Java</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>javascript</a>
             </li>
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>json</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>kmp</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -922,7 +1191,19 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>riscv</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>stack</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>STM32</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -952,335 +1233,692 @@
     
     <nav id="title-list-nav">
         
-        <a  class="全部文章 算法 理论 "
-           href="/2022/04/21/Algorithm/greedy2/"
-           data-tag="算法,贪心"
+        
+        <a  class="All 算法 理论 "
+           href="/2024/07/28/Algorithm/basic/kmp/"
+           data-tag="字符串,算法,kmp,待完善"
            data-author="" >
-            <span class="post-title" title="贪心方法的产生">贪心方法的产生</span>
-            <span class="post-date" title="2022-04-21 19:36:20">2022/04/21</span>
+            <span class="post-title" title="KMP字符串匹配算法">KMP字符串匹配算法</span>
+            <span class="post-date" title="2024-07-28 15:01:00">2024/07/28</span>
         </a>
         
-        <a  class="全部文章 算法 理论 "
-           href="/2022/04/21/Algorithm/greedy/"
+        
+        <a  class="All 编程语言 C "
+           href="/2024/07/04/Programming%20Language/C/%E4%B8%8D%E5%AE%9A%E5%8F%82%E6%95%B0/"
+           data-tag="C"
+           data-author="" >
+            <span class="post-title" title="C语言不定参数">C语言不定参数</span>
+            <span class="post-date" title="2024-07-04 19:49:47">2024/07/04</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 C "
+           href="/2024/07/03/Programming%20Language/C/C%E8%AF%AD%E8%A8%80%E5%A3%B0%E6%98%8E%E8%A7%84%E5%88%99%E4%B8%8E%E7%A4%BA%E4%BE%8B/"
+           data-tag="C语言,指针,声明,类型"
+           data-author="" >
+            <span class="post-title" title="C语言声明规则与示例">C语言声明规则与示例</span>
+            <span class="post-date" title="2024-07-03 21:13:00">2024/07/03</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 数据库 "
+           href="/2024/06/12/apps/sql/PostgreSql/"
+           data-tag="数据库,课程实践"
+           data-author="" >
+            <span class="post-title" title="学习PostgreSQL">学习PostgreSQL</span>
+            <span class="post-date" title="2024-06-12 10:17:33">2024/06/12</span>
+        </a>
+        
+        
+        <a  class="All 数学 密码学 "
+           href="/2024/04/14/apps/crypt/RSA%E7%AE%97%E6%B3%95/"
+           data-tag="密码学,非对称加密"
+           data-author="" >
+            <span class="post-title" title="RSA算法">RSA算法</span>
+            <span class="post-date" title="2024-04-14 20:05:00">2024/04/14</span>
+        </a>
+        
+        
+        <a  class="All 数学 密码学 "
+           href="/2024/04/14/apps/crypt/%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/"
+           data-tag="密码学,非对称加密"
+           data-author="" >
+            <span class="post-title" title="非对称加密简介">非对称加密简介</span>
+            <span class="post-date" title="2024-04-14 13:05:00">2024/04/14</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 C "
+           href="/2023/12/05/Programming%20Language/C/%E7%96%91%E9%9A%BE%E9%97%AE%E9%A2%98/"
+           data-tag="c"
+           data-author="" >
+            <span class="post-title" title="C语言答疑">C语言答疑</span>
+            <span class="post-date" title="2023-12-05 19:49:47">2023/12/05</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/10/13/apps/Operating%20System/bare%20Hello%20world/"
+           data-tag="操作系统,硬件,riscv"
+           data-author="" >
+            <span class="post-title" title="裸机Hello World程序">裸机Hello World程序</span>
+            <span class="post-date" title="2023-10-13 14:06:50">2023/10/13</span>
+        </a>
+        
+        
+        <a  class="All 嵌入式 实践 "
+           href="/2023/06/09/STM32/%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8/"
+           data-tag="C,STM32"
+           data-author="" >
+            <span class="post-title" title="STM32启动方式">STM32启动方式</span>
+            <span class="post-date" title="2023-06-09 09:11:30">2023/06/09</span>
+        </a>
+        
+        
+        <a  class="All 感想随笔 "
+           href="/2023/04/12/essay/handwrite/"
+           data-tag="生活"
+           data-author="" >
+            <span class="post-title" title="学学写字">学学写字</span>
+            <span class="post-date" title="2023-04-12 23:13:47">2023/04/12</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/04/07/apps/Operating%20System/CS07%20Lecture28-32/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="磁盘管理——外设L28-32笔记">磁盘管理——外设L28-32笔记</span>
+            <span class="post-date" title="2023-04-07 08:56:00">2023/04/07</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/04/06/apps/Operating%20System/CS07%20Lecture26-27/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="让外设工作起来——外设L26-27笔记">让外设工作起来——外设L26-27笔记</span>
+            <span class="post-date" title="2023-04-06 14:45:00">2023/04/06</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/04/04/apps/Operating%20System/CS07%20Lecture20-25/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="内存管理——内存L20-L25笔记">内存管理——内存L20-L25笔记</span>
+            <span class="post-date" title="2023-04-04 09:43:00">2023/04/04</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/04/02/apps/Operating%20System/CS07%20Lecture14,15/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="进程调度——进程L14-15笔记">进程调度——进程L14-15笔记</span>
+            <span class="post-date" title="2023-04-02 22:39:00">2023/04/02</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/04/02/apps/Operating%20System/CS07%20Lecture16-19/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="进程同步——进程L16-L19笔记">进程同步——进程L16-L19笔记</span>
+            <span class="post-date" title="2023-04-02 22:39:00">2023/04/02</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/04/01/apps/Operating%20System/CS07%20Lecture10-13/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="进程与线程的切换——进程L10-L13笔记">进程与线程的切换——进程L10-L13笔记</span>
+            <span class="post-date" title="2023-04-01 11:00:00">2023/04/01</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/03/31/apps/Operating%20System/CS07%20Lecture8,9/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="进程与线程——进程L8-9笔记">进程与线程——进程L8-9笔记</span>
+            <span class="post-date" title="2023-03-31 22:00:00">2023/03/31</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/03/30/apps/Operating%20System/CS07%20Lecture4,5/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="创建一个进程——基础篇L4-5笔记">创建一个进程——基础篇L4-5笔记</span>
+            <span class="post-date" title="2023-03-30 22:00:00">2023/03/30</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/03/30/apps/Operating%20System/CS07%20Lecture6,7/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="操作系统发展史——基础篇L6-7笔记">操作系统发展史——基础篇L6-7笔记</span>
+            <span class="post-date" title="2023-03-30 22:00:00">2023/03/30</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2023/03/28/apps/Operating%20System/CS07%20Lecture2,3/"
+           data-tag="操作系统"
+           data-author="" >
+            <span class="post-title" title="操作系统启动——基础篇L1-3笔记">操作系统启动——基础篇L1-3笔记</span>
+            <span class="post-date" title="2023-03-28 23:19:04">2023/03/28</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 实践 "
+           href="/2023/02/26/machine%20learning/%E6%95%B0%E5%AD%97%E8%AF%86%E5%88%AB%E5%AE%9E%E8%B7%B5/"
+           data-tag="学习笔记,机器学习"
+           data-author="" >
+            <span class="post-title" title="数字识别实践">数字识别实践</span>
+            <span class="post-date" title="2023-02-26 08:00:00">2023/02/26</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 Python "
+           href="/2023/02/05/Programming%20Language/Python/Anaconda%20python/"
+           data-tag="python,Anaconda"
+           data-author="" >
+            <span class="post-title" title="Anaconda Python工具的使用">Anaconda Python工具的使用</span>
+            <span class="post-date" title="2023-02-05 19:49:47">2023/02/05</span>
+        </a>
+        
+        
+        <a  class="All 感想随笔 "
+           href="/2022/08/26/essay/Words/"
+           data-tag="英语"
+           data-author="" >
+            <span class="post-title" title="英语单词-咬文嚼字">英语单词-咬文嚼字</span>
+            <span class="post-date" title="2022-08-26 15:13:47">2022/08/26</span>
+        </a>
+        
+        
+        <a  class="All 大数据 Hadoop "
+           href="/2022/06/29/data%20process/hadoop%E9%9B%86%E7%BE%A44/"
+           data-tag="Hadoop,java,学习笔记,大数据"
+           data-author="" >
+            <span class="post-title" title="Hadoop 的应用进阶">Hadoop 的应用进阶</span>
+            <span class="post-date" title="2022-06-29 08:00:00">2022/06/29</span>
+        </a>
+        
+        
+        <a  class="All 大数据 Hadoop "
+           href="/2022/06/27/data%20process/hadoop%E9%9B%86%E7%BE%A43/"
+           data-tag="Hadoop,java,学习笔记,大数据"
+           data-author="" >
+            <span class="post-title" title="Hadoop 运行Wordcount程序及程序解读">Hadoop 运行Wordcount程序及程序解读</span>
+            <span class="post-date" title="2022-06-27 08:00:00">2022/06/27</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/06/21/Algorithm/solution/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%A5%BD%E9%A2%98%E8%A7%A3%E7%AD%94/"
+           data-tag="动态规划,题解"
+           data-author="" >
+            <span class="post-title" title="动态规划好题解答">动态规划好题解答</span>
+            <span class="post-date" title="2022-06-21 21:19:37">2022/06/21</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/06/21/Algorithm/solution/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%9A%84%E5%A5%BD%E9%A2%98/"
+           data-tag="动态规划,题目"
+           data-author="" >
+            <span class="post-title" title="动态规划好题">动态规划好题</span>
+            <span class="post-date" title="2022-06-21 21:19:37">2022/06/21</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/06/20/Algorithm/solution/The%20nearest%20pair%20problem/"
+           data-tag="算法,分治法"
+           data-author="" >
+            <span class="post-title" title="POJ-3714 Raid">POJ-3714 Raid</span>
+            <span class="post-date" title="2022-06-20 15:20:30">2022/06/20</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 Java "
+           href="/2022/06/18/Programming%20Language/Java%20and%20Android/Javaio/"
+           data-tag="高性能,IO,Java"
+           data-author="" >
+            <span class="post-title" title="Java高速输入输出">Java高速输入输出</span>
+            <span class="post-date" title="2022-06-18 09:15:35">2022/06/18</span>
+        </a>
+        
+        
+        <a  class="All 大数据 Hadoop "
+           href="/2022/06/15/data%20process/hadoop%E9%9B%86%E7%BE%A42/"
+           data-tag="Hadoop,java,学习笔记"
+           data-author="" >
+            <span class="post-title" title="Hadoop 进行文件节点的访问">Hadoop 进行文件节点的访问</span>
+            <span class="post-date" title="2022-06-15 08:00:00">2022/06/15</span>
+        </a>
+        
+        
+        <a  class="All 大数据 Hadoop "
+           href="/2022/06/13/data%20process/hadoop%E9%9B%86%E7%BE%A4/"
+           data-tag="Hadoop,java,学习笔记"
+           data-author="" >
+            <span class="post-title" title="Hadoop集群的配置">Hadoop集群的配置</span>
+            <span class="post-date" title="2022-06-13 08:00:00">2022/06/13</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 C "
+           href="/2022/05/26/Programming%20Language/C/C%E8%AF%AD%E8%A8%80%E7%9A%84%E7%AE%97%E7%AC%A6%E4%BC%98%E5%85%88%E7%BA%A7/"
+           data-tag="c,运算符"
+           data-author="" >
+            <span class="post-title" title="C,C++语言的算符优先级">C,C++语言的算符优先级</span>
+            <span class="post-date" title="2022-05-26 09:06:21">2022/05/26</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 功能 "
+           href="/2022/05/25/Useful%20functions/strings/"
+           data-tag="c,c++,python,字符串,正则表达式"
+           data-author="" >
+            <span class="post-title" title="字符串处理指南">字符串处理指南</span>
+            <span class="post-date" title="2022-05-25 08:52:21">2022/05/25</span>
+        </a>
+        
+        
+        <a  class="All 应用软件 软件使用 "
+           href="/2022/04/28/apps/others/%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E5%B7%A5%E5%85%B7curl/"
+           data-tag="Windows,Linux"
+           data-author="" >
+            <span class="post-title" title="命令行实现的浏览器——curl">命令行实现的浏览器——curl</span>
+            <span class="post-date" title="2022-04-28 16:25:15">2022/04/28</span>
+        </a>
+        
+        
+        <a  class="All 算法 理论 "
+           href="/2022/04/21/Algorithm/basic/greedy1/"
            data-tag="算法,贪心"
            data-author="" >
             <span class="post-title" title="贪心理论和常见的证明方法">贪心理论和常见的证明方法</span>
             <span class="post-date" title="2022-04-21 19:36:20">2022/04/21</span>
         </a>
         
-        <a  class="全部文章 算法 题解 "
-           href="/2022/04/12/Algorithm/Knignt%20move%20circuit/"
-           data-tag="回溯法,分治法,启发式算法,高性能"
+        
+        <a  class="All 算法 理论 "
+           href="/2022/04/21/Algorithm/basic/greedy2/"
+           data-tag="算法,贪心"
+           data-author="" >
+            <span class="post-title" title="贪心方法的产生">贪心方法的产生</span>
+            <span class="post-date" title="2022-04-21 19:36:20">2022/04/21</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2022/04/12/Algorithm/solution/Knignt%20move%20circuit/"
+           data-tag="分治法,回溯法,启发式算法,高性能"
            data-author="" >
             <span class="post-title" title="马的周游问题(knight move circuit)">马的周游问题(knight move circuit)</span>
             <span class="post-date" title="2022-04-12 09:56:00">2022/04/12</span>
         </a>
         
-        <a  class="全部文章 算法 理论 "
-           href="/2022/04/10/Algorithm/%E6%B1%82%E8%A7%A3%E5%A4%9A%E6%9C%BA%E8%B0%83%E5%BA%A6/"
+        
+        <a  class="All 算法 理论 "
+           href="/2022/04/10/Algorithm/solution/%E6%B1%82%E8%A7%A3%E5%A4%9A%E6%9C%BA%E8%B0%83%E5%BA%A6/"
            data-tag="算法,排序,贪心,回溯法"
            data-author="" >
             <span class="post-title" title="求解多机调度问题">求解多机调度问题</span>
             <span class="post-date" title="2022-04-10 22:15:08">2022/04/10</span>
         </a>
         
-        <a  class="全部文章 算法 题解 "
-           href="/2022/04/03/Algorithm/MQ%20optimize%20DP/"
+        
+        <a  class="All 算法 题解 "
+           href="/2022/04/03/Algorithm/solution/MQ%20optimize%20DP/"
            data-tag="背包问题,多重背包"
            data-author="" >
             <span class="post-title" title="单调队列优化动态规划">单调队列优化动态规划</span>
             <span class="post-date" title="2022-04-03 07:46:50">2022/04/03</span>
         </a>
         
-        <a  class="全部文章 前沿技术 机器学习 "
-           href="/2022/03/31/machine%20learning/+%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B-Hidden%20Markov/"
-           data-tag="算法,数学,机器学习,概率论,学习笔记,贝叶斯方法"
+        
+        <a  class="All 机器学习 "
+           href="/2022/03/31/machine%20learning/%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B-Hidden%20Markov/"
+           data-tag="数学,学习笔记,机器学习,概率论,算法,贝叶斯方法"
            data-author="" >
             <span class="post-title" title="隐马尔可夫模型">隐马尔可夫模型</span>
             <span class="post-date" title="2022-03-31 20:20:00">2022/03/31</span>
         </a>
         
-        <a  class="全部文章 算法 理论 "
-           href="/2022/03/31/Algorithm/Stochastic%20gradient%20descent/"
-           data-tag="算法,机器学习,高等数学,线性代数"
+        
+        <a  class="All 算法 理论 "
+           href="/2022/03/31/machine%20learning/Stochastic%20gradient%20descent/"
+           data-tag="机器学习,算法,高等数学,线性代数"
            data-author="" >
             <span class="post-title" title="随机梯度下降法">随机梯度下降法</span>
             <span class="post-date" title="2022-03-31 15:20:30">2022/03/31</span>
         </a>
         
-        <a  class="全部文章 算法 理论 "
-           href="/2022/03/29/Algorithm/Monotonic%20Stack%20and%20Queue/"
+        
+        <a  class="All 算法 理论 "
+           href="/2022/03/29/Algorithm/solution/Monotonic%20Stack%20and%20Queue/"
            data-tag="算法,stack"
            data-author="" >
             <span class="post-title" title="单调栈和单调队列">单调栈和单调队列</span>
             <span class="post-date" title="2022-03-29 20:59:27">2022/03/29</span>
         </a>
         
-        <a  class="全部文章 算法 题解 "
-           href="/2022/03/28/Algorithm/Luogu.org.P1616/"
+        
+        <a  class="All 算法 题解 "
+           href="/2022/03/28/Algorithm/solution/Luogu.org.P1616/"
            data-tag="完全背包,背包问题"
            data-author="" >
             <span class="post-title" title="完全背包">完全背包</span>
             <span class="post-date" title="2022-03-28 09:40:24">2022/03/28</span>
         </a>
         
-        <a  class="全部文章 算法 题解 "
-           href="/2022/03/27/Algorithm/Luogu.org.P1156/"
-           data-tag="2018,USACO,动态规划,01背包"
+        
+        <a  class="All 算法 题解 "
+           href="/2022/03/27/Algorithm/solution/Luogu.org.P1156/"
+           data-tag="USACO,2018,动态规划,01背包"
            data-author="" >
             <span class="post-title" title="USACO 垃圾陷阱">USACO 垃圾陷阱</span>
             <span class="post-date" title="2022-03-27 20:19:37">2022/03/27</span>
         </a>
         
-        <a  class="全部文章 数学 概率论 "
+        
+        <a  class="All 数学 概率论 "
            href="/2022/03/26/math/%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%A6%82%E7%8E%87/"
-           data-tag="数学,概率论,学习笔记,矩阵论"
+           data-tag="数学,学习笔记,概率论,矩阵论"
            data-author="" >
             <span class="post-title" title="贝叶斯概率">贝叶斯概率</span>
             <span class="post-date" title="2022-03-26 12:00:00">2022/03/26</span>
         </a>
         
-        <a  class="全部文章 算法 题解 "
-           href="/2022/03/22/Algorithm/Luogu.org.P5017/"
-           data-tag="NOIP-J,2018,动态规划,线性规划"
+        
+        <a  class="All 算法 题解 "
+           href="/2022/03/22/Algorithm/solution/Luogu.org.P5017/"
+           data-tag="2018,动态规划,NOIP-J,线性规划"
            data-author="" >
             <span class="post-title" title="NOIP2018-J 摆渡车">NOIP2018-J 摆渡车</span>
             <span class="post-date" title="2022-03-22 21:19:37">2022/03/22</span>
         </a>
         
-        <a  class="全部文章 前沿技术 机器学习 "
+        
+        <a  class="All 机器学习 "
            href="/2022/03/19/machine%20learning/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B4/"
-           data-tag="算法,数学,机器学习,学习笔记,分类问题"
+           data-tag="数学,学习笔记,机器学习,算法,分类问题"
            data-author="" >
             <span class="post-title" title="感知机">感知机</span>
             <span class="post-date" title="2022-03-19 21:00:00">2022/03/19</span>
         </a>
         
-        <a  class="全部文章 前沿技术 机器学习 "
+        
+        <a  class="All 机器学习 "
            href="/2022/03/11/machine%20learning/svm3/"
-           data-tag="算法,数学,机器学习,学习笔记,回归问题"
+           data-tag="数学,学习笔记,机器学习,算法,回归问题"
            data-author="" >
             <span class="post-title" title="支持向量机3-支持向量回归">支持向量机3-支持向量回归</span>
             <span class="post-date" title="2022-03-11 21:10:00">2022/03/11</span>
         </a>
         
-        <a  class="全部文章 前沿技术 机器学习 "
+        
+        <a  class="All 机器学习 "
            href="/2022/03/09/machine%20learning/km/"
-           data-tag="算法,数学,机器学习,学习笔记"
+           data-tag="数学,学习笔记,机器学习,算法"
            data-author="" >
             <span class="post-title" title="支持向量机的核方法">支持向量机的核方法</span>
             <span class="post-date" title="2022-03-09 21:15:00">2022/03/09</span>
         </a>
         
-        <a  class="全部文章 算法 理论 "
-           href="/2022/03/09/Algorithm/Sort/"
+        
+        <a  class="All 算法 理论 "
+           href="/2022/03/09/Algorithm/basic/Sort/"
            data-tag="算法,排序"
            data-author="" >
             <span class="post-title" title="常用的排序算法分析和实现">常用的排序算法分析和实现</span>
             <span class="post-date" title="2022-03-09 15:13:47">2022/03/09</span>
         </a>
         
-        <a  class="全部文章 数学 高等数学 "
+        
+        <a  class="All 数学 高等数学 "
            href="/2022/03/09/math/%E7%BA%A6%E6%9D%9F%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98/"
-           data-tag="算法,数学,学习笔记,高等数学,矩阵论,SVM"
+           data-tag="数学,学习笔记,算法,高等数学,矩阵论,SVM"
            data-author="" >
             <span class="post-title" title="约束优化问题">约束优化问题</span>
             <span class="post-date" title="2022-03-09 14:30:00">2022/03/09</span>
         </a>
         
-        <a  class="全部文章 前沿技术 机器学习 "
+        
+        <a  class="All 机器学习 "
            href="/2022/03/09/machine%20learning/svm2/"
-           data-tag="算法,数学,机器学习,学习笔记,分类问题"
+           data-tag="数学,学习笔记,机器学习,算法,分类问题"
            data-author="" >
             <span class="post-title" title="支持向量机2-软间隔">支持向量机2-软间隔</span>
             <span class="post-date" title="2022-03-09 08:00:00">2022/03/09</span>
         </a>
         
-        <a  class="全部文章 前沿技术 机器学习 "
+        
+        <a  class="All 机器学习 "
            href="/2022/03/08/machine%20learning/svm1/"
-           data-tag="算法,数学,机器学习,学习笔记,分类问题"
+           data-tag="数学,学习笔记,机器学习,算法,分类问题"
            data-author="" >
             <span class="post-title" title="支持向量机1-硬间隔">支持向量机1-硬间隔</span>
             <span class="post-date" title="2022-03-08 08:00:00">2022/03/08</span>
         </a>
         
-        <a  class="全部文章 前沿技术 机器学习 "
+        
+        <a  class="All 机器学习 "
            href="/2022/03/07/machine%20learning/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B3/"
-           data-tag="算法,数学,机器学习,学习笔记,分类问题"
+           data-tag="数学,学习笔记,机器学习,算法,分类问题"
            data-author="" >
             <span class="post-title" title="对数几率回归">对数几率回归</span>
             <span class="post-date" title="2022-03-07 08:00:00">2022/03/07</span>
         </a>
         
-        <a  class="全部文章 数学 线性代数 "
+        
+        <a  class="All 数学 线性代数 "
            href="/2022/03/05/math/%E7%9F%A9%E9%98%B5%E6%B1%82%E5%AF%BC/"
-           data-tag="算法,数学,学习笔记,高等数学,矩阵论"
+           data-tag="数学,学习笔记,算法,高等数学,矩阵论"
            data-author="" >
             <span class="post-title" title="矩阵，向量求导">矩阵，向量求导</span>
             <span class="post-date" title="2022-03-05 08:00:00">2022/03/05</span>
         </a>
         
-        <a  class="全部文章 前沿技术 机器学习 "
+        
+        <a  class="All 机器学习 "
            href="/2022/03/05/machine%20learning/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B2/"
-           data-tag="算法,数学,机器学习,学习笔记,分类问题"
+           data-tag="数学,学习笔记,机器学习,算法,分类问题"
            data-author="" >
             <span class="post-title" title="LDA(fisher)模型">LDA(fisher)模型</span>
             <span class="post-date" title="2022-03-05 08:00:00">2022/03/05</span>
         </a>
         
-        <a  class="全部文章 前沿技术 机器学习 "
+        
+        <a  class="All 机器学习 "
            href="/2022/03/03/machine%20learning/%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B/"
-           data-tag="算法,数学,机器学习,学习笔记,回归问题"
+           data-tag="数学,学习笔记,机器学习,算法,回归问题"
            data-author="" >
             <span class="post-title" title="线性回归模型">线性回归模型</span>
             <span class="post-date" title="2022-03-03 08:00:00">2022/03/03</span>
         </a>
         
-        <a  class="全部文章 前沿技术 机器学习 "
+        
+        <a  class="All 机器学习 "
            href="/2022/03/02/machine%20learning/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8b/"
-           data-tag="算法,数学,机器学习,概率论,学习笔记,贝叶斯方法"
+           data-tag="数学,学习笔记,机器学习,概率论,算法,贝叶斯方法"
            data-author="" >
             <span class="post-title" title="贝叶斯分类器（下）">贝叶斯分类器（下）</span>
             <span class="post-date" title="2022-03-02 08:00:00">2022/03/02</span>
         </a>
         
-        <a  class="全部文章 数学 应用 "
+        
+        <a  class="All 数学 应用 "
            href="/2022/03/01/math/%E5%82%A8%E5%A4%87%E7%9F%A5%E8%AF%86/"
-           data-tag="数学,机器学习,学习笔记"
+           data-tag="数学,学习笔记,机器学习"
            data-author="" >
             <span class="post-title" title="机器学习的数学知识">机器学习的数学知识</span>
             <span class="post-date" title="2022-03-01 08:00:00">2022/03/01</span>
         </a>
         
-        <a  class="全部文章 算法 题解 "
-           href="/2022/02/28/Algorithm/%E6%95%B4%E6%95%B0%E5%88%92%E5%88%86%E9%97%AE%E9%A2%98/"
+        
+        <a  class="All 算法 题解 "
+           href="/2022/02/28/Algorithm/solution/%E6%95%B4%E6%95%B0%E5%88%92%E5%88%86%E9%97%AE%E9%A2%98/"
            data-tag="算法,递归"
            data-author="" >
             <span class="post-title" title="整数划分问题">整数划分问题</span>
             <span class="post-date" title="2022-02-28 15:13:47">2022/02/28</span>
         </a>
         
-        <a  class="全部文章 算法 题解 "
-           href="/2022/02/28/Algorithm/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C/"
+        
+        <a  class="All 算法 题解 "
+           href="/2022/02/28/Algorithm/solution/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C/"
            data-tag="算法"
            data-author="" >
             <span class="post-title" title="最大子段和问题">最大子段和问题</span>
             <span class="post-date" title="2022-02-28 15:13:47">2022/02/28</span>
         </a>
         
-        <a  class="全部文章 前沿技术 机器学习 "
-           href="/2022/02/27/machine%20learning/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8a/"
-           data-tag="算法,数学,机器学习,概率论,学习笔记,贝叶斯方法"
-           data-author="" >
-            <span class="post-title" title="贝叶斯分类器（上）">贝叶斯分类器（上）</span>
-            <span class="post-date" title="2022-02-27 08:00:00">2022/02/27</span>
-        </a>
         
-        <a  class="全部文章 前沿技术 机器学习 "
+        <a  class="All 机器学习 "
            href="/2022/02/27/machine%20learning/%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B-Bayes%20Network/"
-           data-tag="算法,数学,机器学习,概率论,学习笔记,贝叶斯方法"
+           data-tag="数学,学习笔记,机器学习,概率论,算法,贝叶斯方法"
            data-author="" >
             <span class="post-title" title="贝叶斯网络">贝叶斯网络</span>
             <span class="post-date" title="2022-02-27 08:00:00">2022/02/27</span>
         </a>
         
-        <a  class="全部文章 前沿技术 机器学习 "
+        
+        <a  class="All 机器学习 "
+           href="/2022/02/27/machine%20learning/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8a/"
+           data-tag="数学,学习笔记,机器学习,概率论,算法,贝叶斯方法"
+           data-author="" >
+            <span class="post-title" title="贝叶斯分类器（上）">贝叶斯分类器（上）</span>
+            <span class="post-date" title="2022-02-27 08:00:00">2022/02/27</span>
+        </a>
+        
+        
+        <a  class="All 机器学习 "
            href="/2022/02/24/machine%20learning/%E5%86%B3%E7%AD%96%E6%A0%91/"
-           data-tag="机器学习,学习笔记,决策树,信息论,数据结构"
+           data-tag="学习笔记,机器学习,决策树,信息论,数据结构"
            data-author="" >
             <span class="post-title" title="决策树">决策树</span>
             <span class="post-date" title="2022-02-24 08:00:00">2022/02/24</span>
         </a>
         
-        <a  class="全部文章 前沿技术 机器学习 "
+        
+        <a  class="All 机器学习 "
            href="/2022/02/23/machine%20learning/%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"
-           data-tag="算法,数学,机器学习,学习笔记,神经网络,深度学习"
+           data-tag="数学,学习笔记,机器学习,算法,神经网络,深度学习"
            data-author="" >
             <span class="post-title" title="人工神经网络">人工神经网络</span>
             <span class="post-date" title="2022-02-23 08:00:00">2022/02/23</span>
         </a>
         
-        <a  class="全部文章 前沿技术 机器学习 "
+        
+        <a  class="All 机器学习 "
            href="/2022/02/20/machine%20learning/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0b/"
-           data-tag="算法,数学,机器学习,概率论,统计学,学习笔记"
+           data-tag="数学,学习笔记,机器学习,概率论,算法,统计学"
            data-author="" >
             <span class="post-title" title="集成学习的原理（下篇）">集成学习的原理（下篇）</span>
             <span class="post-date" title="2022-02-20 08:00:00">2022/02/20</span>
         </a>
         
-        <a  class="全部文章 数学 高等数学 "
+        
+        <a  class="All 数学 高等数学 "
            href="/2022/02/19/math/%E6%B3%B0%E5%8B%92%E5%B1%95%E5%BC%80/"
-           data-tag="算法,数学,学习笔记,高等数学"
+           data-tag="数学,学习笔记,算法,高等数学"
            data-author="" >
             <span class="post-title" title="泰勒展开">泰勒展开</span>
             <span class="post-date" title="2022-02-19 08:00:00">2022/02/19</span>
         </a>
         
-        <a  class="全部文章 前沿技术 机器学习 "
+        
+        <a  class="All 机器学习 "
            href="/2022/02/14/machine%20learning/%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0a/"
-           data-tag="算法,数学,机器学习,概率论,统计学,学习笔记"
+           data-tag="数学,学习笔记,机器学习,概率论,算法,统计学"
            data-author="" >
             <span class="post-title" title="集成学习的原理（上篇）">集成学习的原理（上篇）</span>
             <span class="post-date" title="2022-02-14 08:00:00">2022/02/14</span>
         </a>
         
-        <a  class="全部文章 数学 概率论 "
+        
+        <a  class="All 数学 概率论 "
            href="/2022/02/13/math/%E6%9E%81%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/"
-           data-tag="算法,数学,机器学习,概率论,学习笔记"
+           data-tag="数学,学习笔记,机器学习,概率论,算法"
            data-author="" >
             <span class="post-title" title="极大似然估计">极大似然估计</span>
             <span class="post-date" title="2022-02-13 08:00:00">2022/02/13</span>
         </a>
         
-        <a  class="全部文章 编程语言 基础 "
-           href="/2022/02/10/Programming%20Language/json%E8%AF%AD%E6%B3%95/"
-           data-tag="前端,javascript,json,格式化文本"
+        
+        <a  class="All 编程语言 功能 "
+           href="/2022/02/10/Useful%20functions/json%E8%AF%AD%E6%B3%95/"
+           data-tag="javascript,json,前端,格式化文本"
            data-author="" >
             <span class="post-title" title="json语法">json语法</span>
             <span class="post-date" title="2022-02-10 21:25:47">2022/02/10</span>
         </a>
         
-        <a  class="全部文章 软件 Git "
-           href="/2022/01/22/Git/github%E6%93%8D%E4%BD%9C/"
+        
+        <a  class="All 应用软件 Git "
+           href="/2022/01/22/apps/Git/git%E6%93%8D%E4%BD%9C/"
            data-tag="Git,GitHub"
            data-author="" >
-            <span class="post-title" title="GitHub代码仓库的使用">GitHub代码仓库的使用</span>
+            <span class="post-title" title="Git代码仓库的使用">Git代码仓库的使用</span>
             <span class="post-date" title="2022-01-22 17:10:35">2022/01/22</span>
         </a>
         
-        <a  class="全部文章 前端 编译器前端 "
-           href="/2021/12/29/Compiler/PL%E8%AF%AD%E8%A8%80%E7%9A%84%E6%89%A9%E5%B1%95/"
+        
+        <a  class="All 编程语言 编译器 "
+           href="/2021/12/29/apps/Compiler/PL%E8%AF%AD%E8%A8%80%E7%9A%84%E6%89%A9%E5%B1%95/"
            data-tag="Educoder,编译原理,模拟实训"
            data-author="" >
             <span class="post-title" title="Educoder 编译原理PL语言编译器的扩展（转载）">Educoder 编译原理PL语言编译器的扩展（转载）</span>
             <span class="post-date" title="2021-12-29 23:53:00">2021/12/29</span>
         </a>
         
-        <a  class="全部文章 算法 理论 "
-           href="/2021/12/05/Algorithm/Space%20coordinate%20transformation/"
-           data-tag="算法,数学,GIS"
+        
+        <a  class="All 算法 理论 "
+           href="/2021/12/05/Algorithm/solution/Space%20coordinate%20transformation/"
+           data-tag="数学,算法,GIS"
            data-author="" >
             <span class="post-title" title="空间坐标转换方法">空间坐标转换方法</span>
             <span class="post-date" title="2021-12-05 20:38:47">2021/12/05</span>
         </a>
         
-        <a  class="全部文章 编程语言 基础 "
-           href="/2021/12/05/Programming%20Language/C,C++%E8%AF%AD%E6%B3%95/"
-           data-tag="c,c++"
+        
+        <a  class="All 编程语言 C++ "
+           href="/2021/12/05/Programming%20Language/Cpp/C++%E8%AF%AD%E6%B3%95/"
+           data-tag="c++"
            data-author="" >
-            <span class="post-title" title="C,C++语法">C,C++语法</span>
+            <span class="post-title" title="C++语法">C++语法</span>
             <span class="post-date" title="2021-12-05 19:49:47">2021/12/05</span>
         </a>
         
-        <a  class="全部文章 前端 网页前端 "
-           href="/2021/11/15/Front/noLimit/"
+        
+        <a  class="All Web js "
+           href="/2021/11/15/Programming%20Language/JavaScript%20and%20Web/noLimit/"
            data-tag="前端,网页内容"
            data-author="" >
             <span class="post-title" title="常用网页用户限制的解除">常用网页用户限制的解除</span>
             <span class="post-date" title="2021-11-15 16:41:17">2021/11/15</span>
         </a>
         
-        <a  class="全部文章 前端 Markdown "
+        
+        <a  class="All Web js Vue "
+           href="/2021/11/15/Programming%20Language/JavaScript%20and%20Web/%E5%87%86%E5%A4%87%E4%BD%BF%E7%94%A8Vue/"
+           data-tag="前端,开发"
+           data-author="" >
+            <span class="post-title" title="准备使用Vue">准备使用Vue</span>
+            <span class="post-date" title="2021-11-15 16:41:17">2021/11/15</span>
+        </a>
+        
+        
+        <a  class="All 前端 Markdown "
            href="/2021/11/15/Markdown/MarkdownIndent/"
            data-tag="markdown"
            data-author="" >
@@ -1288,119 +1926,125 @@
             <span class="post-date" title="2021-11-15 15:13:47">2021/11/15</span>
         </a>
         
-        <a  class="全部文章 操作系统 实训 "
-           href="/2021/11/11/Operation%20System/Educoder%20%E8%AF%84%E6%B5%8B%E7%A8%8B%E5%BA%8F/"
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/11/11/apps/Operating%20System/Educoder%20%E8%AF%84%E6%B5%8B%E7%A8%8B%E5%BA%8F/"
            data-tag="Educoder,模拟实训,操作系统,逆向分析"
            data-author="" >
             <span class="post-title" title="Educoder 实训平台评测程序代码的获取">Educoder 实训平台评测程序代码的获取</span>
             <span class="post-date" title="2021-11-11 23:41:15">2021/11/11</span>
         </a>
         
-        <a  class="全部文章 操作系统 实训 "
-           href="/2021/11/08/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD7.x/"
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/11/08/apps/Operating%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD7.x/"
            data-tag="Educoder,模拟实训,操作系统"
            data-author="" >
             <span class="post-title" title="Educoder 操作系统实训7.x实验">Educoder 操作系统实训7.x实验</span>
             <span class="post-date" title="2021-11-08 20:49:56">2021/11/08</span>
         </a>
         
-        <a  class="全部文章 软件 数据库 "
-           href="/2021/11/07/SQL/PostgreSql/"
-           data-tag="数据库,课程实践"
-           data-author="" >
-            <span class="post-title" title="学习PostgreSQL">学习PostgreSQL</span>
-            <span class="post-date" title="2021-11-07 10:17:33">2021/11/07</span>
-        </a>
         
-        <a  class="全部文章 操作系统 实训 "
-           href="/2021/11/03/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD6.x/"
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/11/03/apps/Operating%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD6.x/"
            data-tag="Educoder,模拟实训,操作系统"
            data-author="" >
             <span class="post-title" title="Educoder 操作系统实训6.x实验">Educoder 操作系统实训6.x实验</span>
             <span class="post-date" title="2021-11-03 20:49:56">2021/11/03</span>
         </a>
         
-        <a  class="全部文章 软件 Git "
-           href="/2021/11/02/Git/GitHub%20resource/"
+        
+        <a  class="All 应用软件 Git "
+           href="/2021/11/02/apps/Git/GitHub%20resource/"
            data-tag="Git,GitHub"
            data-author="" >
             <span class="post-title" title="解决GitHub资源访问问题">解决GitHub资源访问问题</span>
             <span class="post-date" title="2021-11-02 17:10:35">2021/11/02</span>
         </a>
         
-        <a  class="全部文章 软件 Android "
-           href="/2021/10/28/Android/Android%20UI%E8%AE%BE%E8%AE%A1/"
-           data-tag="软件开发,Android"
-           data-author="" >
-            <span class="post-title" title="Android项目的阅读 - UI（总第二篇）">Android项目的阅读 - UI（总第二篇）</span>
-            <span class="post-date" title="2021-10-28 23:23:19">2021/10/28</span>
-        </a>
         
-        <a  class="全部文章 编程语言 硬件设计 "
-           href="/2021/10/25/Programming%20Language/Verilog%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E7%94%A8%E6%93%8D%E4%BD%9C/"
+        <a  class="All 编程语言 硬件设计 "
+           href="/2021/10/25/Programming%20Language/Verilog/Verilog%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E7%94%A8%E6%93%8D%E4%BD%9C/"
            data-tag="硬件描述语言,Verilog"
            data-author="" >
             <span class="post-title" title="Verilog的一些实用操作">Verilog的一些实用操作</span>
             <span class="post-date" title="2021-10-25 19:48:45">2021/10/25</span>
         </a>
         
-        <a  class="全部文章 操作系统 实训 "
-           href="/2021/10/20/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD5.x/"
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/10/20/apps/Operating%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD5.x/"
            data-tag="Educoder,模拟实训,操作系统"
            data-author="" >
             <span class="post-title" title="Educoder 操作系统实训5.x实验">Educoder 操作系统实训5.x实验</span>
             <span class="post-date" title="2021-10-20 23:35:23">2021/10/20</span>
         </a>
         
-        <a  class="全部文章 操作系统 平时应用 "
-           href="/2021/10/12/Operation%20System/Windows%20%E5%92%8C%20Linux%E7%9A%84%E4%BD%BF%E7%94%A8/"
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/10/12/apps/Operating%20System/Windows%20%E5%92%8C%20Linux%E7%9A%84%E4%BD%BF%E7%94%A8/"
            data-tag="操作系统,Windows,Linux"
            data-author="" >
-            <span class="post-title" title="Windows和Linux的日常琐事">Windows和Linux的日常琐事</span>
+            <span class="post-title" title="Windows和Debian Linux的使用技巧">Windows和Debian Linux的使用技巧</span>
             <span class="post-date" title="2021-10-12 16:25:15">2021/10/12</span>
         </a>
         
-        <a  class="全部文章 操作系统 实训 "
-           href="/2021/10/07/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD4.x/"
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/10/07/apps/Operating%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD4.x/"
            data-tag="Educoder,模拟实训,操作系统"
            data-author="" >
             <span class="post-title" title="Educoder 操作系统实训4.x实验">Educoder 操作系统实训4.x实验</span>
             <span class="post-date" title="2021-10-07 11:49:00">2021/10/07</span>
         </a>
         
-        <a  class="全部文章 前端 编译器前端 "
-           href="/2021/10/06/Compiler/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AE%9E%E8%AE%AD1/"
+        
+        <a  class="All 编程语言 编译器 "
+           href="/2021/10/06/apps/Compiler/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E5%AE%9E%E8%AE%AD1/"
            data-tag="Educoder,编译原理,模拟实训"
            data-author="" >
             <span class="post-title" title="Educoder 编译原理实训1">Educoder 编译原理实训1</span>
             <span class="post-date" title="2021-10-06 23:53:00">2021/10/06</span>
         </a>
         
-        <a  class="全部文章 编程语言 进阶 "
-           href="/2021/10/03/Programming%20Language/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"
-           data-tag="汇编,中间层,计算机系统"
+        
+        <a  class="All 体系结构 原理 "
+           href="/2021/10/03/Computer%20system/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%AE%97/"
+           data-tag="运算,数学,计算机系统"
            data-author="" >
-            <span class="post-title" title="计算机基本概念">计算机基本概念</span>
+            <span class="post-title" title="计算机运算原理">计算机运算原理</span>
             <span class="post-date" title="2021-10-03 09:15:35">2021/10/03</span>
         </a>
         
-        <a  class="全部文章 编程语言 "
-           href="/2021/09/29/Programming%20Language/%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/"
-           data-tag="c,编程语言,技巧,python"
+        
+        <a  class="All 体系结构 原理 "
+           href="/2021/10/03/Computer%20system/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"
+           data-tag="计算机系统"
+           data-author="" >
+            <span class="post-title" title="计算机系统大纲">计算机系统大纲</span>
+            <span class="post-date" title="2021-10-03 09:15:35">2021/10/03</span>
+        </a>
+        
+        
+        <a  class="All 编程语言 功能 "
+           href="/2021/09/29/Useful%20functions/%E7%A8%8B%E5%BA%8F%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95/"
+           data-tag="c,编程语言,技巧,Python"
            data-author="" >
             <span class="post-title" title="程序实现方法">程序实现方法</span>
             <span class="post-date" title="2021-09-29 17:29:00">2021/09/29</span>
         </a>
         
-        <a  class="全部文章 软件 Git "
-           href="/2021/09/29/Git/Gitignore/"
+        
+        <a  class="All 应用软件 Git "
+           href="/2021/09/29/apps/Git/Gitignore/"
            data-tag="Git,GitHub"
            data-author="" >
             <span class="post-title" title=".gitignore的使用">.gitignore的使用</span>
             <span class="post-date" title="2021-09-29 16:42:35">2021/09/29</span>
         </a>
         
-        <a  class="全部文章 前端 Markdown "
+        
+        <a  class="All 前端 Markdown "
            href="/2021/09/22/Markdown/MarkdownSpecialSign/"
            data-tag="markdown"
            data-author="" >
@@ -1408,103 +2052,80 @@
             <span class="post-date" title="2021-09-22 22:30:32">2021/09/22</span>
         </a>
         
-        <a  class="全部文章 操作系统 实训 "
-           href="/2021/09/17/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD3.x/"
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/09/17/apps/Operating%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD3.x/"
            data-tag="Educoder,模拟实训,操作系统"
            data-author="" >
             <span class="post-title" title="Educoder 操作系统实训3.x实验">Educoder 操作系统实训3.x实验</span>
             <span class="post-date" title="2021-09-17 10:42:35">2021/09/17</span>
         </a>
         
-        <a  class="全部文章 前端 网页前端 "
-           href="/2021/09/14/Git/%E5%9C%A8%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2LearnGitBranch/"
+        
+        <a  class="All 应用软件 Git "
+           href="/2021/09/14/apps/Git/%E5%9C%A8%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2LearnGitBranch/"
            data-tag="前端,Git,LearnGitBranch"
            data-author="" >
             <span class="post-title" title="在本地部署LearnGitBranch">在本地部署LearnGitBranch</span>
             <span class="post-date" title="2021-09-14 17:30:26">2021/09/14</span>
         </a>
         
-        <a  class="全部文章 编程语言 进阶 "
-           href="/2021/09/12/Programming%20Language/%E6%8C%87%E9%92%88%E7%9A%84%E6%B4%BB%E7%94%A8/"
+        
+        <a  class="All 编程语言 C "
+           href="/2021/09/12/Programming%20Language/C/%E6%8C%87%E9%92%88%E7%9A%84%E6%B4%BB%E7%94%A8/"
            data-tag="技巧,C语言,指针,高级"
            data-author="" >
             <span class="post-title" title="指针的活用">指针的活用</span>
             <span class="post-date" title="2021-09-12 13:49:00">2021/09/12</span>
         </a>
         
-        <a  class="全部文章 软件 Android "
-           href="/2021/09/11/Android/Andorid%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"
+        
+        <a  class="All 应用软件 Android "
+           href="/2021/09/11/apps/Android/Andorid%20%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"
            data-tag="软件开发,Android"
            data-author="" >
             <span class="post-title" title="Android项目的阅读 - 让项目运行起来（总第一篇）">Android项目的阅读 - 让项目运行起来（总第一篇）</span>
             <span class="post-date" title="2021-09-11 11:23:19">2021/09/11</span>
         </a>
         
-        <a  class="全部文章 操作系统 实训 "
-           href="/2021/09/09/Operation%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD2.x/"
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/09/09/apps/Operating%20System/Educoder%20%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%AE%AD2.x/"
            data-tag="Educoder,模拟实训,操作系统"
            data-author="" >
             <span class="post-title" title="Educoder 操作系统实训2.x实验">Educoder 操作系统实训2.x实验</span>
             <span class="post-date" title="2021-09-09 09:25:45">2021/09/09</span>
         </a>
         
-        <a  class="全部文章 操作系统 实训 "
-           href="/2021/09/07/Operation%20System/Debian%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AELinux0.11/"
+        
+        <a  class="All 应用软件 操作系统 "
+           href="/2021/09/07/apps/Operating%20System/Debian%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AELinux0.11/"
            data-tag="实验环境配置,Debian,Linux0.11"
            data-author="" >
             <span class="post-title" title="Debian系统配置Linux0.11">Debian系统配置Linux0.11</span>
             <span class="post-date" title="2021-09-07 11:45:05">2021/09/07</span>
         </a>
         
-        <a  class="全部文章 前端 网页前端 "
-           href="/2021/09/02/Front/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cnode.js%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"
+        
+        <a  class="All Web js "
+           href="/2021/09/02/Programming%20Language/JavaScript%20and%20Web/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cnode.js%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"
            data-tag="前端,博客搭建"
            data-author="" >
             <span class="post-title" title="使用Node.js和hexo搭建GitHub博客（以windows为例）">使用Node.js和hexo搭建GitHub博客（以windows为例）</span>
             <span class="post-date" title="2021-09-02 21:20:23">2021/09/02</span>
         </a>
         
-        <a  class="全部文章 编程语言 基础 "
-           href="/2021/08/17/Programming%20Language/%E5%90%84%E7%A7%8D%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E9%9A%8F%E6%9C%BA%E6%95%B0%E5%92%8C%E8%AE%A1%E6%97%B6/"
+        
+        <a  class="All 编程语言 功能 "
+           href="/2021/08/17/Useful%20functions/%E5%90%84%E7%A7%8D%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0%E9%9A%8F%E6%9C%BA%E6%95%B0%E5%92%8C%E8%AE%A1%E6%97%B6/"
            data-tag="编程语言,随机数,计时,实用"
            data-author="" >
             <span class="post-title" title="各种语言实现随机数和计时">各种语言实现随机数和计时</span>
             <span class="post-date" title="2021-08-17 09:15:35">2021/08/17</span>
         </a>
         
-        <a  class="全部文章 感想随笔 "
-           href="/2021/07/26/%E7%99%BE%E5%B9%B4/"
-           data-tag="政治历史"
-           data-author="" >
-            <span class="post-title" title="百年未有之大变局">百年未有之大变局</span>
-            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
-        </a>
         
-        <a  class="全部文章 算法 题解 "
-           href="/2021/07/26/Algorithm/A%20-%20Alice%20and%20Bob/"
-           data-tag="2021牛客暑期多校第一场"
-           data-author="" >
-            <span class="post-title" title="A - Alice and Bob">A - Alice and Bob</span>
-            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
-        </a>
-        
-        <a  class="全部文章 算法 理论 "
-           href="/2021/07/26/Algorithm/Toposort/"
-           data-tag="算法,toposort"
-           data-author="" >
-            <span class="post-title" title="拓扑排序">拓扑排序</span>
-            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
-        </a>
-        
-        <a  class="全部文章 前端 Markdown "
-           href="/2021/07/26/Markdown/MarkdownImage/"
-           data-tag="markdown"
-           data-author="" >
-            <span class="post-title" title="在markdown中插入图片">在markdown中插入图片</span>
-            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
-        </a>
-        
-        <a  class="全部文章 前端 Markdown "
+        <a  class="All 前端 Markdown "
            href="/2021/07/26/Markdown/MarkdownFont/"
            data-tag="markdown"
            data-author="" >
@@ -1512,32 +2133,72 @@
             <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
         </a>
         
-        <a  class="全部文章 算法 题解 "
-           href="/2021/07/26/Algorithm/G%20-%20League%20of%20Legends/"
+        
+        <a  class="All 前端 Markdown "
+           href="/2021/07/26/Markdown/MarkdownImage/"
+           data-tag="markdown"
+           data-author="" >
+            <span class="post-title" title="在markdown中插入图片">在markdown中插入图片</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        
+        <a  class="All 感想随笔 "
+           href="/2021/07/26/essay/%E7%99%BE%E5%B9%B4/"
+           data-tag="政治历史"
+           data-author="" >
+            <span class="post-title" title="百年未有之大变局">百年未有之大变局</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        
+        <a  class="All 算法 理论 "
+           href="/2021/07/26/Algorithm/basic/Toposort/"
+           data-tag="算法,toposort"
+           data-author="" >
+            <span class="post-title" title="拓扑排序">拓扑排序</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2021/07/26/Algorithm/solution/A%20-%20Alice%20and%20Bob/"
+           data-tag="2021牛客暑期多校第一场"
+           data-author="" >
+            <span class="post-title" title="A - Alice and Bob">A - Alice and Bob</span>
+            <span class="post-date" title="2021-07-26 15:13:47">2021/07/26</span>
+        </a>
+        
+        
+        <a  class="All 算法 题解 "
+           href="/2021/07/26/Algorithm/solution/G%20-%20League%20of%20Legends/"
            data-tag="2021牛客暑期多校第二场"
            data-author="" >
             <span class="post-title" title="G - League of Legends">G - League of Legends</span>
             <span class="post-date" title="2021-07-26 09:47:05">2021/07/26</span>
         </a>
         
-        <a  class="全部文章 算法 题解 "
-           href="/2021/07/26/Algorithm/K%20-%20Stack/"
+        
+        <a  class="All 算法 题解 "
+           href="/2021/07/26/Algorithm/solution/K%20-%20Stack/"
            data-tag="2021牛客暑期多校第二场"
            data-author="" >
             <span class="post-title" title="K - Stack">K - Stack</span>
             <span class="post-date" title="2021-07-26 09:37:47">2021/07/26</span>
         </a>
         
-        <a  class="全部文章 算法 题解 "
-           href="/2021/07/20/Algorithm/F%20-%20Girlfriend/"
+        
+        <a  class="All 算法 题解 "
+           href="/2021/07/20/Algorithm/solution/F%20-%20Girlfriend/"
            data-tag="2021牛客暑期多校第二场"
            data-author="" >
             <span class="post-title" title="F - Girlfriend">F - Girlfriend</span>
             <span class="post-date" title="2021-07-20 09:53:17">2021/07/20</span>
         </a>
         
-        <a  class="全部文章 感想随笔 "
-           href="/2021/07/17/Essay-2021-7-17/"
+        
+        <a  class="All 感想随笔 "
+           href="/2021/07/17/essay/Essay-2021-7-17/"
            data-tag="生活"
            data-author="" >
             <span class="post-title" title="2021-07-17 关于自己读书的有趣现象">2021-07-17 关于自己读书的有趣现象</span>
@@ -1554,7 +2215,7 @@
 
     </div>
     <div class="hide-list">
-        <div class="semicircle" data-title="切换全屏 快捷键 s">
+        <div class="semicircle" data-title="切换全屏">
             <div class="brackets first"><</div>
             <div class="brackets">&gt;</div>
         </div>
@@ -1574,9 +2235,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="前沿技术">前沿技术</a> > 
-            
-            <a  data-rel="前沿技术&lt;---&gt;机器学习">机器学习</a>
+            <a  data-rel="机器学习">机器学习</a>
             
         </span>
         
@@ -1584,15 +2243,15 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color3">算法</a>
-            
             <a class="color3">数学</a>
+            
+            <a class="color5">学习笔记</a>
             
             <a class="color5">机器学习</a>
             
             <a class="color4">概率论</a>
             
-            <a class="color5">学习笔记</a>
+            <a class="color3">算法</a>
             
             <a class="color1">贝叶斯方法</a>
             
@@ -1601,14 +2260,14 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-03-27 14:34:02'>2022-02-27 08:00</time>
+            Created At : <time class="date" title='Updated At: 2024-06-01 20:17:52'>2022-02-27 08:00</time>
         
     </div>
     <div class="article-meta">
         
         
         <span id="busuanzi_container_page_pv">
-            阅读 :<span id="busuanzi_value_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
                 <span class="count-comment">
                     <span class="spinner">
                       <div class="cube1"></div>
@@ -1630,8 +2289,8 @@
     .left-col .switch-area {
         display: none;
     }
-    .toc-level-4 i,
-    .toc-level-4 ol {
+    .toc-level-6 i,
+    .toc-level-6 ol {
         display: none !important;
     }
 </style>
@@ -1643,13 +2302,20 @@
 <h3 id="引入高维随机变量">引入高维随机变量</h3>
 <p>对于现实问题，如果需要尽量准确的概率预测，那么预测概率所需要的随机变量必然是高维随机变量。对于高维随即变量，我们最关心的是它的<strong>条件独立性</strong>。</p>
 <h3 id="高维随机变量的困境">高维随机变量的困境</h3>
-<p>维度高，计算复杂，<span class="math inline">\(P(\pmb{X})\)</span>的计算量太大。过少的数据无法覆盖大量的可能组合。</p>
+<p>维度高，计算复杂，<span
+class="math inline">\(P(\pmb{X})\)</span>的计算量太大。过少的数据无法覆盖大量的可能组合。</p>
 <h3 id="高维随机变量计算的简化">高维随机变量计算的简化</h3>
 <p>高维随机变量计算的简化方法，从简单到复杂，可以分为如下的几个阶段：</p>
 <ol type="1">
 <li><p>最简单粗暴的方法，是假设变量之间全部独立同分布，这样就得到朴素贝叶斯分类器。</p></li>
-<li><p>放松一点假设，令<span class="math inline">\(x_i\)</span>与<span class="math inline">\(x_{i-1}\)</span>相互依赖，使用齐次马尔可夫分类器，即假设<span class="math inline">\(x_j \perp x_{i+1}\ |\ x_i, j&lt;i\)</span>，这样就得到半朴素贝叶斯分类器。</p></li>
-<li><p>再一般化一些，扩展齐次马尔可夫分类器，得到形如<span class="math inline">\(x_A \perp x_B \ |\ x_C\)</span>的<strong>条件独立性</strong>假设，其中<span class="math inline">\(x_A,x_B,x_C\)</span>是不相交的集合。概率图就是描述条件独立性的一种有效方法。</p></li>
+<li><p>放松一点假设，令<span class="math inline">\(x_i\)</span>与<span
+class="math inline">\(x_{i-1}\)</span>相互依赖，使用齐次马尔可夫分类器，即假设<span
+class="math inline">\(x_j \perp x_{i+1}\ |\ x_i,
+j&lt;i\)</span>，这样就得到半朴素贝叶斯分类器。</p></li>
+<li><p>再一般化一些，扩展齐次马尔可夫分类器，得到形如<span
+class="math inline">\(x_A \perp x_B \ |\
+x_C\)</span>的<strong>条件独立性</strong>假设，其中<span
+class="math inline">\(x_A,x_B,x_C\)</span>是不相交的集合。概率图就是描述条件独立性的一种有效方法。</p></li>
 </ol>
 <h3 id="概率图模型简述">概率图模型简述</h3>
 <p><strong>表示</strong>随机变量之间的关系，进行精确或近似的<strong>推断</strong>，<strong>学习</strong>方式有参数学习和结构学习。</p>
@@ -1661,63 +2327,148 @@
 <p>下面将介绍一个重要的概率图模型——<strong>贝叶斯网络</strong>。</p>
 <h2 id="贝叶斯网络">贝叶斯网络</h2>
 <h3 id="贝叶斯网络简介">贝叶斯网络简介</h3>
-<p>贝叶斯网(Bayesian network)亦称“信念网”(belief network) ，它借助<strong>有向无环图</strong>(Directed Acyclic Graph, 简称DAG)来刻画属性之间的依赖关系，并使用<strong>条件概率表</strong>(Conditional Probability Table, 简称CPT) 来描述属性的联合概率分布。</p>
+<p>贝叶斯网(Bayesian network)亦称“信念网”(belief network)
+，它借助<strong>有向无环图</strong>(Directed Acyclic Graph,
+简称DAG)来刻画属性之间的依赖关系，并使用<strong>条件概率表</strong>(Conditional
+Probability Table, 简称CPT) 来描述属性的联合概率分布。</p>
 <h3 id="构建贝叶斯网络">构建贝叶斯网络</h3>
-<p>构建贝叶斯网络的方法，是根据父节点和子节点的关系，进行拓扑排序。例如现有条件概率<span class="math inline">\(P(x_i\ |\ x_j)\)</span>，则从<span class="math inline">\(x_j\)</span>向<span class="math inline">\(x_i\)</span>连接一条有向边。</p>
-<p>在贝叶斯网络中，父节点与子节点的关系是由条件概率表达的，表达方式定义如下，其中<span class="math inline">\(\text{pa}(i)\)</span>为<span class="math inline">\(x_i\)</span>的<strong>父亲集合</strong>，我们称其为因子分解： <span class="math display">\[
-P(x_1,x_2,\dots,x_d)=\stackrel{d}{\underset{i=1}\prod}P(x_i\ |\ x_{\text{pa}(i)})
+<p>构建贝叶斯网络的方法，是根据父节点和子节点的关系，进行拓扑排序。例如现有条件概率<span
+class="math inline">\(P(x_i\ |\ x_j)\)</span>，则从<span
+class="math inline">\(x_j\)</span>向<span
+class="math inline">\(x_i\)</span>连接一条有向边。</p>
+<p>在贝叶斯网络中，父节点与子节点的关系是由条件概率表达的，表达方式定义如下，其中<span
+class="math inline">\(\text{pa}(i)\)</span>为<span
+class="math inline">\(x_i\)</span>的<strong>父亲集合</strong>，我们称其为因子分解：
+<span class="math display">\[
+P(x_1,x_2,\dots,x_d)=\stackrel{d}{\underset{i=1}\prod}P(x_i\ |\
+x_{\text{pa}(i)})
 \]</span></p>
 <p>贝叶斯网结构有效地表达了属性间的条件独立性。下面推导三种典型的依赖关系。</p>
 <h3 id="典型依赖关系">典型依赖关系</h3>
 <ol type="1">
 <li><p>倒V字型结构中，变量的依赖关系</p>
-<p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/ml/BN1.png" alt="倒V字型结构" /></p>
-<p>由<a href="">条件概率的链式计算法则</a>： <span class="math display">\[
+<p><img src="/assets/ml/BN1.png" alt="倒V字型结构" /></p>
+<p>由<a href="">条件概率的链式计算法则</a>：</p>
+<p><span class="math display">\[
 P(x_1,x_2,x_3)=P(x_1)P(x_2\ |\ x_1)P(x_3\ |\ x_1,x_2)
-\]</span> 由因子分解： <span class="math display">\[
+\]</span></p>
+<p>由因子分解：</p>
+<p><span class="math display">\[
 P(x_1,x_2,x_3)=P(x_1)P(x_2\ |\ x_1)P(x_3\ |\ x_1)
-\]</span> 得到<span class="math inline">\(P(x_3\ |\ x_1)=P(x_3\ |\ x_1,x_2)\)</span>。这个结论，可以推出<span class="math inline">\(x_2\ |\ x_1\)</span>和<span class="math inline">\(x_3\ |\ x_1\)</span>是独立的变量<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。</p>
-<p><strong>结论</strong>：<span class="math inline">\(x_2 \perp x_3\ |\ x_1\)</span>。即已知一位父亲有多个儿子，才能确定这些儿子之间的关系。</p></li>
+\]</span></p>
+<p>得到<span class="math inline">\(P(x_3\ |\ x_1)=P(x_3\ |\
+x_1,x_2)\)</span>。这个结论，可以推出<span class="math inline">\(x_2\ |\
+x_1\)</span>和<span class="math inline">\(x_3\ |\
+x_1\)</span>是独立的变量<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>。</p>
+<p><strong>结论</strong>：<span class="math inline">\(x_2 \perp x_3\ |\
+x_1\)</span>。即已知一位父亲有多个儿子，才能确定这些儿子之间的关系。</p></li>
 <li><p>连续结构中，变量的依赖关系</p>
-<p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/ml/BN2.png" alt="连续型结构" /></p>
-<p>由条件概率的链式计算法则： <span class="math display">\[
+<p><img src="/assets/ml/BN2.png" alt="连续型结构" /></p>
+<p>由条件概率的链式计算法则：</p>
+<p><span class="math display">\[
 P(x_1,x_2,x_3)=P(x_3)P(x_2\ |\ x_3)P(x_1\ |\ x_2,x_3)
-\]</span> 由因子分解： <span class="math display">\[
+\]</span></p>
+<p>由因子分解：</p>
+<p><span class="math display">\[
 P(x_1,x_2,x_3)=P(x_3)P(x_2\ |\ x_3)P(x_1\ |\ x_2)
-\]</span> 与前面的情况类似，可以得到<span class="math inline">\(P(x_1\ |\ x_2,x_3)=P(x_1\ |\ x_2)\)</span>的结论：</p>
-<p><strong>结论</strong>：<span class="math inline">\(x_1 \perp x_3\ |\ x_2\)</span>。<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>即知道父亲确定爷爷和孙子的关系。</p></li>
+\]</span></p>
+<p>与前面的情况类似，可以得到<span class="math inline">\(P(x_1\ |\
+x_2,x_3)=P(x_1\ |\ x_2)\)</span>的结论：</p>
+<p><strong>结论</strong>：<span class="math inline">\(x_1 \perp x_3\ |\
+x_2\)</span>。<a href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a>即知道父亲确定爷爷和孙子的关系。</p></li>
 <li><p>V字型结构</p>
-<p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/ml/BN3.png" alt="V字型结构" /></p>
-<p>由条件概率的链式计算法则： <span class="math display">\[
+<p><img src="/assets/ml/BN3.png" alt="V字型结构" /></p>
+<p>由条件概率的链式计算法则：</p>
+<p><span class="math display">\[
 P(x_1,x_2,x_3)=P(x_1)P(x_2\ |\ x_1)P(x_3\ |\ x_1,x_2)
-\]</span> 由因子分解： <span class="math display">\[
+\]</span></p>
+<p>由因子分解：</p>
+<p><span class="math display">\[
 P(x_1,x_2,x_3)=P(x_1)P(x_2)P(x_3\ |\ x_1,x_2)
-\]</span> 如果未观测<span class="math inline">\(x_3\)</span>，可以得到下面的关系： <span class="math display">\[
+\]</span></p>
+<p>如果未观测<span
+class="math inline">\(x_3\)</span>，可以得到下面的关系：</p>
+<p><span class="math display">\[
 P(x_2\ |\ x_1)=P(x_2)
-\]</span> 这说明<span class="math inline">\(x_1,x_2\)</span>是相互独立的<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>。</p>
-<p><strong>结论</strong>：如果<span class="math inline">\(x_3\)</span>的值未观测，则<span class="math inline">\(x_1\perp x_2\)</span>，如果<span class="math inline">\(x_3\)</span>的值已观测，则<span class="math inline">\(x_1,x_2\)</span>有关。即给定孩子才能确定父母之间的关系。另外，孩子的所有孩子也都会确定父母之间的关系。</p></li>
+\]</span></p>
+<p>这说明<span class="math inline">\(x_1,x_2\)</span>是相互独立的<a
+href="#fn3" class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a>。</p>
+<p><strong>结论</strong>：如果<span
+class="math inline">\(x_3\)</span>的值未观测，则<span
+class="math inline">\(x_1\perp x_2\)</span>，如果<span
+class="math inline">\(x_3\)</span>的值已观测，则<span
+class="math inline">\(x_1,x_2\)</span>有关。即给定孩子才能确定父母之间的关系。另外，孩子的所有孩子也都会确定父母之间的关系。</p></li>
 </ol>
 <h3 id="有向分离d-separation">有向分离（D-separation）</h3>
 <p>D划分方法的目的是判断集合之间条件独立性。</p>
 <h3 id="d划分的规则">D划分的规则</h3>
-<p>我们现在有<span class="math inline">\(x_A,x_B,x_C\)</span>三个互不相交的属性集合：</p>
+<p>我们现在有<span
+class="math inline">\(x_A,x_B,x_C\)</span>三个互不相交的属性集合：</p>
 <ol type="1">
-<li>如果属性<span class="math inline">\(b\)</span>满足与<span class="math inline">\(a\in x_A,c\in x_C\)</span>的倒V字型依赖关系，则<span class="math inline">\(b\)</span>必须处在<span class="math inline">\(x_B\)</span>中。这样才能保证观测到<span class="math inline">\(b\)</span>时<span class="math inline">\(a,c\)</span>关于<span class="math inline">\(b\)</span>的独立性。</li>
-<li>如果属性<span class="math inline">\(b\)</span>满足与<span class="math inline">\(a\in x_A,c\in x_C\)</span>的连续型依赖关系，则<span class="math inline">\(b\)</span>必须处在<span class="math inline">\(x_B\)</span>中。这样才能保证观测到<span class="math inline">\(b\)</span>时<span class="math inline">\(a,c\)</span>关于<span class="math inline">\(b\)</span>的独立性。</li>
-<li>如果属性<span class="math inline">\(b\)</span>满足与<span class="math inline">\(a\in x_A,c\in x_C\)</span>的V字型依赖关系，则<span class="math inline">\(b\)</span>不能处在<span class="math inline">\(x_B\)</span>中。因为<span class="math inline">\(a,c\)</span>在观测<span class="math inline">\(b\)</span>之前是相互独立的。只有观测到<span class="math inline">\(b\)</span>时，它们才会产生关联。</li>
+<li>如果属性<span class="math inline">\(b\)</span>满足与<span
+class="math inline">\(a\in x_A,c\in
+x_C\)</span>的倒V字型依赖关系，则<span
+class="math inline">\(b\)</span>必须处在<span
+class="math inline">\(x_B\)</span>中。这样才能保证观测到<span
+class="math inline">\(b\)</span>时<span
+class="math inline">\(a,c\)</span>关于<span
+class="math inline">\(b\)</span>的独立性。</li>
+<li>如果属性<span class="math inline">\(b\)</span>满足与<span
+class="math inline">\(a\in x_A,c\in
+x_C\)</span>的连续型依赖关系，则<span
+class="math inline">\(b\)</span>必须处在<span
+class="math inline">\(x_B\)</span>中。这样才能保证观测到<span
+class="math inline">\(b\)</span>时<span
+class="math inline">\(a,c\)</span>关于<span
+class="math inline">\(b\)</span>的独立性。</li>
+<li>如果属性<span class="math inline">\(b\)</span>满足与<span
+class="math inline">\(a\in x_A,c\in x_C\)</span>的V字型依赖关系，则<span
+class="math inline">\(b\)</span>不能处在<span
+class="math inline">\(x_B\)</span>中。因为<span
+class="math inline">\(a,c\)</span>在观测<span
+class="math inline">\(b\)</span>之前是相互独立的。只有观测到<span
+class="math inline">\(b\)</span>时，它们才会产生关联。</li>
 </ol>
 <p>上面的规则可以用下图来表示，我们通常将上面的规则称为<strong>全局马尔可夫性</strong>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/ml/BN5.png" alt="全局马尔可夫性" /></p>
-<p>令<span class="math inline">\(x_{-i}\)</span>表示在除去<span class="math inline">\(x_i\)</span>之后的全集上的随机变量，估计<span class="math inline">\(x_i\)</span>的全局概率为： <span class="math display">\[
-P(x_i\ |\ x_{-i})=\frac{P(x_i,x_{-i})}{P(x_{-i})}=\frac{P(\pmb{X})}{\int_{x_i}P(\pmb{X})dx_i}=\frac{\stackrel{d}{\underset{j=1}\prod}P(x_j\ |\ x_{\text{pa}(j)})}{\int_{x_i}\stackrel{d}{\underset{j=1}\prod}P(x_j\ |\ x_{\text{pa}(j)})dx_i}
-\]</span> 与<span class="math inline">\(x_i\)</span>无关的集合对应的概率在上式中可以提取公因式后约去。与<span class="math inline">\(x_i\)</span>有关的变量就是<span class="math inline">\(x_i\)</span>的父母，子女，和子女的另一个父母。这种关系被称为马尔可夫毯，用图表示如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/redleaves699/image-host/images/ml/BN4.png" alt="马尔可夫毯" /></p>
-<section class="footnotes" role="doc-endnotes">
+<p><img src="/assets/ml/BN5.png" alt="全局马尔可夫性" /></p>
+<p>令<span class="math inline">\(x_{-i}\)</span>表示在除去<span
+class="math inline">\(x_i\)</span>之后的全集上的随机变量，估计<span
+class="math inline">\(x_i\)</span>的全局概率为： <span
+class="math display">\[
+P(x_i\ |\
+x_{-i})=\frac{P(x_i,x_{-i})}{P(x_{-i})}=\frac{P(\pmb{X})}{\int_{x_i}P(\pmb{X})dx_i}=\frac{\stackrel{d}{\underset{j=1}\prod}P(x_j\
+|\ x_{\text{pa}(j)})}{\int_{x_i}\stackrel{d}{\underset{j=1}\prod}P(x_j\
+|\ x_{\text{pa}(j)})dx_i}
+\]</span> 与<span
+class="math inline">\(x_i\)</span>无关的集合对应的概率在上式中可以提取公因式后约去。与<span
+class="math inline">\(x_i\)</span>有关的变量就是<span
+class="math inline">\(x_i\)</span>的父母，子女，和子女的另一个父母。这种关系被称为马尔可夫毯，用图表示如下：</p>
+<p><img src="/assets/ml/BN4.png" alt="马尔可夫毯" /></p>
+<section class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>推导过程：<span class="math inline">\(P(x_3\ |\ x_1)P(x_2\ |\ x_1)=P(x_3\ |\ x_1,x_2)P(x_2\ |\ x_1) \Rightarrow P(x_3\ |\ x_1)P(x_2\ |\ x_1)=P(x_3,x_2\ |\ x_1)\)</span>​<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>推导过程：<span class="math inline">\(P(x_1\ |\ x_2,x_3)=P(x_1\ |\ x_2) \Rightarrow P(x_1\ |\ x_2,x_3)P(x_3\ |\ x_2)=P(x_1\ |\ x_2)P(x_3\ |\ x_2)\\ \Rightarrow P(x_1,x_3\ |\ x_2) = P(x_1\ |\ x_2)P(x_3\ |\ x_2)\)</span>​<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3" role="doc-endnote"><p>在<span class="math inline">\(x_1\)</span>​的条件下发生<span class="math inline">\(x_2\)</span>​的概率与无条件发生<span class="math inline">\(x_2\)</span>​的概率相等，说明<span class="math inline">\(x_1\)</span>​与<span class="math inline">\(x_2\)</span>​无关。​<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1" role="doc-endnote"><p>推导过程：<span
+class="math inline">\(P(x_3\ |\ x_1)P(x_2\ |\ x_1)=P(x_3\ |\
+x_1,x_2)P(x_2\ |\ x_1) \Rightarrow P(x_3\ |\ x_1)P(x_2\ |\
+x_1)=P(x_3,x_2\ |\ x_1)\)</span>​<a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>推导过程：<span
+class="math inline">\(P(x_1\ |\ x_2,x_3)=P(x_1\ |\ x_2) \Rightarrow
+P(x_1\ |\ x_2,x_3)P(x_3\ |\ x_2)=P(x_1\ |\ x_2)P(x_3\ |\ x_2)\\
+\Rightarrow P(x_1,x_3\ |\ x_2) = P(x_1\ |\ x_2)P(x_3\ |\
+x_2)\)</span>​<a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>在<span
+class="math inline">\(x_1\)</span>​的条件下发生<span
+class="math inline">\(x_2\)</span>​的概率与无条件发生<span
+class="math inline">\(x_2\)</span>​的概率相等，说明<span
+class="math inline">\(x_1\)</span>​与<span
+class="math inline">\(x_2\)</span>​无关。​<a href="#fnref3"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1786,7 +2537,7 @@ P(x_i\ |\ x_{-i})=\frac{P(x_i,x_{-i})}{P(x_{-i})}=\frac{P(\pmb{X})}{\int_{x_i}P(
 
     </div>
     <div class="full-toc">
-        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+        <button class="full" data-title="切换全屏"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
     </div>
@@ -1941,7 +2692,7 @@ P(x_i\ |\ x_{-i})=\frac{P(x_i,x_{-i})}{P(x_{-i})}=\frac{P(\pmb{X})}{\int_{x_i}P(
     
     
     
-    <a class="dynamic-menu " target="_self"   href="http://redleaves699.github.io/">Red_Leaves</a>
+    <a class="dynamic-menu " target="_self"   href="/">Red_Leaves</a>
     
     
 </div>
